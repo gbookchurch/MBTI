@@ -2940,11 +2940,30 @@ section > .section-title {
 </style>
 
 <style id="v81-temperament-theater">
-/* V81｜四大性格群：一次一位聖經人物的互動反應劇場 */
+/* V84｜人物劇場：提問式標題、心思卡與群體觀察 */
 #temperament-section.temperament-theater-section {
     --theater-accent: #B45F3C;
     --theater-soft: #F8EEE8;
     --theater-deep: #6F4636;
+}
+#temperament-section .temperament-theater-title {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    letter-spacing: -.035em;
+}
+#temperament-section .temperament-theater-subtitle {
+    max-width: 720px;
+    margin: 10px auto 0 !important;
+    text-align: center !important;
+    color: #6F675F;
+    font-size: .94rem;
+    font-weight: 750;
+    line-height: 1.7 !important;
+}
+#temperament-section .temperament-theater-divider {
+    margin: 18px auto 24px;
 }
 #temperament-section .temperament-theater-scenes-wrap {
     max-width: 900px;
@@ -3119,10 +3138,10 @@ section > .section-title {
     position: relative;
     touch-action: pan-y;
 }
-#temperament-section .temperament-theater-card.is-sj { --theater-accent:#B45F3C; --theater-soft:#F7E9E3; --theater-deep:#7A402E; }
-#temperament-section .temperament-theater-card.is-nf { --theater-accent:#7F9B8A; --theater-soft:#E8F0EB; --theater-deep:#456B58; }
-#temperament-section .temperament-theater-card.is-sp { --theater-accent:#C49E4B; --theater-soft:#F7F0D9; --theater-deep:#705B29; }
-#temperament-section .temperament-theater-card.is-nt { --theater-accent:#456B58; --theater-soft:#E5ECE8; --theater-deep:#2E5544; }
+#temperament-section .temperament-theater-card.is-sj { --theater-accent:#B45F3C; --theater-soft:#F7E9E3; --theater-deep:#7A402E; --theater-mind:#F7ECE7; }
+#temperament-section .temperament-theater-card.is-nf { --theater-accent:#7F9B8A; --theater-soft:#E8F0EB; --theater-deep:#456B58; --theater-mind:#EAF1ED; }
+#temperament-section .temperament-theater-card.is-sp { --theater-accent:#C49E4B; --theater-soft:#F7F0D9; --theater-deep:#705B29; --theater-mind:#F6F0DE; }
+#temperament-section .temperament-theater-card.is-nt { --theater-accent:#456B58; --theater-soft:#E5ECE8; --theater-deep:#2E5544; --theater-mind:#E6EEEA; }
 #temperament-section .temperament-theater-card.is-switching .temperament-theater-art,
 #temperament-section .temperament-theater-card.is-switching .temperament-theater-dialogue { opacity: .18; transform: translateY(6px); }
 #temperament-section .temperament-theater-art-wrap {
@@ -3181,30 +3200,48 @@ section > .section-title {
 #temperament-section .temperament-theater-type { background: #463B33; color: #fff; letter-spacing: .04em; }
 #temperament-section .temperament-theater-alias { background: rgba(255,255,255,.68); color: var(--theater-deep); border: 1px solid rgba(70,59,51,.1); }
 #temperament-section .temperament-theater-dialogue h3 {
-    margin: 2px 0 13px;
+    margin: 3px 0 13px;
     color: var(--theater-deep);
-    font-size: clamp(1.8rem, 4vw, 2.55rem);
-    line-height: 1.1;
+    font-size: 1.08rem;
+    font-weight: 950;
+    line-height: 1.25;
+    letter-spacing: .01em;
 }
 #temperament-section .temperament-theater-dialogue blockquote {
     margin: 0;
     padding: 0;
     border: 0;
     color: #352E29;
-    font-size: clamp(1.28rem, 2.8vw, 1.85rem);
-    font-weight: 900;
+    font-size: clamp(1.34rem, 2.55vw, 1.78rem);
+    font-weight: 930;
     line-height: 1.55;
-    letter-spacing: -.02em;
+    letter-spacing: -.025em;
+}
+#temperament-section .temperament-theater-mind {
+    margin-top: 20px;
+    padding: 14px 16px 15px;
+    border-radius: 16px;
+    background: var(--theater-mind, #F4EEE8);
+    border: 1px solid rgba(70,59,51,.08);
+}
+#temperament-section .temperament-theater-mind-label,
+#temperament-section .temperament-theater-observation-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--theater-deep, #456B58);
+    font-size: .75rem;
+    font-weight: 950;
+    letter-spacing: .07em;
 }
 #temperament-section .temperament-theater-explain {
-    margin: 15px 0 0 !important;
-    color: #645A52;
-    font-size: .94rem;
-    font-weight: 700;
+    margin: 0 !important;
+    color: #5D554E;
+    font-size: .9rem;
+    font-weight: 720;
     line-height: 1.7 !important;
 }
 #temperament-section .temperament-theater-actions {
-    margin-top: 24px;
+    margin-top: 18px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     gap: 12px;
@@ -3236,6 +3273,30 @@ section > .section-title {
     color: var(--theater-deep);
     padding: 5px 0;
     font-size: .78rem;
+}
+#temperament-section .temperament-theater-observation {
+    --theater-deep: #7A402E;
+    max-width: 900px;
+    margin: 14px auto 0;
+    padding: 15px 18px 16px;
+    border-radius: 17px;
+    text-align: center;
+    border: 1px solid rgba(70,59,51,.08);
+}
+#temperament-section .temperament-theater-observation.is-sj { --theater-deep:#7A402E; background:#F2E1DA; }
+#temperament-section .temperament-theater-observation.is-nf { --theater-deep:#456B58; background:#E3EDE7; }
+#temperament-section .temperament-theater-observation.is-sp { --theater-deep:#705B29; background:#F1E8CA; }
+#temperament-section .temperament-theater-observation.is-nt { --theater-deep:#2E5544; background:#DDE8E2; }
+#temperament-section .temperament-theater-observation-label {
+    margin-bottom: 4px;
+}
+#temperament-section .temperament-theater-observation p {
+    margin: 0 !important;
+    text-align: center !important;
+    color: #4E4741;
+    font-size: .9rem;
+    font-weight: 760;
+    line-height: 1.65 !important;
 }
 #temperament-section .temperament-theater-footnote {
     margin: 13px auto 0 !important;
@@ -3270,10 +3331,15 @@ section > .section-title {
     #temperament-section .temperament-theater-art { width: min(78%, 245px); max-height: 225px; }
     #temperament-section .temperament-theater-art-wrap::after { bottom: 9px; }
     #temperament-section .temperament-theater-dialogue { padding: 23px 20px 20px; }
-    #temperament-section .temperament-theater-dialogue h3 { font-size: 1.8rem; margin-bottom: 11px; }
-    #temperament-section .temperament-theater-dialogue blockquote { font-size: 1.28rem; line-height: 1.52; }
-    #temperament-section .temperament-theater-explain { font-size: .9rem; margin-top: 12px !important; }
-    #temperament-section .temperament-theater-actions { margin-top: 18px; }
+    #temperament-section .temperament-theater-dialogue h3 { font-size: 1.02rem; margin-bottom: 11px; }
+    #temperament-section .temperament-theater-dialogue blockquote { font-size: 1.3rem; line-height: 1.52; }
+    #temperament-section .temperament-theater-mind { margin-top: 17px; padding: 13px 14px 14px; border-radius: 14px; }
+    #temperament-section .temperament-theater-explain { font-size: .88rem; }
+    #temperament-section .temperament-theater-observation { margin-top: 11px; padding: 13px 14px 14px; border-radius: 15px; }
+    #temperament-section .temperament-theater-observation p { font-size: .88rem; }
+    #temperament-section .temperament-theater-subtitle { font-size: .9rem; margin-top: 8px !important; }
+    #temperament-section .temperament-theater-divider { margin-bottom: 18px; }
+    #temperament-section .temperament-theater-actions { margin-top: 15px; }
 }
 @media (max-width: 380px) {
     #temperament-section .temperament-theater-dialogue { padding-left: 17px; padding-right: 17px; }
@@ -4804,8 +4870,9 @@ section > .section-title {
 </div>
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt temperament-theater-section" id="temperament-section">
-<h2 class="section-title">一個場景，16 種反應</h2>
-<div class="divider"></div>
+<h2 class="section-title temperament-theater-title">如果是我，我第一句會說什麼？</h2>
+<p class="temperament-theater-subtitle">同一個教會現場，每個人先看到的都不一樣。</p>
+<div class="divider temperament-theater-divider"></div>
 <div class="temperament-theater-scenario" aria-label="目前情境">
 <span class="temperament-theater-scenario-label" id="temperament-theater-scenario-label">缺同工</span>
 <p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
@@ -4852,7 +4919,10 @@ section > .section-title {
 </div>
 <h3 id="temperament-theater-name">摩西</h3>
 <blockquote id="temperament-theater-quote">「先把誰負責什麼定清楚，不然下週一定會亂。」</blockquote>
+<div class="temperament-theater-mind">
+<span class="temperament-theater-mind-label">他先看見的是</span>
 <p class="temperament-theater-explain" id="temperament-theater-explain">習慣快速建立分工、責任與秩序，讓大家知道下一步要做什麼。</p>
+</div>
 <div class="temperament-theater-actions">
 <button class="temperament-theater-nav" id="temperament-theater-prev" type="button" aria-label="上一位人物">← 上一位</button>
 <div class="temperament-theater-dots" id="temperament-theater-dots" aria-hidden="true"></div>
@@ -4861,6 +4931,10 @@ section > .section-title {
 <button class="temperament-theater-lookup" id="temperament-theater-lookup" type="button">看這一型的小檔案 ↑</button>
 </div>
 </article>
+<aside class="temperament-theater-observation is-sj" id="temperament-theater-observation" aria-live="polite">
+<span class="temperament-theater-observation-label">這群人先看見的</span>
+<p id="temperament-theater-observation-text">哪裡失去秩序、誰需要補位，以及怎麼把事情重新穩住。</p>
+</aside>
 <p class="temperament-theater-footnote">四群人數是把本次 28,796 位平信徒的比例換算成 100 人並四捨五入，合計約 100 人。</p>
 </section><section class="final-cta" id="final-cta"><div class="final-cta-inner">
 <p class="final-kicker">看完這些結果，</p>
@@ -7593,7 +7667,7 @@ section > .divider {
 
     const REACTIONS = {
         SJ: {
-            label: 'SJ 穩定派', className: 'is-sj',
+            label: 'SJ 穩定派', className: 'is-sj', observation: '哪裡失去秩序、誰需要補位，以及怎麼把事情重新穩住。',
             people: [
                 { type:'ESTJ', name:'摩西', reactions:{
                     shortage:{ quote:'先把誰負責什麼定清楚，不然下週一定會亂。', explain:'習慣快速建立分工、責任與秩序，讓大家知道下一步要做什麼。' },
@@ -7626,7 +7700,7 @@ section > .divider {
             ]
         },
         NF: {
-            label: 'NF 理想派', className: 'is-nf',
+            label: 'NF 理想派', className: 'is-nf', observation: '誰正在被影響、關係有沒有被照顧，以及這件事真正代表什麼。',
             people: [
                 { type:'ENFP', name:'巴拿巴', reactions:{
                     shortage:{ quote:'我先去找幾個人聊聊，也許有人只是一直沒被邀請。', explain:'很會看見人的可能性，也容易透過鼓勵把人帶進團隊。' },
@@ -7659,7 +7733,7 @@ section > .divider {
             ]
         },
         SP: {
-            label: 'SP 行動派', className: 'is-sp',
+            label: 'SP 行動派', className: 'is-sp', observation: '眼前最需要做什麼，以及怎麼讓事情先動起來。',
             people: [
                 { type:'ESTP', name:'彼得', reactions:{
                     shortage:{ quote:'人不夠？我先去找人，其他等等再說。', explain:'反應快、敢直接處理，通常不會等所有條件都齊全才開始。' },
@@ -7692,7 +7766,7 @@ section > .divider {
             ]
         },
         NT: {
-            label: 'NT 思考派', className: 'is-nt',
+            label: 'NT 思考派', className: 'is-nt', observation: '問題為什麼發生，以及現在的方法是不是最合理的。',
             people: [
                 { type:'ENTJ', name:'底波拉', reactions:{
                     shortage:{ quote:'好，先決定目標，再把最適合的人放到正確的位置。', explain:'很快從混亂中抓出方向，偏好整合資源，把事情往目標推進。' },
@@ -7734,6 +7808,8 @@ section > .divider {
     const nameEl = document.getElementById('temperament-theater-name');
     const quoteEl = document.getElementById('temperament-theater-quote');
     const explainEl = document.getElementById('temperament-theater-explain');
+    const observation = document.getElementById('temperament-theater-observation');
+    const observationText = document.getElementById('temperament-theater-observation-text');
     const charList = document.getElementById('temperament-theater-characters');
     const dots = document.getElementById('temperament-theater-dots');
     const prev = document.getElementById('temperament-theater-prev');
@@ -7830,6 +7906,10 @@ section > .divider {
         nameEl.textContent = person.name;
         quoteEl.textContent = `「${reaction.quote}」`;
         explainEl.textContent = reaction.explain;
+        if (observation && observationText) {
+            observation.className = `temperament-theater-observation ${group.className}`;
+            observationText.textContent = group.observation;
+        }
         const src = resolveArt(person);
         if (src) {
             art.src = src;
