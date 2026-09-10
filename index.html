@@ -3389,6 +3389,149 @@ section > .section-title {
     }
 }
 </style>
+
+<style id="v86-theater-control-integration">
+/* ===== V86｜人物劇場控制整合：場景按鈕併入情境卡；四派＋人物＋群體觀察成一組 ===== */
+#temperament-section .temperament-theater-scenario {
+    padding: 20px 22px 17px;
+    margin-bottom: 18px;
+}
+#temperament-section .temperament-theater-scenario-label {
+    background: transparent;
+    color: #456B58;
+    padding: 0;
+    margin-bottom: 7px;
+    font-size: .73rem;
+    letter-spacing: .08em;
+}
+#temperament-section .temperament-theater-scenes-inline {
+    margin-top: 15px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(70,59,51,.09);
+}
+#temperament-section .temperament-theater-scenes-row {
+    gap: 9px;
+}
+#temperament-section .temperament-theater-scenes {
+    flex: 1 1 auto;
+}
+#temperament-section .temperament-theater-scene {
+    background: rgba(255,255,255,.62);
+    box-shadow: none;
+}
+#temperament-section .temperament-theater-scenario small {
+    margin-top: 11px;
+}
+#temperament-section .temperament-theater-scenes-wrap,
+#temperament-section .temperament-theater-scenes-label,
+#temperament-section .temperament-theater-hint {
+    display: none !important;
+}
+
+#temperament-section .temperament-theater-selector {
+    --selector-accent: #B45F3C;
+    --selector-soft: #F7E9E3;
+    max-width: 900px;
+    margin: 0 auto 14px;
+    padding: 12px;
+    border: 1px solid rgba(70,59,51,.10);
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255,254,251,.92), var(--selector-soft));
+    box-shadow: 0 10px 26px rgba(52,42,35,.055);
+}
+#temperament-section .temperament-theater-selector.is-sj { --selector-accent:#B45F3C; --selector-soft:#F8EEEA; }
+#temperament-section .temperament-theater-selector.is-nf { --selector-accent:#7F9B8A; --selector-soft:#EDF3EF; }
+#temperament-section .temperament-theater-selector.is-sp { --selector-accent:#B9984F; --selector-soft:#F7F2E2; }
+#temperament-section .temperament-theater-selector.is-nt { --selector-accent:#456B58; --selector-soft:#EAF0ED; }
+#temperament-section .temperament-theater-selector .temperament-theater-groups {
+    max-width: none;
+    margin: 0;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-group {
+    box-shadow: none;
+    background: rgba(255,255,255,.7);
+}
+#temperament-section .temperament-theater-selector .temperament-theater-group:hover {
+    box-shadow: none;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-characters {
+    max-width: none;
+    margin: 11px 0 0;
+    padding: 11px 4px 2px;
+    border-top: 1px solid rgba(70,59,51,.08);
+}
+#temperament-section .temperament-theater-selector .temperament-theater-character {
+    background: rgba(255,255,255,.72);
+    border-color: rgba(70,59,51,.12);
+    box-shadow: none;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-character.is-active {
+    background: var(--selector-accent);
+    border-color: var(--selector-accent);
+    color: #fff;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-observation {
+    max-width: none;
+    margin: 10px 0 0;
+    padding: 12px 14px 13px;
+    border-radius: 14px;
+    box-shadow: none;
+}
+#temperament-section .temperament-theater-card {
+    margin-top: 0;
+}
+
+@media (max-width: 720px) {
+    #temperament-section .temperament-theater-scenario {
+        margin-top: 16px;
+        margin-bottom: 14px;
+        padding: 16px 15px 14px;
+    }
+    #temperament-section .temperament-theater-scenes-inline {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+    #temperament-section .temperament-theater-scenes-row {
+        display: block;
+    }
+    #temperament-section .temperament-theater-scenes {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 2px 1px 7px;
+        scrollbar-width: none;
+        scroll-snap-type: x proximity;
+    }
+    #temperament-section .temperament-theater-scenes::-webkit-scrollbar { display: none; }
+    #temperament-section .temperament-theater-scene { flex: 0 0 auto; scroll-snap-align: start; }
+    #temperament-section .temperament-theater-random {
+        display: block;
+        width: fit-content;
+        margin: 5px 0 0 auto;
+        padding: 8px 11px;
+    }
+    #temperament-section .temperament-theater-selector {
+        margin-bottom: 12px;
+        padding: 9px;
+        border-radius: 18px;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-characters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 1px 5px;
+        scrollbar-width: none;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-characters::-webkit-scrollbar { display: none; }
+    #temperament-section .temperament-theater-selector .temperament-theater-character { flex: 0 0 auto; }
+    #temperament-section .temperament-theater-selector .temperament-theater-observation {
+        margin-top: 8px;
+        padding: 11px 12px 12px;
+    }
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -4902,12 +5045,9 @@ section > .section-title {
 <p class="temperament-theater-subtitle">同一個教會現場，每個人先看到的都不一樣。</p>
 <div class="divider temperament-theater-divider"></div>
 <div class="temperament-theater-scenario" aria-label="目前情境">
-<span class="temperament-theater-scenario-label" id="temperament-theater-scenario-label">缺同工</span>
+<span class="temperament-theater-scenario-label">現在發生的是</span>
 <p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
-<small>以下為性格化情境台詞，不是聖經人物原話。</small>
-</div>
-<div class="temperament-theater-scenes-wrap" aria-label="切換教會情境">
-<p class="temperament-theater-scenes-label">換個場景</p>
+<div class="temperament-theater-scenes-inline" aria-label="切換教會情境">
 <div class="temperament-theater-scenes-row">
 <div class="temperament-theater-scenes" id="temperament-theater-scenes" role="tablist" aria-label="選擇教會現場情境">
 <button class="temperament-theater-scene is-active" type="button" role="tab" aria-selected="true" data-theater-scene="shortage">缺同工</button>
@@ -4919,6 +5059,9 @@ section > .section-title {
 <button class="temperament-theater-random" id="temperament-theater-random" type="button">隨機場景 ↻</button>
 </div>
 </div>
+<small>以下為性格化情境台詞，不是聖經人物原話。</small>
+</div>
+<div class="temperament-theater-selector is-sj" id="temperament-theater-selector">
 <div class="temperament-theater-groups" role="tablist" aria-label="選擇四大性格群">
 <button class="temperament-theater-group is-active" type="button" role="tab" aria-selected="true" data-theater-group="SJ">
 <span><b>SJ</b> 穩定派</span><strong><b data-temperament-summary-people="SJ">—</b> 人</strong><small><b data-temperament-summary-percent="SJ">—</b>%</small>
@@ -4933,8 +5076,12 @@ section > .section-title {
 <span><b>NT</b> 思考派</span><strong><b data-temperament-summary-people="NT">—</b> 人</strong><small><b data-temperament-summary-percent="NT">—</b>%</small>
 </button>
 </div>
-<p class="temperament-theater-hint">點人物，或左右滑動卡片。</p>
-<div class="temperament-theater-characters" role="tablist" aria-label="選擇聖經人物" id="temperament-theater-characters"></div>
+<div class="temperament-theater-characters" role="tablist" aria-label="選擇聖經人物，可左右滑動人物卡切換" id="temperament-theater-characters"></div>
+<aside class="temperament-theater-observation is-sj" id="temperament-theater-observation" aria-live="polite">
+<span class="temperament-theater-observation-label">這群人先看見的</span>
+<p id="temperament-theater-observation-text">哪裡失去秩序、誰需要補位，以及怎麼把事情重新穩住。</p>
+</aside>
+</div>
 <article class="temperament-theater-card is-sj" id="temperament-theater-card" aria-live="polite">
 <div class="temperament-theater-art-wrap">
 <img alt="" class="temperament-theater-art" decoding="async" id="temperament-theater-art" loading="lazy"/>
@@ -4959,10 +5106,6 @@ section > .section-title {
 <button class="temperament-theater-lookup" id="temperament-theater-lookup" type="button">看這一型的小檔案 ↑</button>
 </div>
 </article>
-<aside class="temperament-theater-observation is-sj" id="temperament-theater-observation" aria-live="polite">
-<span class="temperament-theater-observation-label">這群人先看見的</span>
-<p id="temperament-theater-observation-text">哪裡失去秩序、誰需要補位，以及怎麼把事情重新穩住。</p>
-</aside>
 <p class="temperament-theater-footnote">四群人數是把本次 28,796 位平信徒的比例換算成 100 人並四捨五入，合計約 100 人。</p>
 </section><section class="final-cta" id="final-cta"><div class="final-cta-inner">
 <p class="final-kicker">看完這些結果，</p>
@@ -7841,6 +7984,7 @@ section > .divider {
     const explainEl = document.getElementById('temperament-theater-explain');
     const observation = document.getElementById('temperament-theater-observation');
     const observationText = document.getElementById('temperament-theater-observation-text');
+    const selector = document.getElementById('temperament-theater-selector');
     const charList = document.getElementById('temperament-theater-characters');
     const dots = document.getElementById('temperament-theater-dots');
     const prev = document.getElementById('temperament-theater-prev');
@@ -7848,7 +7992,6 @@ section > .divider {
     const lookup = document.getElementById('temperament-theater-lookup');
     const groupButtons = [...section.querySelectorAll('[data-theater-group]')];
     const sceneButtons = [...section.querySelectorAll('[data-theater-scene]')];
-    const sceneLabel = document.getElementById('temperament-theater-scenario-label');
     const sceneText = document.getElementById('temperament-theater-scenario-text');
     const randomScene = document.getElementById('temperament-theater-random');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -7915,7 +8058,6 @@ section > .divider {
 
     function updateSceneUI() {
         const scenario = SCENARIOS[currentScene];
-        sceneLabel.textContent = scenario.label;
         sceneText.textContent = scenario.text;
         sceneButtons.forEach(button => {
             const active = button.dataset.theaterScene === currentScene;
@@ -7930,6 +8072,7 @@ section > .divider {
         const person = group.people[currentIndex];
         const reaction = person.reactions[currentScene];
         card.className = `temperament-theater-card ${group.className}`;
+        if (selector) selector.className = `temperament-theater-selector ${group.className}`;
         groupBadge.textContent = group.label;
         typeEl.textContent = person.type;
         aliasEl.textContent = getAlias(person.type);
