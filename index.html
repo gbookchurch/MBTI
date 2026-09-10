@@ -2561,11 +2561,10 @@ section > .section-title {
 <div class="discovery-metric discovery-type-metric"><strong>ESFJ｜馬大</strong></div>
 <div class="discovery-dim-hint">12.1%｜本次平信徒樣本最多</div>
 </article>
-<article class="discovery-card teaser-card has-jump discovery-tone-olive">
+<article class="discovery-card discovery-tone-olive">
 <div class="discovery-title">牧者第一名換人了</div>
 <div class="discovery-metric discovery-type-metric"><strong>ESFP｜用香膏的馬利亞</strong></div>
 <div class="discovery-dim-hint">20.4%｜本次牧者樣本最多</div>
-<a class="discovery-jump" href="#pastor-ranking">看牧者排行榜 ↓</a>
 </article>
 <article class="discovery-card teaser-card has-jump discovery-tone-sage">
 <div class="discovery-title">ENFJ 突然少很多</div>
@@ -3109,17 +3108,18 @@ section > .section-title {
             grid-area: metric;
             justify-self: end;
             text-align: right;
-            color: #463B33;
-            font-size: clamp(1.3rem, 2vw, 1.72rem);
-            font-weight: 850;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
+            color: #3F3933;
+            font-size: clamp(1.62rem, 3vw, 2.18rem);
+            font-weight: 950;
+            line-height: 1.02;
+            letter-spacing: -0.045em;
             white-space: nowrap;
+            font-variant-numeric: tabular-nums;
         }
 
         .discovery-metric strong {
-            color: #9D5A3B;
-            font-weight: 950;
+            color: var(--discovery-accent, #9D5A3B);
+            font-weight: 1000;
         }
 
         .discovery-metric span {
@@ -3129,10 +3129,11 @@ section > .section-title {
         }
 
         .discovery-type-metric {
-            font-size: clamp(1.02rem, 1.75vw, 1.28rem);
-            line-height: 1.28;
+            font-size: clamp(1.18rem, 2vw, 1.52rem);
+            line-height: 1.18;
             white-space: normal;
-            max-width: 14ch;
+            max-width: 15ch;
+            letter-spacing: -0.03em;
         }
 
         .discovery-dim-hint {
@@ -3145,7 +3146,7 @@ section > .section-title {
         }
 
         .discovery-dim-hint strong {
-            color: #456B58;
+            color: var(--discovery-accent, #456B58);
             font-weight: 950;
         }
 
@@ -3157,14 +3158,15 @@ section > .section-title {
             align-items: center;
             gap: 6px;
             margin-top: 4px;
-            color: #456B58;
+            color: var(--discovery-accent, #456B58);
             font-size: 0.78rem;
             font-weight: 900;
             text-decoration: none;
-            border-bottom: 1px solid rgba(69,107,88,0.28);
+            border-bottom: 1px solid currentColor;
+            border-bottom-color: color-mix(in srgb, currentColor 32%, transparent);
         }
 
-        .discovery-jump:hover { color: #9D5A3B; }
+        .discovery-jump:hover { opacity: 0.76; }
 
         .discovery-heading-simple {
             text-align: center;
@@ -3176,23 +3178,27 @@ section > .section-title {
         }
 
         .discovery-tone-olive {
-            background: linear-gradient(135deg, #FFFDFC 0%, #F2F1E9 100%);
-            border-left-color: #94A178;
+            --discovery-accent: #5F7652;
+            background: linear-gradient(135deg, #FEFDF9 0%, #EAF1E6 100%);
+            border-left-color: #7D946E;
         }
 
         .discovery-tone-sage {
-            background: linear-gradient(135deg, #FFFDFC 0%, #EEF3EF 100%);
-            border-left-color: #7E9A8A;
+            --discovery-accent: #506F78;
+            background: linear-gradient(135deg, #FEFDF9 0%, #E8F0F1 100%);
+            border-left-color: #76909A;
         }
 
         .discovery-tone-apricot {
-            background: linear-gradient(135deg, #FFFDFC 0%, #F8EFE6 100%);
-            border-left-color: #C69369;
+            --discovery-accent: #A25E3E;
+            background: linear-gradient(135deg, #FEFDF9 0%, #F7E8DE 100%);
+            border-left-color: #C17A55;
         }
 
         .discovery-tone-rose {
-            background: linear-gradient(135deg, #FFFDFC 0%, #F5EEEA 100%);
-            border-left-color: #B98A80;
+            --discovery-accent: #806C2F;
+            background: linear-gradient(135deg, #FEFDF9 0%, #F4EED9 100%);
+            border-left-color: #B59A4F;
         }
 
         .method-strip {
