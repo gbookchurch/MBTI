@@ -2948,7 +2948,7 @@ section > .section-title {
 }
 #temperament-section .temperament-theater-scenes-wrap {
     max-width: 900px;
-    margin: 24px auto 14px;
+    margin: 14px auto 20px;
 }
 #temperament-section .temperament-theater-scenes-label {
     margin: 0 0 8px !important;
@@ -3002,7 +3002,7 @@ section > .section-title {
 }
 #temperament-section .temperament-theater-scenario {
     max-width: 860px;
-    margin: 24px auto 22px;
+    margin: 24px auto 12px;
     padding: 18px 20px;
     border: 1px solid rgba(70,59,51,.12);
     border-radius: 18px;
@@ -3107,7 +3107,7 @@ section > .section-title {
     --theater-soft: #F8EEE8;
     --theater-deep: #6F4636;
     max-width: 900px;
-    min-height: 420px;
+    min-height: 350px;
     margin: 0 auto;
     border: 1px solid rgba(70,59,51,.12);
     border-radius: 26px;
@@ -3115,7 +3115,7 @@ section > .section-title {
     background: linear-gradient(135deg, var(--theater-soft) 0%, #FFFEFB 78%);
     box-shadow: 0 18px 40px rgba(52,42,35,.09);
     display: grid;
-    grid-template-columns: minmax(260px, .78fr) minmax(0, 1.35fr);
+    grid-template-columns: minmax(220px, .62fr) minmax(0, 1.45fr);
     position: relative;
     touch-action: pan-y;
 }
@@ -3126,7 +3126,7 @@ section > .section-title {
 #temperament-section .temperament-theater-card.is-switching .temperament-theater-art,
 #temperament-section .temperament-theater-card.is-switching .temperament-theater-dialogue { opacity: .18; transform: translateY(6px); }
 #temperament-section .temperament-theater-art-wrap {
-    min-height: 420px;
+    min-height: 350px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -3148,8 +3148,8 @@ section > .section-title {
 #temperament-section .temperament-theater-art {
     position: relative;
     z-index: 1;
-    width: min(100%, 270px);
-    max-height: 390px;
+    width: min(88%, 220px);
+    max-height: 320px;
     object-fit: contain;
     object-position: center bottom;
     filter: drop-shadow(0 10px 12px rgba(64,47,39,.12));
@@ -3250,13 +3250,13 @@ section > .section-title {
     outline-offset: 3px;
 }
 @media (max-width: 720px) {
-    #temperament-section .temperament-theater-scenes-wrap { margin-top: 18px; margin-bottom: 12px; }
+    #temperament-section .temperament-theater-scenes-wrap { margin-top: 10px; margin-bottom: 18px; }
     #temperament-section .temperament-theater-scenes-row { display: block; }
     #temperament-section .temperament-theater-scenes { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding: 2px 2px 8px; scrollbar-width: none; scroll-snap-type: x proximity; }
     #temperament-section .temperament-theater-scenes::-webkit-scrollbar { display:none; }
     #temperament-section .temperament-theater-scene { flex: 0 0 auto; scroll-snap-align: start; }
     #temperament-section .temperament-theater-random { display: block; width: fit-content; margin: 3px auto 0; }
-    #temperament-section .temperament-theater-scenario { margin-top: 18px; padding: 15px 15px; border-radius: 15px; }
+    #temperament-section .temperament-theater-scenario { margin-top: 16px; margin-bottom: 8px; padding: 15px 15px; border-radius: 15px; }
     #temperament-section .temperament-theater-scenario p { font-size: .93rem; line-height: 1.55 !important; }
     #temperament-section .temperament-theater-groups { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
     #temperament-section .temperament-theater-group { padding: 10px 8px 9px; }
@@ -4804,9 +4804,13 @@ section > .section-title {
 </div>
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt temperament-theater-section" id="temperament-section">
-<div class="section-tag">四大性格群</div>
 <h2 class="section-title">一個場景，16 種反應</h2>
 <div class="divider"></div>
+<div class="temperament-theater-scenario" aria-label="目前情境">
+<span class="temperament-theater-scenario-label" id="temperament-theater-scenario-label">缺同工</span>
+<p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
+<small>以下為性格化情境台詞，不是聖經人物原話。</small>
+</div>
 <div class="temperament-theater-scenes-wrap" aria-label="切換教會情境">
 <p class="temperament-theater-scenes-label">換個場景</p>
 <div class="temperament-theater-scenes-row">
@@ -4819,11 +4823,6 @@ section > .section-title {
 </div>
 <button class="temperament-theater-random" id="temperament-theater-random" type="button">隨機場景 ↻</button>
 </div>
-</div>
-<div class="temperament-theater-scenario" aria-label="目前情境">
-<span class="temperament-theater-scenario-label" id="temperament-theater-scenario-label">缺同工</span>
-<p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
-<small>以下為性格化情境台詞，不是聖經人物原話。</small>
 </div>
 <div class="temperament-theater-groups" role="tablist" aria-label="選擇四大性格群">
 <button class="temperament-theater-group is-active" type="button" role="tab" aria-selected="true" data-theater-group="SJ">
