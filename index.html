@@ -2652,6 +2652,217 @@ section > .section-title {
     .question-bar-fill { transition: none !important; }
 }
 </style>
+
+<style id="v79-layout-polish">
+/* ===== V79｜資料說明置中與間距平衡 ===== */
+#method-strip.method-strip {
+    max-width: 900px;
+    margin: 30px auto 34px;
+    padding: 0 20px;
+}
+#method-strip .method-toggle {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 15px 48px;
+    border-radius: 14px 14px 0 0;
+    text-align: center;
+    line-height: 1.4;
+}
+#method-strip .method-toggle[aria-expanded="false"] {
+    border-radius: 14px;
+}
+#method-strip .method-toggle::after {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    float: none;
+    transform: translateY(-50%);
+}
+#method-strip .method-panel {
+    padding: 22px 22px 24px;
+    border-radius: 0 0 14px 14px;
+}
+#method-strip .method-grid {
+    gap: 12px;
+    margin: 0 auto 18px;
+}
+#method-strip .method-grid > div {
+    padding: 14px 10px;
+    border-radius: 10px;
+}
+#method-strip .method-panel p {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center !important;
+    line-height: 1.8;
+}
+
+/* ===== V79｜LINE 貼圖廣告作為深橘紅分隔帶 ===== */
+.sticker-ad-section {
+    padding: 28px 20px 30px;
+    background: linear-gradient(135deg, #73352C 0%, #9B4A35 52%, #6E3029 100%);
+}
+.sticker-ad-visual {
+    border-color: rgba(255,255,255,.22);
+    box-shadow: 0 14px 30px rgba(63, 25, 20, .24);
+}
+
+/* ===== V79｜ENFJ 懸案：兩張亞伯拉罕直接進比較卡 ===== */
+#enfj-mystery .mystery-compact {
+    display: block;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#enfj-mystery .enfj-comparison {
+    align-items: stretch;
+    max-width: 760px;
+    margin: 30px auto 24px;
+}
+#enfj-mystery .enfj-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.enfj-abraham-art {
+    position: relative;
+    width: 132px;
+    height: 154px;
+    margin: 0 auto 4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+}
+.enfj-abraham-art::before {
+    content: '';
+    position: absolute;
+    width: 108px;
+    height: 108px;
+    left: 50%;
+    top: 18px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(214,182,106,.18);
+}
+.enfj-abraham-art img {
+    position: relative;
+    z-index: 1;
+    width: 126px;
+    height: 150px;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 9px 9px rgba(70,59,51,.13));
+}
+.enfj-abraham-art.is-fading {
+    opacity: .28;
+    filter: grayscale(.18);
+}
+.enfj-box-pastor {
+    border-style: dashed;
+    background: linear-gradient(180deg, #FFFEFB 0%, #F7F3ED 100%);
+}
+.mystery-mobile-break { display: none; }
+.mystery-title-second { display: inline; }
+
+/* ===== V79｜100 人教會縮影補上中文群體名 ===== */
+#temperament-section .temperament-100-type em {
+    display: block;
+    margin-top: 2px;
+    font-size: .72rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0;
+    color: #6F685F;
+}
+
+@media (max-width: 768px) {
+    #method-strip.method-strip {
+        margin: 24px auto 28px;
+        padding: 0 14px;
+    }
+    #method-strip .method-toggle {
+        padding: 14px 44px;
+    }
+    #method-strip .method-panel {
+        padding: 16px 12px 18px;
+    }
+    #method-strip .method-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+        margin-bottom: 15px;
+    }
+    #method-strip .method-grid > div {
+        padding: 11px 5px;
+    }
+    #method-strip .method-grid strong {
+        font-size: 1.08rem;
+    }
+    #method-strip .method-grid span {
+        font-size: .68rem;
+        line-height: 1.35;
+    }
+    #method-strip .method-panel p {
+        font-size: .78rem;
+        padding: 0 4px;
+    }
+    .sticker-ad-section {
+        padding: 22px 14px 24px;
+    }
+    #enfj-mystery .mystery-title {
+        line-height: 1.28;
+    }
+    #enfj-mystery .mystery-mobile-break {
+        display: block;
+    }
+    #enfj-mystery .mystery-title-second {
+        display: block;
+    }
+    #enfj-mystery .enfj-comparison {
+        gap: 9px;
+        margin-top: 24px;
+    }
+    #enfj-mystery .enfj-box {
+        padding: 13px 8px 14px;
+    }
+    .enfj-abraham-art {
+        width: 96px;
+        height: 116px;
+        margin-bottom: 2px;
+    }
+    .enfj-abraham-art::before {
+        width: 78px;
+        height: 78px;
+        top: 15px;
+    }
+    .enfj-abraham-art img {
+        width: 94px;
+        height: 114px;
+    }
+    #enfj-mystery .enfj-percent {
+        margin-bottom: 5px;
+        font-size: 2.25rem;
+    }
+    #enfj-mystery .enfj-label {
+        font-size: .76rem;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 360px) {
+    #method-strip .method-grid strong { font-size: 1rem; }
+    #method-strip .method-grid span { font-size: .64rem; }
+    .enfj-abraham-art { width: 84px; height: 103px; }
+    .enfj-abraham-art::before { width: 68px; height: 68px; top: 14px; }
+    .enfj-abraham-art img { width: 82px; height: 101px; }
+    #enfj-mystery .enfj-percent { font-size: 2rem; }
+}
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -2737,7 +2948,7 @@ section > .section-title {
 <div class="question-stats-highlights" id="question-stats-highlights" aria-label="四個題目結果摘要"></div>
 <div class="question-explorer">
 <div class="question-explorer-topline">
-<span class="question-explorer-label" id="question-explorer-label">點一題看看大家怎麼選</span>
+<span class="question-explorer-label" id="question-explorer-label">看看會友的心思</span>
 <span class="question-sample-pill" id="question-sample-pill">信徒版｜每題 n = 1,000</span>
 </div>
 <div class="question-tablist" id="question-tablist" role="tablist" aria-label="12 題題目選擇"></div>
@@ -3362,7 +3573,7 @@ section > .section-title {
             cursor: pointer;
         }
 
-        .method-toggle::after {
+        #method-strip .method-toggle::after {
             content: '＋';
             float: right;
             color: #B45F3C;
@@ -3390,14 +3601,14 @@ section > .section-title {
             text-align: center;
         }
 
-        .method-grid strong {
+        #method-strip .method-grid strong {
             display: block;
             color: #B45F3C;
             font-size: 1.25rem;
             font-variant-numeric: tabular-nums;
         }
 
-        .method-grid span {
+        #method-strip .method-grid span {
             font-size: 0.78rem;
             font-weight: 700;
         }
@@ -3711,7 +3922,7 @@ section > .section-title {
         }
 </style>
 </section><section class="alt" id="pastor-ranking">
-<div class="section-tag">牧者排行榜</div>
+<div class="section-tag">排行榜</div>
 <h2 class="section-title">牧者 16 型全排行</h2>
 <div class="divider"></div>
 <div class="pastor-top-grid" style="display: grid; gap: 30px; margin: 30px 0;">
@@ -4105,7 +4316,6 @@ section > .section-title {
         <strong>為什麼換成牧者之後，有些人格明顯變多，有些卻突然變少？</strong>
 </div>
 </section><section class="alt myth-section" id="myth-section">
-<div class="section-tag">反差小抄</div>
 <h2 class="section-title">真是意想不到</h2>
 <div class="divider"></div>
 <div class="contrast-deck">
@@ -4158,7 +4368,7 @@ section > .section-title {
 </div>
 </article>
 </div>
-</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">四個面相的對壘</h2><div class="divider"></div><div class="dimension-compare-grid">
+</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">四個面向量表</h2><div class="divider"></div><div class="dimension-compare-grid">
 <article class="dimension-compare-card" data-dimension="EI">
 <div class="dimension-card-head"><h3>E 外向 / I 內向</h3><span class="dimension-takeaway">兩邊都微偏 I</span></div>
 <div class="dimension-bars" data-dimension-bars="EI"></div>
@@ -4179,18 +4389,15 @@ section > .section-title {
 <div class="dimension-bars" data-dimension-bars="JP"></div>
 <p>平信徒樣本偏 J，牧者樣本卻偏 P。四個面向裡，只有這一組直接換了方向。</p>
 </article>
-</div></section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title">牧者比較少亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</h2><div class="divider"></div><div class="enfj-content mystery-compact">
+</div></section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title mystery-title">牧者比較少<span class="mystery-mobile-break" aria-hidden="true"></span><span class="mystery-title-second">亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</span></h2><div class="divider"></div><div class="enfj-content mystery-compact">
 <div class="enfj-left">
 <div class="enfj-comparison">
-<div class="enfj-box"><div class="enfj-emoji">👥</div><div class="enfj-percent"><span id="enfj-stat1">9.0</span>%</div><div class="enfj-label">平信徒｜ENFJ 亞伯拉罕</div></div>
+<div class="enfj-box enfj-box-lay"><figure aria-hidden="true" class="enfj-abraham-art"><img alt="" decoding="async" id="mystery-abraham-lay" loading="lazy"/></figure><div class="enfj-percent"><span id="enfj-stat1">9.0</span>%</div><div class="enfj-label">平信徒｜ENFJ 亞伯拉罕</div></div>
 <div aria-hidden="true" class="mystery-arrow">→</div>
-<div class="enfj-box"><div class="enfj-emoji">😳</div><div class="enfj-percent"><span id="enfj-stat2">0.9</span>%</div><div class="enfj-label">牧者｜ENFJ 亞伯拉罕</div></div>
+<div class="enfj-box enfj-box-pastor"><figure aria-hidden="true" class="enfj-abraham-art is-fading"><img alt="" decoding="async" id="mystery-abraham-pastor" loading="lazy"/></figure><div class="enfj-percent"><span id="enfj-stat2">0.9</span>%</div><div class="enfj-label">牧者｜ENFJ 亞伯拉罕</div></div>
 </div>
 <div class="enfj-note mystery-note">主日聚會剛結束，門口還在招呼新人、順手關心同工；有人說下週服事缺人，他已經開始揪人了。照我們的人物對應，這種很會把人聚在一起、也很會顧人的角色，就是 ENFJ 的亞伯拉罕。<br/><br/>結果數字很妙。平信徒裡 ENFJ 排第 4，占 9.0%；到了牧者樣本卻掉到第 15，只剩 0.9%。<br/><br/>先別急著把它解讀成「ENFJ 不適合當牧者」。這份資料是網路自願填答，會不會想點開 MBTI，本來就可能影響最後收進來的是哪些人。<br/><br/>所以也許不是 ENFJ 牧者真的比較少，只是這次剛好沒有收進來那麼多。<br/><br/><strong>亞伯拉罕可能沒有消失，只是沒點開問卷。</strong></div>
 </div>
-<figure aria-hidden="true" class="mystery-character-art">
-<img alt="" decoding="async" id="mystery-abraham-art" loading="lazy"/>
-</figure>
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt" id="temperament-section">
 <div class="section-tag">四大性格群</div>
@@ -4201,16 +4408,16 @@ section > .section-title {
 <div class="temperament-100-kicker">100 人教會縮影</div>
 <div class="temperament-100-summary">
 <div class="temperament-100-item temperament-100-sj">
-<span>SJ</span><strong><b data-temperament-summary-people="SJ">—</b> 人</strong><small><b data-temperament-summary-percent="SJ">—</b>%</small>
+<span class="temperament-100-type">SJ<em>穩定派</em></span><strong><b data-temperament-summary-people="SJ">—</b> 人</strong><small><b data-temperament-summary-percent="SJ">—</b>%</small>
 </div>
 <div class="temperament-100-item temperament-100-nf">
-<span>NF</span><strong><b data-temperament-summary-people="NF">—</b> 人</strong><small><b data-temperament-summary-percent="NF">—</b>%</small>
+<span class="temperament-100-type">NF<em>理想派</em></span><strong><b data-temperament-summary-people="NF">—</b> 人</strong><small><b data-temperament-summary-percent="NF">—</b>%</small>
 </div>
 <div class="temperament-100-item temperament-100-sp">
-<span>SP</span><strong><b data-temperament-summary-people="SP">—</b> 人</strong><small><b data-temperament-summary-percent="SP">—</b>%</small>
+<span class="temperament-100-type">SP<em>行動派</em></span><strong><b data-temperament-summary-people="SP">—</b> 人</strong><small><b data-temperament-summary-percent="SP">—</b>%</small>
 </div>
 <div class="temperament-100-item temperament-100-nt">
-<span>NT</span><strong><b data-temperament-summary-people="NT">—</b> 人</strong><small><b data-temperament-summary-percent="NT">—</b>%</small>
+<span class="temperament-100-type">NT<em>思考派</em></span><strong><b data-temperament-summary-people="NT">—</b> 人</strong><small><b data-temperament-summary-percent="NT">—</b>%</small>
 </div>
 </div>
 <p class="temperament-100-footnote">四個人數是把本次平信徒樣本比例換算成 100 人並四捨五入，合計約 100 人。</p>
@@ -4881,14 +5088,20 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
         }
 
         function decorateMysteryCharacter() {
-            const img = document.getElementById('mystery-abraham-art');
-            if (!img) return;
+            const images = [
+                document.getElementById('mystery-abraham-lay'),
+                document.getElementById('mystery-abraham-pastor')
+            ].filter(Boolean);
+            if (!images.length) return;
             const src = getCharacterArt('亞伯拉罕');
-            if (!src) {
-                img.closest('.mystery-character-art')?.setAttribute('hidden', '');
-                return;
-            }
-            img.src = src;
+            images.forEach(img => {
+                const figure = img.closest('.enfj-abraham-art');
+                if (!src) {
+                    figure?.setAttribute('hidden', '');
+                    return;
+                }
+                img.src = src;
+            });
         }
 
 
@@ -6839,7 +7052,8 @@ section > .divider {
     const bars = document.getElementById('question-bars');
     const note = document.getElementById('question-stats-note');
     const samplePill = document.getElementById('question-sample-pill');
-    if (!section || !highlights || !tablist || !heading || !summary || !bars || !note || !samplePill) return;
+    const explorerLabel = document.getElementById('question-explorer-label');
+    if (!section || !highlights || !tablist || !heading || !summary || !bars || !note || !samplePill || !explorerLabel) return;
 
     let currentAudience = 'lay';
     let currentQuestion = 1;
@@ -6974,6 +7188,7 @@ section > .divider {
             if (selected && focusSwitch) button.focus();
         });
         samplePill.textContent = `${data.label}｜每題 n = 1,000`;
+        explorerLabel.textContent = currentAudience === 'pastor' ? '看看牧者的心態' : '看看會友的心思';
         note.innerHTML = `<strong>資料說明：</strong>${data.note}`;
         renderHighlights(data);
         buildTabs();
