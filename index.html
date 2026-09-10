@@ -3965,6 +3965,52 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v92-layout-order-polish">
+/* ===== V92｜資料說明與上下區塊對齊 ===== */
+#mbti-lookup {
+    padding-bottom: 30px;
+}
+#method-strip.method-strip {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 34px;
+}
+#method-strip .method-toggle {
+    max-width: none;
+    margin: 0;
+}
+#method-strip .method-panel {
+    margin: 0;
+}
+#lay-ranking {
+    padding-top: 38px;
+}
+
+/* 信仰答題統計搬到牧者排行後，留出一致的章節呼吸感 */
+#pastor-ranking {
+    padding-bottom: 44px;
+}
+#question-stats-section {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#enfj-mystery {
+    padding-top: 54px;
+}
+
+@media (max-width: 640px) {
+    #mbti-lookup { padding-bottom: 24px; }
+    #method-strip.method-strip { padding: 0 16px 28px; }
+    #method-strip .method-toggle { padding-left: 42px; padding-right: 42px; }
+    #method-strip .method-panel { padding: 18px 16px 20px; }
+    #lay-ranking { padding-top: 32px; }
+    #pastor-ranking { padding-bottom: 34px; }
+    #enfj-mystery { padding-top: 44px; }
+}
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -4021,32 +4067,6 @@ section > .section-title {
 <a class="discovery-jump" href="#lay-ranking">看平信徒排行榜 ↓</a>
 </article>
 </div></section>
-<section class="f-section" id="question-stats-section" data-audience="lay" aria-labelledby="question-stats-title">
-<h2 class="section-title" id="question-stats-title">信仰答題統計</h2>
-<div class="divider"></div>
-<div class="question-audience-switch-wrap">
-<div class="question-audience-switch" role="group" aria-label="切換題目版本">
-<button class="question-audience-btn" data-audience="lay" type="button" aria-pressed="true">信徒版</button>
-<button class="question-audience-btn" data-audience="pastor" type="button" aria-pressed="false">牧者版</button>
-</div>
-</div>
-<div class="question-stats-highlights" id="question-stats-highlights" aria-label="四個題目結果摘要"></div>
-<div class="question-explorer">
-<div class="question-explorer-topline">
-<span class="question-explorer-label" id="question-explorer-label">看看會友的心思</span>
-<span class="question-sample-pill" id="question-sample-pill">信徒版｜每題 n = 1,000</span>
-</div>
-<div class="question-tablist" id="question-tablist" role="tablist" aria-label="12 題題目選擇"></div>
-<div class="question-panel" id="question-panel" role="tabpanel" tabindex="0" aria-live="polite">
-<h3 class="question-panel-heading" id="question-panel-heading"></h3>
-<p class="question-panel-summary" id="question-panel-summary"></p>
-<div class="question-bars" id="question-bars"></div>
-</div>
-</div>
-<p class="question-stats-note" id="question-stats-note"><strong>資料說明：</strong>這次測驗使用免費方案製作，因此無法下載完整三萬多份逐題作答資料，平台目前只能提供每 1,000 份作答的比例統計。本區依照平台提供的每千人資料整理，並不是全部參與者的完整逐題紀錄；資料有限，還請見諒。</p>
-</section>
-
-
 <section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
 <div class="section-tag">找到你的位置</div>
 <h2 class="section-title" id="mbti-lookup-title">關於我的小檔案</h2>
@@ -5394,7 +5414,34 @@ section > .section-title {
         而是：
         <strong>為什麼換成牧者之後，有些人格明顯變多，有些卻突然變少？</strong>
 </div>
-</section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title mystery-title">牧者比較少<span class="mystery-mobile-break" aria-hidden="true"></span><span class="mystery-title-second">亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</span></h2><div class="divider"></div><div class="enfj-content mystery-compact">
+</section>
+
+<section class="f-section" id="question-stats-section" data-audience="lay" aria-labelledby="question-stats-title">
+<h2 class="section-title" id="question-stats-title">信仰答題統計</h2>
+<div class="divider"></div>
+<div class="question-audience-switch-wrap">
+<div class="question-audience-switch" role="group" aria-label="切換題目版本">
+<button class="question-audience-btn" data-audience="lay" type="button" aria-pressed="true">信徒版</button>
+<button class="question-audience-btn" data-audience="pastor" type="button" aria-pressed="false">牧者版</button>
+</div>
+</div>
+<div class="question-stats-highlights" id="question-stats-highlights" aria-label="四個題目結果摘要"></div>
+<div class="question-explorer">
+<div class="question-explorer-topline">
+<span class="question-explorer-label" id="question-explorer-label">看看會友的心思</span>
+<span class="question-sample-pill" id="question-sample-pill">信徒版｜每題 n = 1,000</span>
+</div>
+<div class="question-tablist" id="question-tablist" role="tablist" aria-label="12 題題目選擇"></div>
+<div class="question-panel" id="question-panel" role="tabpanel" tabindex="0" aria-live="polite">
+<h3 class="question-panel-heading" id="question-panel-heading"></h3>
+<p class="question-panel-summary" id="question-panel-summary"></p>
+<div class="question-bars" id="question-bars"></div>
+</div>
+</div>
+<p class="question-stats-note" id="question-stats-note"><strong>資料說明：</strong>這次測驗使用免費方案製作，因此無法下載完整三萬多份逐題作答資料，平台目前只能提供每 1,000 份作答的比例統計。本區依照平台提供的每千人資料整理，並不是全部參與者的完整逐題紀錄；資料有限，還請見諒。</p>
+</section>
+
+<section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title mystery-title">牧者比較少<span class="mystery-mobile-break" aria-hidden="true"></span><span class="mystery-title-second">亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</span></h2><div class="divider"></div><div class="enfj-content mystery-compact">
 <div class="enfj-left">
 <div class="enfj-comparison">
 <div class="enfj-box enfj-box-lay"><figure aria-hidden="true" class="enfj-abraham-art"><img alt="" decoding="async" id="mystery-abraham-lay" loading="lazy"/></figure><div class="enfj-percent"><span id="enfj-stat1">9.0</span>%</div><div class="enfj-label">平信徒｜ENFJ 亞伯拉罕</div></div>
