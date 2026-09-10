@@ -2698,7 +2698,7 @@ section > .section-title {
     line-height: 1.8;
 }
 
-/* ===== V79｜LINE 貼圖廣告作為深橘紅分隔帶 ===== */
+/* ===== V79｜LINE 貼圖廣告分隔帶（V80 由末端樣式覆寫為首頁深綠） ===== */
 .sticker-ad-section {
     padding: 28px 20px 30px;
     background: linear-gradient(135deg, #73352C 0%, #9B4A35 52%, #6E3029 100%);
@@ -2863,6 +2863,81 @@ section > .section-title {
     #enfj-mystery .enfj-percent { font-size: 2rem; }
 }
 </style>
+
+<style id="v80-overrides">
+/* ===== V80｜貼圖廣告改回首頁同款深綠 ===== */
+.sticker-ad-section {
+    background: linear-gradient(135deg, #456B58 0%, #304C40 100%);
+}
+.sticker-ad-visual {
+    border-color: rgba(255,255,255,.20);
+    box-shadow: 0 14px 30px rgba(28, 46, 38, .24);
+}
+
+/* ===== V80｜教會數據懸案置中與左右平衡 ===== */
+#enfj-mystery .section-tag,
+#enfj-mystery .mystery-title {
+    text-align: center !important;
+}
+#enfj-mystery > .divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+#enfj-mystery .mystery-compact {
+    display: block !important;
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+}
+#enfj-mystery .enfj-left {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+}
+#enfj-mystery .enfj-comparison {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    max-width: 690px;
+    margin: 30px auto 24px;
+    gap: 16px;
+}
+#enfj-mystery .enfj-box {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+#enfj-mystery .mystery-arrow {
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+}
+#enfj-mystery .mystery-note {
+    width: 100%;
+    max-width: 760px;
+    margin: 22px auto 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    #enfj-mystery .mystery-compact,
+    #enfj-mystery .enfj-left {
+        max-width: 100%;
+    }
+    #enfj-mystery .enfj-comparison {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 8px;
+        max-width: 100%;
+        margin: 24px auto 20px;
+    }
+    #enfj-mystery .mystery-note {
+        max-width: 100%;
+        margin-top: 18px;
+    }
+}
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -2902,11 +2977,10 @@ section > .section-title {
 <div class="discovery-metric"><strong>53.5%</strong> <span>vs</span> 46.5%</div>
 <div class="discovery-dim-hint"><strong>I</strong>｜內向　<strong>E</strong>｜外向</div>
 </article>
-<article class="discovery-card teaser-card has-jump discovery-tone-apricot">
+<article class="discovery-card teaser-card discovery-tone-apricot">
 <div class="discovery-title">J / P 直接翻盤</div>
 <div class="discovery-metric"><strong>J</strong> → <strong>P</strong></div>
 <div class="discovery-dim-hint"><strong>J</strong>｜計畫型　<strong>P</strong>｜彈性型<br/>平信徒偏 J，牧者偏 P</div>
-<a class="discovery-jump" href="#dimensions-section">看四大面向 ↓</a>
 </article>
 <article class="discovery-card discovery-tone-rose">
 <div class="discovery-title">平信徒第一名</div>
@@ -4334,13 +4408,13 @@ section > .section-title {
 <article class="contrast-card contrast-card-split contrast-card-reverse">
 <div class="contrast-half contrast-data">
 <span class="contrast-kicker">數據說</span>
-<div class="contrast-shift"><strong data-myth="enfj-lay">—</strong>% <span aria-hidden="true">→</span> <strong data-myth="enfj-pastor">—</strong>%</div>
-<p class="contrast-answer">ENFJ 到了牧者樣本突然變稀有</p>
+<div class="contrast-shift"><strong data-myth="lay-s">—</strong>% <span aria-hidden="true">｜</span> <strong data-myth="pastor-s">—</strong>%</div>
+<p class="contrast-answer">兩組都是 S｜實感型 比 N｜直覺型多</p>
 </div>
 <div aria-hidden="true" class="contrast-vs">但</div>
 <div class="contrast-half contrast-myth">
 <span class="contrast-kicker">你以為</span>
-<p class="contrast-question">這麼會帶人 牧者應該很多吧</p>
+<p class="contrast-question">教會人應該比較偏 N｜直覺型吧</p>
 </div>
 </article>
 <article class="contrast-card contrast-card-feature">
@@ -4368,28 +4442,7 @@ section > .section-title {
 </div>
 </article>
 </div>
-</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">四個面向量表</h2><div class="divider"></div><div class="dimension-compare-grid">
-<article class="dimension-compare-card" data-dimension="EI">
-<div class="dimension-card-head"><h3>E 外向 / I 內向</h3><span class="dimension-takeaway">兩邊都微偏 I</span></div>
-<div class="dimension-bars" data-dimension-bars="EI"></div>
-<p>兩邊都只有微微偏 I。台上會說話，跟聚會結束後還想不想繼續社交，本來就是兩回事。</p>
-</article>
-<article class="dimension-compare-card" data-dimension="SN">
-<div class="dimension-card-head"><h3>S 實感 / N 直覺</h3><span class="dimension-takeaway">牧者更偏 S</span></div>
-<div class="dimension-bars" data-dimension-bars="SN"></div>
-<p>兩邊都稍微偏 S，牧者樣本又再高一些。這裡只能看出兩組人的分布不一樣，不能直接說「當了牧者，所以人就變成 S」。</p>
-</article>
-<article class="dimension-compare-card" data-dimension="TF">
-<div class="dimension-card-head"><h3>T 思考 / F 情感</h3><span class="dimension-takeaway">共同點：都很 F</span></div>
-<div class="dimension-bars" data-dimension-bars="TF"></div>
-<p>這是兩組最一致的地方，F 都超過七成。只能說這批填答者裡，偏 F 的人真的很多。</p>
-</article>
-<article class="dimension-compare-card is-highlight" data-dimension="JP">
-<div class="dimension-card-head"><h3>J 判斷 / P 感知</h3><span class="dimension-takeaway">最大反轉：J → P</span></div>
-<div class="dimension-bars" data-dimension-bars="JP"></div>
-<p>平信徒樣本偏 J，牧者樣本卻偏 P。四個面向裡，只有這一組直接換了方向。</p>
-</article>
-</div></section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title mystery-title">牧者比較少<span class="mystery-mobile-break" aria-hidden="true"></span><span class="mystery-title-second">亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</span></h2><div class="divider"></div><div class="enfj-content mystery-compact">
+</section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title mystery-title">牧者比較少<span class="mystery-mobile-break" aria-hidden="true"></span><span class="mystery-title-second">亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</span></h2><div class="divider"></div><div class="enfj-content mystery-compact">
 <div class="enfj-left">
 <div class="enfj-comparison">
 <div class="enfj-box enfj-box-lay"><figure aria-hidden="true" class="enfj-abraham-art"><img alt="" decoding="async" id="mystery-abraham-lay" loading="lazy"/></figure><div class="enfj-percent"><span id="enfj-stat1">9.0</span>%</div><div class="enfj-label">平信徒｜ENFJ 亞伯拉罕</div></div>
@@ -5401,8 +5454,8 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             const {lay,pastor}=dimensions;
             const values={
                 'pastor-i':pastor.I.toFixed(1),
-                'enfj-pastor':mbtiData.ENFJ.pastor.percent.toFixed(1),
-                'enfj-lay':mbtiData.ENFJ.lay.percent.toFixed(1),
+                'lay-s':lay.S.toFixed(1),
+                'pastor-s':pastor.S.toFixed(1),
                 'pastor-p':pastor.P.toFixed(1),
                 'pastor-j':pastor.J.toFixed(1),
                 'lay-top':`${Object.entries(getDataset('lay')).sort((a,b)=>a[1].rank-b[1].rank)[0][0]}｜${Object.entries(getDataset('lay')).sort((a,b)=>a[1].rank-b[1].rank)[0][1].character}`,
