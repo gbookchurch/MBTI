@@ -3896,37 +3896,39 @@ section > .section-title {
     line-height: 1.58 !important;
 }
 
-/* 信徒版：暖米白＋森林綠＋金色，清楚但仍保留綠色性格 */
+/* V93｜信徒版摘要卡：以綠色為主，維持明亮與高可讀性 */
 #question-stats-section[data-audience="lay"] .question-highlight-card {
-    --highlight-surface: linear-gradient(145deg, #FBF8EE 0%, #F3F4E9 100%);
-    --highlight-edge: #D4B65E;
-    --highlight-chip-bg: #E2EBDD;
-    --highlight-chip-text: #315B49;
-    --highlight-number: #3F6A56;
-    --highlight-title: #25483B;
-    --highlight-note: #58635B;
-    --highlight-divider: rgba(62,101,82,.18);
+    --highlight-surface: linear-gradient(145deg, #F3F8F1 0%, #E3EFE5 100%);
+    --highlight-edge: #7E9A78;
+    --highlight-chip-bg: #D5E7D6;
+    --highlight-chip-text: #28523E;
+    --highlight-number: #2F6A50;
+    --highlight-title: #1F4635;
+    --highlight-note: #52665A;
+    --highlight-divider: rgba(47,106,80,.20);
+    box-shadow: 0 10px 24px rgba(18,56,40,.14) !important;
 }
 
-/* 牧者版：暖米白＋磚紅＋赭金，和信徒版有辨識度但不犧牲閱讀 */
+/* V93｜牧者版摘要卡：橘紅＋黃色為主，暖色但仍保持清楚 */
 #question-stats-section[data-audience="pastor"] .question-highlight-card {
-    --highlight-surface: linear-gradient(145deg, #FFF7F0 0%, #F8ECE5 100%);
-    --highlight-edge: #D18B64;
-    --highlight-chip-bg: #F4DDD1;
-    --highlight-chip-text: #8A3F2F;
-    --highlight-number: #A54D35;
-    --highlight-title: #713426;
-    --highlight-note: #6E574F;
-    --highlight-divider: rgba(165,77,53,.18);
-    box-shadow: 0 10px 24px rgba(46,18,12,.15) !important;
+    --highlight-surface: linear-gradient(145deg, #FFF4E5 0%, #FBE0CF 100%);
+    --highlight-edge: #E5B94A;
+    --highlight-chip-bg: #F8DFA0;
+    --highlight-chip-text: #8A3A27;
+    --highlight-number: #C65432;
+    --highlight-title: #7A2F23;
+    --highlight-note: #735548;
+    --highlight-divider: rgba(198,84,50,.22);
+    box-shadow: 0 10px 24px rgba(92,37,22,.15) !important;
 }
 
-/* 卡片只做極小的明暗差，避免四張像四色海報 */
+/* 四張只做同色系內的微小明暗變化，不再混入其他色系 */
 #question-stats-section[data-audience="lay"] .question-highlight-card:nth-child(even) {
-    --highlight-surface: linear-gradient(145deg, #F8F7ED 0%, #EDF2E9 100%);
+    --highlight-surface: linear-gradient(145deg, #EDF6EE 0%, #DCEADF 100%);
 }
 #question-stats-section[data-audience="pastor"] .question-highlight-card:nth-child(even) {
-    --highlight-surface: linear-gradient(145deg, #FFF5EC 0%, #F6E8E0 100%);
+    --highlight-surface: linear-gradient(145deg, #FFF0DE 0%, #F7D7C5 100%);
+    --highlight-edge: #E0A83F;
 }
 
 @media (max-width: 900px) {
