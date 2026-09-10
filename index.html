@@ -214,23 +214,26 @@
         /* ===== 8個核心發現卡 ===== */
         .discovery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
             margin: 30px 0;
         }
 
         .discovery-card {
-            background: #FFFEFB;
+            background: linear-gradient(135deg, #FFFEFB 0%, #F7F3EC 100%);
+            border: 1px solid rgba(140, 126, 112, 0.16);
             border-left: 4px solid #B45F3C;
-            padding: 25px;
+            border-radius: 18px;
+            padding: 20px 22px;
             animation: slideUpFade 0.8s ease-out;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            box-shadow: 0 10px 24px rgba(58, 45, 37, 0.06);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
         }
 
         .discovery-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(58, 45, 37, 0.10);
+            border-color: rgba(140, 126, 112, 0.24);
         }
 
         .discovery-card:nth-child(2) { animation-delay: 0.1s; }
@@ -2536,46 +2539,46 @@ section > .section-title {
 </div>
 <p class="hero-story">從排行、性格分布，到幾個沒想到的結果。</p>
 <button class="cta-btn" id="hero-start-button" type="button">先看看結果 →</button>
-</div></section><section class="f-section" id="discovery-section"><div class="section-tag">先看整體</div><h2 class="section-title">答案攤開之後<span aria-hidden="true" class="lookup-title-separator">｜</span><br class="mobile-title-break"/>有些結果比想像中有趣</h2><div class="divider"></div><div class="discovery-grid phase2-discovery-grid">
-<article class="discovery-card">
+</div></section><section class="f-section" id="discovery-section"><h2 class="section-title discovery-heading-simple">先看整體</h2><div class="divider discovery-divider-center"></div><div class="discovery-grid phase2-discovery-grid">
+<article class="discovery-card discovery-tone-olive">
 <div class="discovery-title">F 人真的很多</div>
 <div class="discovery-metric">兩組都超過 <strong>7 成</strong></div>
 <div class="discovery-dim-hint"><strong>F</strong>｜情感型</div>
 </article>
-<article class="discovery-card">
+<article class="discovery-card discovery-tone-sage">
 <div class="discovery-title">牧者其實微偏 I</div>
 <div class="discovery-metric"><strong>53.5%</strong> <span>vs</span> 46.5%</div>
 <div class="discovery-dim-hint"><strong>I</strong>｜內向　<strong>E</strong>｜外向</div>
 </article>
-<article class="discovery-card teaser-card has-jump">
+<article class="discovery-card teaser-card has-jump discovery-tone-apricot">
 <div class="discovery-title">J / P 直接翻盤</div>
 <div class="discovery-metric"><strong>J</strong> → <strong>P</strong></div>
 <div class="discovery-dim-hint"><strong>J</strong>｜計畫型　<strong>P</strong>｜彈性型<br/>平信徒偏 J，牧者偏 P</div>
 <a class="discovery-jump" href="#dimensions-section">看四大面向 ↓</a>
 </article>
-<article class="discovery-card">
+<article class="discovery-card discovery-tone-rose">
 <div class="discovery-title">平信徒第一名</div>
 <div class="discovery-metric discovery-type-metric"><strong>ESFJ｜馬大</strong></div>
 <div class="discovery-dim-hint">12.1%｜本次平信徒樣本最多</div>
 </article>
-<article class="discovery-card teaser-card has-jump">
+<article class="discovery-card teaser-card has-jump discovery-tone-olive">
 <div class="discovery-title">牧者第一名換人了</div>
 <div class="discovery-metric discovery-type-metric"><strong>ESFP｜用香膏的馬利亞</strong></div>
 <div class="discovery-dim-hint">20.4%｜本次牧者樣本最多</div>
 <a class="discovery-jump" href="#pastor-ranking">看牧者排行榜 ↓</a>
 </article>
-<article class="discovery-card teaser-card has-jump">
+<article class="discovery-card teaser-card has-jump discovery-tone-sage">
 <div class="discovery-title">ENFJ 突然少很多</div>
 <div class="discovery-metric"><strong>9.0%</strong> → <strong>0.9%</strong></div>
 <div class="discovery-dim-hint">平信徒第 4 → 牧者第 15</div>
 <a class="discovery-jump" href="#enfj-mystery">看亞伯拉罕懸案 ↓</a>
 </article>
-<article class="discovery-card">
+<article class="discovery-card discovery-tone-apricot">
 <div class="discovery-title">兩邊都微偏 S</div>
 <div class="discovery-metric"><strong>55.2%</strong>｜<strong>60.4%</strong></div>
 <div class="discovery-dim-hint"><strong>S</strong>｜實感型　<strong>N</strong>｜直覺型<br/>平信徒｜牧者</div>
 </article>
-<article class="discovery-card teaser-card has-jump">
+<article class="discovery-card teaser-card has-jump discovery-tone-rose">
 <div class="discovery-title">最常見 vs 最稀有</div>
 <div class="discovery-metric"><strong>12.1%</strong> <span>vs</span> <strong>1.6%</strong></div>
 <div class="discovery-dim-hint">平信徒 16 型，最高與最低差 7 倍多</div>
@@ -3068,63 +3071,77 @@ section > .section-title {
         }
 
         .phase2-discovery-grid {
-            gap: 15px;
+            gap: 16px;
         }
 
         .phase2-discovery-grid .discovery-card {
             position: relative;
-            padding: 20px 21px 18px;
-            min-height: 142px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            grid-template-areas:
+                "title metric"
+                "hint hint"
+                "jump jump";
+            align-items: center;
+            column-gap: 18px;
+            row-gap: 8px;
+            overflow: hidden;
         }
 
         .phase2-discovery-grid .discovery-card.has-jump {
-            padding-bottom: 50px;
+            padding-bottom: 18px;
         }
 
         .phase2-discovery-grid .teaser-card {
-            border-left-color: #D6B66A;
-            background: linear-gradient(180deg, #FFFEFB 0%, #FAF8F1 100%);
+            border-left-color: #D2AD63;
         }
 
         .phase2-discovery-grid .discovery-title {
-            margin-bottom: 8px;
+            grid-area: title;
+            margin: 0;
             font-size: 1rem;
-            line-height: 1.35;
+            line-height: 1.4;
+            max-width: 14ch;
         }
 
         .discovery-metric {
+            grid-area: metric;
+            justify-self: end;
+            text-align: right;
             color: #463B33;
-            font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
+            font-size: clamp(1.3rem, 2vw, 1.72rem);
+            font-weight: 850;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            white-space: nowrap;
         }
 
         .discovery-metric strong {
-            color: #B45F3C;
+            color: #9D5A3B;
             font-weight: 950;
         }
 
         .discovery-metric span {
             color: #8A8178;
-            font-size: 0.72em;
+            font-size: 0.68em;
             font-weight: 800;
         }
 
         .discovery-type-metric {
-            font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-            line-height: 1.35;
+            font-size: clamp(1.02rem, 1.75vw, 1.28rem);
+            line-height: 1.28;
+            white-space: normal;
+            max-width: 14ch;
         }
 
         .discovery-dim-hint {
-            margin-top: 7px;
-            color: #746B62;
+            grid-area: hint;
+            margin-top: 0;
+            color: #6E665E;
             font-size: 0.78rem;
-            font-weight: 700;
-            line-height: 1.55;
+            font-weight: 750;
+            line-height: 1.5;
         }
 
         .discovery-dim-hint strong {
@@ -3133,17 +3150,50 @@ section > .section-title {
         }
 
         .discovery-jump {
-            position: absolute;
-            left: 21px;
-            bottom: 18px;
+            grid-area: jump;
+            position: static;
+            justify-self: start;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
             color: #456B58;
             font-size: 0.78rem;
             font-weight: 900;
             text-decoration: none;
-            border-bottom: 1px solid rgba(69,107,88,0.35);
+            border-bottom: 1px solid rgba(69,107,88,0.28);
         }
 
-        .discovery-jump:hover { color: #B45F3C; }
+        .discovery-jump:hover { color: #9D5A3B; }
+
+        .discovery-heading-simple {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .discovery-divider-center {
+            margin: 18px auto 0;
+        }
+
+        .discovery-tone-olive {
+            background: linear-gradient(135deg, #FFFDFC 0%, #F2F1E9 100%);
+            border-left-color: #94A178;
+        }
+
+        .discovery-tone-sage {
+            background: linear-gradient(135deg, #FFFDFC 0%, #EEF3EF 100%);
+            border-left-color: #7E9A8A;
+        }
+
+        .discovery-tone-apricot {
+            background: linear-gradient(135deg, #FFFDFC 0%, #F8EFE6 100%);
+            border-left-color: #C69369;
+        }
+
+        .discovery-tone-rose {
+            background: linear-gradient(135deg, #FFFDFC 0%, #F5EEEA 100%);
+            border-left-color: #B98A80;
+        }
 
         .method-strip {
             max-width: 1000px;
@@ -3477,8 +3527,11 @@ section > .section-title {
             .hero { min-height: auto; padding: 52px 18px 46px; }
             .hero-total-number { font-size: clamp(4.2rem, 23vw, 6.3rem); }
             .hero-story br { display: none; }
-            .phase2-discovery-grid .discovery-card { min-height: 126px; padding: 18px 18px 16px; }
-            .phase2-discovery-grid .discovery-card.has-jump { padding-bottom: 48px; }
+            .discovery-grid { grid-template-columns: 1fr; }
+            .phase2-discovery-grid .discovery-card { padding: 18px 18px 16px; grid-template-columns: 1fr; grid-template-areas: "title" "metric" "hint" "jump"; row-gap: 7px; }
+            .phase2-discovery-grid .discovery-card.has-jump { padding-bottom: 16px; }
+            .phase2-discovery-grid .discovery-title, .phase2-discovery-grid .discovery-metric { max-width: none; text-align: left; justify-self: start; }
+            .phase2-discovery-grid .discovery-metric { white-space: normal; }
             .discovery-jump { left: 18px; bottom: 17px; }
             .method-grid { grid-template-columns: 1fr; }
             .myth-grid { grid-template-columns: 1fr; }
