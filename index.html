@@ -2384,6 +2384,12 @@ section > .section-title {
     line-height: 1.65;
 }
 .question-panel-summary strong { color: var(--question-accent); }
+.question-summary-label {
+    font-weight: 900;
+    color: var(--question-accent);
+}
+.question-summary-label::after { content: "｜"; color: #AAA297; }
+.question-summary-text { display: inline; }
 .question-bars { display: grid; gap: 16px; }
 .question-bar-row { min-width: 0; }
 .question-bar-meta {
@@ -2405,6 +2411,7 @@ section > .section-title {
     color: #403B35;
 }
 .question-option-desc { color: #5E5850; }
+.question-option-name + .question-option-desc::before { content: "｜"; color: #A39A8F; }
 .question-bar-letter {
     display: inline-flex;
     align-items: center;
@@ -2490,20 +2497,142 @@ section > .section-title {
     .question-explorer {
         margin-left: -2px;
         margin-right: -2px;
-        padding: 18px 14px;
+        padding: 18px 12px 20px;
         border-radius: 19px;
+        background: rgba(255,255,255,.76);
     }
-    .question-explorer-topline { align-items: flex-start; }
+    .question-explorer-topline { align-items: flex-start; padding: 0 2px; }
     .question-tablist {
         grid-template-columns: repeat(4, 1fr);
         gap: 7px;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
     }
-    .question-tab { min-height: 38px; }
-    .question-bar-meta { grid-template-columns: 1fr; gap: 4px; }
-    .question-bar-value { padding-left: 32px; font-size: .86rem; }
-    .question-bars { gap: 18px; }
-    .question-bar-track { height: 10px; }
+    .question-tab { min-height: 40px; }
+
+    /* 手機版：把「題目／最多人選／答案選項」切成清楚的三層 */
+    .question-panel-heading {
+        position: relative;
+        margin: 0 0 10px;
+        padding: 42px 14px 15px;
+        border: 1px solid color-mix(in srgb, var(--question-accent) 22%, transparent);
+        border-left: 5px solid var(--question-accent);
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--question-accent) 8%, #fff);
+        color: #342F2B;
+        font-size: 1.08rem;
+        line-height: 1.55;
+    }
+    .question-panel-heading::before {
+        content: "題目";
+        position: absolute;
+        top: 12px;
+        left: 14px;
+        color: var(--question-accent);
+        font-size: .72rem;
+        font-weight: 950;
+        letter-spacing: .08em;
+    }
+    .question-panel-summary {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 9px;
+        align-items: start;
+        margin: 0 0 20px;
+        padding: 12px 13px;
+        border-radius: 12px;
+        background: var(--question-accent-soft);
+        color: #514A43;
+        font-size: .88rem;
+        line-height: 1.55;
+    }
+    .question-summary-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 25px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: var(--question-accent);
+        color: #fff;
+        font-size: .7rem;
+        line-height: 1;
+        white-space: nowrap;
+    }
+    .question-summary-label::after { content: none; }
+    .question-summary-text { display: block; padding-top: 2px; }
+
+    .question-bars {
+        gap: 11px;
+    }
+    .question-bars::before {
+        content: "答案選項";
+        display: block;
+        margin: 1px 2px 0;
+        color: #6C655C;
+        font-size: .76rem;
+        font-weight: 950;
+        letter-spacing: .06em;
+    }
+    .question-bar-row {
+        padding: 13px 12px 12px;
+        border: 1px solid rgba(80,69,58,.10);
+        border-radius: 13px;
+        background: #FFFEFC;
+        box-shadow: 0 3px 10px rgba(69,58,45,.035);
+    }
+    .question-bar-row.is-top {
+        border-color: color-mix(in srgb, var(--question-accent) 34%, transparent);
+        background: color-mix(in srgb, var(--question-accent) 7%, #fff);
+        box-shadow: 0 5px 14px color-mix(in srgb, var(--question-accent) 10%, transparent);
+    }
+    .question-bar-meta {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        align-items: start;
+        margin-bottom: 9px;
+    }
+    .question-bar-label {
+        font-size: .91rem;
+        line-height: 1.55;
+        color: #413B35;
+    }
+    .question-bar-letter {
+        min-width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--question-accent) 12%, #fff);
+        color: var(--question-accent);
+        border: 1px solid color-mix(in srgb, var(--question-accent) 18%, transparent);
+    }
+    .question-option-name {
+        color: #342F2B;
+        font-weight: 950;
+    }
+    .question-option-name + .question-option-desc::before { content: none; }
+    .question-option-desc {
+        display: block;
+        margin: 6px 0 0 35px;
+        color: #6A625A;
+        font-size: .85rem;
+        line-height: 1.55;
+    }
+    .question-bar-value {
+        justify-self: start;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: #F1EEE8;
+        color: #60584F;
+        font-size: .8rem;
+        font-weight: 900;
+    }
+    .question-bar-row.is-top .question-bar-value {
+        background: var(--question-accent);
+        color: #fff;
+    }
+    .question-bar-track {
+        height: 12px;
+        background: #E7E3DB;
+    }
+    .question-bar-row:not(.is-top) .question-bar-fill { opacity: .76; }
     .question-stats-note { text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -6745,9 +6874,9 @@ section > .divider {
         heading.textContent = `Q${question.id}｜${question.title}`;
         const topName = top[1] ? `${top[0]}｜${top[1]}` : `${top[0]}｜${top[2]}`;
         if (second && gap < 1) {
-            summary.innerHTML = `最多人選 <strong>${topName}</strong>（${pctText(top[4])}%），但第二名只差 <strong>${pctText(gap)} 個百分點</strong>。`;
+            summary.innerHTML = `<span class="question-summary-label">最多人選</span><span class="question-summary-text"><strong>${topName}</strong>（${pctText(top[4])}%），但第二名只差 <strong>${pctText(gap)} 個百分點</strong>。</span>`;
         } else {
-            summary.innerHTML = `最多人選 <strong>${topName}</strong>，占 <strong>${pctText(top[4])}%</strong>。`;
+            summary.innerHTML = `<span class="question-summary-label">最多人選</span><span class="question-summary-text"><strong>${topName}</strong>，占 <strong>${pctText(top[4])}%</strong>。</span>`;
         }
 
         bars.replaceChildren();
@@ -6769,7 +6898,7 @@ section > .divider {
                 nameSpan.textContent = name;
                 const descSpan = document.createElement('span');
                 descSpan.className = 'question-option-desc';
-                descSpan.textContent = `｜${text}`;
+                descSpan.textContent = text;
                 label.append(nameSpan, descSpan);
             } else {
                 label.append(document.createTextNode(text));
