@@ -2635,6 +2635,18 @@ section > .section-title {
     .question-bar-row:not(.is-top) .question-bar-fill { opacity: .76; }
     .question-stats-note { text-align: left; }
 }
+
+/* ===== V78：文案／小檔案標籤／排行榜首三名精簡 ===== */
+#discovery-section { padding-top: 34px; }
+#discovery-section .phase2-discovery-grid { margin-top: 0; }
+.lay-top-card .brief-desc { display: none !important; }
+.sticker-ad-footer p { text-align: center !important; }
+.nowrap { white-space: nowrap; }
+@media (max-width: 640px) {
+    #discovery-section { padding-top: 26px; }
+    .phase2-hero-content h1 { line-height: 1.18; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .question-audience-btn, .question-tab { transition: none; }
     .question-bar-fill { transition: none !important; }
@@ -2660,7 +2672,7 @@ section > .section-title {
 <p class="hero-eyebrow">教會 MBTI 圖鑑</p>
 <div aria-label="總樣本數 30,445" class="hero-total-number" id="hero-total">30,445</div>
 <p class="hero-total-label">位基督徒參與者</p>
-<h1>基督徒 MBTI 測驗結果報告</h1>
+<h1>基督徒 MBTI 測驗<br class="mobile-title-break"/>結果報告</h1>
 <div aria-label="樣本組成" class="hero-sample-split">
 <span><strong id="hero-lay-total">28,796</strong> 平信徒</span>
 <span aria-hidden="true" class="hero-times">×</span>
@@ -2668,7 +2680,7 @@ section > .section-title {
 </div>
 <p class="hero-story">從排行、性格分布，到幾個沒想到的結果。</p>
 <button class="cta-btn" id="hero-start-button" type="button">先看看結果 →</button>
-</div></section><section class="f-section" id="discovery-section"><h2 class="section-title discovery-heading-simple">先看整體</h2><div class="divider discovery-divider-center"></div><div class="discovery-grid phase2-discovery-grid">
+</div></section><section class="f-section" id="discovery-section"><div class="discovery-grid phase2-discovery-grid">
 <article class="discovery-card discovery-tone-olive">
 <div class="discovery-title">F 人真的很多</div>
 <div class="discovery-metric">兩組都超過 <strong>7 成</strong></div>
@@ -2714,7 +2726,7 @@ section > .section-title {
 </article>
 </div></section>
 <section class="f-section" id="question-stats-section" data-audience="lay" aria-labelledby="question-stats-title">
-<h2 class="section-title" id="question-stats-title">MBTI 測驗選項統計</h2>
+<h2 class="section-title" id="question-stats-title">信仰答題統計</h2>
 <div class="divider"></div>
 <div class="question-audience-switch-wrap">
 <div class="question-audience-switch" role="group" aria-label="切換題目版本">
@@ -2747,29 +2759,29 @@ section > .section-title {
 </section>
 <section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
 <div class="section-tag">找到你的位置</div>
-<h2 class="section-title" id="mbti-lookup-title">接著看看自己<span aria-hidden="true" class="lookup-title-separator">｜</span><br class="mobile-title-break"/>你的 MBTI 小檔案</h2>
+<h2 class="section-title" id="mbti-lookup-title">關於我的小檔案</h2>
 <div class="divider"></div>
 <p class="section-subtitle">選擇你的 MBTI，快速看看這一型在本次調查中的排名、比例、稀有度，以及對應的聖經人物和近代代表人物。</p>
 <div class="mbti-lookup-shell">
 <fieldset class="mbti-picker">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
 <div aria-label="16 型 MBTI 選擇器" class="mbti-picker-grid" role="group">
-<button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button"><span class="mbti-option-type">INTJ</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="INTP" type="button"><span class="mbti-option-type">INTP</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button"><span class="mbti-option-type">ENTJ</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button"><span class="mbti-option-type">ENTP</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button"><span class="mbti-option-type">INFJ</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="INFP" type="button"><span class="mbti-option-type">INFP</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button"><span class="mbti-option-type">ENFJ</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button"><span class="mbti-option-type">ENFP</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button"><span class="mbti-option-type">ISTJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button"><span class="mbti-option-type">ISFJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button"><span class="mbti-option-type">ESTJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button"><span class="mbti-option-type">ESFJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button"><span class="mbti-option-type">ISTP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button"><span class="mbti-option-type">ISFP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button"><span class="mbti-option-type">ESTP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button"><span class="mbti-option-type">INTJ</span><span class="mbti-option-group temperament-badge-nt">建築師</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INTP" type="button"><span class="mbti-option-type">INTP</span><span class="mbti-option-group temperament-badge-nt">邏輯學家</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button"><span class="mbti-option-type">ENTJ</span><span class="mbti-option-group temperament-badge-nt">指揮官</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button"><span class="mbti-option-type">ENTP</span><span class="mbti-option-group temperament-badge-nt">辯論家</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button"><span class="mbti-option-type">INFJ</span><span class="mbti-option-group temperament-badge-nf">提倡者</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INFP" type="button"><span class="mbti-option-type">INFP</span><span class="mbti-option-group temperament-badge-nf">調停者</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button"><span class="mbti-option-type">ENFJ</span><span class="mbti-option-group temperament-badge-nf">主人公</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button"><span class="mbti-option-type">ENFP</span><span class="mbti-option-group temperament-badge-nf">競選者</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button"><span class="mbti-option-type">ISTJ</span><span class="mbti-option-group temperament-badge-sj">物流師</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button"><span class="mbti-option-type">ISFJ</span><span class="mbti-option-group temperament-badge-sj">守衛者</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button"><span class="mbti-option-type">ESTJ</span><span class="mbti-option-group temperament-badge-sj">總經理</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button"><span class="mbti-option-type">ESFJ</span><span class="mbti-option-group temperament-badge-sj">執政官</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button"><span class="mbti-option-type">ISTP</span><span class="mbti-option-group temperament-badge-sp">鑑賞家</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button"><span class="mbti-option-type">ISFP</span><span class="mbti-option-group temperament-badge-sp">探險家</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button"><span class="mbti-option-type">ESTP</span><span class="mbti-option-group temperament-badge-sp">企業家</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">表演者</span></button>
 </div>
 </fieldset>
 <div class="mbti-lookup-result" hidden="" id="mbti-lookup-result">
@@ -2851,7 +2863,7 @@ section > .section-title {
 <div class="divider"></div>
 <div style="display: grid; gap: 20px; margin: 30px 0;">
 <!-- 1. ESFJ 馬大 -->
-<div class="mbti-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<div class="mbti-card lay-top-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
 <div>
 <div style="font-size: 1.8rem; font-weight: 900; color: #D6B66A; line-height: 1;">1</div>
@@ -2866,7 +2878,7 @@ section > .section-title {
 <div class="full-desc" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #f0e8d8;">場地、流程、簽到、奉獻統計、活動通知一起來，反而很容易進入狀況。別人還在問「現在做到哪了」，表格可能已經整理好，下一步也順手提醒了。厲害的不只做事快，通常連誰忙到快爆炸也看得出來。</div>
 </div>
 <!-- 2. ISFJ 路得 -->
-<div class="mbti-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<div class="mbti-card lay-top-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
 <div>
 <div style="font-size: 1.8rem; font-weight: 900; color: #D6B66A; line-height: 1;">2</div>
@@ -2881,7 +2893,7 @@ section > .section-title {
 <div class="full-desc" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #f0e8d8;">新人來過一次，名字可能就記住了；誰最近突然安靜，也會默默留意。答應的服事通常不用一直催，該出現的時候就會出現。平常不太搶鏡，可是哪天請假，大家往往馬上發現：「欸，今天怎麼少一個人？」</div>
 </div>
 <!-- 3. ESFP 撒馬利亞婦人 -->
-<div class="mbti-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<div class="mbti-card lay-top-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
 <div>
 <div style="font-size: 1.8rem; font-weight: 900; color: #D6B66A; line-height: 1;">3</div>
@@ -3700,7 +3712,7 @@ section > .section-title {
 </style>
 </section><section class="alt" id="pastor-ranking">
 <div class="section-tag">牧者排行榜</div>
-<h2 class="section-title">換成牧者之後<br class="mobile-title-break"/>16 型重新洗牌</h2>
+<h2 class="section-title">牧者 16 型全排行</h2>
 <div class="divider"></div>
 <div class="pastor-top-grid" style="display: grid; gap: 30px; margin: 30px 0;">
 <!-- 1. ESFP 馬利亞 -->
@@ -4074,7 +4086,7 @@ section > .section-title {
         text-align: left;
     ">
 <strong style="color: #456B58;">
-            📌 排行榜很好玩，但先別急著下結論
+            稍安勿躁
         </strong>
 <br/><br/>
 
@@ -4094,7 +4106,7 @@ section > .section-title {
 </div>
 </section><section class="alt myth-section" id="myth-section">
 <div class="section-tag">反差小抄</div>
-<h2 class="section-title">你以為的教會<br class="mobile-title-break"/>跟數字看到的不太一樣</h2>
+<h2 class="section-title">真是意想不到</h2>
 <div class="divider"></div>
 <div class="contrast-deck">
 <article class="contrast-card contrast-card-split">
@@ -4146,7 +4158,7 @@ section > .section-title {
 </div>
 </article>
 </div>
-</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">平信徒 vs 牧者<br class="mobile-title-break"/>四個面向差在哪？</h2><div class="divider"></div><div class="dimension-compare-grid">
+</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">四個面相的對壘</h2><div class="divider"></div><div class="dimension-compare-grid">
 <article class="dimension-compare-card" data-dimension="EI">
 <div class="dimension-card-head"><h3>E 外向 / I 內向</h3><span class="dimension-takeaway">兩邊都微偏 I</span></div>
 <div class="dimension-bars" data-dimension-bars="EI"></div>
@@ -4167,7 +4179,7 @@ section > .section-title {
 <div class="dimension-bars" data-dimension-bars="JP"></div>
 <p>平信徒樣本偏 J，牧者樣本卻偏 P。四個面向裡，只有這一組直接換了方向。</p>
 </article>
-</div></section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title">亞伯拉罕咧？<br class="mobile-title-break"/>牧者裡怎麼只剩 0.9%？</h2><div class="divider"></div><div class="enfj-content mystery-compact">
+</div></section><section class="f-section" id="enfj-mystery"><div class="section-tag">教會數據懸案</div><h2 class="section-title">牧者比較少亞伯拉罕 <strong class="nowrap">ENFJ</strong>？</h2><div class="divider"></div><div class="enfj-content mystery-compact">
 <div class="enfj-left">
 <div class="enfj-comparison">
 <div class="enfj-box"><div class="enfj-emoji">👥</div><div class="enfj-percent"><span id="enfj-stat1">9.0</span>%</div><div class="enfj-label">平信徒｜ENFJ 亞伯拉罕</div></div>
@@ -4182,7 +4194,7 @@ section > .section-title {
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt" id="temperament-section">
 <div class="section-tag">四大性格群</div>
-<h2 class="section-title">教會裡的 100 位平信徒<br class="mobile-title-break"/>大概分成哪四派？</h2>
+<h2 class="section-title">100 位平信徒四種群體分佈</h2>
 <div class="divider"></div>
 <p class="temperament-intro">把這次 <strong><span data-temperament-total="">28,796</span> 位平信徒</strong>想成一間剛好坐了 100 人的教會，四大性格群大概會這樣分。不是每間教會都會一模一樣，只是把百分比換成人數，會更有畫面。</p>
 <div aria-label="每 100 位平信徒的四大性格群換算" class="temperament-100-wrap" role="group">
