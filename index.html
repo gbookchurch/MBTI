@@ -3811,6 +3811,83 @@ section > .section-title {
 }
 </style>
 
+
+
+<style id="v90-highlight-theme">
+/* ===== V90｜信仰答題統計：信徒墨綠金邊／牧者磚紅深底 ===== */
+#question-stats-section .question-highlight-card {
+    border-width: 1.5px !important;
+    box-shadow: 0 12px 28px rgba(7, 24, 19, .28) !important;
+}
+
+/* 信徒版：金邊墨綠，淺綠＋黃色文字 */
+#question-stats-section[data-audience="lay"] .question-highlight-card {
+    color: #F2D477 !important;
+    background: linear-gradient(145deg, #183F34 0%, #214C3F 56%, #2B5A49 100%) !important;
+    border-color: #D2AE58 !important;
+}
+#question-stats-section[data-audience="lay"] .question-highlight-card:nth-child(2) {
+    background: linear-gradient(145deg, #1B4437 0%, #285342 58%, #315F4C 100%) !important;
+}
+#question-stats-section[data-audience="lay"] .question-highlight-card:nth-child(3) {
+    background: linear-gradient(145deg, #153B31 0%, #214A3C 58%, #2A5747 100%) !important;
+}
+#question-stats-section[data-audience="lay"] .question-highlight-card:nth-child(4) {
+    background: linear-gradient(145deg, #20483B 0%, #2A5545 58%, #35624F 100%) !important;
+}
+#question-stats-section[data-audience="lay"] .question-highlight-card::before {
+    background: linear-gradient(90deg, #D2AE58, #F3D985) !important;
+}
+#question-stats-section[data-audience="lay"] .question-highlight-kicker,
+#question-stats-section[data-audience="lay"] .question-highlight-note {
+    color: #C7DFCD !important;
+}
+#question-stats-section[data-audience="lay"] .question-highlight-number {
+    color: #F3D985 !important;
+    text-shadow: 0 1px 0 rgba(0,0,0,.18);
+}
+#question-stats-section[data-audience="lay"] .question-highlight-title {
+    color: #F7E7A3 !important;
+}
+
+/* 牧者版：磚紅深底，橘紅＋黃色文字 */
+#question-stats-section[data-audience="pastor"] .question-highlight-card {
+    color: #F1C86A !important;
+    background: linear-gradient(145deg, #5D2A24 0%, #71342B 56%, #803D31 100%) !important;
+    border-color: #BD684C !important;
+    box-shadow: 0 12px 28px rgba(45, 14, 10, .30) !important;
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-card:nth-child(2) {
+    background: linear-gradient(145deg, #642B25 0%, #77362D 58%, #874033 100%) !important;
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-card:nth-child(3) {
+    background: linear-gradient(145deg, #572520 0%, #6A3028 58%, #7B392F 100%) !important;
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-card:nth-child(4) {
+    background: linear-gradient(145deg, #6A2D26 0%, #7C382E 58%, #8B4335 100%) !important;
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-card::before {
+    background: linear-gradient(90deg, #C56D4D, #E49A6D) !important;
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-kicker,
+#question-stats-section[data-audience="pastor"] .question-highlight-note {
+    color: #F0AF91 !important;
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-number {
+    color: #F4D276 !important;
+    text-shadow: 0 1px 0 rgba(0,0,0,.18);
+}
+#question-stats-section[data-audience="pastor"] .question-highlight-title {
+    color: #FFD98B !important;
+}
+
+@media (max-width: 680px) {
+    #question-stats-section .question-highlight-card {
+        box-shadow: 0 9px 20px rgba(7, 24, 19, .22) !important;
+    }
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
