@@ -4205,6 +4205,230 @@ section > .section-title {
 }
 </style>
 
+
+<style id="rank-compare-v96-styles">
+.ranking-data-source { display: none !important; }
+.rank-compare-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px;
+}
+.rank-compare-shell {
+    margin-top: 28px;
+    border: 1px solid #DDD4C8;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFEFB;
+    box-shadow: 0 12px 30px rgba(53,43,35,0.06);
+}
+.rank-compare-head,
+.rank-compare-row {
+    display: grid;
+    grid-template-columns: 44px minmax(0,1fr) minmax(0,1fr);
+}
+.rank-compare-head {
+    background: #F7F3EC;
+    border-bottom: 1px solid #DED6CA;
+    align-items: stretch;
+}
+.rank-compare-head-col {
+    padding: 15px 18px 13px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    font-weight: 950;
+    letter-spacing: .02em;
+}
+.rank-compare-head-col small {
+    font-size: .72rem;
+    font-weight: 800;
+    opacity: .72;
+}
+.rank-compare-head-lay {
+    color: #315C49;
+    border-left: 1px solid #E1D9CE;
+}
+.rank-compare-head-pastor {
+    color: #A24E38;
+    border-left: 1px solid #E1D9CE;
+}
+.rank-compare-hint {
+    margin: 0;
+    padding: 10px 18px 9px;
+    background: #FCFAF6;
+    color: #80766D;
+    text-align: center !important;
+    font-size: .76rem;
+    line-height: 1.45 !important;
+    border-bottom: 1px solid #ECE5DB;
+}
+.rank-compare-row {
+    position: relative;
+    border-bottom: 1px solid #E9E2D8;
+    background: #FFFEFB;
+}
+.rank-compare-row:last-child { border-bottom: 0; }
+.rank-compare-row:nth-child(even) { background: #FCFAF6; }
+.rank-compare-rank {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 950;
+    color: #9D8663;
+    border-right: 1px solid #E7DED2;
+}
+.rank-compare-cell {
+    position: relative;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    min-width: 0;
+    min-height: 84px;
+    padding: 14px 38px 13px 16px;
+    display: grid;
+    align-content: center;
+    gap: 2px;
+    transition: background .22s ease;
+}
+.rank-compare-cell-lay { grid-column: 2; border-right: 1px solid #E7DED2; }
+.rank-compare-cell-pastor { grid-column: 3; }
+.rank-compare-cell-lay:hover,
+.rank-compare-cell-lay[aria-expanded="true"] { background: #EEF5F0; }
+.rank-compare-cell-pastor:hover,
+.rank-compare-cell-pastor[aria-expanded="true"] { background: #FBF0EB; }
+.rank-compare-cell:focus-visible {
+    outline: 3px solid #D6B66A;
+    outline-offset: -3px;
+    z-index: 2;
+}
+.rank-compare-type {
+    font-size: 1.04rem;
+    font-weight: 950;
+    line-height: 1.15;
+    letter-spacing: .02em;
+}
+.rank-compare-cell-lay .rank-compare-type { color: #315C49; }
+.rank-compare-cell-pastor .rank-compare-type { color: #A24E38; }
+.rank-compare-character {
+    color: #463B33;
+    font-size: .86rem;
+    line-height: 1.35;
+    font-weight: 850;
+}
+.rank-compare-stat {
+    margin-top: 3px;
+    color: #81776E;
+    font-size: .74rem;
+    line-height: 1.25;
+    font-weight: 750;
+}
+.rank-compare-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(214,182,106,.18);
+    color: #8A7040;
+    font-size: .95rem;
+    font-weight: 900;
+}
+.rank-compare-detail {
+    grid-row: 2;
+    padding: 15px 17px 17px;
+    font-size: .84rem;
+    line-height: 1.72;
+    color: #51473F;
+    border-top: 1px dashed #DCD1C3;
+}
+.rank-compare-detail-lay {
+    grid-column: 2;
+    background: #F1F7F3;
+    border-right: 1px solid #E7DED2;
+}
+.rank-compare-detail-pastor {
+    grid-column: 3;
+    background: #FCF1EC;
+}
+.rank-compare-detail .pastor-observation-title {
+    margin: 0 0 7px;
+    font-size: .88rem;
+    line-height: 1.5;
+    font-weight: 900;
+    color: #9A4B37;
+}
+.rank-compare-note {
+    margin-top: 24px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    background: #F5F1E8;
+    border-left: 4px solid #456B58;
+    color: #544A42;
+}
+.rank-compare-note > strong { color: #456B58; font-size: .95rem; }
+.rank-compare-note p {
+    margin: 8px 0 0;
+    font-size: .86rem;
+    line-height: 1.75 !important;
+}
+@media (max-width: 640px) {
+    .rank-compare-section { padding: 52px 14px; }
+    .rank-compare-shell { margin-top: 22px; border-radius: 16px; }
+    .rank-compare-head,
+    .rank-compare-row { grid-template-columns: 30px minmax(0,1fr) minmax(0,1fr); }
+    .rank-compare-head-col {
+        padding: 12px 8px 10px;
+        display: grid;
+        gap: 2px;
+        justify-content: start;
+    }
+    .rank-compare-head-col small { font-size: .65rem; }
+    .rank-compare-hint { padding: 8px 10px; font-size: .7rem; }
+    .rank-compare-rank { font-size: .82rem; }
+    .rank-compare-cell {
+        min-height: 76px;
+        padding: 11px 27px 10px 9px;
+        gap: 1px;
+    }
+    .rank-compare-type { font-size: .9rem; }
+    .rank-compare-character {
+        font-size: .73rem;
+        line-height: 1.3;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+    }
+    .rank-compare-stat { font-size: .63rem; margin-top: 3px; }
+    .rank-compare-toggle {
+        right: 6px;
+        width: 18px;
+        height: 18px;
+        font-size: .78rem;
+    }
+    .rank-compare-detail {
+        padding: 12px 10px 14px;
+        font-size: .76rem;
+        line-height: 1.65;
+    }
+    .rank-compare-detail .pastor-observation-title { font-size: .79rem; }
+    .rank-compare-note { margin-top: 18px; padding: 17px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .rank-compare-cell { transition: none; }
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -4258,7 +4482,7 @@ section > .section-title {
 <article class="discovery-card teaser-card has-jump discovery-tone-apricot">
 <div class="discovery-title">平信徒 SFJ 超多，一定有什麼道理</div>
 <div class="discovery-dim-hint"><strong>ESFJ 12.1% + ISFJ 11.8% = 23.9%</strong>　排行榜前兩名都是 SFJ</div>
-<a class="discovery-jump" href="#lay-ranking">看平信徒排行榜 ↓</a>
+<a class="discovery-jump" href="#ranking-compare">看 16 型排行榜 ↓</a>
 </article>
 </div></section>
 <section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
@@ -4363,6 +4587,409 @@ section > .section-title {
 </div>
 </div>
 
+
+<section class="rank-compare-section" id="ranking-compare" aria-labelledby="ranking-compare-title">
+  <div class="section-tag">排行榜</div>
+  <h2 class="section-title" id="ranking-compare-title">16 型排行榜</h2>
+  <div class="divider"></div>
+  <div class="rank-compare-shell">
+    <div class="rank-compare-head" aria-hidden="true">
+      <div></div>
+      <div class="rank-compare-head-col rank-compare-head-lay"><span>平信徒</span><small>28,796 人</small></div>
+      <div class="rank-compare-head-col rank-compare-head-pastor"><span>牧者</span><small>1,649 人</small></div>
+    </div>
+    <p class="rank-compare-hint">點任一欄，可看該類型的完整描述。</p>
+    <div class="rank-compare-list">
+      <div class="rank-compare-row" data-rank="1">
+  <div class="rank-compare-rank" aria-label="第 1 名">1</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-1">
+    <span class="rank-compare-type">ESFJ</span>
+    <span class="rank-compare-character">馬大</span>
+    <span class="rank-compare-stat">3,482 人 · 12.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-1">
+    <span class="rank-compare-type">ESFP</span>
+    <span class="rank-compare-character">用香膏的馬利亞</span>
+    <span class="rank-compare-stat">336 人 · 20.4%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-1" hidden>場地、流程、簽到、奉獻統計、活動通知一起來，反而很容易進入狀況。別人還在問「現在做到哪了」，表格可能已經整理好，下一步也順手提醒了。厲害的不只做事快，通常連誰忙到快爆炸也看得出來。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-1" hidden><div class="pastor-observation-title">
+                    👀 為什麼馬利亞型到了牧者榜，直接變第一？
+                </div>
+
+                平信徒裡本來就不少，到了牧者卻超過每 5 人就有 1 人。
+                也許牧養比想像中更吃臨場反應。講台要看現場、陪談要接情緒，
+                活動臨時有狀況，也常常得馬上處理。
+                <br/><br/>
+<strong>牧者需要的，可能不只是會講，也要很會看現場。</strong></div>
+</div><div class="rank-compare-row" data-rank="2">
+  <div class="rank-compare-rank" aria-label="第 2 名">2</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-2">
+    <span class="rank-compare-type">ISFJ</span>
+    <span class="rank-compare-character">路得</span>
+    <span class="rank-compare-stat">3,408 人 · 11.8%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-2">
+    <span class="rank-compare-type">INFP</span>
+    <span class="rank-compare-character">約翰</span>
+    <span class="rank-compare-stat">187 人 · 11.3%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-2" hidden>新人來過一次，名字可能就記住了；誰最近突然安靜，也會默默留意。答應的服事通常不用一直催，該出現的時候就會出現。平常不太搶鏡，可是哪天請假，大家往往馬上發現：「欸，今天怎麼少一個人？」</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-2" hidden><div class="pastor-observation-title">
+                    💭 約翰型在平信徒只排第八，到了牧者卻變第二？
+                </div>
+
+                這組數字很有意思，因為牧養不只有站上台講話。
+                很多時候，是坐下來聽一個人把話說完，
+                陪著對方慢慢整理那些自己也說不清楚的事。
+                <br/><br/>
+<strong>有些牧者不是全場最熱鬧的人，卻可能是最適合好好聊一場的人。</strong></div>
+</div><div class="rank-compare-row" data-rank="3">
+  <div class="rank-compare-rank" aria-label="第 3 名">3</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-3">
+    <span class="rank-compare-type">ESFP</span>
+    <span class="rank-compare-character">撒馬利亞婦人</span>
+    <span class="rank-compare-stat">2,615 人 · 9.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-3">
+    <span class="rank-compare-type">ISFJ</span>
+    <span class="rank-compare-character">以斯帖</span>
+    <span class="rank-compare-stat">160 人 · 9.7%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-3" hidden>只要有人願意開口，場子通常很快就熱起來。第一次來的新朋友也能直接聊開，最受不了大家客客氣氣坐成一排。平常看起來很鬧，真的進到禱告或分享時，又可能突然認真得讓人有點意外。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-3" hidden><div class="pastor-observation-title">
+                    🏰 換了身分，為什麼以斯帖型還是穩穩待在前三名？
+                </div>
+
+                這一型不一定最搶眼，但很會顧人、顧細節，
+                也常常注意到其他人沒發現的小事。
+                <br/><br/>
+<strong>教會很多看起來很自然的運作，其實都需要有人默默顧著。</strong></div>
+</div><div class="rank-compare-row" data-rank="4">
+  <div class="rank-compare-rank" aria-label="第 4 名">4</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-4">
+    <span class="rank-compare-type">ENFJ</span>
+    <span class="rank-compare-character">亞伯拉罕</span>
+    <span class="rank-compare-stat">2,594 人 · 9.0%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-4">
+    <span class="rank-compare-type">ESFJ</span>
+    <span class="rank-compare-character">馬大</span>
+    <span class="rank-compare-stat">150 人 · 9.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-4" hidden>本來大家還在觀望，聊完常常就變成「好啦，我來」。很知道怎麼鼓勵人，也很會把不同的人湊在一起。只是每個人都放在心上，很容易一路忙到最後才想起來：自己好像也需要休息。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-4" hidden><div class="pastor-observation-title">
+                    📋 平信徒第一名的馬大型，到了牧者怎麼變成第四？
+                </div>
+
+                很會照顧人、處理事情，在教會當然非常有用。
+                但牧養常常遇到無法照流程走的狀況，
+                有些事情不是排進行事曆就能解決。
+                <br/><br/>
+<strong>會把事情做好很重要，但牧職可能也很需要接受事情常常不照計畫走。</strong></div>
+</div><div class="rank-compare-row" data-rank="5">
+  <div class="rank-compare-rank" aria-label="第 5 名">5</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-5">
+    <span class="rank-compare-type">INFJ</span>
+    <span class="rank-compare-character">但以理</span>
+    <span class="rank-compare-stat">2,486 人 · 8.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-5">
+    <span class="rank-compare-type">ENFP</span>
+    <span class="rank-compare-character">巴拿巴</span>
+    <span class="rank-compare-stat">142 人 · 8.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-5" hidden>大家嘴上都說沒事，心裡可能已經冒出一句：「真的嗎？」不一定當場追問，但誰最近怪怪的、誰笑得有點勉強，通常會記著。話不一定多，可是一旦主動問「你最近還好嗎」，多半是真的有注意到。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-5" hidden><div class="pastor-observation-title">
+                    ✨ 巴拿巴型不管是不是牧者，比例居然差不多
+                </div>
+
+                平信徒 8.1%，牧者 8.6%，幾乎沒有太大變化。
+                很會鼓勵人、看到新的可能，也容易把氣氛帶起來。
+                <br/><br/>
+<strong>看來有些特質，不管站在哪個位置都用得到。</strong></div>
+</div><div class="rank-compare-row" data-rank="6">
+  <div class="rank-compare-rank" aria-label="第 6 名">6</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-6">
+    <span class="rank-compare-type">ENFP</span>
+    <span class="rank-compare-character">巴拿巴</span>
+    <span class="rank-compare-stat">2,323 人 · 8.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-6">
+    <span class="rank-compare-type">ISTJ</span>
+    <span class="rank-compare-character">尼希米</span>
+    <span class="rank-compare-stat">130 人 · 7.9%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-6" hidden>「欸，這很棒耶！」大概是很常出現的一句話。很會看到別人的優點，也很容易冒出「不然我們試試看？」上一個點子可能還沒收尾，下一個已經來了；不過氣氛真的很低時，也常是這群人先把大家拉回來。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-6" hidden><div class="pastor-observation-title">
+                    🔨 原來牧師不只需要異象，也真的需要會顧事情
+                </div>
+
+                尼希米型到了牧者排行往前不少。
+                想想也滿合理，教會除了講道和陪伴，
+                還有預算、同工、場地、會議和一大堆行政。
+                <br/><br/>
+<strong>有異象很好，但最後還是要有人知道下禮拜幾點開會。</strong></div>
+</div><div class="rank-compare-row" data-rank="7">
+  <div class="rank-compare-rank" aria-label="第 7 名">7</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-7">
+    <span class="rank-compare-type">ISFP</span>
+    <span class="rank-compare-character">大衛</span>
+    <span class="rank-compare-stat">2,182 人 · 7.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-7">
+    <span class="rank-compare-type">ISFP</span>
+    <span class="rank-compare-character">以利沙</span>
+    <span class="rank-compare-stat">126 人 · 7.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-7" hidden>敬拜、佈置、影像、文字，只要有發揮空間，常常會做出很有自己味道的東西。碰到衝突通常先消化，不太愛正面硬槓。熟了才會發現，看起來隨和歸隨和，心裡其實有一套很清楚的堅持。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-7" hidden><div class="pastor-observation-title">
+                    🎨 第七名、7.6%，居然完全一樣
+                </div>
+
+                平信徒是第七，牧者也是第七，
+                連比例都剛好是 7.6%。
+                <br/><br/>
+<strong>在整張排行榜大洗牌的時候，以利沙型反而穩到有點神奇。</strong></div>
+</div><div class="rank-compare-row" data-rank="8">
+  <div class="rank-compare-rank" aria-label="第 8 名">8</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-8">
+    <span class="rank-compare-type">INFP</span>
+    <span class="rank-compare-character">約翰</span>
+    <span class="rank-compare-stat">1,959 人 · 6.8%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-8">
+    <span class="rank-compare-type">INTJ</span>
+    <span class="rank-compare-character">以利亞</span>
+    <span class="rank-compare-stat">111 人 · 6.7%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-8" hidden>你話還沒講完，不太會立刻丟三個解法過來。看起來溫溫的，心裡其實想很多，對信仰和關係也有自己的理想。現實一來偶爾會卡一下，但那種「我也不知道怎麼講」的心情，往往很能接住。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-8" hidden><div class="pastor-observation-title">
+                    ⚡ 以利亞型到了牧者裡，反而多了一些
+                </div>
+
+                這一型習慣想得遠，也很容易一直問：
+                「我們現在做這件事，之後會變成什麼？」
+                <br/><br/>
+<strong>當大家忙著處理今天，也許真的需要有人一直看著下一步。</strong></div>
+</div><div class="rank-compare-row" data-rank="9">
+  <div class="rank-compare-rank" aria-label="第 9 名">9</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-9">
+    <span class="rank-compare-type">ISTJ</span>
+    <span class="rank-compare-character">尼希米</span>
+    <span class="rank-compare-stat">1,899 人 · 6.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-9">
+    <span class="rank-compare-type">INTP</span>
+    <span class="rank-compare-character">所羅門</span>
+    <span class="rank-compare-stat">100 人 · 6.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-9" hidden>流程、預算、時間表記得比大家清楚，說兩點集合就真的兩點到，不是兩點才從家裡出門。規則多一點反而安心，偶爾會被嫌太硬。可是少了這種人，很多事情很快就會進入「大家憑感動」模式。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-9" hidden><div class="pastor-observation-title">
+                    📚 所羅門型到了牧者裡，比例幾乎多了一倍
+                </div>
+
+                也許牧職真的很常逼人面對「為什麼」。
+                經文怎麼理解、問題怎麼回答，
+                不同意見要怎麼整理，都不能永遠只靠直覺。
+                <br/><br/>
+<strong>有些問題，真的需要有人願意坐下來想很久。</strong></div>
+</div><div class="rank-compare-row" data-rank="10">
+  <div class="rank-compare-rank" aria-label="第 10 名">10</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-10">
+    <span class="rank-compare-type">INTJ</span>
+    <span class="rank-compare-character">保羅</span>
+    <span class="rank-compare-stat">1,312 人 · 4.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-10">
+    <span class="rank-compare-type">ESTJ</span>
+    <span class="rank-compare-character">摩西</span>
+    <span class="rank-compare-stat">50 人 · 3.0%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-10" hidden>別人還在討論下個月，腦袋可能已經跑到三年後。平常不一定搶著講，一開口卻常常直奔核心。分析快是優點，也可能有個小落差：事情已經想通了，旁邊的人情緒還在路上。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-10" hidden><div class="pastor-observation-title">
+                    ⚔️ 排名往前一名，比例其實反而少了一點
+                </div>
+
+                這張剛好提醒我們，排行榜不能只看名次。
+                摩西型從第 11 變成第 10，但比例其實從 3.4% 變成 3.0%。
+                <br/><br/>
+<strong>名次是跟別人比，比例才是在看自己有沒有真的變多。</strong></div>
+</div><div class="rank-compare-row" data-rank="11">
+  <div class="rank-compare-rank" aria-label="第 11 名">11</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-11">
+    <span class="rank-compare-type">ESTJ</span>
+    <span class="rank-compare-character">摩西</span>
+    <span class="rank-compare-stat">970 人 · 3.4%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-11">
+    <span class="rank-compare-type">INFJ</span>
+    <span class="rank-compare-character">但以理</span>
+    <span class="rank-compare-stat">46 人 · 2.8%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-11" hidden>遇到事情一直懸著，真的很難坐得住。「好，現在先做三件事。」一句講完，分工和順序就跟著出來。壓力大時語氣可能比較直，但很多時候不是針對誰，只是很想把卡住的事往前推。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-11" hidden><div class="pastor-observation-title">
+                    🔮 很多人心中的「牧者型人格」，怎麼反而掉到第 11？
+                </div>
+
+                INFJ 很會理解人、重視意義，也常被大家想像成很適合陪伴人的類型。
+                結果這次牧者樣本裡卻明顯少很多。
+                <br/><br/>
+<strong>是牧職的日常跟我們想的不太一樣，還是這次剛好沒遇到那麼多 INFJ？</strong></div>
+</div><div class="rank-compare-row" data-rank="12">
+  <div class="rank-compare-rank" aria-label="第 12 名">12</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-12">
+    <span class="rank-compare-type">INTP</span>
+    <span class="rank-compare-character">多馬</span>
+    <span class="rank-compare-stat">964 人 · 3.3%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-12">
+    <span class="rank-compare-type">ENTP</span>
+    <span class="rank-compare-character">雅各</span>
+    <span class="rank-compare-stat">39 人 · 2.4%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-12" hidden>一題問下去，很可能一路聊到原文、神學和歷史背景。不是故意唱反調，是真的想搞懂「所以為什麼？」聽到哪裡怪怪的，先記下來，回家再查。想太久偶爾會卡住，但也常替大家問出那些其實很多人都想過的問題。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-12" hidden><div class="pastor-observation-title">
+                    🎤 雅各型還是不多，但教會是不是也需要這種一直問問題的人？
+                </div>
+
+                「以前都這樣做」通常不太能讓這一型滿意。
+                有時候問題很多，確實會讓人有點頭痛，
+                但也可能因為有人一直問，大家才發現某些事情真的該重新想想。</div>
+</div><div class="rank-compare-row" data-rank="13">
+  <div class="rank-compare-rank" aria-label="第 13 名">13</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-13">
+    <span class="rank-compare-type">ISTP</span>
+    <span class="rank-compare-character">參孫</span>
+    <span class="rank-compare-stat">890 人 · 3.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-13">
+    <span class="rank-compare-type">ESTP</span>
+    <span class="rank-compare-character">彼得</span>
+    <span class="rank-compare-stat">22 人 · 1.3%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-13" hidden>投影突然掛掉、流程卡住、臨時少一個人，先看看現在能怎麼辦，比站著討論半天實際。通常不愛開太久的會，也不太想把事情弄得更複雜。平常存在感未必高，真的出事時卻很容易有人喊：「欸，快找他。」</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-13" hidden><div class="pastor-observation-title">
+                    🚀 名次從最後一名往前，比例卻沒有增加
+                </div>
+
+                彼得型很會處理眼前的狀況，反應也快。
+                但長期牧養還有很多事情不能靠速度解決，
+                有些人、有些關係，就是得慢慢陪。
+                <br/><br/>
+<strong>很會救火，跟很會長期陪伴，可能是兩種不同的功夫。</strong></div>
+</div><div class="rank-compare-row" data-rank="14">
+  <div class="rank-compare-rank" aria-label="第 14 名">14</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-14">
+    <span class="rank-compare-type">ENTJ</span>
+    <span class="rank-compare-character">底波拉</span>
+    <span class="rank-compare-stat">635 人 · 2.2%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-14">
+    <span class="rank-compare-type">ISTP</span>
+    <span class="rank-compare-character">參孫</span>
+    <span class="rank-compare-stat">22 人 · 1.3%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-14" hidden>大家討論半天還沒有結論，通常會開始坐不住。目標一確定，分工、進度、下一步很快就排出來。氣勢一強，旁邊的人可能要鼓起勇氣才敢說「我有不同想法」；但真的要把一件難事推動起來，這種力道也很有用。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-14" hidden><div class="pastor-observation-title">
+                    🧰 很會自己解決問題，到了牧者裡反而少很多
+                </div>
+
+                參孫型遇到問題，通常會先想辦法處理。
+                但牧養很多時候不是「把問題修好」，
+                而是陪一個人走過一段沒有標準答案的路。
+                <br/><br/>
+<strong>事情可以解決，人有時候不能急著解決。</strong></div>
+</div><div class="rank-compare-row" data-rank="15">
+  <div class="rank-compare-rank" aria-label="第 15 名">15</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-15">
+    <span class="rank-compare-type">ENTP</span>
+    <span class="rank-compare-character">雅各</span>
+    <span class="rank-compare-stat">618 人 · 2.1%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-15">
+    <span class="rank-compare-type">ENFJ</span>
+    <span class="rank-compare-character">亞伯拉罕</span>
+    <span class="rank-compare-stat">15 人 · 0.9%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-15" hidden>一句「可是如果換個角度呢？」就可能讓整場開始歪樓。腦筋轉得快，點子又多，只要話題有意思，聊半小時完全不是問題。最經典的收尾通常是大家聊得很開心，然後有人突然問：「好，那所以誰要做？」</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-15" hidden><div class="pastor-observation-title">
+                    👑 平信徒第 4，牧者卻第 15。亞伯拉罕型到底去哪了？
+                </div>
+
+                ENFJ 很會鼓勵人、帶人，也很容易把大家聚在一起。
+                照理說，好像很符合大家對領袖的想像，
+                結果這次牧者樣本裡卻少得很明顯。
+                <br/><br/>
+<strong>
+                    當然，也不能排除一個很實際的可能：
+                    這型牧者根本沒有來做這份測驗。
+                </strong></div>
+</div><div class="rank-compare-row" data-rank="16">
+  <div class="rank-compare-rank" aria-label="第 16 名">16</div>
+  <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-16">
+    <span class="rank-compare-type">ESTP</span>
+    <span class="rank-compare-character">彼得</span>
+    <span class="rank-compare-stat">459 人 · 1.6%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <button class="rank-compare-cell rank-compare-cell-pastor" type="button" aria-expanded="false" aria-controls="rank-detail-pastor-16">
+    <span class="rank-compare-type">ENTJ</span>
+    <span class="rank-compare-character">底波拉</span>
+    <span class="rank-compare-stat">13 人 · 0.8%</span>
+    <span class="rank-compare-toggle" aria-hidden="true">＋</span>
+  </button>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-16" hidden>別人還在評估風險，這邊可能已經報名、開群組、問誰要一起。很多事喜歡邊做邊學，想太久反而容易失去耐性。計畫行不行，有時候真的做到一半才知道；不過需要有人先跨出去時，也常少不了這種膽子。</div>
+  <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-16" hidden><div class="pastor-observation-title">
+                    🎯 大家以為牧師要很會帶人，ENTJ 怎麼反而最後一名？
+                </div>
+
+                很會決策、抓方向、把事情往前推，
+                照理說好像很適合帶領。
+                但牧養每天碰到的不只有目標和效率，
+                還有很多關係、等待，以及不能硬推的事。
+                <br/><br/>
+<strong>很會帶隊，跟很適合牧養，也許本來就不是完全同一件事。</strong></div>
+</div>
+    </div>
+  </div>
+  <div class="rank-compare-note">
+    <strong>稍安勿躁</strong>
+    <p>這份資料反映的是這次參與測驗的人，不能直接當成所有台灣教會平信徒或牧者的人格分布。會不會想點開 MBTI 測驗，本身也可能跟個性有一點關係。</p>
+    <p>真正有趣的不是「哪一型最適合當牧師」，而是：<strong>同一個名次擺在一起看，哪些人格到了牧者樣本突然往前，又有哪些明顯往後？</strong></p>
+  </div>
+</section>
+<div class="ranking-data-source" hidden aria-hidden="true">
 <section id="lay-ranking">
 <div class="section-tag">排行榜</div>
 <h2 class="section-title">平信徒 16 型<br class="mobile-title-break"/>全排行</h2>
@@ -5611,6 +6238,9 @@ section > .section-title {
         <strong>為什麼換成牧者之後，有些人格明顯變多，有些卻突然變少？</strong>
 </div>
 </section>
+
+
+</div>
 
 <section class="f-section" id="question-stats-section" data-audience="lay" aria-labelledby="question-stats-title">
 <h2 class="section-title" id="question-stats-title">信仰答題統計</h2>
@@ -8865,6 +9495,35 @@ section > .divider {
 
     updateSceneUI();
     renderGroup('SJ');
+})();
+</script>
+
+
+<script id="rank-compare-v96-script">
+(function () {
+    const cells = Array.from(document.querySelectorAll('#ranking-compare .rank-compare-cell'));
+    if (!cells.length) return;
+    function closeCell(cell) {
+        const target = document.getElementById(cell.getAttribute('aria-controls'));
+        cell.setAttribute('aria-expanded', 'false');
+        const mark = cell.querySelector('.rank-compare-toggle');
+        if (mark) mark.textContent = '＋';
+        if (target) target.hidden = true;
+    }
+    function openCell(cell) {
+        cells.forEach(other => { if (other !== cell) closeCell(other); });
+        const target = document.getElementById(cell.getAttribute('aria-controls'));
+        cell.setAttribute('aria-expanded', 'true');
+        const mark = cell.querySelector('.rank-compare-toggle');
+        if (mark) mark.textContent = '−';
+        if (target) target.hidden = false;
+    }
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            const isOpen = cell.getAttribute('aria-expanded') === 'true';
+            if (isOpen) closeCell(cell); else openCell(cell);
+        });
+    });
 })();
 </script>
 
