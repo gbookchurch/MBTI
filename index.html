@@ -4097,6 +4097,12 @@ section > .section-title {
 <button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">表演者</span><span class="mbti-option-rank">第 3 名</span><span class="mbti-option-rarity">★★☆☆☆</span></button>
 </div>
 </fieldset>
+
+<div style="display: flex; justify-content: center; margin-top: 16px; gap: 12px;">
+    <button id="random-mbti-btn" class="random-mbti-button" type="button">
+        🎲 隨機看一型
+    </button>
+</div>
 <div class="mbti-lookup-result" hidden="" id="mbti-lookup-result">
 <p class="lookup-you-are">你是 <strong data-field="type">—</strong><span class="lookup-temperament-badge" data-field="temperament-label">—</span></p>
 <div class="lookup-result-grid">
@@ -4176,7 +4182,7 @@ section > .section-title {
 <div class="divider"></div>
 <div style="display: grid; gap: 20px; margin: 30px 0;">
 <!-- 1. ESFJ 馬大 -->
-<div class="mbti-card lay-top-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<div class="mbti-card lay-top-card" id="lay-intj" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
 <div>
 <div style="font-size: 1.8rem; font-weight: 900; color: #D6B66A; line-height: 1;">1</div>
@@ -4191,7 +4197,7 @@ section > .section-title {
 <div class="full-desc" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #f0e8d8;">場地、流程、簽到、奉獻統計、活動通知一起來，反而很容易進入狀況。別人還在問「現在做到哪了」，表格可能已經整理好，下一步也順手提醒了。厲害的不只做事快，通常連誰忙到快爆炸也看得出來。</div>
 </div>
 <!-- 2. ISFJ 路得 -->
-<div class="mbti-card lay-top-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<div class="mbti-card lay-top-card" id="lay-intp" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
 <div>
 <div style="font-size: 1.8rem; font-weight: 900; color: #D6B66A; line-height: 1;">2</div>
@@ -4206,7 +4212,7 @@ section > .section-title {
 <div class="full-desc" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #f0e8d8;">新人來過一次，名字可能就記住了；誰最近突然安靜，也會默默留意。答應的服事通常不用一直催，該出現的時候就會出現。平常不太搶鏡，可是哪天請假，大家往往馬上發現：「欸，今天怎麼少一個人？」</div>
 </div>
 <!-- 3. ESFP 撒馬利亞婦人 -->
-<div class="mbti-card lay-top-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<div class="mbti-card lay-top-card" id="lay-entj" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
 <div>
 <div style="font-size: 1.8rem; font-weight: 900; color: #D6B66A; line-height: 1;">3</div>
@@ -8678,6 +8684,69 @@ section > .divider {
     updateSceneUI();
     renderGroup('SJ');
 })();
+
+        // ===== V95 新增：平滑滾動和隨機看一型 =====
+        const MBTI_TYPES = ['INTJ', 'INTP', 'ENTJ', 'ENTP', 'INFJ', 'INFP', 'ENFJ', 'ENFP', 
+                            'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ', 'ISTP', 'ISFP', 'ESTP', 'ESFP'];
+
+        function smoothScrollToMBTI(mbtiType) {
+            const layRankId = `lay-${mbtiType.toLowerCase()}`;
+            const element = document.getElementById(layRankId);
+            
+            if (element) {
+                // 平滑滾動到該項，居中顯示
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // 添加視覺高亮效果
+                element.style.transition = 'all 0.3s ease';
+                const originalShadow = window.getComputedStyle(element).boxShadow;
+                element.style.boxShadow = '0 0 25px rgba(69, 107, 88, 0.5), 0 0 15px rgba(214, 182, 106, 0.3)';
+                
+                // 1.5秒後移除高亮
+                setTimeout(() => {
+                    element.style.boxShadow = originalShadow;
+                }, 1500);
+            }
+        }
+
+        // 修改 MBTI 按鈕點擊事件
+        document.querySelectorAll('.mbti-option').forEach(btn => {
+            const originalClickHandler = btn.onclick;
+            
+            btn.addEventListener('click', function(e) {
+                const mbtiType = this.getAttribute('data-type');
+                
+                // 延遲後平滑滾動（讓選擇器先高亮）
+                setTimeout(() => {
+                    smoothScrollToMBTI(mbtiType);
+                }, 200);
+            });
+        });
+
+        // 隨機看一型功能
+        const randomBtn = document.getElementById('random-mbti-btn');
+        if (randomBtn) {
+            randomBtn.addEventListener('click', function() {
+                // 隨機選擇一個 MBTI
+                const randomMBTI = MBTI_TYPES[Math.floor(Math.random() * MBTI_TYPES.length)];
+                
+                // 點擊對應的卡片
+                const targetBtn = document.querySelector(`[data-type="${randomMBTI}"]`);
+                if (targetBtn) {
+                    targetBtn.click();
+                    
+                    // 添加動畫反饋
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                }
+            });
+        }
+
 </script>
 
 </body>
