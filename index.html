@@ -4098,6 +4098,29 @@ section > .section-title {
 </div>
 </fieldset>
 
+<div class="mbti-picker-mobile" style="display: none;">
+    <select class="mbti-select-mobile" id="mbti-select-mobile">
+        <option value="">選擇你的 MBTI 類型...</option>
+        <option value="INTJ">INTJ 建築師</option>
+        <option value="INTP">INTP 邏輯學家</option>
+        <option value="ENTJ">ENTJ 指揮官</option>
+        <option value="ENTP">ENTP 辯論家</option>
+        <option value="INFJ">INFJ 提倡者</option>
+        <option value="INFP">INFP 調停者</option>
+        <option value="ENFJ">ENFJ 主人公</option>
+        <option value="ENFP">ENFP 競選者</option>
+        <option value="ISTJ">ISTJ 物流師</option>
+        <option value="ISFJ">ISFJ 守衛者</option>
+        <option value="ESTJ">ESTJ 總經理</option>
+        <option value="ESFJ">ESFJ 執政官</option>
+        <option value="ISTP">ISTP 鑑賞家</option>
+        <option value="ISFP">ISFP 探險家</option>
+        <option value="ESTP">ESTP 企業家</option>
+        <option value="ESFP">ESFP 表演者</option>
+    </select>
+</div>
+
+
 <div style="display: flex; justify-content: center; margin-top: 16px; gap: 12px;">
     <button id="random-mbti-btn" class="random-mbti-button" type="button">
         🎲 隨機看一型
@@ -7234,6 +7257,75 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
     #pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-head {
         gap: 8px;
     }
+        /* V95 改進：手機響應式設計 */
+        @media (max-width: 600px) {
+            /* 手機上隱藏 16 張卡片，改用下拉選擇器 */
+            .mbti-picker-grid {
+                display: none;
+            }
+            
+            /* 顯示手機版選擇器 */
+            .mbti-picker-mobile {
+                display: block;
+            }
+            
+            /* 手機版下拉選擇器樣式 */
+            .mbti-select-mobile {
+                width: 100%;
+                padding: 14px 12px;
+                font-size: 1rem;
+                border: 2px solid #456B58;
+                border-radius: 10px;
+                background: #F7F4EC;
+                color: #456B58;
+                font-weight: 900;
+                cursor: pointer;
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23456B58' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 12px center;
+                padding-right: 36px;
+            }
+            
+            .mbti-select-mobile:hover {
+                border-color: #D6B66A;
+                background-color: #F0EBE0;
+            }
+            
+            /* 結果顯示在選擇器下方，替換卡片區域 */
+            .mbti-lookup-result {
+                margin-top: 20px;
+            }
+            
+            /* 隱藏隨機按鈕區域（太占空間）*/
+            .random-mbti-wrapper {
+                margin-top: 12px;
+            }
+            
+            /* 返回選擇按鈕 - 手機上更明顯 */
+            .mbti-back-button {
+                display: block;
+                width: 100%;
+                margin-top: 16px;
+                padding: 10px;
+                background: #F0EBE0;
+                border: 1px solid #D7D0C4;
+                border-radius: 8px;
+                color: #456B58;
+                text-align: center;
+                cursor: pointer;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* 桌面上隱藏手機選擇器 */
+        @media (min-width: 601px) {
+            .mbti-picker-mobile {
+                display: none;
+            }
+        }
+
 
     #pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-number {
         min-width: 25px;
@@ -8743,6 +8835,61 @@ section > .divider {
                     setTimeout(() => {
                         this.style.transform = 'scale(1)';
                     }, 200);
+                }
+            });
+        }
+
+
+        // ===== V95 改進：手機版選擇器 =====
+        const mobileSelect = document.getElementById('mbti-select-mobile');
+        if (mobileSelect) {
+            mobileSelect.addEventListener('change', function(e) {
+                const mbtiType = this.value;
+                if (mbtiType) {
+                    // 模擬點擊桌面版卡片
+                    const targetBtn = document.querySelector(`[data-type="${mbtiType}"]`);
+                    if (targetBtn) {
+                        targetBtn.click();
+                        
+                        // 手機上自動隱藏卡片區域，顯示結果
+                        if (window.innerWidth <= 600) {
+                            // 1. 隱藏選擇器
+                            document.querySelector('.mbti-picker').style.display = 'none';
+                            
+                            // 2. 顯示結果
+                            const resultDiv = document.getElementById('mbti-lookup-result');
+                            if (resultDiv) {
+                                resultDiv.hidden = false;
+                                resultDiv.style.display = 'block';
+                            }
+                            
+                            // 3. 顯示返回按鈕
+                            let backBtn = document.getElementById('mbti-back-button');
+                            if (!backBtn) {
+                                backBtn = document.createElement('button');
+                                backBtn.id = 'mbti-back-button';
+                                backBtn.className = 'mbti-back-button';
+                                backBtn.textContent = '← 返回選擇其他類型';
+                                backBtn.type = 'button';
+                                resultDiv.parentNode.insertBefore(backBtn, resultDiv.nextSibling);
+                                
+                                // 返回按鈕點擊事件
+                                backBtn.addEventListener('click', function() {
+                                    document.querySelector('.mbti-picker').style.display = 'block';
+                                    resultDiv.style.display = 'none';
+                                    this.style.display = 'none';
+                                    mobileSelect.value = '';
+                                });
+                            }
+                            backBtn.style.display = 'block';
+                            
+                            // 4. 向上滾動到選擇器區域
+                            document.querySelector('.mbti-lookup-shell').scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
                 }
             });
         }
