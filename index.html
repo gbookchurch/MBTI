@@ -5088,6 +5088,84 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v105-theater-mobile-polish">
+/* ===== V105｜人物劇場手機微調：移除隨機場景、恢復 100 人縮影資訊、人物插圖上移 ===== */
+#temperament-section .temperament-theater-share-mobile {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    /* 選定派別後，以一行資訊補回「每 100 人約幾人」與原始百分比。 */
+    #temperament-section .temperament-theater-share-mobile {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 3px 7px;
+        margin: 6px 0 0;
+        padding: 7px 9px;
+        border-radius: 9px;
+        background: #F7F4EC;
+        color: #655B53;
+        line-height: 1.35;
+    }
+    #temperament-section .temperament-theater-share-kicker {
+        flex: 0 0 100%;
+        color: #8A8178;
+        font-size: .59rem;
+        font-weight: 800;
+        letter-spacing: .05em;
+    }
+    #temperament-section .temperament-theater-share-mobile p {
+        margin: 0 !important;
+        text-align: left !important;
+        color: #655B53;
+        font-size: .7rem;
+        font-weight: 680;
+        line-height: 1.35 !important;
+    }
+    #temperament-section .temperament-theater-share-mobile strong,
+    #temperament-section .temperament-theater-share-mobile b {
+        color: #456B58;
+        font-weight: 900;
+    }
+    #temperament-section .temperament-theater-share-mobile strong {
+        margin-right: 5px;
+    }
+    #temperament-section .temperament-theater-share-mobile p > span {
+        color: #8A8178;
+        font-weight: 650;
+    }
+
+    /* 插圖不再黏在人物卡底部，改與人物資訊上緣對齊。 */
+    #temperament-section .temperament-theater-art-wrap {
+        align-items: flex-start;
+        padding-top: 8px;
+        padding-bottom: 0;
+    }
+    #temperament-section .temperament-theater-art-wrap::after {
+        bottom: auto;
+        top: 132px;
+    }
+    #temperament-section .temperament-theater-art {
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 350px) {
+    #temperament-section .temperament-theater-share-mobile {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #temperament-section .temperament-theater-share-mobile p {
+        font-size: .66rem;
+    }
+    #temperament-section .temperament-theater-art-wrap::after {
+        top: 112px;
+    }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7044,10 +7122,8 @@ section > .section-title {
 <button class="temperament-theater-scene" type="button" role="tab" aria-selected="false" data-theater-scene="newcomer">新人來了</button>
 <button class="temperament-theater-scene" type="button" role="tab" aria-selected="false" data-theater-scene="crisis">活動出包</button>
 </div>
-<button class="temperament-theater-random" id="temperament-theater-random" type="button">隨機場景 ↻</button>
 </div>
 </div>
-<small>以下為性格化情境台詞，不是聖經人物原話。</small>
 </div>
 <div class="temperament-theater-selector is-sj" id="temperament-theater-selector">
 <div class="temperament-theater-groups" role="tablist" aria-label="選擇四大性格群">
@@ -7063,6 +7139,10 @@ section > .section-title {
 <button class="temperament-theater-group" type="button" role="tab" aria-selected="false" data-theater-group="NT">
 <span><b>NT</b> 思考派</span><strong><b data-temperament-summary-people="NT">—</b> 人</strong><small><b data-temperament-summary-percent="NT">—</b>%</small>
 </button>
+</div>
+<div class="temperament-theater-share-mobile" id="temperament-theater-share-mobile" aria-live="polite">
+<span class="temperament-theater-share-kicker">100 人教會縮影</span>
+<p><strong id="temperament-theater-share-group">SJ 穩定派</strong>約 <b id="temperament-theater-share-people">—</b> 人 <span>（<b id="temperament-theater-share-percent">—</b>%）</span></p>
 </div>
 <div class="temperament-theater-characters" role="tablist" aria-label="選擇聖經人物，可左右滑動人物卡切換" id="temperament-theater-characters"></div>
 <aside class="temperament-theater-observation is-sj" id="temperament-theater-observation" aria-live="polite">
@@ -10044,7 +10124,9 @@ section > .divider {
     const groupButtons = [...section.querySelectorAll('[data-theater-group]')];
     const sceneButtons = [...section.querySelectorAll('[data-theater-scene]')];
     const sceneText = document.getElementById('temperament-theater-scenario-text');
-    const randomScene = document.getElementById('temperament-theater-random');
+    const shareGroupEl = document.getElementById('temperament-theater-share-group');
+    const sharePeopleEl = document.getElementById('temperament-theater-share-people');
+    const sharePercentEl = document.getElementById('temperament-theater-share-percent');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let currentGroup = 'SJ';
     let currentIndex = 0;
@@ -10174,6 +10256,16 @@ section > .divider {
         }
     }
 
+    function updateGroupShareUI() {
+        const group = REACTIONS[currentGroup];
+        const sourceButton = groupButtons.find(button => button.dataset.theaterGroup === currentGroup);
+        const people = sourceButton?.querySelector(`[data-temperament-summary-people="${currentGroup}"]`)?.textContent?.trim() || '—';
+        const percent = sourceButton?.querySelector(`[data-temperament-summary-percent="${currentGroup}"]`)?.textContent?.trim() || '—';
+        if (shareGroupEl) shareGroupEl.textContent = group.label;
+        if (sharePeopleEl) sharePeopleEl.textContent = people;
+        if (sharePercentEl) sharePercentEl.textContent = percent;
+    }
+
     function renderGroup(group, focusButton = false) {
         if (!REACTIONS[group]) return;
         currentGroup = group;
@@ -10184,6 +10276,7 @@ section > .divider {
             button.setAttribute('aria-selected', String(active));
         });
         rebuildCharacterButtons();
+        updateGroupShareUI();
         fillPerson();
         if (focusButton) section.querySelector(`[data-theater-group="${group}"]`)?.focus();
     }
@@ -10222,11 +10315,6 @@ section > .divider {
             if (event.key === 'End') target = sceneButtons.length - 1;
             renderScene(sceneButtons[target].dataset.theaterScene, true);
         });
-    });
-
-    randomScene?.addEventListener('click', () => {
-        const keys = Object.keys(SCENARIOS).filter(key => key !== currentScene);
-        renderScene(keys[Math.floor(Math.random() * keys.length)] || currentScene);
     });
 
     prev.addEventListener('click', () => renderPerson(currentIndex - 1));
