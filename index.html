@@ -5757,6 +5757,63 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v111-theater-meta-bottom-right">
+/* ===== V111｜人物回答卡：主台詞留白，身份標籤收至「下一位」下方右下角 ===== */
+#temperament-section .temperament-theater-dialogue blockquote {
+    margin-left: auto;
+    margin-right: auto;
+}
+#temperament-section .temperament-theater-footer-row {
+    margin-top: 2px;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
+    align-items: end;
+    gap: 14px;
+}
+#temperament-section .temperament-theater-footer-row .temperament-theater-lookup {
+    margin-top: 0;
+    justify-self: start;
+}
+#temperament-section .temperament-theater-footer-row .temperament-theater-identity {
+    width: auto;
+    margin: 0;
+    justify-self: end;
+    align-self: end;
+}
+#temperament-section .temperament-theater-footer-row .temperament-theater-meta {
+    width: auto;
+    margin: 0;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+@media (max-width: 720px) {
+    #temperament-section .temperament-theater-footer-row {
+        margin-top: 1px;
+        gap: 7px;
+    }
+    #temperament-section .temperament-theater-footer-row .temperament-theater-lookup {
+        margin-top: 0;
+    }
+    #temperament-section .temperament-theater-footer-row .temperament-theater-meta {
+        gap: 3px;
+    }
+}
+
+@media (max-width: 390px) {
+    #temperament-section .temperament-theater-footer-row {
+        grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
+        gap: 5px;
+    }
+    #temperament-section .temperament-theater-footer-row .temperament-theater-meta {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        row-gap: 2px;
+    }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7755,6 +7812,13 @@ section > .section-title {
 <span class="temperament-theater-mind-label">他先看見的是</span>
 <p class="temperament-theater-explain" id="temperament-theater-explain">習慣快速建立分工、責任與秩序，讓大家知道下一步要做什麼</p>
 </div>
+<div class="temperament-theater-actions">
+<button class="temperament-theater-nav" id="temperament-theater-prev" type="button" aria-label="上一位人物">← 上一位</button>
+<div class="temperament-theater-dots" id="temperament-theater-dots" aria-hidden="true"></div>
+<button class="temperament-theater-nav" id="temperament-theater-next" type="button" aria-label="下一位人物">下一位 →</button>
+</div>
+<div class="temperament-theater-footer-row">
+<button class="temperament-theater-lookup" id="temperament-theater-lookup" type="button">看這一型的小檔案 ↑</button>
 <div class="temperament-theater-identity">
 <div class="temperament-theater-meta">
 <span class="temperament-theater-group-badge" id="temperament-theater-group-badge">SJ 穩定派</span>
@@ -7762,12 +7826,7 @@ section > .section-title {
 <span class="temperament-theater-alias" id="temperament-theater-alias"></span>
 </div>
 </div>
-<div class="temperament-theater-actions">
-<button class="temperament-theater-nav" id="temperament-theater-prev" type="button" aria-label="上一位人物">← 上一位</button>
-<div class="temperament-theater-dots" id="temperament-theater-dots" aria-hidden="true"></div>
-<button class="temperament-theater-nav" id="temperament-theater-next" type="button" aria-label="下一位人物">下一位 →</button>
 </div>
-<button class="temperament-theater-lookup" id="temperament-theater-lookup" type="button">看這一型的小檔案 ↑</button>
 </div>
 </article>
 </div>
