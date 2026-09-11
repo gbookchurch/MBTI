@@ -5860,6 +5860,10 @@ section > .section-title {
     }
 }
 </style>
+<style id="v124-pastor-theater-prototype">
+.theater-view-toggle{display:flex;gap:6px;width:min(430px,calc(100% - 28px));margin:14px auto 8px;padding:5px;background:#EEE9DF;border-radius:999px}.theater-view-btn{flex:1;border:0;border-radius:999px;padding:10px 12px;background:transparent;color:#71685F;font-weight:800;cursor:pointer}.theater-view-btn.is-active{background:#fff;color:#405D50;box-shadow:0 2px 9px rgba(45,39,34,.09)}.pastor-view-intro{text-align:center;margin:8px auto 16px;color:#7C746C;font-size:.9rem}.pastor-theater{max-width:900px;margin:16px auto 0}.pastor-scene-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:none}.pastor-scene-tabs::-webkit-scrollbar{display:none}.pastor-scene-tab{flex:0 0 auto;border:1px solid #D9D1C5;background:#FBFAF7;border-radius:999px;padding:8px 13px;color:#6E665F;font-weight:750}.pastor-scene-tab.is-active{background:#506A5D;color:white;border-color:#506A5D}.pastor-decision-card{background:#FFFEFB;border:1px solid #DDD5C9;border-radius:22px;padding:22px;box-shadow:0 12px 28px rgba(52,42,35,.07)}.pastor-scenario{background:#F5F1E8;border-radius:15px;padding:15px 17px;margin-bottom:18px}.pastor-scenario span{font-size:.72rem;letter-spacing:.08em;color:#8A8178;font-weight:850}.pastor-scenario p{margin:6px 0 0;line-height:1.7;color:#4E4944}.pastor-decision-card h3{text-align:center;font-size:1.18rem;color:#3F4944;margin:15px 0}.pastor-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pastor-option{position:relative;text-align:left;border:1px solid #DDD6CC;background:#fff;border-radius:15px;padding:14px 14px 14px 44px;line-height:1.55;color:#4E4944;cursor:pointer;min-height:88px}.pastor-option b{position:absolute;left:14px;top:14px;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#EEE9DF;color:#675F57}.pastor-option:hover,.pastor-option.is-selected{border-color:#6E897B;background:#F5F8F5}.pastor-option.is-muted{opacity:.48}.pastor-reveal{margin-top:18px;padding-top:18px;border-top:1px solid #E8E1D8;text-align:center}.pastor-instinct-kicker{font-size:.68rem;letter-spacing:.08em;color:#91877D;font-weight:800}.pastor-instinct-label{margin-top:12px;color:#776F67;font-size:.85rem}.pastor-reveal>strong{display:block;font-size:1.8rem;color:#456858;margin:2px 0 5px}.pastor-archetype{font-weight:850;color:#665E56}.pastor-reveal>p:not(.pastor-stat){max-width:610px;margin:8px auto;line-height:1.65;color:#5D5751}.pastor-stat{display:inline-block;background:#F2EEE7;border-radius:999px;padding:7px 12px;color:#776D64;font-size:.82rem}.pastor-advisor{margin:18px auto 0;max-width:650px;display:grid;grid-template-columns:125px 1fr;align-items:center;text-align:left;background:#F8F5EF;border-radius:17px;padding:12px 16px}.pastor-advisor-art{text-align:center}.pastor-advisor-art img{width:100px;height:125px;object-fit:contain;display:block;margin:auto}.pastor-advisor-art span{display:block;font-size:.68rem;color:#91877D}.pastor-advisor-art b{display:block;color:#4E6258}.pastor-advisor blockquote{margin:0;padding:10px 5px;font-size:1.06rem;line-height:1.65;color:#49443F}.pastor-other-btn{margin-top:15px;border:0;background:transparent;color:#506A5D;font-weight:850;cursor:pointer}.pastor-other{margin-top:12px;display:grid;gap:8px;text-align:left}.pastor-other[hidden]{display:none}.pastor-other-item{border-top:1px solid #E7E0D7;padding:10px 4px}.pastor-other-item b{color:#506A5D}.pastor-other-item span{color:#81776E;font-size:.8rem;margin-left:6px}.pastor-other-item p{margin:4px 0 0;color:#5D5751;line-height:1.5}.pastor-note{text-align:center;color:#92887E;font-size:.76rem;line-height:1.55;margin:12px 20px}.temperament-theater-section.is-pastor-view .theater-lay-only{display:none!important}
+@media(max-width:620px){.pastor-theater{margin-top:10px}.pastor-decision-card{padding:14px;border-radius:19px}.pastor-options{grid-template-columns:1fr}.pastor-option{min-height:0}.pastor-advisor{grid-template-columns:100px 1fr;padding:10px}.pastor-advisor-art img{width:82px;height:105px}.pastor-advisor blockquote{font-size:.96rem}.theater-view-toggle{margin-top:10px}.pastor-scene-tabs{padding-left:2px}}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7801,12 +7805,17 @@ section > .section-title {
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt temperament-theater-section" id="temperament-section">
 <h2 class="section-title temperament-theater-title">人物小劇場</h2>
-<div class="temperament-theater-intro-share" id="temperament-theater-share-mobile" aria-live="polite">
+<div class="theater-view-toggle" role="tablist" aria-label="人物小劇場視角">
+<button type="button" class="theater-view-btn is-active" data-theater-view="lay" aria-selected="true">👥 我是會友</button>
+<button type="button" class="theater-view-btn" data-theater-view="pastor" aria-selected="false">🎙️ 如果我是牧者</button>
+</div>
+<p class="pastor-view-intro" hidden>換個位置，事情看起來就不一樣了</p>
+<div class="temperament-theater-intro-share theater-lay-only" id="temperament-theater-share-mobile" aria-live="polite">
 <span class="temperament-theater-share-kicker">100 人教會縮影</span>
 <p><strong id="temperament-theater-share-group">SJ 穩定派</strong>約 <b id="temperament-theater-share-people">—</b> 人 <span>（<b id="temperament-theater-share-percent">—</b>%）</span></p>
 </div>
-<div class="divider temperament-theater-divider"></div>
-<div class="temperament-theater-mobile-panel">
+<div class="divider temperament-theater-divider theater-lay-only"></div>
+<div class="temperament-theater-mobile-panel theater-lay-only">
 <div class="temperament-theater-controls">
 <div class="temperament-theater-scenario" aria-label="切換教會情境">
 <div class="temperament-theater-scenes-inline" aria-label="切換教會情境">
@@ -7881,7 +7890,29 @@ section > .section-title {
 </div>
 </article>
 </div>
-<p class="temperament-theater-footnote"><span>四群人數是把本次 28,796 位平信徒的比例</span><span>換算成 100 人並四捨五入，合計約 100 人。</span></p>
+<div class="pastor-theater" id="pastor-theater" hidden>
+  <div class="pastor-scene-tabs" id="pastor-scene-tabs"></div>
+  <article class="pastor-decision-card">
+    <div class="pastor-scenario"><span>現在發生的是</span><p id="pastor-scenario-text"></p></div>
+    <h3 id="pastor-question"></h3>
+    <div class="pastor-options" id="pastor-options"></div>
+    <div class="pastor-reveal" id="pastor-reveal" hidden>
+      <span class="pastor-instinct-kicker">PASTOR'S FIRST INSTINCT｜牧者第一直覺</span>
+      <div class="pastor-instinct-label">你先看見的是</div><strong id="pastor-instinct"></strong>
+      <div class="pastor-archetype" id="pastor-archetype"></div>
+      <p id="pastor-explain"></p>
+      <p class="pastor-stat" id="pastor-stat"></p>
+      <div class="pastor-advisor">
+        <div class="pastor-advisor-art"><img id="pastor-advisor-img" alt=""/><span>你的牧者顧問</span><b id="pastor-advisor-name"></b></div>
+        <blockquote id="pastor-advisor-quote"></blockquote>
+      </div>
+      <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三位怎麼說 →</button>
+      <div class="pastor-other" id="pastor-other" hidden></div>
+    </div>
+  </article>
+  <p class="pastor-note">比例為本次牧者題目作答分布，選擇後才揭曉；不代表牧者被固定分成四種類型</p>
+</div>
+<p class="temperament-theater-footnote theater-lay-only"><span>四群人數是把本次 28,796 位平信徒的比例</span><span>換算成 100 人並四捨五入，合計約 100 人。</span></p>
 </section><section class="final-hub" id="final-cta" aria-label="再測一次與教會小本本資訊">
 <div class="final-hub-inner">
 <div class="final-hub-heading">
@@ -11877,5 +11908,39 @@ section > .divider {
 }
 </style>
 
+<style id="v125-pastor-other-advisors">
+/* V125｜其他三位聖經人物顧問卡 */
+.pastor-other-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:9px 14px;border:1px solid #D9D1C5!important;border-radius:999px!important;background:#FBFAF7!important;color:#506A5D!important}
+.pastor-other{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px!important;margin-top:14px!important}
+.pastor-other-item{border:1px solid #E1D9CE!important;border-radius:15px;padding:10px!important;background:#FFFDF9;display:grid;grid-template-columns:68px minmax(0,1fr);gap:9px;align-items:center;cursor:pointer;transition:.18s ease}
+.pastor-other-item:hover,.pastor-other-item:focus-visible{border-color:#8AA093!important;background:#F7FAF7;transform:translateY(-1px);outline:none}
+.pastor-other-art{width:68px;height:88px;display:grid;place-items:center;overflow:hidden}
+.pastor-other-art img{width:100%;height:100%;object-fit:contain;display:block}
+.pastor-other-copy{min-width:0}
+.pastor-other-name{display:block;color:#4E6258!important;font-size:.98rem;font-weight:900}
+.pastor-other-role{display:block;margin-top:1px;color:#81776E!important;font-size:.72rem!important}
+.pastor-other-instinct{display:inline-block;margin-top:5px;padding:3px 7px;border-radius:999px;background:#F1EDE6;color:#6E655D;font-size:.7rem;font-weight:800}
+.pastor-other-item p{margin:6px 0 0!important;font-size:.82rem;line-height:1.45!important;color:#554F49!important}
+.pastor-other-hint{grid-column:1/-1;margin:1px 2px 0;color:#978D84;font-size:.68rem;text-align:center}
+@media(max-width:720px){.pastor-other{grid-template-columns:1fr!important}.pastor-other-item{grid-template-columns:76px minmax(0,1fr);padding:9px 10px!important}.pastor-other-art{width:76px;height:94px}.pastor-other-item p{font-size:.84rem!important}}
+</style>
+
+<script id="v124-pastor-theater-prototype-js">
+(()=>{const section=document.getElementById('temperament-section');if(!section)return;const pastor=document.getElementById('pastor-theater'),intro=section.querySelector('.pastor-view-intro'),viewBtns=[...section.querySelectorAll('[data-theater-view]')];
+const DATA=[
+{key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'如果今天你是牧者，你第一句會說什麼？',opts:[['A','務實的守護者','你先坐下來，慢慢說，我們先不要急著把所有事情一次解決','穩定感','人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',36.8,'以利沙','先坐下來吧，事情可以一件一件說'],['B','立即的行動者','我們先看現在最急的是哪一件，我陪你先把眼前這關過掉','眼前危機','有些問題不能只談感受，今天能處理的事情就先處理',11.8,'尼希米','先把眼前最急的洞補起來，再談下一步'],['C','長遠的策略家','這些事情好像不是第一次一起出現，我們看看背後是不是有一個一直重複的模式','問題根源','眼前的混亂可能只是表面，真正重要的是不要讓同樣的事情一直重演',21.4,'所羅門','先別只看今天，我想知道這個模式從哪裡開始'],['D','可能性的啟發者','我知道現在很亂，但也許神正在帶你重新看一條沒想過的路','新的可能','危機不一定只有恢復原狀一種答案，也可能成為重新選擇方向的起點',29.9,'亞伯拉罕','有時候離開熟悉的地方，才會看見神預備的新路']]},
+{key:'meeting',tab:'會議卡住',scenario:'同工會議已經開了一個半小時。有人一直離題、有人明顯不爽、有人從頭到尾沒說話，原本要決定的事情一件都還沒有結論。',q:'如果今天你是牧者，你第一個會做什麼？',opts:[['A','主席','我們先停一下，現在還有三件事情要決定，一件一件來','秩序','如果沒有人收斂討論、做出決定，再好的想法都只會留在會議室裡',45.5,'底波拉','先把大家帶回要決定的事情，該定的就定下來'],['B','照顧者','我覺得大家今天好像都有一些情緒，我想先聽聽是不是有什麼話還沒說出來','關係','事情可以晚一點決定，但如果團隊開始不敢說真話，問題通常只會越來越深',29.0,'巴拿巴','先讓大家敢說真話，會議才真的有可能往前走'],['C','顧問','我先確認一下，我們現在真正卡住的是哪一個問題？','盲點','有時候大家不是沒有答案，而是一直回答錯的問題',9.2,'所羅門','先把真正的問題找出來，不然再談兩小時也一樣'],['D','催化劑','我們先不要被原本那幾個方案綁住，如果全部重來一次，還有沒有別的做法？','突破口','當討論陷入僵局，換一個框架可能比繼續爭同一件事更有效',16.2,'彼得','既然卡住了，不如先換個方法試試看']]},
+{key:'conflict',tab:'教會八卦',scenario:'兩位會友最近鬧得很僵。事情本來只是私人衝突，但小組裡已經開始出現不同版本的故事，甚至有人問你：「牧師，你應該知道到底是誰有問題吧？」',q:'如果今天你是牧者，你會怎麼介入？',opts:[['A','法官','先不要再傳了，我會把雙方找來，我們把事實跟聖經原則一起講清楚','是非與界線','和好不等於模糊責任，有些事情需要被清楚說明',14.3,'保羅','先把真相和原則講清楚，合一不是假裝什麼都沒發生'],['B','和事佬','現在最重要的是不要再讓關係繼續撕裂，我希望大家先停下來，彼此留一點空間','合一','如果所有人都只想證明自己沒有錯，最後可能誰都贏了，教會卻輸了',28.5,'巴拿巴','先別急著分輸贏，關係如果全斷了就更難談'],['C','醫生','我比較想知道，為什麼這件事情會傷成這樣，我想分別跟他們談談','傷口','八卦和衝突常常不是病因，而是某個更深問題浮到表面的症狀',26.3,'以利沙','我想先看看傷口在哪裡，不只是處理表面的爭吵'],['D','隱士','我會把原則講清楚，但他們也需要學習自己面對，不是每次都由牧者當裁判','界線','不是每一個衝突都必須由牧者親自進場解決',30.8,'以利亞','有些事情我會說清楚，但不是每一場爭執我都要站進中間']]},
+{key:'money',tab:'財務決策',scenario:'教會出現一個很大的機會。如果現在投入一筆不小的預算，可能讓事工跨出很大一步；但判斷錯了，也可能讓接下來一兩年的財務變得很緊。',q:'最後大家都看著你，你的第一個反應是？',opts:[['A','務實的管家','先把現金流、最壞情況跟我們能承受的風險全部算清楚','責任','信心不是不知道代價，而是知道自己正在管理神所託付的資源',34.1,'尼希米','先把資源和風險盤清楚，忠心也包括知道我們承擔得起什麼'],['B','信心的使徒','我們先一起禱告，如果神真的清楚帶領，就不能只因為害怕風險而不走','信心','有些關鍵決定永遠不可能等到所有風險都消失才出發',16.2,'亞伯拉罕','如果神真的帶領，不能因為前面看不清楚就永遠不出發'],['C','民主的議長','這件事不能只有我一個人覺得，我希望核心同工把不同意見都講完再決定','共識','重大決定越多人需要一起承擔，就越需要讓真正的聲音進入決策',33.9,'底波拉','這不是一個人逞強的決定，先讓該說話的人都說話'],['D','創新的投資者','我想看的不是這筆錢現在花多少，而是五年後它可能把教會帶到哪裡','未來價值','資源有限，有時真正的問題不是省不省，而是值得不值得',15.7,'所羅門','別只問今天花多少，也要問這個選擇將來會結出什麼果子']]},
+{key:'rest',tab:'我累了',scenario:'最近你開始發現自己不太對勁。訊息不太想回、講道預備變得很慢、有人約你吃飯你只覺得累。有一天晚上你終於承認：「我好像真的沒有力氣了。」',q:'如果今天你是牧者，你會怎麼讓自己休息？',opts:[['A','歸隱田園','我要消失幾天，最好沒有人知道我在哪裡','安靜','不是換一個地方繼續服事，而是真的暫時不扮演牧者',45.0,'以利亞','先睡吧。不是每一次沒有力氣，都需要立刻找到屬靈答案'],['B','重返校園','我需要去學點東西，讓腦袋重新被餵飽','重新被刺激','有時候累不是因為做太多，而是太久沒有重新吸收新的東西',4.9,'保羅','也許你需要暫時從輸出的人，重新變成學習的人'],['C','呼朋引伴','我要找幾個真正懂牧者生活的人出去走走','被同行','牧者平常一直在陪別人，但自己也需要一群不用牧養的人',19.9,'巴拿巴','這次不用你照顧大家，找幾個能陪你的人就好'],['D','投入嗜好','我想做點完全跟教會沒有關係的事情','重新做一個普通人','有時候最好的安息，就是暫時不要讓人生所有事情都有事工意義',30.1,'大衛','去做一件你單純喜歡的事，不需要每件事都變成事工']]}
+];
+const tabs=document.getElementById('pastor-scene-tabs'),scenario=document.getElementById('pastor-scenario-text'),question=document.getElementById('pastor-question'),options=document.getElementById('pastor-options'),reveal=document.getElementById('pastor-reveal'),instinct=document.getElementById('pastor-instinct'),arch=document.getElementById('pastor-archetype'),explain=document.getElementById('pastor-explain'),stat=document.getElementById('pastor-stat'),advImg=document.getElementById('pastor-advisor-img'),advName=document.getElementById('pastor-advisor-name'),advQuote=document.getElementById('pastor-advisor-quote'),otherBtn=document.getElementById('pastor-other-btn'),other=document.getElementById('pastor-other');let current=0,selected=null;
+function art(name){try{return typeof getCharacterArt==='function'?getCharacterArt(name):''}catch(e){return ''}}
+function renderTabs(){tabs.replaceChildren();DATA.forEach((d,i)=>{const b=document.createElement('button');b.type='button';b.className='pastor-scene-tab'+(i===current?' is-active':'');b.textContent=d.tab;b.onclick=()=>{current=i;selected=null;render()};tabs.append(b)})}
+function choose(i){selected=i;const d=DATA[current],o=d.opts[i];[...options.children].forEach((b,j)=>{b.classList.toggle('is-selected',j===i);b.classList.toggle('is-muted',j!==i)});instinct.textContent=o[3];arch.textContent=o[1];explain.textContent=o[4];stat.textContent=`這次牧者樣本中，${o[5].toFixed(1)}% 選了相同方向`;advName.textContent=o[6];advQuote.textContent=o[7];const src=art(o[6]);if(src){advImg.src=src;advImg.alt=`${o[6]}的聖經人物插圖`;advImg.hidden=false}else advImg.hidden=true;other.hidden=true;otherBtn.textContent='聽聽另外三位怎麼說 →';reveal.hidden=false;reveal.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function render(){const d=DATA[current];renderTabs();scenario.textContent=d.scenario;question.textContent=d.q;options.replaceChildren();d.opts.forEach((o,i)=>{const b=document.createElement('button');b.type='button';b.className='pastor-option';b.innerHTML=`<b>${o[0]}</b>${o[2]}`;b.onclick=()=>choose(i);options.append(b)});reveal.hidden=true;other.hidden=true}
+otherBtn.onclick=()=>{const d=DATA[current];if(!other.hidden){other.hidden=true;otherBtn.textContent='聽聽另外三位怎麼說 →';return}other.replaceChildren();d.opts.forEach((o,i)=>{if(i===selected)return;const x=document.createElement('button');x.type='button';x.className='pastor-other-item';x.setAttribute('aria-label',`切換成${o[6]}的完整顧問卡`);const src=art(o[6]);x.innerHTML=`<div class="pastor-other-art">${src?`<img src="${src}" alt="${o[6]}的聖經人物插圖">`:''}</div><div class="pastor-other-copy"><b class="pastor-other-name">${o[6]}</b><span class="pastor-other-role">${o[1]}｜${o[5].toFixed(1)}%</span><span class="pastor-other-instinct">先看見：${o[3]}</span><p>「${o[7]}」</p></div>`;x.onclick=()=>{choose(i);requestAnimationFrame(()=>{other.hidden=false;otherBtn.textContent='收起另外三位 ↑';otherBtn.onclick() ; otherBtn.onclick();});};other.append(x)});const hint=document.createElement('div');hint.className='pastor-other-hint';hint.textContent='點人物，可以切換成他的完整顧問卡';other.append(hint);other.hidden=false;otherBtn.textContent='收起另外三位 ↑'};
+viewBtns.forEach(b=>b.onclick=()=>{const isPastor=b.dataset.theaterView==='pastor';section.classList.toggle('is-pastor-view',isPastor);pastor.hidden=!isPastor;intro.hidden=!isPastor;viewBtns.forEach(x=>{const a=x===b;x.classList.toggle('is-active',a);x.setAttribute('aria-selected',String(a))});if(isPastor&&!tabs.children.length)render()});render();
+})();</script>
 </body>
 </html>
