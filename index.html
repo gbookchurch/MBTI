@@ -8858,8 +8858,14 @@ section > .divider {
                         
                         // 手機上自動隱藏卡片區域，顯示結果
                         if (window.innerWidth <= 600) {
-                            // 1. 隱藏選擇器
-                            document.querySelector('.mbti-picker').style.display = 'none';
+                            // 1. 隱藏 16 張卡片和下拉框（但保留 fieldset）
+                            const gridDiv = document.querySelector('.mbti-picker-grid');
+                            const mobileDiv = document.querySelector('.mbti-picker-mobile');
+                            const randomDiv = document.querySelector('.random-mbti-wrapper');
+                            
+                            if (gridDiv) gridDiv.style.display = 'none';
+                            if (mobileDiv) mobileDiv.style.display = 'none';
+                            if (randomDiv) randomDiv.style.display = 'none';
                             
                             // 2. 顯示結果
                             const resultDiv = document.getElementById('mbti-lookup-result');
@@ -8876,23 +8882,30 @@ section > .divider {
                                 backBtn.className = 'mbti-back-button';
                                 backBtn.textContent = '← 返回選擇其他類型';
                                 backBtn.type = 'button';
+                                backBtn.style.display = 'block';
+                                backBtn.style.marginTop = '16px';
                                 resultDiv.parentNode.insertBefore(backBtn, resultDiv.nextSibling);
                                 
                                 // 返回按鈕點擊事件
                                 backBtn.addEventListener('click', function() {
-                                    document.querySelector('.mbti-picker').style.display = 'block';
+                                    if (gridDiv) gridDiv.style.display = '';
+                                    if (mobileDiv) mobileDiv.style.display = 'block';
+                                    if (randomDiv) randomDiv.style.display = '';
                                     resultDiv.style.display = 'none';
                                     this.style.display = 'none';
                                     mobileSelect.value = '';
                                 });
+                            } else {
+                                backBtn.style.display = 'block';
                             }
-                            backBtn.style.display = 'block';
                             
-                            // 4. 向上滾動到選擇器區域
-                            document.querySelector('.mbti-lookup-shell').scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
+                            // 4. 向上滾動到結果區域
+                            setTimeout(function() {
+                                resultDiv.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 300);
                         }
                     }
                 }
