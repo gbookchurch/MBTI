@@ -5396,6 +5396,216 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v108-theater-control-and-stage-polish">
+/* ===== V108｜人物劇場：控制區統一 × 人名移至人物舞台 × 桌機插圖置中 ===== */
+#temperament-section .temperament-theater-controls {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    border: 1px solid rgba(70,59,51,.10);
+    border-radius: 20px;
+    background: #F8F6F1;
+    box-shadow: 0 8px 22px rgba(52,42,35,.045);
+}
+#temperament-section .temperament-theater-controls .temperament-theater-scenario,
+#temperament-section .temperament-theater-controls .temperament-theater-selector {
+    max-width: none;
+    margin: 0 !important;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+#temperament-section .temperament-theater-controls .temperament-theater-scenario {
+    padding: 16px 18px 12px;
+}
+#temperament-section .temperament-theater-controls .temperament-theater-selector {
+    padding: 12px 18px 16px;
+    border-top: 1px solid rgba(70,59,51,.065);
+}
+
+/* 三層控制按鈕共用同一套外型。 */
+#temperament-section .temperament-theater-scene,
+#temperament-section .temperament-theater-group,
+#temperament-section .temperament-theater-character {
+    border: 1px solid rgba(70,59,51,.13);
+    border-radius: 12px;
+    background: rgba(255,254,251,.94);
+    color: #625950;
+    box-shadow: none;
+    transform: none;
+    transition: background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+#temperament-section .temperament-theater-scene,
+#temperament-section .temperament-theater-character {
+    min-height: 40px;
+    padding: 8px 12px;
+}
+#temperament-section .temperament-theater-group {
+    min-height: 70px;
+    padding: 10px 8px 9px;
+}
+#temperament-section .temperament-theater-scene:hover,
+#temperament-section .temperament-theater-group:hover,
+#temperament-section .temperament-theater-character:hover {
+    transform: none;
+    border-color: rgba(69,107,88,.28);
+    box-shadow: 0 4px 12px rgba(52,42,35,.055);
+}
+#temperament-section .temperament-theater-scene.is-active,
+#temperament-section .temperament-theater-character.is-active {
+    background: #456B58;
+    border-color: #456B58;
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+}
+#temperament-section .temperament-theater-group.is-active {
+    box-shadow: inset 0 0 0 1px currentColor;
+}
+#temperament-section .temperament-theater-scenes,
+#temperament-section .temperament-theater-selector .temperament-theater-groups,
+#temperament-section .temperament-theater-selector .temperament-theater-characters {
+    gap: 8px;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-characters {
+    max-width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(70,59,51,.055);
+}
+
+/* 左欄變成完整人物舞台：姓名在上、人物居中。 */
+#temperament-section .temperament-theater-art-wrap {
+    min-height: 350px;
+    padding: 24px 16px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+#temperament-section .temperament-theater-art-name {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: var(--theater-deep);
+    font-size: clamp(1.48rem, 2.4vw, 1.9rem);
+    font-weight: 950;
+    line-height: 1.05;
+    letter-spacing: -.035em;
+    text-align: center;
+}
+#temperament-section .temperament-theater-art {
+    width: min(88%, 220px);
+    max-height: 285px;
+    object-position: center center;
+    transform: none;
+}
+#temperament-section .temperament-theater-art-wrap::after {
+    bottom: 28px;
+}
+#temperament-section .temperament-theater-identity {
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+#temperament-section .temperament-theater-identity .temperament-theater-meta {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+@media (max-width: 720px) {
+    #temperament-section .temperament-theater-mobile-panel {
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+    #temperament-section .temperament-theater-controls {
+        margin: 0 0 11px;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(52,42,35,.055);
+    }
+    #temperament-section .temperament-theater-controls .temperament-theater-scenario {
+        padding: 10px 10px 8px;
+    }
+    #temperament-section .temperament-theater-controls .temperament-theater-selector {
+        padding: 8px 10px 10px;
+    }
+    #temperament-section .temperament-theater-scene,
+    #temperament-section .temperament-theater-selector .temperament-theater-group,
+    #temperament-section .temperament-theater-selector .temperament-theater-character {
+        border-radius: 10px;
+        box-shadow: none;
+    }
+    #temperament-section .temperament-theater-scene,
+    #temperament-section .temperament-theater-selector .temperament-theater-character {
+        min-height: 34px;
+        padding: 6px 9px;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-group {
+        min-height: 38px;
+        padding: 7px 4px 6px;
+    }
+    #temperament-section .temperament-theater-scenes,
+    #temperament-section .temperament-theater-selector .temperament-theater-groups,
+    #temperament-section .temperament-theater-selector .temperament-theater-characters {
+        gap: 6px;
+    }
+    #temperament-section .temperament-theater-card {
+        grid-template-columns: 116px minmax(0,1fr);
+        margin: 0 0 10px !important;
+    }
+    #temperament-section .temperament-theater-art-wrap {
+        min-height: 0;
+        height: auto;
+        padding: 14px 6px 12px;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+    #temperament-section .temperament-theater-art-name {
+        max-width: 108px;
+        font-size: 1.1rem;
+        line-height: 1.08;
+        text-wrap: balance;
+    }
+    #temperament-section .temperament-theater-art {
+        width: min(96%, 108px);
+        max-height: 137px;
+        object-position: center center;
+        transform: none;
+    }
+    #temperament-section .temperament-theater-art-wrap::after {
+        display: none;
+    }
+    #temperament-section .temperament-theater-dialogue {
+        padding-left: 7px;
+    }
+    #temperament-section .temperament-theater-identity {
+        margin-bottom: 7px;
+    }
+    #temperament-section .temperament-theater-identity .temperament-theater-meta {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 370px) {
+    #temperament-section .temperament-theater-card {
+        grid-template-columns: 103px minmax(0,1fr);
+    }
+    #temperament-section .temperament-theater-art-name {
+        max-width: 96px;
+        font-size: 1rem;
+    }
+    #temperament-section .temperament-theater-art {
+        width: min(95%, 96px);
+        max-height: 126px;
+    }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7340,6 +7550,7 @@ section > .section-title {
 <p class="temperament-theater-subtitle">同一個教會現場，每個人先看到的都不一樣。</p>
 <div class="divider temperament-theater-divider"></div>
 <div class="temperament-theater-mobile-panel">
+<div class="temperament-theater-controls">
 <div class="temperament-theater-scenario" aria-label="切換教會情境">
 <div class="temperament-theater-scenes-inline" aria-label="切換教會情境">
 <div class="temperament-theater-scenes-row">
@@ -7378,8 +7589,10 @@ section > .section-title {
 <p id="temperament-theater-observation-text">哪裡失去秩序、誰需要補位，以及怎麼把事情重新穩住。</p>
 </aside>
 </div>
+</div>
 <article class="temperament-theater-card is-sj" id="temperament-theater-card" aria-live="polite">
 <div class="temperament-theater-art-wrap">
+<h3 class="temperament-theater-art-name" id="temperament-theater-name">摩西</h3>
 <img alt="" class="temperament-theater-art" decoding="async" id="temperament-theater-art" loading="lazy"/>
 </div>
 <div class="temperament-theater-dialogue">
@@ -7388,7 +7601,6 @@ section > .section-title {
 <p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
 </div>
 <div class="temperament-theater-identity">
-<h3 id="temperament-theater-name">摩西</h3>
 <div class="temperament-theater-meta">
 <span class="temperament-theater-group-badge" id="temperament-theater-group-badge">SJ 穩定派</span>
 <span class="temperament-theater-type" id="temperament-theater-type">ESTJ</span>
