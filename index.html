@@ -6033,6 +6033,70 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v132-pastor-axis-mini">
+/* v132：把牧者答案的四軸判定做成精簡迷你條，讓 MBTI 結果來源一眼可讀 */
+.pastor-axis-mini{
+  max-width:610px;
+  margin:11px auto 13px;
+  padding:10px 12px 11px;
+  border-radius:12px;
+  background:#F6F2EA;
+  border:1px solid #E5DDD1;
+}
+.pastor-axis-mini-title{
+  margin:0 0 7px;
+  color:#5B554E;
+  font-size:.78rem;
+  font-weight:900;
+  text-align:center;
+}
+.pastor-axis-list{
+  display:grid;
+  gap:6px;
+}
+.pastor-axis-row{
+  display:grid;
+  grid-template-columns:50px minmax(110px,1fr) 50px;
+  align-items:center;
+  gap:7px;
+}
+.pastor-axis-label{
+  font-size:.70rem;
+  font-weight:900;
+  color:#665E56;
+  white-space:nowrap;
+}
+.pastor-axis-label:first-child{text-align:right}
+.pastor-axis-label:last-child{text-align:left}
+.pastor-axis-label strong{
+  color:#456858;
+  font-size:.82rem;
+}
+.pastor-axis-track{
+  display:flex;
+  height:7px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#E8E1D7;
+  box-shadow:inset 0 0 0 1px rgba(70,59,51,.04);
+}
+.pastor-axis-left{background:#6E8A7B}
+.pastor-axis-right{background:#D8C7A0}
+.pastor-axis-mini-note{
+  margin:7px auto 0!important;
+  color:#968C82!important;
+  font-size:.63rem!important;
+  line-height:1.45!important;
+  text-align:center!important;
+}
+@media(max-width:620px){
+  .pastor-axis-mini{padding:9px 8px 10px}
+  .pastor-axis-row{grid-template-columns:44px minmax(90px,1fr) 44px;gap:5px}
+  .pastor-axis-label{font-size:.65rem}
+  .pastor-axis-label strong{font-size:.76rem}
+}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8079,6 +8143,11 @@ section > .section-title {
           <em id="pastor-confidence"></em>
         </div>
         <p class="pastor-model-note" id="pastor-model-note"></p>
+        <div class="pastor-axis-mini" id="pastor-axis-mini" aria-label="這個回答的 MBTI 四軸訊號">
+          <p class="pastor-axis-mini-title">這個回答透露了什麼？</p>
+          <div class="pastor-axis-list" id="pastor-axis-list"></div>
+          <p class="pastor-axis-mini-note">每一列會把訊號較強的一側放左邊；數字是本頁文字判讀模型，不是問卷實測比例</p>
+        </div>
         <div class="pastor-candidate-grid" id="pastor-candidates"></div>
         <p class="pastor-model-caption">「類型符合度」是依 I/E、S/N、T/F、J/P 四軸試算的模型結果，不是原始問卷實測的 MBTI 機率</p>
       </div>
@@ -12182,6 +12251,7 @@ stat=document.getElementById('pastor-stat'),
 signal=document.getElementById('pastor-mbti-signal'),
 confidence=document.getElementById('pastor-confidence'),
 modelNote=document.getElementById('pastor-model-note'),
+axisList=document.getElementById('pastor-axis-list'),
 candidates=document.getElementById('pastor-candidates'),
 advImg=document.getElementById('pastor-advisor-img'),
 advName=document.getElementById('pastor-advisor-name'),
@@ -12193,6 +12263,21 @@ other=document.getElementById('pastor-other');
 let current=0,selected=null,activeCandidate=0;
 
 function art(name){try{return typeof getCharacterArt==='function'?getCharacterArt(name):''}catch(e){return ''}}
+
+function renderAxes(axis){
+  if(!axisList)return;
+  axisList.replaceChildren();
+  [['I','E'],['S','N'],['T','F'],['J','P']].forEach(([a,b])=>{
+    let left=a,right=b;
+    if(axis[b]>axis[a]){left=b;right=a}
+    const lp=axis[left],rp=axis[right];
+    const row=document.createElement('div');
+    row.className='pastor-axis-row';
+    row.setAttribute('aria-label',`${left} ${lp}，${right} ${rp}`);
+    row.innerHTML=`<span class="pastor-axis-label"><strong>${left}</strong> ${lp}</span><span class="pastor-axis-track" aria-hidden="true"><span class="pastor-axis-left" style="width:${lp}%"></span><span class="pastor-axis-right" style="width:${rp}%"></span></span><span class="pastor-axis-label"><strong>${right}</strong> ${rp}</span>`;
+    axisList.append(row);
+  });
+}
 
 function modelDistribution(axis){
   return ALL_TYPES.map(type=>{
@@ -12307,6 +12392,7 @@ function choose(i){
   signal.textContent=o.signal;
   confidence.textContent=`判定信心：${o.confidence}`;
   modelNote.textContent=o.note;
+  renderAxes(o.axis);
   renderCandidates(d,i);
   other.hidden=true;
   otherBtn.textContent='聽聽另外三種回答怎麼說 →';
