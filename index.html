@@ -8160,6 +8160,14 @@ section > .section-title {
     </div>
   </article>
   <p class="pastor-note">本題作答比例來自原始牧者題目，選擇後才揭曉；MBTI 類型符合度則是依四軸試算模型計算，兩者不是同一組數據，也不代表牧者被固定分成四種類型</p>
+  <section class="pastor-instinct-record" id="pastor-instinct-record" hidden aria-live="polite">
+    <div class="pastor-record-head">
+      <div><p class="pastor-record-kicker">5 SCENES｜五個情境</p><h3 class="pastor-record-title">你的牧養直覺紀錄</h3></div>
+      <span class="pastor-record-complete">5 / 5 完成</span>
+    </div>
+    <div class="pastor-record-list" id="pastor-record-list"></div>
+    <p class="pastor-record-foot"><strong>你不需要在每個情境裡都像同一種人。</strong><br>這五題記錄的是你在不同壓力裡「先看見什麼」，不是把你算成一個固定的牧者類型。</p>
+  </section>
 </div>
 <p class="temperament-theater-footnote theater-lay-only"><span>四群人數是把本次 28,796 位平信徒的比例</span><span>換算成 100 人並四捨五入，合計約 100 人。</span></p>
 </section><section class="final-hub" id="final-cta" aria-label="再測一次與教會小本本資訊">
@@ -12191,6 +12199,134 @@ section > .divider {
 }
 </style>
 
+<style id="v133-pastor-instinct-record">
+.pastor-scene-tab.is-done:not(.is-active){
+  border-color:#B9C9C0;
+  background:#F5F8F5;
+  color:#506A5D;
+}
+.pastor-scene-tab.is-done::after{
+  content:'✓';
+  display:inline-block;
+  margin-left:5px;
+  font-size:.72em;
+  font-weight:900;
+}
+.pastor-instinct-record{
+  max-width:900px;
+  margin:18px auto 4px;
+  padding:20px;
+  border:1px solid #D8D1C7;
+  border-radius:22px;
+  background:linear-gradient(180deg,#FFFEFB 0%,#F7F4EE 100%);
+  box-shadow:0 10px 24px rgba(52,42,35,.055);
+}
+.pastor-instinct-record[hidden]{display:none}
+.pastor-record-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+}
+.pastor-record-kicker{
+  margin:0 0 3px;
+  color:#8A8178;
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.09em;
+}
+.pastor-record-title{
+  margin:0;
+  color:#405D50;
+  font-size:1.28rem;
+  line-height:1.25;
+}
+.pastor-record-complete{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#E8F0EB;
+  color:#456858;
+  font-size:.72rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+.pastor-record-list{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+}
+.pastor-record-item{
+  min-width:0;
+  padding:11px 10px 12px;
+  border:1px solid #E3DDD4;
+  border-radius:14px;
+  background:rgba(255,255,255,.78);
+  text-align:center;
+}
+.pastor-record-scene{
+  display:block;
+  color:#857B72;
+  font-size:.68rem;
+  font-weight:800;
+  line-height:1.25;
+}
+.pastor-record-signal{
+  display:block;
+  margin:6px 0 3px;
+  color:#405D50;
+  font-size:1.02rem;
+  font-weight:950;
+  letter-spacing:.02em;
+}
+.pastor-record-instinct{
+  display:block;
+  color:#4F4944;
+  font-size:.78rem;
+  font-weight:850;
+  line-height:1.35;
+}
+.pastor-record-role{
+  display:block;
+  margin-top:3px;
+  color:#958B82;
+  font-size:.64rem;
+  line-height:1.3;
+}
+.pastor-record-foot{
+  margin:14px 4px 0;
+  padding-top:12px;
+  border-top:1px solid #E5DED5;
+  color:#756D65;
+  font-size:.8rem;
+  line-height:1.65;
+  text-align:center;
+}
+.pastor-record-foot strong{color:#405D50}
+@media(max-width:720px){
+  .pastor-instinct-record{padding:15px 12px 16px;border-radius:18px}
+  .pastor-record-head{align-items:center}
+  .pastor-record-title{font-size:1.14rem}
+  .pastor-record-list{grid-template-columns:1fr;gap:7px}
+  .pastor-record-item{
+    display:grid;
+    grid-template-columns:80px 62px minmax(0,1fr);
+    grid-template-areas:'scene signal instinct' 'scene signal role';
+    align-items:center;
+    column-gap:7px;
+    padding:9px 10px;
+    text-align:left;
+  }
+  .pastor-record-scene{grid-area:scene}
+  .pastor-record-signal{grid-area:signal;margin:0;text-align:center;font-size:.94rem}
+  .pastor-record-instinct{grid-area:instinct;font-size:.76rem}
+  .pastor-record-role{grid-area:role;margin-top:1px;font-size:.62rem}
+}
+</style>
+
 <script id="v131-pastor-theater-mbti-model-js">
 (()=>{
 const section=document.getElementById('temperament-section');if(!section)return;
@@ -12258,8 +12394,11 @@ advName=document.getElementById('pastor-advisor-name'),
 advType=document.getElementById('pastor-advisor-type'),
 advQuote=document.getElementById('pastor-advisor-quote'),
 otherBtn=document.getElementById('pastor-other-btn'),
-other=document.getElementById('pastor-other');
+other=document.getElementById('pastor-other'),
+record=document.getElementById('pastor-instinct-record'),
+recordList=document.getElementById('pastor-record-list');
 
+const answers=Array(DATA.length).fill(null);
 let current=0,selected=null,activeCandidate=0;
 
 function art(name){try{return typeof getCharacterArt==='function'?getCharacterArt(name):''}catch(e){return ''}}
@@ -12330,14 +12469,29 @@ function orderedCandidates(d,optionIndex){
   return list;
 }
 
+function renderRecord(){
+  if(!record||!recordList)return;
+  const complete=answers.every(v=>v!==null);
+  if(!complete){record.hidden=true;return}
+  recordList.replaceChildren();
+  DATA.forEach((d,i)=>{
+    const o=d.opts[answers[i]];
+    const item=document.createElement('div');
+    item.className='pastor-record-item';
+    item.innerHTML=`<span class="pastor-record-scene">${d.tab}</span><strong class="pastor-record-signal">${o.signal}</strong><span class="pastor-record-instinct">先看見：${o.instinct}</span><small class="pastor-record-role">${o.role}</small>`;
+    recordList.append(item);
+  });
+  record.hidden=false;
+}
+
 function renderTabs(){
   tabs.replaceChildren();
   DATA.forEach((d,i)=>{
     const b=document.createElement('button');
     b.type='button';
-    b.className='pastor-scene-tab'+(i===current?' is-active':'');
+    b.className='pastor-scene-tab'+(i===current?' is-active':'')+(answers[i]!==null?' is-done':'');
     b.textContent=d.tab;
-    b.onclick=()=>{current=i;selected=null;activeCandidate=0;render()};
+    b.onclick=()=>{current=i;selected=answers[i];activeCandidate=0;render()};
     tabs.append(b);
   });
 }
@@ -12378,8 +12532,9 @@ function renderCandidates(d,optionIndex){
   return ranked;
 }
 
-function choose(i){
+function choose(i,{scroll=true}={}){
   selected=i;activeCandidate=0;
+  answers[current]=i;
   const d=DATA[current],o=d.opts[i];
   [...options.children].forEach((b,j)=>{
     b.classList.toggle('is-selected',j===i);
@@ -12397,7 +12552,9 @@ function choose(i){
   other.hidden=true;
   otherBtn.textContent='聽聽另外三種回答怎麼說 →';
   reveal.hidden=false;
-  reveal.scrollIntoView({behavior:'smooth',block:'nearest'});
+  renderTabs();
+  renderRecord();
+  if(scroll)reveal.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function render(){
@@ -12416,6 +12573,8 @@ function render(){
   });
   reveal.hidden=true;
   other.hidden=true;
+  renderRecord();
+  if(selected!==null)choose(selected,{scroll:false});
 }
 
 otherBtn.onclick=()=>{
