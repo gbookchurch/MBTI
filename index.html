@@ -4562,6 +4562,32 @@ section > .section-title {
 @media (max-width: 780px){.rank-compare-cell{padding:11px 8px !important;grid-template-columns:34px minmax(0,1fr) 16px !important;column-gap:7px;row-gap:1px;min-height:74px !important;}.rank-compare-thumb{width:34px;height:34px;border-radius:10px;}.rank-compare-copy{gap:1px;}}
 </style>
 
+
+<style id="rank-avatar-v98-styles">
+.rank-compare-thumb{
+  width:48px !important;
+  height:48px !important;
+  border-radius:50% !important;
+  overflow:hidden !important;
+  background:#F3EDE4 !important;
+  border:2px solid rgba(214,182,106,.55) !important;
+  box-shadow:0 4px 10px rgba(58,42,30,.10) !important;
+}
+.rank-compare-thumb img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 16% !important;
+  transform:scale(1.55) !important;
+  transform-origin:center 22% !important;
+}
+.rank-compare-cell-lay .rank-compare-thumb{border-color:rgba(69,107,88,.42) !important;}
+.rank-compare-cell-pastor .rank-compare-thumb{border-color:rgba(180,95,60,.46) !important;}
+@media (max-width:780px){
+  .rank-compare-thumb{width:36px !important;height:36px !important;}
+  .rank-compare-thumb img{object-position:center 15% !important;transform:scale(1.58) !important;}
+}
+</style>
 </head>
 <body>
 <!-- HERO -->
