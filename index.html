@@ -12088,24 +12088,41 @@ section > .divider {
 }
 </style>
 
-<style id="v125-pastor-other-advisors">
-/* V125｜其他三位聖經人物顧問卡 */
+<style id="v131-pastor-other-advisors">
+/* V131｜另外三種回答：先看完整候選人物數量與 MBTI／姓名，點開才看細節 */
 .pastor-other-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:9px 14px;border:1px solid #D9D1C5!important;border-radius:999px!important;background:#FBFAF7!important;color:#506A5D!important}
 .pastor-other{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px!important;margin-top:14px!important}
-.pastor-other-item{border:1px solid #E1D9CE!important;border-radius:15px;padding:10px!important;background:#FFFDF9;display:grid;grid-template-columns:68px minmax(0,1fr);gap:9px;align-items:center;cursor:pointer;transition:.18s ease}
+.pastor-other-item{border:1px solid #E1D9CE!important;border-radius:15px;padding:12px!important;background:#FFFDF9;display:block;text-align:left;cursor:pointer;transition:.18s ease;min-width:0}
 .pastor-other-item:hover,.pastor-other-item:focus-visible{border-color:#8AA093!important;background:#F7FAF7;transform:translateY(-1px);outline:none}
-.pastor-other-art{width:68px;height:88px;display:grid;place-items:center;overflow:hidden}
-.pastor-other-art img{width:100%;height:100%;object-fit:contain;display:block}
-.pastor-other-copy{min-width:0}
-.pastor-other-name{display:block;color:#4E6258!important;font-size:.98rem;font-weight:900}
-.pastor-other-role{display:block;margin-top:1px;color:#81776E!important;font-size:.72rem!important}
-.pastor-other-instinct{display:inline-block;margin-top:5px;padding:3px 7px;border-radius:999px;background:#F1EDE6;color:#6E655D;font-size:.7rem;font-weight:800}
-.pastor-other-item p{margin:6px 0 0!important;font-size:.82rem;line-height:1.45!important;color:#554F49!important}
+.pastor-other-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.pastor-other-role-title{color:#4E6258;font-size:.9rem;font-weight:900;line-height:1.25}
+.pastor-other-count{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;padding:3px 7px;border-radius:999px;background:#F1EDE6;color:#736960;font-size:.66rem;font-weight:850;white-space:nowrap}
+.pastor-other-people{display:grid;gap:7px;align-items:start;justify-content:center}
+.pastor-other-people[data-count="1"]{grid-template-columns:minmax(74px,104px)}
+.pastor-other-people[data-count="2"]{grid-template-columns:repeat(2,minmax(64px,1fr))}
+.pastor-other-people[data-count="3"]{grid-template-columns:repeat(3,minmax(58px,1fr))}
+.pastor-other-people[data-count="4"]{grid-template-columns:repeat(2,minmax(64px,1fr))}
+.pastor-other-person{min-width:0;text-align:center;padding:5px 2px;border-radius:10px}
+.pastor-other-person-art{width:52px;height:66px;display:grid;place-items:center;overflow:hidden;margin:0 auto 3px}
+.pastor-other-person-art img{width:100%;height:100%;object-fit:contain;display:block}
+.pastor-other-person-type{display:block;color:#4E6258;font-size:.72rem;font-weight:900;line-height:1.15}
+.pastor-other-person-name{display:block;margin-top:2px;color:#655D56;font-size:.7rem;font-weight:750;line-height:1.2;word-break:keep-all}
 .pastor-other-hint{grid-column:1/-1;margin:1px 2px 0;color:#978D84;font-size:.68rem;text-align:center}
-@media(max-width:720px){.pastor-other{grid-template-columns:1fr!important}.pastor-other-item{grid-template-columns:76px minmax(0,1fr);padding:9px 10px!important}.pastor-other-art{width:76px;height:94px}.pastor-other-item p{font-size:.84rem!important}}
+@media(max-width:720px){
+  .pastor-other{grid-template-columns:1fr!important}
+  .pastor-other-item{padding:11px 12px!important}
+  .pastor-other-people[data-count="4"]{grid-template-columns:repeat(4,minmax(56px,1fr))}
+  .pastor-other-person-art{width:56px;height:70px}
+  .pastor-other-person-type{font-size:.74rem}
+  .pastor-other-person-name{font-size:.72rem}
+}
+@media(max-width:390px){
+  .pastor-other-people[data-count="3"]{grid-template-columns:repeat(3,minmax(52px,1fr))}
+  .pastor-other-people[data-count="4"]{grid-template-columns:repeat(2,minmax(62px,1fr))}
+}
 </style>
 
-<script id="v130-pastor-theater-mbti-model-js">
+<script id="v131-pastor-theater-mbti-model-js">
 (()=>{
 const section=document.getElementById('temperament-section');if(!section)return;
 const pastor=document.getElementById('pastor-theater'),
@@ -12185,7 +12202,7 @@ function modelDistribution(axis){
   }).sort((a,b)=>b.score-a.score);
 }
 
-/* V130｜同一情境的「代表人物」去重規則
+/* V130+｜同一情境的「代表人物」去重規則
    - show:1 的高辨識答案先固定代表人物。
    - 多候選答案若最高分完全同分，優先從同分者中選尚未被本情境其他答案當代表的人物。
    - 只調整「代表顯示」與同分排序，不改四軸、符合度、候選集合或原始作答比例。 */
@@ -12323,22 +12340,26 @@ otherBtn.onclick=()=>{
     return;
   }
   other.replaceChildren();
-  const reps=sceneRepresentatives(d);
   d.opts.forEach((o,i)=>{
     if(i===selected)return;
-    const top=reps[i]||candidateList(o)[0];
+    const ranked=orderedCandidates(d,i);
     const x=document.createElement('button');
     x.type='button';
     x.className='pastor-other-item';
-    x.setAttribute('aria-label',`切換到${o.role}的完整結果`);
-    const src=art(top.character);
-    x.innerHTML=`<div class="pastor-other-art">${src?`<img src="${src}" alt="${top.type} ${top.character}的聖經人物插圖">`:''}</div><div class="pastor-other-copy"><b class="pastor-other-name">${top.character}</b><span class="pastor-other-type">${top.type}｜${o.signal}</span><span class="pastor-other-role">${o.role}｜本題作答 ${o.survey.toFixed(1)}%</span><span class="pastor-other-model">最高類型符合度 ${(top.score*100).toFixed(1)}%${o.show>1?`｜另有 ${o.show-1} 個主要候選`:''}</span><span class="pastor-other-instinct">先看見：${o.instinct}</span><p>「${o.quote}」</p></div>`;
+    x.setAttribute('aria-label',`切換到${o.role}的完整結果，共 ${ranked.length} 位可能人物`);
+
+    const people=ranked.map(c=>{
+      const src=art(c.character);
+      return `<span class="pastor-other-person"><span class="pastor-other-person-art">${src?`<img src="${src}" alt="${c.type} ${c.character}的聖經人物插圖">`:''}</span><span class="pastor-other-person-type">${c.type}</span><span class="pastor-other-person-name">${c.character}</span></span>`;
+    }).join('');
+
+    x.innerHTML=`<span class="pastor-other-head"><span class="pastor-other-role-title">${o.role}</span><span class="pastor-other-count">${ranked.length} 位可能類型</span></span><span class="pastor-other-people" data-count="${ranked.length}">${people}</span>`;
     x.onclick=()=>{choose(i);requestAnimationFrame(()=>{other.hidden=true;otherBtn.textContent='聽聽另外三種回答怎麼說 →'})};
     other.append(x);
   });
   const hint=document.createElement('div');
   hint.className='pastor-other-hint';
-  hint.textContent='點其中一張，可切換到該回答並查看完整 MBTI 候選；同分候選會優先錯開代表人物，但完整候選與符合度不變';
+  hint.textContent='先看每個回答實際有幾個主要候選；點開後再看符合度、作答比例與完整說明';
   other.append(hint);
   other.hidden=false;
   otherBtn.textContent='收起另外三種回答 ↑';
