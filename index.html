@@ -4820,6 +4820,274 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v104-theater-mobile-integrated-panel">
+/* ===== V104｜人物劇場手機整合：場景 × 派別 × 人物 × 台詞同一互動面板 ===== */
+#temperament-section .temperament-theater-mobile-panel {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+    #temperament-section.temperament-theater-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #temperament-section .temperament-theater-mobile-panel {
+        margin: 12px auto 0;
+        overflow: hidden;
+        border: 1px solid rgba(70,59,51,.12);
+        border-radius: 22px;
+        background: #FFFEFB;
+        box-shadow: 0 12px 28px rgba(52,42,35,.075);
+    }
+
+    /* 目前場景直接成為整張互動面板的控制列 */
+    #temperament-section .temperament-theater-scenario {
+        max-width: none;
+        margin: 0 !important;
+        padding: 13px 13px 10px;
+        border: 0;
+        border-radius: 0;
+        background: #F7F4EC;
+        box-shadow: none;
+        text-align: left;
+    }
+    #temperament-section .temperament-theater-scenario-label {
+        display: block;
+        margin: 0 0 4px;
+        color: #6C645C;
+        font-size: .66rem;
+        font-weight: 800;
+        letter-spacing: .06em;
+    }
+    #temperament-section .temperament-theater-scenario p {
+        text-align: left !important;
+        font-size: .86rem;
+        font-weight: 720;
+        line-height: 1.48 !important;
+    }
+    #temperament-section .temperament-theater-scenes-inline {
+        margin-top: 9px;
+        padding-top: 9px;
+    }
+    #temperament-section .temperament-theater-scenes {
+        gap: 6px;
+        padding: 1px 0 5px;
+    }
+    #temperament-section .temperament-theater-scene {
+        min-height: 32px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: .72rem;
+        font-weight: 780;
+    }
+    #temperament-section .temperament-theater-random {
+        margin: 2px 0 0 auto;
+        padding: 5px 8px;
+        border: 0;
+        background: transparent;
+        font-size: .68rem;
+        font-weight: 750;
+        box-shadow: none;
+    }
+    #temperament-section .temperament-theater-scenario small {
+        margin-top: 6px;
+        font-size: .64rem;
+        line-height: 1.4;
+    }
+
+    /* 四派切換精簡為一排，不再讓人數 / 百分比吃掉首屏 */
+    #temperament-section .temperament-theater-selector {
+        max-width: none;
+        margin: 0 !important;
+        padding: 9px 11px 8px;
+        border: 0;
+        border-top: 1px solid rgba(70,59,51,.08);
+        border-radius: 0;
+        background: rgba(255,254,251,.96);
+        box-shadow: none;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-groups {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: 5px;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-group {
+        min-width: 0;
+        min-height: 38px;
+        padding: 7px 3px 6px;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-group span {
+        font-size: .67rem;
+        font-weight: 800;
+        line-height: 1.15;
+        white-space: nowrap;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-group span b {
+        font-size: .72rem;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-group strong,
+    #temperament-section .temperament-theater-selector .temperament-theater-group small {
+        display: none !important;
+    }
+
+    /* 人物改成很薄的水平切換列 */
+    #temperament-section .temperament-theater-selector .temperament-theater-characters {
+        margin: 7px 0 0;
+        padding: 7px 0 3px;
+        gap: 5px;
+        border-top: 1px solid rgba(70,59,51,.07);
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-character {
+        min-height: 30px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        font-size: .69rem;
+        font-weight: 760;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-character b {
+        font-size: .63rem;
+    }
+
+    /* 群體觀察收成一句，不再形成另一張大卡 */
+    #temperament-section .temperament-theater-selector .temperament-theater-observation {
+        margin: 6px 0 0;
+        padding: 7px 9px 8px;
+        border: 0;
+        border-radius: 10px;
+        text-align: left;
+    }
+    #temperament-section .temperament-theater-observation-label {
+        display: none;
+    }
+    #temperament-section .temperament-theater-observation p {
+        text-align: left !important;
+        font-size: .72rem;
+        font-weight: 680;
+        line-height: 1.45 !important;
+    }
+
+    /* 人物回應直接接在控制列下方，同一張卡完成閱讀與切換 */
+    #temperament-section .temperament-theater-card {
+        max-width: none;
+        min-height: 0;
+        margin: 0 !important;
+        display: grid;
+        grid-template-columns: 102px minmax(0, 1fr);
+        border: 0;
+        border-top: 1px solid rgba(70,59,51,.08);
+        border-radius: 0;
+        box-shadow: none;
+        overflow: hidden;
+    }
+    #temperament-section .temperament-theater-art-wrap {
+        min-height: 0;
+        height: auto;
+        padding: 12px 4px 0;
+        align-items: flex-end;
+    }
+    #temperament-section .temperament-theater-art-wrap::after {
+        width: 76%;
+        height: 10px;
+        left: 12%;
+        bottom: 7px;
+        filter: blur(4px);
+    }
+    #temperament-section .temperament-theater-art {
+        width: min(98%, 102px);
+        max-height: 148px;
+    }
+    #temperament-section .temperament-theater-dialogue {
+        min-width: 0;
+        padding: 13px 12px 12px 4px;
+        justify-content: flex-start;
+    }
+    #temperament-section .temperament-theater-meta {
+        gap: 4px;
+        margin-bottom: 5px;
+    }
+    #temperament-section .temperament-theater-group-badge,
+    #temperament-section .temperament-theater-type,
+    #temperament-section .temperament-theater-alias {
+        padding: 3px 6px;
+        font-size: .6rem;
+        font-weight: 800;
+    }
+    #temperament-section .temperament-theater-dialogue h3 {
+        margin: 1px 0 6px;
+        font-size: .9rem;
+        font-weight: 850;
+    }
+    #temperament-section .temperament-theater-dialogue blockquote {
+        font-size: 1rem;
+        font-weight: 820;
+        line-height: 1.42;
+        letter-spacing: -.015em;
+    }
+    #temperament-section .temperament-theater-mind {
+        margin-top: 9px;
+        padding: 8px 9px 9px;
+        border-radius: 10px;
+    }
+    #temperament-section .temperament-theater-mind-label {
+        margin-bottom: 3px;
+        font-size: .63rem;
+        font-weight: 850;
+    }
+    #temperament-section .temperament-theater-explain {
+        font-size: .75rem;
+        font-weight: 650;
+        line-height: 1.48 !important;
+    }
+    #temperament-section .temperament-theater-actions {
+        margin-top: 9px;
+        gap: 6px;
+    }
+    #temperament-section .temperament-theater-nav {
+        padding: 5px 0;
+        font-size: .67rem;
+        font-weight: 780;
+    }
+    #temperament-section .temperament-theater-dots { gap: 4px; }
+    #temperament-section .temperament-theater-dot { width: 5px; height: 5px; }
+    #temperament-section .temperament-theater-dot.is-active { width: 15px; }
+    #temperament-section .temperament-theater-lookup {
+        margin-top: 4px;
+        padding: 3px 0;
+        font-size: .67rem;
+        font-weight: 760;
+    }
+    #temperament-section .temperament-theater-footnote {
+        margin-top: 9px !important;
+        padding: 0 5px;
+        font-size: .66rem;
+    }
+}
+
+@media (max-width: 350px) {
+    #temperament-section .temperament-theater-card {
+        grid-template-columns: 84px minmax(0,1fr);
+    }
+    #temperament-section .temperament-theater-art {
+        width: min(98%, 84px);
+        max-height: 126px;
+    }
+    #temperament-section .temperament-theater-dialogue {
+        padding-right: 9px;
+    }
+    #temperament-section .temperament-theater-dialogue blockquote {
+        font-size: .95rem;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-group span {
+        font-size: .62rem;
+    }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -6763,6 +7031,7 @@ section > .section-title {
 <h2 class="section-title temperament-theater-title">如果是我，我第一句會說什麼？</h2>
 <p class="temperament-theater-subtitle">同一個教會現場，每個人先看到的都不一樣。</p>
 <div class="divider temperament-theater-divider"></div>
+<div class="temperament-theater-mobile-panel">
 <div class="temperament-theater-scenario" aria-label="目前情境">
 <span class="temperament-theater-scenario-label">現在發生的是</span>
 <p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
@@ -6825,6 +7094,7 @@ section > .section-title {
 <button class="temperament-theater-lookup" id="temperament-theater-lookup" type="button">看這一型的小檔案 ↑</button>
 </div>
 </article>
+</div>
 <p class="temperament-theater-footnote">四群人數是把本次 28,796 位平信徒的比例換算成 100 人並四捨五入，合計約 100 人。</p>
 </section><section class="final-hub" id="final-cta" aria-label="再測一次與教會小本本資訊">
 <div class="final-hub-inner">
