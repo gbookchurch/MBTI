@@ -5864,6 +5864,33 @@ section > .section-title {
 .theater-view-toggle{display:flex;gap:6px;width:min(430px,calc(100% - 28px));margin:14px auto 8px;padding:5px;background:#EEE9DF;border-radius:999px}.theater-view-btn{flex:1;border:0;border-radius:999px;padding:10px 12px;background:transparent;color:#71685F;font-weight:800;cursor:pointer}.theater-view-btn.is-active{background:#fff;color:#405D50;box-shadow:0 2px 9px rgba(45,39,34,.09)}.pastor-view-intro{text-align:center;margin:8px auto 16px;color:#7C746C;font-size:.9rem}.pastor-theater{max-width:900px;margin:16px auto 0}.pastor-scene-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:none}.pastor-scene-tabs::-webkit-scrollbar{display:none}.pastor-scene-tab{flex:0 0 auto;border:1px solid #D9D1C5;background:#FBFAF7;border-radius:999px;padding:8px 13px;color:#6E665F;font-weight:750}.pastor-scene-tab.is-active{background:#506A5D;color:white;border-color:#506A5D}.pastor-decision-card{background:#FFFEFB;border:1px solid #DDD5C9;border-radius:22px;padding:22px;box-shadow:0 12px 28px rgba(52,42,35,.07)}.pastor-scenario{background:#F5F1E8;border-radius:15px;padding:15px 17px;margin-bottom:18px}.pastor-scenario span{font-size:.72rem;letter-spacing:.08em;color:#8A8178;font-weight:850}.pastor-scenario p{margin:6px 0 0;line-height:1.7;color:#4E4944}.pastor-decision-card h3{text-align:center;font-size:1.18rem;color:#3F4944;margin:15px 0}.pastor-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pastor-option{position:relative;text-align:left;border:1px solid #DDD6CC;background:#fff;border-radius:15px;padding:14px 14px 14px 44px;line-height:1.55;color:#4E4944;cursor:pointer;min-height:88px}.pastor-option b{position:absolute;left:14px;top:14px;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#EEE9DF;color:#675F57}.pastor-option:hover,.pastor-option.is-selected{border-color:#6E897B;background:#F5F8F5}.pastor-option.is-muted{opacity:.48}.pastor-reveal{margin-top:18px;padding-top:18px;border-top:1px solid #E8E1D8;text-align:center}.pastor-instinct-kicker{font-size:.68rem;letter-spacing:.08em;color:#91877D;font-weight:800}.pastor-instinct-label{margin-top:12px;color:#776F67;font-size:.85rem}.pastor-reveal>strong{display:block;font-size:1.8rem;color:#456858;margin:2px 0 5px}.pastor-archetype{font-weight:850;color:#665E56}.pastor-reveal>p:not(.pastor-stat){max-width:610px;margin:8px auto;line-height:1.65;color:#5D5751}.pastor-stat{display:inline-block;background:#F2EEE7;border-radius:999px;padding:7px 12px;color:#776D64;font-size:.82rem}.pastor-advisor{margin:18px auto 0;max-width:650px;display:grid;grid-template-columns:125px 1fr;align-items:center;text-align:left;background:#F8F5EF;border-radius:17px;padding:12px 16px}.pastor-advisor-art{text-align:center}.pastor-advisor-art img{width:100px;height:125px;object-fit:contain;display:block;margin:auto}.pastor-advisor-art span{display:block;font-size:.68rem;color:#91877D}.pastor-advisor-art b{display:block;color:#4E6258}.pastor-advisor blockquote{margin:0;padding:10px 5px;font-size:1.06rem;line-height:1.65;color:#49443F}.pastor-other-btn{margin-top:15px;border:0;background:transparent;color:#506A5D;font-weight:850;cursor:pointer}.pastor-other{margin-top:12px;display:grid;gap:8px;text-align:left}.pastor-other[hidden]{display:none}.pastor-other-item{border-top:1px solid #E7E0D7;padding:10px 4px}.pastor-other-item b{color:#506A5D}.pastor-other-item span{color:#81776E;font-size:.8rem;margin-left:6px}.pastor-other-item p{margin:4px 0 0;color:#5D5751;line-height:1.5}.pastor-note{text-align:center;color:#92887E;font-size:.76rem;line-height:1.55;margin:12px 20px}.temperament-theater-section.is-pastor-view .theater-lay-only{display:none!important}
 @media(max-width:620px){.pastor-theater{margin-top:10px}.pastor-decision-card{padding:14px;border-radius:19px}.pastor-options{grid-template-columns:1fr}.pastor-option{min-height:0}.pastor-advisor{grid-template-columns:100px 1fr;padding:10px}.pastor-advisor-art img{width:82px;height:105px}.pastor-advisor blockquote{font-size:.96rem}.theater-view-toggle{margin-top:10px}.pastor-scene-tabs{padding-left:2px}}
 </style>
+
+<style id="v126-pastor-centering-fix">
+/* v126: 牧者小劇場指定文案置中 */
+.pastor-view-intro,
+.pastor-note,
+#pastor-explain {
+  text-align: center !important;
+}
+#pastor-explain {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+</style>
+
+<style>
+/* v127: 牧者選中答案後，聖經人物台詞置中 */
+.pastor-advisor-quote,
+.pastor-character-quote,
+.pastor-result-quote,
+.pastor-advisor-card blockquote,
+.pastor-main-advisor blockquote,
+[data-pastor-advisor] blockquote {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -11928,7 +11955,7 @@ section > .divider {
 <script id="v124-pastor-theater-prototype-js">
 (()=>{const section=document.getElementById('temperament-section');if(!section)return;const pastor=document.getElementById('pastor-theater'),intro=section.querySelector('.pastor-view-intro'),viewBtns=[...section.querySelectorAll('[data-theater-view]')];
 const DATA=[
-{key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'如果今天你是牧者，你第一句會說什麼？',opts:[['A','務實的守護者','你先坐下來，慢慢說，我們先不要急著把所有事情一次解決','穩定感','人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',36.8,'以利沙','先坐下來吧，事情可以一件一件說'],['B','立即的行動者','我們先看現在最急的是哪一件，我陪你先把眼前這關過掉','眼前危機','有些問題不能只談感受，今天能處理的事情就先處理',11.8,'尼希米','先把眼前最急的洞補起來，再談下一步'],['C','長遠的策略家','這些事情好像不是第一次一起出現，我們看看背後是不是有一個一直重複的模式','問題根源','眼前的混亂可能只是表面，真正重要的是不要讓同樣的事情一直重演',21.4,'所羅門','先別只看今天，我想知道這個模式從哪裡開始'],['D','可能性的啟發者','我知道現在很亂，但也許神正在帶你重新看一條沒想過的路','新的可能','危機不一定只有恢復原狀一種答案，也可能成為重新選擇方向的起點',29.9,'亞伯拉罕','有時候離開熟悉的地方，才會看見神預備的新路']]},
+{key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'你第一句會說什麼？',opts:[['A','務實的守護者','你先坐下來，慢慢說，我們先不要急著把所有事情一次解決','穩定感','人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',36.8,'以利沙','先坐下來吧，事情可以一件一件說'],['B','立即的行動者','我們先看現在最急的是哪一件，我陪你先把眼前這關過掉','眼前危機','有些問題不能只談感受，今天能處理的事情就先處理',11.8,'尼希米','先把眼前最急的洞補起來，再談下一步'],['C','長遠的策略家','這些事情好像不是第一次一起出現，我們看看背後是不是有一個一直重複的模式','問題根源','眼前的混亂可能只是表面，真正重要的是不要讓同樣的事情一直重演',21.4,'所羅門','先別只看今天，我想知道這個模式從哪裡開始'],['D','可能性的啟發者','我知道現在很亂，但也許神正在帶你重新看一條沒想過的路','新的可能','危機不一定只有恢復原狀一種答案，也可能成為重新選擇方向的起點',29.9,'亞伯拉罕','有時候離開熟悉的地方，才會看見神預備的新路']]},
 {key:'meeting',tab:'會議卡住',scenario:'同工會議已經開了一個半小時。有人一直離題、有人明顯不爽、有人從頭到尾沒說話，原本要決定的事情一件都還沒有結論。',q:'如果今天你是牧者，你第一個會做什麼？',opts:[['A','主席','我們先停一下，現在還有三件事情要決定，一件一件來','秩序','如果沒有人收斂討論、做出決定，再好的想法都只會留在會議室裡',45.5,'底波拉','先把大家帶回要決定的事情，該定的就定下來'],['B','照顧者','我覺得大家今天好像都有一些情緒，我想先聽聽是不是有什麼話還沒說出來','關係','事情可以晚一點決定，但如果團隊開始不敢說真話，問題通常只會越來越深',29.0,'巴拿巴','先讓大家敢說真話，會議才真的有可能往前走'],['C','顧問','我先確認一下，我們現在真正卡住的是哪一個問題？','盲點','有時候大家不是沒有答案，而是一直回答錯的問題',9.2,'所羅門','先把真正的問題找出來，不然再談兩小時也一樣'],['D','催化劑','我們先不要被原本那幾個方案綁住，如果全部重來一次，還有沒有別的做法？','突破口','當討論陷入僵局，換一個框架可能比繼續爭同一件事更有效',16.2,'彼得','既然卡住了，不如先換個方法試試看']]},
 {key:'conflict',tab:'教會八卦',scenario:'兩位會友最近鬧得很僵。事情本來只是私人衝突，但小組裡已經開始出現不同版本的故事，甚至有人問你：「牧師，你應該知道到底是誰有問題吧？」',q:'如果今天你是牧者，你會怎麼介入？',opts:[['A','法官','先不要再傳了，我會把雙方找來，我們把事實跟聖經原則一起講清楚','是非與界線','和好不等於模糊責任，有些事情需要被清楚說明',14.3,'保羅','先把真相和原則講清楚，合一不是假裝什麼都沒發生'],['B','和事佬','現在最重要的是不要再讓關係繼續撕裂，我希望大家先停下來，彼此留一點空間','合一','如果所有人都只想證明自己沒有錯，最後可能誰都贏了，教會卻輸了',28.5,'巴拿巴','先別急著分輸贏，關係如果全斷了就更難談'],['C','醫生','我比較想知道，為什麼這件事情會傷成這樣，我想分別跟他們談談','傷口','八卦和衝突常常不是病因，而是某個更深問題浮到表面的症狀',26.3,'以利沙','我想先看看傷口在哪裡，不只是處理表面的爭吵'],['D','隱士','我會把原則講清楚，但他們也需要學習自己面對，不是每次都由牧者當裁判','界線','不是每一個衝突都必須由牧者親自進場解決',30.8,'以利亞','有些事情我會說清楚，但不是每一場爭執我都要站進中間']]},
 {key:'money',tab:'財務決策',scenario:'教會出現一個很大的機會。如果現在投入一筆不小的預算，可能讓事工跨出很大一步；但判斷錯了，也可能讓接下來一兩年的財務變得很緊。',q:'最後大家都看著你，你的第一個反應是？',opts:[['A','務實的管家','先把現金流、最壞情況跟我們能承受的風險全部算清楚','責任','信心不是不知道代價，而是知道自己正在管理神所託付的資源',34.1,'尼希米','先把資源和風險盤清楚，忠心也包括知道我們承擔得起什麼'],['B','信心的使徒','我們先一起禱告，如果神真的清楚帶領，就不能只因為害怕風險而不走','信心','有些關鍵決定永遠不可能等到所有風險都消失才出發',16.2,'亞伯拉罕','如果神真的帶領，不能因為前面看不清楚就永遠不出發'],['C','民主的議長','這件事不能只有我一個人覺得，我希望核心同工把不同意見都講完再決定','共識','重大決定越多人需要一起承擔，就越需要讓真正的聲音進入決策',33.9,'底波拉','這不是一個人逞強的決定，先讓該說話的人都說話'],['D','創新的投資者','我想看的不是這筆錢現在花多少，而是五年後它可能把教會帶到哪裡','未來價值','資源有限，有時真正的問題不是省不省，而是值得不值得',15.7,'所羅門','別只問今天花多少，也要問這個選擇將來會結出什麼果子']]},
