@@ -5166,6 +5166,83 @@ section > .section-title {
 }
 </style>
 
+
+
+<style id="v106-theater-scenario-card-integration">
+/* ===== V106｜人物劇場：情境描述併入人物回答卡；手機人物插圖回到中段 ===== */
+#temperament-section .temperament-theater-card-scenario {
+    margin: 0 0 16px;
+    padding: 0 0 14px;
+    border-bottom: 1px solid rgba(70,59,51,.10);
+}
+#temperament-section .temperament-theater-card-scenario-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--theater-accent);
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .07em;
+}
+#temperament-section .temperament-theater-card-scenario p {
+    margin: 0 !important;
+    color: #554C45;
+    text-align: left !important;
+    font-size: .94rem;
+    font-weight: 720;
+    line-height: 1.58 !important;
+}
+
+@media (max-width: 720px) {
+    /* 上方只留下場景切換，不再和情境正文分成兩張閱讀區。 */
+    #temperament-section .temperament-theater-scenario {
+        padding: 9px 11px 7px;
+    }
+    #temperament-section .temperament-theater-scenes-inline {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    /* 情境與人物回答成為同一張卡、同一次閱讀。 */
+    #temperament-section .temperament-theater-card-scenario {
+        margin: 0 0 9px;
+        padding: 0 0 9px;
+    }
+    #temperament-section .temperament-theater-card-scenario-label {
+        margin-bottom: 3px;
+        font-size: .6rem;
+        letter-spacing: .06em;
+    }
+    #temperament-section .temperament-theater-card-scenario p {
+        font-size: .76rem;
+        font-weight: 690;
+        line-height: 1.45 !important;
+    }
+
+    /* V105 偏高，改為卡片左欄垂直置中，再略往下 4px。 */
+    #temperament-section .temperament-theater-art-wrap {
+        align-items: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    #temperament-section .temperament-theater-art-wrap::after {
+        display: none;
+    }
+    #temperament-section .temperament-theater-art {
+        transform: translateY(4px);
+    }
+}
+
+@media (max-width: 350px) {
+    #temperament-section .temperament-theater-card-scenario p {
+        font-size: .72rem;
+    }
+    #temperament-section .temperament-theater-art {
+        transform: translateY(3px);
+    }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7110,9 +7187,7 @@ section > .section-title {
 <p class="temperament-theater-subtitle">同一個教會現場，每個人先看到的都不一樣。</p>
 <div class="divider temperament-theater-divider"></div>
 <div class="temperament-theater-mobile-panel">
-<div class="temperament-theater-scenario" aria-label="目前情境">
-<span class="temperament-theater-scenario-label">現在發生的是</span>
-<p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
+<div class="temperament-theater-scenario" aria-label="切換教會情境">
 <div class="temperament-theater-scenes-inline" aria-label="切換教會情境">
 <div class="temperament-theater-scenes-row">
 <div class="temperament-theater-scenes" id="temperament-theater-scenes" role="tablist" aria-label="選擇教會現場情境">
@@ -7155,6 +7230,10 @@ section > .section-title {
 <img alt="" class="temperament-theater-art" decoding="async" id="temperament-theater-art" loading="lazy"/>
 </div>
 <div class="temperament-theater-dialogue">
+<div class="temperament-theater-card-scenario">
+<span class="temperament-theater-card-scenario-label">現在發生的是</span>
+<p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
+</div>
 <div class="temperament-theater-meta">
 <span class="temperament-theater-group-badge" id="temperament-theater-group-badge">SJ 穩定派</span>
 <span class="temperament-theater-type" id="temperament-theater-type">ESTJ</span>
