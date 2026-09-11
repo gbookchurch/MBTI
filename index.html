@@ -12105,7 +12105,7 @@ section > .divider {
 @media(max-width:720px){.pastor-other{grid-template-columns:1fr!important}.pastor-other-item{grid-template-columns:76px minmax(0,1fr);padding:9px 10px!important}.pastor-other-art{width:76px;height:94px}.pastor-other-item p{font-size:.84rem!important}}
 </style>
 
-<script id="v129-pastor-theater-mbti-model-js">
+<script id="v130-pastor-theater-mbti-model-js">
 (()=>{
 const section=document.getElementById('temperament-section');if(!section)return;
 const pastor=document.getElementById('pastor-theater'),
@@ -12185,6 +12185,49 @@ function modelDistribution(axis){
   }).sort((a,b)=>b.score-a.score);
 }
 
+/* V130｜同一情境的「代表人物」去重規則
+   - show:1 的高辨識答案先固定代表人物。
+   - 多候選答案若最高分完全同分，優先從同分者中選尚未被本情境其他答案當代表的人物。
+   - 只調整「代表顯示」與同分排序，不改四軸、符合度、候選集合或原始作答比例。 */
+function candidateList(o){
+  return modelDistribution(o.axis).slice(0,o.show);
+}
+
+function sceneRepresentatives(d){
+  const reps=new Array(d.opts.length);
+  const used=new Set();
+
+  d.opts.forEach((o,i)=>{
+    if(o.show!==1)return;
+    const c=candidateList(o)[0];
+    if(c){reps[i]=c;used.add(c.type)}
+  });
+
+  d.opts.forEach((o,i)=>{
+    if(reps[i])return;
+    const list=candidateList(o);
+    if(!list.length)return;
+    const topScore=list[0].score;
+    const tied=list.filter(c=>Math.abs(c.score-topScore)<1e-12);
+    const chosen=tied.find(c=>!used.has(c.type))||list[0];
+    reps[i]=chosen;
+    used.add(chosen.type);
+  });
+  return reps;
+}
+
+function orderedCandidates(d,optionIndex){
+  const list=candidateList(d.opts[optionIndex]);
+  const rep=sceneRepresentatives(d)[optionIndex];
+  if(!rep||!list.length)return list;
+  const idx=list.findIndex(c=>c.type===rep.type);
+  if(idx>0&&Math.abs(list[idx].score-list[0].score)<1e-12){
+    const [chosen]=list.splice(idx,1);
+    list.unshift(chosen);
+  }
+  return list;
+}
+
 function renderTabs(){
   tabs.replaceChildren();
   DATA.forEach((d,i)=>{
@@ -12214,10 +12257,12 @@ function showAdvisor(candidate,quote){
   [...candidates.querySelectorAll('.pastor-candidate-card')].forEach((b,i)=>b.classList.toggle('is-active',i===activeCandidate));
 }
 
-function renderCandidates(o){
-  const ranked=modelDistribution(o.axis).slice(0,o.show);
+function renderCandidates(d,optionIndex){
+  const o=d.opts[optionIndex];
+  const ranked=orderedCandidates(d,optionIndex);
   candidates.replaceChildren();
   candidates.dataset.count=String(ranked.length);
+  activeCandidate=Math.min(activeCandidate,Math.max(0,ranked.length-1));
   ranked.forEach((c,i)=>{
     const b=document.createElement('button');
     b.type='button';
@@ -12245,7 +12290,7 @@ function choose(i){
   signal.textContent=o.signal;
   confidence.textContent=`判定信心：${o.confidence}`;
   modelNote.textContent=o.note;
-  renderCandidates(o);
+  renderCandidates(d,i);
   other.hidden=true;
   otherBtn.textContent='聽聽另外三種回答怎麼說 →';
   reveal.hidden=false;
@@ -12278,9 +12323,10 @@ otherBtn.onclick=()=>{
     return;
   }
   other.replaceChildren();
+  const reps=sceneRepresentatives(d);
   d.opts.forEach((o,i)=>{
     if(i===selected)return;
-    const top=modelDistribution(o.axis)[0];
+    const top=reps[i]||candidateList(o)[0];
     const x=document.createElement('button');
     x.type='button';
     x.className='pastor-other-item';
@@ -12292,7 +12338,7 @@ otherBtn.onclick=()=>{
   });
   const hint=document.createElement('div');
   hint.className='pastor-other-hint';
-  hint.textContent='點其中一張，可切換到該回答並查看完整 MBTI 候選';
+  hint.textContent='點其中一張，可切換到該回答並查看完整 MBTI 候選；同分候選會優先錯開代表人物，但完整候選與符合度不變';
   other.append(hint);
   other.hidden=false;
   otherBtn.textContent='收起另外三種回答 ↑';
