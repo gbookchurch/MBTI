@@ -7,6 +7,11 @@
 <title>教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？</title>
 <meta content="30,445 位基督徒參與者的 MBTI × 聖經人物資料：28,796 位平信徒、1,649 位牧者。看看本次樣本的人格分布、排行榜與平信徒／牧者差異。" name="description"/>
 <style>
+        /* V95 修復：初始化手機選擇器 */
+        .mbti-picker-mobile {
+            display: none; /* 默認隱藏 */
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -4098,7 +4103,7 @@ section > .section-title {
 </div>
 </fieldset>
 
-<div class="mbti-picker-mobile" style="display: none;">
+<div class="mbti-picker-mobile">
     <select class="mbti-select-mobile" id="mbti-select-mobile">
         <option value="">選擇你的 MBTI 類型...</option>
         <option value="INTJ">INTJ 建築師</option>
