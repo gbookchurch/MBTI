@@ -4778,7 +4778,6 @@ section > .section-title {
       <div class="rank-compare-head-col rank-compare-head-lay"><span>平信徒</span><small>28,796 人</small></div>
       <div class="rank-compare-head-col rank-compare-head-pastor"><span>牧者</span><small>1,649 人</small></div>
     </div>
-    <p class="rank-compare-hint">點任一欄，可看該類型的完整描述。</p>
     <div class="rank-compare-list">
       <div class="rank-compare-row" data-rank="1">
   <div class="rank-compare-rank" aria-label="第 1 名">1</div>
@@ -9818,6 +9817,80 @@ section > .divider {
     });
 })();
 </script>
+
+
+
+<style id="rank-compare-v100-spacing-fix">
+/* V100｜排行榜：移除提示列、縮短列高、校正圓形頭像與文字安全距離 */
+#ranking-compare .rank-compare-hint {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    border: 0 !important;
+}
+#ranking-compare .rank-compare-cell {
+    min-height: 0 !important;
+    padding: 8px 9px !important;
+    grid-template-columns: 40px minmax(0, 1fr) 18px !important;
+    column-gap: 11px !important;
+    row-gap: 0 !important;
+    align-items: center !important;
+    align-content: center !important;
+}
+#ranking-compare .rank-compare-thumb {
+    width: 40px !important;
+    height: 40px !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+    justify-self: start !important;
+    border-radius: 50% !important;
+    flex: none !important;
+}
+#ranking-compare .rank-compare-copy {
+    grid-column: 2 !important;
+    min-width: 0 !important;
+    gap: 0 !important;
+    padding-left: 1px !important;
+}
+#ranking-compare .rank-compare-type,
+#ranking-compare .rank-compare-character,
+#ranking-compare .rank-compare-stat {
+    max-width: 100% !important;
+}
+#ranking-compare .rank-compare-character {
+    overflow-wrap: anywhere !important;
+}
+#ranking-compare .rank-compare-toggle {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+    justify-self: end !important;
+}
+@media (max-width: 780px) {
+    #ranking-compare .rank-compare-cell {
+        min-height: 0 !important;
+        padding: 7px 6px !important;
+        grid-template-columns: 30px minmax(0, 1fr) 14px !important;
+        column-gap: 8px !important;
+        row-gap: 0 !important;
+    }
+    #ranking-compare .rank-compare-thumb {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    #ranking-compare .rank-compare-copy {
+        gap: 0 !important;
+        padding-left: 0 !important;
+    }
+    #ranking-compare .rank-compare-toggle {
+        width: 16px !important;
+        height: 16px !important;
+        font-size: .72rem !important;
+    }
+}
+</style>
 
 </body>
 </html>
