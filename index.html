@@ -5243,6 +5243,159 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v107-theater-answer-card-emphasis">
+/* ===== V107｜人物劇場：控制區整合 × 回答卡主角化 × 身份列清理 ===== */
+#temperament-section .temperament-theater-identity {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 0 0 10px;
+}
+#temperament-section .temperament-theater-identity h3 {
+    margin: 0;
+    min-width: 0;
+}
+#temperament-section .temperament-theater-identity .temperament-theater-meta {
+    margin: 0;
+    justify-content: flex-end;
+}
+#temperament-section .temperament-theater-footnote span {
+    display: inline;
+}
+
+@media (max-width: 720px) {
+    /* 場景、四派、人物統一為同一個控制區，不與回答卡搶主次。 */
+    #temperament-section .temperament-theater-scenario,
+    #temperament-section .temperament-theater-selector {
+        background: #F8F6F1;
+    }
+    #temperament-section .temperament-theater-scenario {
+        padding: 11px 11px 8px;
+    }
+    #temperament-section .temperament-theater-selector {
+        padding: 8px 11px 11px;
+        border-top: 1px solid rgba(70,59,51,.055);
+    }
+    #temperament-section .temperament-theater-scenes,
+    #temperament-section .temperament-theater-selector .temperament-theater-groups {
+        gap: 6px;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-characters {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top-color: rgba(70,59,51,.055);
+    }
+
+    /* 四派選擇後的群體描述置中、退到背景，作為輔助資訊。 */
+    #temperament-section .temperament-theater-selector .temperament-theater-observation {
+        margin: 5px 0 0;
+        padding: 4px 8px 1px;
+        background: transparent !important;
+        border-radius: 0;
+        text-align: center;
+    }
+    #temperament-section .temperament-theater-observation p {
+        max-width: 310px;
+        margin: 0 auto !important;
+        color: #948C84;
+        text-align: center !important;
+        font-size: .68rem;
+        font-weight: 590;
+        line-height: 1.5 !important;
+    }
+
+    /* 回答卡成為主要閱讀焦點。 */
+    #temperament-section .temperament-theater-card {
+        margin: 11px 9px 10px !important;
+        border: 1px solid rgba(70,59,51,.12);
+        border-radius: 18px;
+        background: #FFFEFB;
+        box-shadow: 0 10px 24px rgba(52,42,35,.085);
+    }
+    #temperament-section .temperament-theater-dialogue {
+        padding: 15px 14px 14px 5px;
+    }
+    #temperament-section .temperament-theater-card-scenario {
+        margin-bottom: 10px;
+        padding-bottom: 9px;
+        border-bottom-color: rgba(70,59,51,.075);
+    }
+
+    /* 人名放大靠左；身份標籤集中靠右。 */
+    #temperament-section .temperament-theater-identity {
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 8px;
+    }
+    #temperament-section .temperament-theater-dialogue h3 {
+        flex: 1 1 auto;
+        margin: 0;
+        color: var(--theater-deep);
+        font-size: 1.18rem;
+        font-weight: 930;
+        line-height: 1.08;
+        letter-spacing: -.025em;
+    }
+    #temperament-section .temperament-theater-identity .temperament-theater-meta {
+        flex: 0 1 auto;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 3px;
+        max-width: 58%;
+    }
+    #temperament-section .temperament-theater-group-badge,
+    #temperament-section .temperament-theater-type,
+    #temperament-section .temperament-theater-alias {
+        padding: 3px 6px;
+        font-size: .57rem;
+        line-height: 1.1;
+    }
+    #temperament-section .temperament-theater-dialogue blockquote {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #temperament-section .temperament-theater-mind {
+        margin-top: 10px;
+    }
+
+    /* 註解依語意斷成兩行，避免手機在數字與單位之間亂切。 */
+    #temperament-section .temperament-theater-footnote {
+        max-width: 340px;
+        margin: 10px auto 0 !important;
+        padding: 0 12px;
+        color: #9A928A;
+        text-align: center !important;
+        font-size: .64rem;
+        font-weight: 520;
+        line-height: 1.5 !important;
+    }
+    #temperament-section .temperament-theater-footnote span {
+        display: block;
+    }
+}
+
+@media (max-width: 370px) {
+    #temperament-section .temperament-theater-card {
+        margin-left: 7px !important;
+        margin-right: 7px !important;
+    }
+    #temperament-section .temperament-theater-dialogue h3 {
+        font-size: 1.08rem;
+    }
+    #temperament-section .temperament-theater-identity .temperament-theater-meta {
+        max-width: 60%;
+    }
+    #temperament-section .temperament-theater-footnote {
+        font-size: .61rem;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7234,12 +7387,14 @@ section > .section-title {
 <span class="temperament-theater-card-scenario-label">現在發生的是</span>
 <p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
 </div>
+<div class="temperament-theater-identity">
+<h3 id="temperament-theater-name">摩西</h3>
 <div class="temperament-theater-meta">
 <span class="temperament-theater-group-badge" id="temperament-theater-group-badge">SJ 穩定派</span>
 <span class="temperament-theater-type" id="temperament-theater-type">ESTJ</span>
 <span class="temperament-theater-alias" id="temperament-theater-alias"></span>
 </div>
-<h3 id="temperament-theater-name">摩西</h3>
+</div>
 <blockquote id="temperament-theater-quote">「先把誰負責什麼定清楚，不然下週一定會亂。」</blockquote>
 <div class="temperament-theater-mind">
 <span class="temperament-theater-mind-label">他先看見的是</span>
@@ -7254,7 +7409,7 @@ section > .section-title {
 </div>
 </article>
 </div>
-<p class="temperament-theater-footnote">四群人數是把本次 28,796 位平信徒的比例換算成 100 人並四捨五入，合計約 100 人。</p>
+<p class="temperament-theater-footnote"><span>四群人數是把本次 28,796 位平信徒的比例</span><span>換算成 100 人並四捨五入，合計約 100 人。</span></p>
 </section><section class="final-hub" id="final-cta" aria-label="再測一次與教會小本本資訊">
 <div class="final-hub-inner">
 <div class="final-hub-heading">
