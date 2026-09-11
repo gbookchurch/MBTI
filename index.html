@@ -12282,6 +12282,16 @@ section > .divider {
   font-weight:950;
   letter-spacing:.02em;
 }
+
+.pastor-signal-unknown{
+  display:inline-block;
+  color:rgba(64,93,80,.18);
+  font-size:.72em;
+  font-weight:900;
+  line-height:1;
+  vertical-align:.08em;
+  margin:0 .03em;
+}
 .pastor-record-instinct{
   display:block;
   color:#4F4944;
@@ -12469,6 +12479,14 @@ function orderedCandidates(d,optionIndex){
   return list;
 }
 
+function signalHTML(value){
+  return String(value||'').split('').map(ch=>
+    ch.toLowerCase()==='x'
+      ? '<span class="pastor-signal-unknown" title="此軸未定" aria-label="未定">●</span>'
+      : ch
+  ).join('');
+}
+
 function renderRecord(){
   if(!record||!recordList)return;
   const complete=answers.every(v=>v!==null);
@@ -12478,7 +12496,7 @@ function renderRecord(){
     const o=d.opts[answers[i]];
     const item=document.createElement('div');
     item.className='pastor-record-item';
-    item.innerHTML=`<span class="pastor-record-scene">${d.tab}</span><strong class="pastor-record-signal">${o.signal}</strong><span class="pastor-record-instinct">先看見：${o.instinct}</span><small class="pastor-record-role">${o.role}</small>`;
+    item.innerHTML=`<span class="pastor-record-scene">${d.tab}</span><strong class="pastor-record-signal" aria-label="${o.signal.replace(/x/gi,'未定')}">${signalHTML(o.signal)}</strong><span class="pastor-record-instinct">先看見：${o.instinct}</span><small class="pastor-record-role">${o.role}</small>`;
     recordList.append(item);
   });
   record.hidden=false;
@@ -12544,7 +12562,8 @@ function choose(i,{scroll=true}={}){
   arch.textContent=o.role;
   explain.textContent=o.explain;
   stat.textContent=`本題牧者作答中，${o.survey.toFixed(1)}% 選了相同方向`;
-  signal.textContent=o.signal;
+  signal.innerHTML=signalHTML(o.signal);
+  signal.setAttribute('aria-label',o.signal.replace(/x/gi,'未定'));
   confidence.textContent=`判定信心：${o.confidence}`;
   modelNote.textContent=o.note;
   renderAxes(o.axis);
