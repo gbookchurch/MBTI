@@ -10032,7 +10032,14 @@ section > .divider {
         if (target) target.hidden = true;
     }
     function openCell(cell) {
-        cells.forEach(other => { if (other !== cell) closeCell(other); });
+        // V103：信徒／牧者兩欄獨立展開。
+        // 同一側仍維持一次只開一張，避免版面過長；另一側不受影響，方便左右比較。
+        const sideClass = cell.classList.contains('rank-compare-cell-lay')
+            ? 'rank-compare-cell-lay'
+            : 'rank-compare-cell-pastor';
+        cells.forEach(other => {
+            if (other !== cell && other.classList.contains(sideClass)) closeCell(other);
+        });
         const target = document.getElementById(cell.getAttribute('aria-controls'));
         cell.setAttribute('aria-expanded', 'true');
         const mark = cell.querySelector('.rank-compare-toggle');
