@@ -5606,6 +5606,157 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v109-theater-info-hierarchy">
+/* ===== V109｜100 人縮影上移 × 派別描述歸位 × 回答主句置中 × 標籤右下 ===== */
+#temperament-section .temperament-theater-intro-share {
+    max-width: 620px;
+    margin: 10px auto 0;
+    text-align: center;
+}
+#temperament-section .temperament-theater-intro-share .temperament-theater-share-kicker {
+    display: block;
+    margin-bottom: 3px;
+    color: #8C837B;
+    font-size: .75rem;
+    font-weight: 820;
+    letter-spacing: .08em;
+}
+#temperament-section .temperament-theater-intro-share p {
+    margin: 0 !important;
+    color: #625950;
+    text-align: center !important;
+    font-size: .92rem;
+    font-weight: 650;
+    line-height: 1.5 !important;
+}
+#temperament-section .temperament-theater-intro-share strong,
+#temperament-section .temperament-theater-intro-share b {
+    color: #456B58;
+    font-weight: 920;
+}
+#temperament-section .temperament-theater-intro-share strong { margin-right: 5px; }
+#temperament-section .temperament-theater-intro-share p > span {
+    color: #8C837B;
+    font-weight: 620;
+}
+
+/* 派別描述緊跟四派按鈕，先理解派別，再選人物。 */
+#temperament-section .temperament-theater-selector .temperament-theater-observation {
+    margin: 9px 0 0;
+    padding: 4px 10px 8px;
+    background: transparent !important;
+    border-radius: 0;
+    text-align: center;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-observation-label {
+    margin-bottom: 3px;
+    color: #A09991;
+    text-align: center;
+    font-size: .64rem;
+    font-weight: 760;
+    letter-spacing: .06em;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-observation p {
+    max-width: 560px;
+    margin: 0 auto !important;
+    color: #8F8881;
+    text-align: center !important;
+    font-size: .76rem;
+    font-weight: 560;
+    line-height: 1.55 !important;
+}
+#temperament-section .temperament-theater-selector .temperament-theater-characters {
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+/* 主回答成為真正的視覺中心；身份標籤移到右下。 */
+#temperament-section .temperament-theater-dialogue blockquote {
+    width: 100%;
+    max-width: 610px;
+    margin: 22px auto 5px;
+    padding: 0 12px;
+    text-align: center !important;
+    text-wrap: balance;
+}
+#temperament-section .temperament-theater-identity {
+    width: 100%;
+    margin: 9px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+#temperament-section .temperament-theater-identity .temperament-theater-meta {
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    justify-content: flex-end;
+    gap: 5px;
+}
+#temperament-section .temperament-theater-actions {
+    margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+    #temperament-section .temperament-theater-intro-share {
+        max-width: 330px;
+        margin-top: 7px;
+        padding: 0 8px;
+    }
+    #temperament-section .temperament-theater-intro-share .temperament-theater-share-kicker {
+        margin-bottom: 2px;
+        font-size: .65rem;
+    }
+    #temperament-section .temperament-theater-intro-share p {
+        font-size: .76rem;
+        line-height: 1.42 !important;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-observation {
+        margin-top: 6px;
+        padding: 3px 7px 5px;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-observation-label {
+        font-size: .58rem;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-observation p {
+        max-width: 310px;
+        font-size: .66rem;
+        line-height: 1.46 !important;
+    }
+    #temperament-section .temperament-theater-selector .temperament-theater-characters {
+        margin-top: 4px;
+        padding-top: 8px;
+    }
+    #temperament-section .temperament-theater-dialogue blockquote {
+        margin: 13px auto 2px;
+        padding: 0 4px;
+        text-align: center !important;
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+    #temperament-section .temperament-theater-identity {
+        margin-top: 7px;
+    }
+    #temperament-section .temperament-theater-identity .temperament-theater-meta {
+        width: auto;
+        max-width: 100%;
+        gap: 3px;
+    }
+    #temperament-section .temperament-theater-group-badge,
+    #temperament-section .temperament-theater-type,
+    #temperament-section .temperament-theater-alias {
+        padding: 3px 6px;
+        font-size: .55rem;
+    }
+}
+
+@media (max-width: 370px) {
+    #temperament-section .temperament-theater-intro-share p { font-size: .72rem; }
+    #temperament-section .temperament-theater-dialogue blockquote { font-size: .98rem; }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7547,7 +7698,10 @@ section > .section-title {
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt temperament-theater-section" id="temperament-section">
 <h2 class="section-title temperament-theater-title">如果是我，我第一句會說什麼？</h2>
-<p class="temperament-theater-subtitle">同一個教會現場，每個人先看到的都不一樣。</p>
+<div class="temperament-theater-intro-share" id="temperament-theater-share-mobile" aria-live="polite">
+<span class="temperament-theater-share-kicker">100 人教會縮影</span>
+<p><strong id="temperament-theater-share-group">SJ 穩定派</strong>約 <b id="temperament-theater-share-people">—</b> 人 <span>（<b id="temperament-theater-share-percent">—</b>%）</span></p>
+</div>
 <div class="divider temperament-theater-divider"></div>
 <div class="temperament-theater-mobile-panel">
 <div class="temperament-theater-controls">
@@ -7579,15 +7733,11 @@ section > .section-title {
 <span><b>NT</b> 思考派</span><strong><b data-temperament-summary-people="NT">—</b> 人</strong><small><b data-temperament-summary-percent="NT">—</b>%</small>
 </button>
 </div>
-<div class="temperament-theater-share-mobile" id="temperament-theater-share-mobile" aria-live="polite">
-<span class="temperament-theater-share-kicker">100 人教會縮影</span>
-<p><strong id="temperament-theater-share-group">SJ 穩定派</strong>約 <b id="temperament-theater-share-people">—</b> 人 <span>（<b id="temperament-theater-share-percent">—</b>%）</span></p>
-</div>
-<div class="temperament-theater-characters" role="tablist" aria-label="選擇聖經人物，可左右滑動人物卡切換" id="temperament-theater-characters"></div>
 <aside class="temperament-theater-observation is-sj" id="temperament-theater-observation" aria-live="polite">
 <span class="temperament-theater-observation-label">這群人先看見的</span>
 <p id="temperament-theater-observation-text">哪裡失去秩序、誰需要補位，以及怎麼把事情重新穩住。</p>
 </aside>
+<div class="temperament-theater-characters" role="tablist" aria-label="選擇聖經人物，可左右滑動人物卡切換" id="temperament-theater-characters"></div>
 </div>
 </div>
 <article class="temperament-theater-card is-sj" id="temperament-theater-card" aria-live="polite">
@@ -7600,17 +7750,17 @@ section > .section-title {
 <span class="temperament-theater-card-scenario-label">現在發生的是</span>
 <p id="temperament-theater-scenario-text">主日結束後，突然發現下週有一個重要服事缺人，流程也還沒完全定。</p>
 </div>
+<blockquote id="temperament-theater-quote">「先把誰負責什麼定清楚，不然下週一定會亂。」</blockquote>
+<div class="temperament-theater-mind">
+<span class="temperament-theater-mind-label">他先看見的是</span>
+<p class="temperament-theater-explain" id="temperament-theater-explain">習慣快速建立分工、責任與秩序，讓大家知道下一步要做什麼。</p>
+</div>
 <div class="temperament-theater-identity">
 <div class="temperament-theater-meta">
 <span class="temperament-theater-group-badge" id="temperament-theater-group-badge">SJ 穩定派</span>
 <span class="temperament-theater-type" id="temperament-theater-type">ESTJ</span>
 <span class="temperament-theater-alias" id="temperament-theater-alias"></span>
 </div>
-</div>
-<blockquote id="temperament-theater-quote">「先把誰負責什麼定清楚，不然下週一定會亂。」</blockquote>
-<div class="temperament-theater-mind">
-<span class="temperament-theater-mind-label">他先看見的是</span>
-<p class="temperament-theater-explain" id="temperament-theater-explain">習慣快速建立分工、責任與秩序，讓大家知道下一步要做什麼。</p>
 </div>
 <div class="temperament-theater-actions">
 <button class="temperament-theater-nav" id="temperament-theater-prev" type="button" aria-label="上一位人物">← 上一位</button>
