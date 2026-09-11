@@ -4488,13 +4488,15 @@ section > .section-title {
     grid-column: 3;
     background: #FCF1EC;
 }
+.rank-compare-detail .rank-detail-title,
 .rank-compare-detail .pastor-observation-title {
     margin: 0 0 7px;
     font-size: .88rem;
     line-height: 1.5;
     font-weight: 900;
-    color: #9A4B37;
 }
+.rank-compare-detail-lay .rank-detail-title { color: #315C49; }
+.rank-compare-detail-pastor .pastor-observation-title { color: #9A4B37; }
 .rank-compare-note {
     margin-top: 24px;
     padding: 20px 22px;
@@ -4590,6 +4592,25 @@ section > .section-title {
 </style>
 </head>
 <body>
+<script id="v99-entry-top-fix">
+(function () {
+    if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+    }
+
+    const forceHomeTop = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+    };
+
+    forceHomeTop();
+    document.addEventListener('DOMContentLoaded', forceHomeTop, { once: true });
+    window.addEventListener('load', () => requestAnimationFrame(forceHomeTop), { once: true });
+    window.addEventListener('pageshow', () => requestAnimationFrame(forceHomeTop));
+})();
+</script>
+
 <!-- HERO -->
 <!-- 8 個核心發現 -->
 <!-- 互動功能：你的 MBTI 在教會裡排第幾？ -->
@@ -4773,9 +4794,13 @@ section > .section-title {
     <span class="rank-compare-stat">336 人 · 20.4%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-1" hidden>場地、流程、簽到、奉獻統計、活動通知一起來，反而很容易進入狀況。別人還在問「現在做到哪了」，表格可能已經整理好，下一步也順手提醒了。厲害的不只做事快，通常連誰忙到快爆炸也看得出來。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-1" hidden><div class="rank-detail-title">• 事情一多反而很有精神。</div>
+
+場地、流程、簽到、奉獻統計、活動通知一起來，反而很容易進入狀況。別人還在問「現在做到哪了」，表格可能已經整理好，下一步也順手提醒了。
+<br/><br/>
+<strong>厲害的不只做事快，通常連誰忙到快爆炸也看得出來。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-1" hidden><div class="pastor-observation-title">
-                    👀 為什麼馬利亞型到了牧者榜，直接變第一？
+                    • 為什麼馬利亞型到了牧者榜，直接變第一？
                 </div>
 
                 平信徒裡本來就不少，到了牧者卻超過每 5 人就有 1 人。
@@ -4797,9 +4822,13 @@ section > .section-title {
     <span class="rank-compare-stat">187 人 · 11.3%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-2" hidden>新人來過一次，名字可能就記住了；誰最近突然安靜，也會默默留意。答應的服事通常不用一直催，該出現的時候就會出現。平常不太搶鏡，可是哪天請假，大家往往馬上發現：「欸，今天怎麼少一個人？」</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-2" hidden><div class="rank-detail-title">• 很像教會裡的固定班底。</div>
+
+新人來過一次，名字可能就記住了；誰最近突然安靜，也會默默留意。答應的服事通常不用一直催，該出現的時候就會出現。
+<br/><br/>
+<strong>平常不太搶鏡，可是哪天請假，大家往往馬上發現：「欸，今天怎麼少一個人？」</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-2" hidden><div class="pastor-observation-title">
-                    💭 約翰型在平信徒只排第八，到了牧者卻變第二？
+                    • 約翰型在平信徒只排第八，到了牧者卻變第二？
                 </div>
 
                 這組數字很有意思，因為牧養不只有站上台講話。
@@ -4821,9 +4850,13 @@ section > .section-title {
     <span class="rank-compare-stat">160 人 · 9.7%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-3" hidden>只要有人願意開口，場子通常很快就熱起來。第一次來的新朋友也能直接聊開，最受不了大家客客氣氣坐成一排。平常看起來很鬧，真的進到禱告或分享時，又可能突然認真得讓人有點意外。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-3" hidden><div class="rank-detail-title">• 聚會裡自帶氣氛的人。</div>
+
+只要有人願意開口，場子通常很快就熱起來。第一次來的新朋友也能直接聊開，最受不了大家客客氣氣坐成一排。
+<br/><br/>
+<strong>平常看起來很鬧，真的進到禱告或分享時，又可能突然認真得讓人有點意外。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-3" hidden><div class="pastor-observation-title">
-                    🏰 換了身分，為什麼以斯帖型還是穩穩待在前三名？
+                    • 換了身分，為什麼以斯帖型還是穩穩待在前三名？
                 </div>
 
                 這一型不一定最搶眼，但很會顧人、顧細節，
@@ -4844,9 +4877,13 @@ section > .section-title {
     <span class="rank-compare-stat">150 人 · 9.1%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-4" hidden>本來大家還在觀望，聊完常常就變成「好啦，我來」。很知道怎麼鼓勵人，也很會把不同的人湊在一起。只是每個人都放在心上，很容易一路忙到最後才想起來：自己好像也需要休息。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-4" hidden><div class="rank-detail-title">• 很會揪人的那一型。</div>
+
+本來大家還在觀望，聊完常常就變成「好啦，我來」。很知道怎麼鼓勵人，也很會把不同的人湊在一起。
+<br/><br/>
+<strong>只是每個人都放在心上，很容易一路忙到最後才想起來：自己好像也需要休息。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-4" hidden><div class="pastor-observation-title">
-                    📋 平信徒第一名的馬大型，到了牧者怎麼變成第四？
+                    • 平信徒第一名的馬大型，到了牧者怎麼變成第四？
                 </div>
 
                 很會照顧人、處理事情，在教會當然非常有用。
@@ -4868,9 +4905,13 @@ section > .section-title {
     <span class="rank-compare-stat">142 人 · 8.6%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-5" hidden>大家嘴上都說沒事，心裡可能已經冒出一句：「真的嗎？」不一定當場追問，但誰最近怪怪的、誰笑得有點勉強，通常會記著。話不一定多，可是一旦主動問「你最近還好嗎」，多半是真的有注意到。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-5" hidden><div class="rank-detail-title">• 很像教會的「靈魂雷達」。</div>
+
+大家嘴上都說沒事，心裡可能已經冒出一句：「真的嗎？」不一定當場追問，但誰最近怪怪的、誰笑得有點勉強，通常會記著。
+<br/><br/>
+<strong>話不一定多，可是一旦主動問「你最近還好嗎」，多半是真的有注意到。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-5" hidden><div class="pastor-observation-title">
-                    ✨ 巴拿巴型不管是不是牧者，比例居然差不多
+                    • 巴拿巴型不管是不是牧者，比例居然差不多
                 </div>
 
                 平信徒 8.1%，牧者 8.6%，幾乎沒有太大變化。
@@ -4891,9 +4932,13 @@ section > .section-title {
     <span class="rank-compare-stat">130 人 · 7.9%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-6" hidden>「欸，這很棒耶！」大概是很常出現的一句話。很會看到別人的優點，也很容易冒出「不然我們試試看？」上一個點子可能還沒收尾，下一個已經來了；不過氣氛真的很低時，也常是這群人先把大家拉回來。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-6" hidden><div class="rank-detail-title">• 教會裡的打氣王。</div>
+
+「欸，這很棒耶！」大概是很常出現的一句話。
+<br/><br/>
+<strong>很會看到別人的優點，也很容易冒出「不然我們試試看？」上一個點子可能還沒收尾，下一個已經來了；不過氣氛真的很低時，也常是這群人先把大家拉回來。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-6" hidden><div class="pastor-observation-title">
-                    🔨 原來牧師不只需要異象，也真的需要會顧事情
+                    • 原來牧師不只需要異象，也真的需要會顧事情
                 </div>
 
                 尼希米型到了牧者排行往前不少。
@@ -4915,9 +4960,13 @@ section > .section-title {
     <span class="rank-compare-stat">126 人 · 7.6%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-7" hidden>敬拜、佈置、影像、文字，只要有發揮空間，常常會做出很有自己味道的東西。碰到衝突通常先消化，不太愛正面硬槓。熟了才會發現，看起來隨和歸隨和，心裡其實有一套很清楚的堅持。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-7" hidden><div class="rank-detail-title">• 不一定話多，但很有自己的美感。</div>
+
+敬拜、佈置、影像、文字，只要有發揮空間，常常會做出很有自己味道的東西。碰到衝突通常先消化，不太愛正面硬槓。
+<br/><br/>
+<strong>熟了才會發現，看起來隨和歸隨和，心裡其實有一套很清楚的堅持。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-7" hidden><div class="pastor-observation-title">
-                    🎨 第七名、7.6%，居然完全一樣
+                    • 第七名、7.6%，居然完全一樣
                 </div>
 
                 平信徒是第七，牧者也是第七，
@@ -4938,9 +4987,13 @@ section > .section-title {
     <span class="rank-compare-stat">111 人 · 6.7%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-8" hidden>你話還沒講完，不太會立刻丟三個解法過來。看起來溫溫的，心裡其實想很多，對信仰和關係也有自己的理想。現實一來偶爾會卡一下，但那種「我也不知道怎麼講」的心情，往往很能接住。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-8" hidden><div class="rank-detail-title">• 很適合半夜傳訊息說「你睡了嗎」的那一型。</div>
+
+你話還沒講完，不太會立刻丟三個解法過來。看起來溫溫的，心裡其實想很多，對信仰和關係也有自己的理想。
+<br/><br/>
+<strong>現實一來偶爾會卡一下，但那種「我也不知道怎麼講」的心情，往往很能接住。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-8" hidden><div class="pastor-observation-title">
-                    ⚡ 以利亞型到了牧者裡，反而多了一些
+                    • 以利亞型到了牧者裡，反而多了一些
                 </div>
 
                 這一型習慣想得遠，也很容易一直問：
@@ -4961,9 +5014,13 @@ section > .section-title {
     <span class="rank-compare-stat">100 人 · 6.1%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-9" hidden>流程、預算、時間表記得比大家清楚，說兩點集合就真的兩點到，不是兩點才從家裡出門。規則多一點反而安心，偶爾會被嫌太硬。可是少了這種人，很多事情很快就會進入「大家憑感動」模式。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-9" hidden><div class="rank-detail-title">• 教會的進度警察。</div>
+
+流程、預算、時間表記得比大家清楚，說兩點集合就真的兩點到，不是兩點才從家裡出門。規則多一點反而安心，偶爾會被嫌太硬。
+<br/><br/>
+<strong>可是少了這種人，很多事情很快就會進入「大家憑感動」模式。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-9" hidden><div class="pastor-observation-title">
-                    📚 所羅門型到了牧者裡，比例幾乎多了一倍
+                    • 所羅門型到了牧者裡，比例幾乎多了一倍
                 </div>
 
                 也許牧職真的很常逼人面對「為什麼」。
@@ -4985,9 +5042,13 @@ section > .section-title {
     <span class="rank-compare-stat">50 人 · 3.0%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-10" hidden>別人還在討論下個月，腦袋可能已經跑到三年後。平常不一定搶著講，一開口卻常常直奔核心。分析快是優點，也可能有個小落差：事情已經想通了，旁邊的人情緒還在路上。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-10" hidden><div class="rank-detail-title">• 很像教會裡的顧問。</div>
+
+別人還在討論下個月，腦袋可能已經跑到三年後。平常不一定搶著講，一開口卻常常直奔核心。
+<br/><br/>
+<strong>分析快是優點，也可能有個小落差：事情已經想通了，旁邊的人情緒還在路上。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-10" hidden><div class="pastor-observation-title">
-                    ⚔️ 排名往前一名，比例其實反而少了一點
+                    • 排名往前一名，比例其實反而少了一點
                 </div>
 
                 這張剛好提醒我們，排行榜不能只看名次。
@@ -5008,9 +5069,13 @@ section > .section-title {
     <span class="rank-compare-stat">46 人 · 2.8%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-11" hidden>遇到事情一直懸著，真的很難坐得住。「好，現在先做三件事。」一句講完，分工和順序就跟著出來。壓力大時語氣可能比較直，但很多時候不是針對誰，只是很想把卡住的事往前推。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-11" hidden><div class="rank-detail-title">• 一看到混亂就很想接手。</div>
+
+遇到事情一直懸著，真的很難坐得住。「好，現在先做三件事。」一句講完，分工和順序就跟著出來。
+<br/><br/>
+<strong>壓力大時語氣可能比較直，但很多時候不是針對誰，只是很想把卡住的事往前推。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-11" hidden><div class="pastor-observation-title">
-                    🔮 很多人心中的「牧者型人格」，怎麼反而掉到第 11？
+                    • 很多人心中的「牧者型人格」，怎麼反而掉到第 11？
                 </div>
 
                 INFJ 很會理解人、重視意義，也常被大家想像成很適合陪伴人的類型。
@@ -5031,14 +5096,19 @@ section > .section-title {
     <span class="rank-compare-stat">39 人 · 2.4%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-12" hidden>一題問下去，很可能一路聊到原文、神學和歷史背景。不是故意唱反調，是真的想搞懂「所以為什麼？」聽到哪裡怪怪的，先記下來，回家再查。想太久偶爾會卡住，但也常替大家問出那些其實很多人都想過的問題。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-12" hidden><div class="rank-detail-title">• 本來只想問一題，最後可能聊到原文、神學和歷史背景。</div>
+
+一題問下去，很可能一路聊到原文、神學和歷史背景。不是故意唱反調，是真的想搞懂「所以為什麼？」聽到哪裡怪怪的，先記下來，回家再查。
+<br/><br/>
+<strong>想太久偶爾會卡住，但也常替大家問出那些其實很多人都想過的問題。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-12" hidden><div class="pastor-observation-title">
-                    🎤 雅各型還是不多，但教會是不是也需要這種一直問問題的人？
+                    • 雅各型還是不多，但教會是不是也需要這種一直問問題的人？
                 </div>
 
                 「以前都這樣做」通常不太能讓這一型滿意。
-                有時候問題很多，確實會讓人有點頭痛，
-                但也可能因為有人一直問，大家才發現某些事情真的該重新想想。</div>
+                有時候問題很多，確實會讓人有點頭痛。
+                <br/><br/>
+<strong>但也可能因為有人一直問，大家才發現某些事情真的該重新想想。</strong></div>
 </div><div class="rank-compare-row" data-rank="13">
   <div class="rank-compare-rank" aria-label="第 13 名">13</div>
   <button class="rank-compare-cell rank-compare-cell-lay" type="button" aria-expanded="false" aria-controls="rank-detail-lay-13">
@@ -5053,9 +5123,13 @@ section > .section-title {
     <span class="rank-compare-stat">22 人 · 1.3%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-13" hidden>投影突然掛掉、流程卡住、臨時少一個人，先看看現在能怎麼辦，比站著討論半天實際。通常不愛開太久的會，也不太想把事情弄得更複雜。平常存在感未必高，真的出事時卻很容易有人喊：「欸，快找他。」</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-13" hidden><div class="rank-detail-title">• 教會裡很會救火的人。</div>
+
+投影突然掛掉、流程卡住、臨時少一個人，先看看現在能怎麼辦，比站著討論半天實際。通常不愛開太久的會，也不太想把事情弄得更複雜。平常存在感未必高，真的出事時卻很容易有人喊：「欸，快找他。
+<br/><br/>
+<strong>」</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-13" hidden><div class="pastor-observation-title">
-                    🚀 名次從最後一名往前，比例卻沒有增加
+                    • 名次從最後一名往前，比例卻沒有增加
                 </div>
 
                 彼得型很會處理眼前的狀況，反應也快。
@@ -5077,9 +5151,13 @@ section > .section-title {
     <span class="rank-compare-stat">22 人 · 1.3%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-14" hidden>大家討論半天還沒有結論，通常會開始坐不住。目標一確定，分工、進度、下一步很快就排出來。氣勢一強，旁邊的人可能要鼓起勇氣才敢說「我有不同想法」；但真的要把一件難事推動起來，這種力道也很有用。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-14" hidden><div class="rank-detail-title">• 很有「好，重點是什麼」的氣場。</div>
+
+大家討論半天還沒有結論，通常會開始坐不住。目標一確定，分工、進度、下一步很快就排出來。
+<br/><br/>
+<strong>氣勢一強，旁邊的人可能要鼓起勇氣才敢說「我有不同想法」；但真的要把一件難事推動起來，這種力道也很有用。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-14" hidden><div class="pastor-observation-title">
-                    🧰 很會自己解決問題，到了牧者裡反而少很多
+                    • 很會自己解決問題，到了牧者裡反而少很多
                 </div>
 
                 參孫型遇到問題，通常會先想辦法處理。
@@ -5101,9 +5179,13 @@ section > .section-title {
     <span class="rank-compare-stat">15 人 · 0.9%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-15" hidden>一句「可是如果換個角度呢？」就可能讓整場開始歪樓。腦筋轉得快，點子又多，只要話題有意思，聊半小時完全不是問題。最經典的收尾通常是大家聊得很開心，然後有人突然問：「好，那所以誰要做？」</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-15" hidden><div class="rank-detail-title">• 一個問題可以聊出十條支線。</div>
+
+一句「可是如果換個角度呢？」就可能讓整場開始歪樓。腦筋轉得快，點子又多，只要話題有意思，聊半小時完全不是問題。
+<br/><br/>
+<strong>最經典的收尾通常是大家聊得很開心，然後有人突然問：「好，那所以誰要做？」</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-15" hidden><div class="pastor-observation-title">
-                    👑 平信徒第 4，牧者卻第 15。亞伯拉罕型到底去哪了？
+                    • 平信徒第 4，牧者卻第 15。亞伯拉罕型到底去哪了？
                 </div>
 
                 ENFJ 很會鼓勵人、帶人，也很容易把大家聚在一起。
@@ -5128,9 +5210,13 @@ section > .section-title {
     <span class="rank-compare-stat">13 人 · 0.8%</span>
     <span class="rank-compare-toggle" aria-hidden="true">＋</span>
   </button>
-  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-16" hidden>別人還在評估風險，這邊可能已經報名、開群組、問誰要一起。很多事喜歡邊做邊學，想太久反而容易失去耐性。計畫行不行，有時候真的做到一半才知道；不過需要有人先跨出去時，也常少不了這種膽子。</div>
+  <div class="rank-compare-detail rank-compare-detail-lay" id="rank-detail-lay-16" hidden><div class="rank-detail-title">• 「先做再說」的行動派。</div>
+
+別人還在評估風險，這邊可能已經報名、開群組、問誰要一起。很多事喜歡邊做邊學，想太久反而容易失去耐性。
+<br/><br/>
+<strong>計畫行不行，有時候真的做到一半才知道；不過需要有人先跨出去時，也常少不了這種膽子。</strong></div>
   <div class="rank-compare-detail rank-compare-detail-pastor" id="rank-detail-pastor-16" hidden><div class="pastor-observation-title">
-                    🎯 大家以為牧師要很會帶人，ENTJ 怎麼反而最後一名？
+                    • 大家以為牧師要很會帶人，ENTJ 怎麼反而最後一名？
                 </div>
 
                 很會決策、抓方向、把事情往前推，
@@ -6028,7 +6114,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    👀 為什麼馬利亞型到了牧者榜，直接變第一？
+                    • 為什麼馬利亞型到了牧者榜，直接變第一？
                 </div>
 
                 平信徒裡本來就不少，到了牧者卻超過每 5 人就有 1 人。
@@ -6052,7 +6138,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    💭 約翰型在平信徒只排第八，到了牧者卻變第二？
+                    • 約翰型在平信徒只排第八，到了牧者卻變第二？
                 </div>
 
                 這組數字很有意思，因為牧養不只有站上台講話。
@@ -6076,7 +6162,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🏰 換了身分，為什麼以斯帖型還是穩穩待在前三名？
+                    • 換了身分，為什麼以斯帖型還是穩穩待在前三名？
                 </div>
 
                 這一型不一定最搶眼，但很會顧人、顧細節，
@@ -6099,7 +6185,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    📋 平信徒第一名的馬大型，到了牧者怎麼變成第四？
+                    • 平信徒第一名的馬大型，到了牧者怎麼變成第四？
                 </div>
 
                 很會照顧人、處理事情，在教會當然非常有用。
@@ -6123,7 +6209,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    ✨ 巴拿巴型不管是不是牧者，比例居然差不多
+                    • 巴拿巴型不管是不是牧者，比例居然差不多
                 </div>
 
                 平信徒 8.1%，牧者 8.6%，幾乎沒有太大變化。
@@ -6145,7 +6231,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🔨 原來牧師不只需要異象，也真的需要會顧事情
+                    • 原來牧師不只需要異象，也真的需要會顧事情
                 </div>
 
                 尼希米型到了牧者排行往前不少。
@@ -6167,7 +6253,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🎨 第七名、7.6%，居然完全一樣
+                    • 第七名、7.6%，居然完全一樣
                 </div>
 
                 平信徒是第七，牧者也是第七，
@@ -6188,7 +6274,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    ⚡ 以利亞型到了牧者裡，反而多了一些
+                    • 以利亞型到了牧者裡，反而多了一些
                 </div>
 
                 這一型習慣想得遠，也很容易一直問：
@@ -6209,7 +6295,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    📚 所羅門型到了牧者裡，比例幾乎多了一倍
+                    • 所羅門型到了牧者裡，比例幾乎多了一倍
                 </div>
 
                 也許牧職真的很常逼人面對「為什麼」。
@@ -6231,7 +6317,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    ⚔️ 排名往前一名，比例其實反而少了一點
+                    • 排名往前一名，比例其實反而少了一點
                 </div>
 
                 這張剛好提醒我們，排行榜不能只看名次。
@@ -6252,7 +6338,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🔮 很多人心中的「牧者型人格」，怎麼反而掉到第 11？
+                    • 很多人心中的「牧者型人格」，怎麼反而掉到第 11？
                 </div>
 
                 INFJ 很會理解人、重視意義，也常被大家想像成很適合陪伴人的類型。
@@ -6273,12 +6359,13 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🎤 雅各型還是不多，但教會是不是也需要這種一直問問題的人？
+                    • 雅各型還是不多，但教會是不是也需要這種一直問問題的人？
                 </div>
 
                 「以前都這樣做」通常不太能讓這一型滿意。
-                有時候問題很多，確實會讓人有點頭痛，
-                但也可能因為有人一直問，大家才發現某些事情真的該重新想想。
+                有時候問題很多，確實會讓人有點頭痛。
+                <br/><br/>
+<strong>但也可能因為有人一直問，大家才發現某些事情真的該重新想想。</strong>
             </div>
 </div><div class="pastor-rank-card">
 <div class="pastor-rank-head">
@@ -6293,7 +6380,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🚀 名次從最後一名往前，比例卻沒有增加
+                    • 名次從最後一名往前，比例卻沒有增加
                 </div>
 
                 彼得型很會處理眼前的狀況，反應也快。
@@ -6315,7 +6402,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🧰 很會自己解決問題，到了牧者裡反而少很多
+                    • 很會自己解決問題，到了牧者裡反而少很多
                 </div>
 
                 參孫型遇到問題，通常會先想辦法處理。
@@ -6337,7 +6424,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    👑 平信徒第 4，牧者卻第 15。亞伯拉罕型到底去哪了？
+                    • 平信徒第 4，牧者卻第 15。亞伯拉罕型到底去哪了？
                 </div>
 
                 ENFJ 很會鼓勵人、帶人，也很容易把大家聚在一起。
@@ -6362,7 +6449,7 @@ section > .section-title {
             </div>
 <div class="pastor-observation">
 <div class="pastor-observation-title">
-                    🎯 大家以為牧師要很會帶人，ENTJ 怎麼反而最後一名？
+                    • 大家以為牧師要很會帶人，ENTJ 怎麼反而最後一名？
                 </div>
 
                 很會決策、抓方向、把事情往前推，
@@ -7287,9 +7374,7 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             const rawType=new URLSearchParams(window.location.search).get('type');
             const initialType=rawType ? rawType.trim().toUpperCase() : '';
             if (MBTI_TYPES.includes(initialType) && renderMbtiResult(initialType,{updateUrl:false})) {
-                if (!mobileLookupSheetMedia.matches) {
-                    requestAnimationFrame(() => document.getElementById('mbti-lookup')?.scrollIntoView({behavior:'auto',block:'start'}));
-                }
+                // V99：保留網址帶入的 MBTI 結果，但進站先停在首頁，不自動往下捲。
             } else {
                 document.title=BASE_TITLE;
             }
