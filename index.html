@@ -6513,6 +6513,222 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v138-pastor-integrated-insight-card">
+/* v138｜一句話卡改成「人物頭像＋人物專屬台詞＋切換＋四軸洞察」的緊湊整合卡 */
+.pastor-insight-card{
+  max-width:720px!important;
+  display:grid!important;
+  grid-template-columns:86px minmax(0,1fr)!important;
+  align-items:start!important;
+  gap:12px!important;
+  padding:13px 14px!important;
+  text-align:left!important;
+}
+.pastor-avatar-crop{
+  width:86px!important;
+  height:86px!important;
+  overflow:hidden;
+  border-radius:15px;
+  background:#F1ECE4;
+  border:1px solid #E2D9CD;
+  align-self:start;
+}
+.pastor-avatar-crop img{
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:50% 18%!important;
+}
+.pastor-dialogue-body{min-width:0}
+.pastor-dialogue-identity{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:21px;
+  margin:0 0 1px;
+}
+.pastor-dialogue-identity #pastor-advisor-type{
+  order:0;
+  margin:0!important;
+  padding:2px 7px;
+  border-radius:999px;
+  background:#EAF0EC;
+  color:#456858!important;
+  font-size:.68rem!important;
+  font-weight:950!important;
+  line-height:1.35;
+}
+.pastor-dialogue-identity #pastor-advisor-name{
+  order:1;
+  color:#4E6258!important;
+  font-size:.82rem!important;
+  font-weight:900!important;
+}
+.pastor-insight-card blockquote{
+  max-width:none!important;
+  min-height:0!important;
+  margin:2px 0 5px!important;
+  padding:10px 28px 11px!important;
+  font-size:1rem!important;
+  line-height:1.58!important;
+  text-align:center!important;
+}
+.pastor-insight-card blockquote::before{left:0!important;top:-2px!important;font-size:2.55rem!important}
+.pastor-insight-card blockquote::after{right:0!important;bottom:-5px!important;font-size:2.45rem!important}
+
+/* 同一答案有 2–4 位候選時，按鈕緊貼台詞下方；單一候選不顯示多餘按鈕 */
+.pastor-dialogue-switches{
+  width:100%;
+  max-width:none!important;
+  margin:2px 0 9px!important;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:6px!important;
+}
+.pastor-dialogue-switches[hidden]{display:none!important}
+.pastor-dialogue-switches[data-count="3"]{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pastor-dialogue-switches[data-count="4"]{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pastor-dialogue-switches .pastor-candidate-card{
+  min-height:38px!important;
+  padding:6px 7px!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:5px;
+  border-radius:10px!important;
+  background:#F7F4EE!important;
+  text-align:left!important;
+}
+.pastor-dialogue-switches .pastor-candidate-card.is-active{
+  background:#EEF4F0!important;
+  border-color:#759083!important;
+  box-shadow:inset 0 0 0 1px rgba(69,104,88,.08);
+}
+.pastor-dialogue-switches .pastor-candidate-type{
+  font-size:.70rem!important;
+  white-space:nowrap;
+}
+.pastor-dialogue-switches .pastor-candidate-name{
+  margin:0!important;
+  font-size:.72rem!important;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.pastor-dialogue-switches .pastor-candidate-score{
+  margin:0!important;
+  font-size:.60rem!important;
+  color:#9A8F84!important;
+  white-space:nowrap;
+}
+
+/* 四軸直接收到同一卡片，不再另外佔一大塊 */
+.pastor-inline-insight{
+  margin-top:4px;
+  padding-top:9px;
+  border-top:1px solid #EAE2D8;
+}
+.pastor-inline-insight-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:7px;
+}
+.pastor-inline-insight-head>p{
+  margin:0;
+  color:#5D665F;
+  font-size:.78rem;
+  font-weight:950;
+}
+.pastor-inline-insight .pastor-model-head{
+  margin:0!important;
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+  gap:5px;
+}
+.pastor-inline-insight .pastor-model-head strong{
+  font-size:.92rem!important;
+  line-height:1!important;
+}
+.pastor-inline-insight .pastor-model-head em{
+  padding:2px 6px!important;
+  font-size:.58rem!important;
+}
+.pastor-inline-insight .pastor-axis-list{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:5px 10px!important;
+}
+.pastor-inline-insight .pastor-axis-row{
+  grid-template-columns:42px minmax(76px,1fr) 42px!important;
+  gap:5px!important;
+}
+.pastor-inline-insight .pastor-axis-label{
+  font-size:.61rem!important;
+}
+.pastor-inline-insight .pastor-axis-label strong{font-size:.69rem!important}
+.pastor-inline-insight .pastor-axis-track{height:6px!important}
+.pastor-inline-insight .pastor-model-note{
+  max-width:none!important;
+  margin:6px 0 0!important;
+  color:#81776E!important;
+  font-size:.65rem!important;
+  line-height:1.42!important;
+  text-align:left!important;
+}
+
+/* 下方摘要只留角色／直覺／說明／原始作答比例，避免重複 MBTI 資訊 */
+.pastor-result-card{
+  max-width:720px!important;
+  margin-top:9px!important;
+  padding:10px 12px 11px!important;
+}
+.pastor-result-card .pastor-compact-info{
+  margin-bottom:5px!important;
+  padding:9px 10px 8px!important;
+  box-shadow:none!important;
+}
+.pastor-result-card .pastor-other-btn{margin-top:5px!important}
+
+@media(max-width:620px){
+  .pastor-insight-card{
+    grid-template-columns:68px minmax(0,1fr)!important;
+    gap:9px!important;
+    padding:10px!important;
+  }
+  .pastor-avatar-crop{width:68px!important;height:68px!important;border-radius:13px}
+  .pastor-insight-card blockquote{
+    margin-top:1px!important;
+    padding:9px 20px 10px!important;
+    font-size:.92rem!important;
+    line-height:1.52!important;
+  }
+  .pastor-dialogue-switches[data-count="3"],
+  .pastor-dialogue-switches[data-count="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pastor-dialogue-switches .pastor-candidate-card{
+    grid-template-columns:auto 1fr;
+    gap:2px 5px;
+    min-height:40px!important;
+  }
+  .pastor-dialogue-switches .pastor-candidate-score{
+    grid-column:1/-1;
+    text-align:right;
+    font-size:.56rem!important;
+  }
+  .pastor-inline-insight-head{align-items:flex-start;gap:6px}
+  .pastor-inline-insight-head>p{font-size:.72rem}
+  .pastor-inline-insight .pastor-axis-list{grid-template-columns:1fr!important;gap:4px!important}
+  .pastor-inline-insight .pastor-axis-row{grid-template-columns:39px minmax(70px,1fr) 39px!important}
+  .pastor-inline-insight .pastor-model-note{font-size:.62rem!important}
+  .pastor-result-card{padding:8px 9px 9px!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8547,9 +8763,24 @@ section > .section-title {
       <div class="pastor-options" id="pastor-options"></div>
     </section>
     <div class="pastor-reveal" id="pastor-reveal" hidden>
-      <div class="pastor-advisor pastor-dialogue-card">
-        <div class="pastor-advisor-art"><img id="pastor-advisor-img" alt=""/><span>目前顯示</span><b id="pastor-advisor-name"></b><small id="pastor-advisor-type"></small></div>
-        <blockquote id="pastor-advisor-quote"></blockquote>
+      <div class="pastor-advisor pastor-dialogue-card pastor-insight-card">
+        <div class="pastor-advisor-art pastor-avatar-crop"><img id="pastor-advisor-img" alt=""/></div>
+        <div class="pastor-dialogue-body">
+          <div class="pastor-dialogue-identity"><small id="pastor-advisor-type"></small><b id="pastor-advisor-name"></b></div>
+          <blockquote id="pastor-advisor-quote"></blockquote>
+          <div class="pastor-candidate-grid pastor-dialogue-switches" id="pastor-candidates" aria-label="切換這個回答可能對應的聖經人物"></div>
+          <div class="pastor-inline-insight" aria-label="這個回答透露的 MBTI 四軸訊號">
+            <div class="pastor-inline-insight-head">
+              <p>這個回答透露了什麼？</p>
+              <div class="pastor-model-head">
+                <strong id="pastor-mbti-signal"></strong>
+                <em id="pastor-confidence"></em>
+              </div>
+            </div>
+            <div class="pastor-axis-list" id="pastor-axis-list"></div>
+            <p class="pastor-model-note" id="pastor-model-note"></p>
+          </div>
+        </div>
       </div>
       <section class="pastor-result-card" aria-label="這次回答的分析">
         <div class="pastor-compact-info" aria-label="這次回答的重點摘要">
@@ -8562,24 +8793,6 @@ section > .section-title {
             <p class="pastor-stat" id="pastor-stat"></p>
           </div>
           <p id="pastor-explain"></p>
-          <div class="pastor-compact-model-row">
-            <div class="pastor-model-head">
-              <span>主要人格訊號</span>
-              <strong id="pastor-mbti-signal"></strong>
-              <em id="pastor-confidence"></em>
-            </div>
-            <p class="pastor-model-note" id="pastor-model-note"></p>
-          </div>
-        </div>
-        <div class="pastor-model-panel" id="pastor-model-panel">
-          <div class="pastor-model-kicker">MBTI MODEL｜這次反應的人格訊號</div>
-          <div class="pastor-axis-mini" id="pastor-axis-mini" aria-label="這個回答的 MBTI 四軸訊號">
-            <p class="pastor-axis-mini-title">這個回答透露了什麼？</p>
-            <div class="pastor-axis-list" id="pastor-axis-list"></div>
-            <p class="pastor-axis-mini-note">每一列會把訊號較強的一側放左邊；數字是本頁文字判讀模型，不是問卷實測比例</p>
-          </div>
-          <div class="pastor-candidate-grid" id="pastor-candidates"></div>
-          <p class="pastor-model-caption">「類型符合度」是依 I/E、S/N、T/F、J/P 四軸試算的模型結果，不是原始問卷實測的 MBTI 機率</p>
         </div>
         <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三種回答怎麼說 →</button>
         <div class="pastor-other" id="pastor-other" hidden></div>
@@ -12779,6 +12992,40 @@ const PASTOR_CHARACTER={
 };
 const ALL_TYPES=Object.keys(PASTOR_CHARACTER);
 
+// v138｜同一答案若有多個 MBTI 候選，每個人物有自己的說法；人物只是 MBTI 結果的視覺化。
+const PASTOR_CANDIDATE_QUOTES={
+  'support-A-ISFJ':'你先慢慢說，不用急著把所有事情一次講完；我們一件一件來，我會陪你把眼前的混亂接住。',
+  'support-A-ESFJ':'你先坐好，今天不用一個人撐；我們先把最需要有人陪你的地方找出來，再一起往下走。',
+  'support-D-ENFP':'也許這段混亂不是終點，我們一起看看，神是不是正在打開一條你以前沒想過的新路。',
+  'support-D-INFP':'你現在不用急著決定方向；等心稍微安靜一點，也許你會慢慢看見神正在邀請你往哪裡走。',
+
+  'conflict-A-ISTJ':'先把事情按順序釐清：哪些是事實、哪些只是轉述，然後我們照清楚的原則處理。',
+  'conflict-A-ESTJ':'先停止傳話，把雙方找來；該講清楚的事實和界線，就不要再讓它模糊下去。',
+  'conflict-B-ESFJ':'先讓大家停一下，別再互相刺傷；話可以說開，但不要把關係推到回不了頭。',
+  'conflict-B-ENFJ':'先別急著證明誰對，我更在意的是，我們要怎麼讓彼此重新願意坐在同一張桌子前。',
+  'conflict-D-INTP':'我會先把原則說清楚，但不是每一個衝突都需要牧者替大家下判決。',
+  'conflict-D-INTJ':'我會介入到界線清楚為止，剩下的責任要交還給當事人自己面對。',
+
+  'money-A-ISTJ':'先把現金流、風險和最壞情況列清楚；知道承擔範圍，再談這一步要不要走。',
+  'money-A-ESTJ':'先把數字攤開，責任和風險都算明白；重大決定不能只靠氣氛往前推。',
+  'money-C-ESFJ':'這件事會由大家一起承擔，所以我想先讓核心同工把擔心和期待都說清楚。',
+  'money-C-ENFJ':'先把不同聲音帶進來；我想確認我們最後往前走時，大家知道自己為什麼願意一起承擔。',
+  'money-D-ENTJ':'先看五年後這個選擇能不能真正推動使命；值得的突破，本來就需要有計算過的冒險。',
+  'money-D-INTJ':'我不只看眼前成本，我要看長期回報與風險，判斷這一步是不是值得佈局。',
+
+  'rest-A-ISFP':'先睡吧。不是每一次沒有力氣，都需要立刻找到屬靈答案。',
+  'rest-A-INFP':'先安靜一陣子吧。你不需要現在就替這份疲憊找到意義，先讓自己重新感覺得到自己。',
+  'rest-B-INTP':'先暫停輸出，去學一個真的讓你好奇的東西；腦袋重新活起來，力氣也可能慢慢回來。',
+  'rest-B-INTJ':'我會先離開日常事工節奏，重新整理、學習，讓自己看見下一段路要怎麼走。',
+  'rest-D-ESTP':'先去做點真的好玩的事，離開教會一下；走走、流汗、動一動，先把人救回來再說。',
+  'rest-D-ESFP':'去找一件會讓你重新笑出來的事吧；今天不用有產值，也不用把它變成事工。',
+  'rest-D-ISFP':'去做一件單純喜歡、摸得到生活的事；不用解釋，也不用替它加上屬靈意義。',
+  'rest-D-ISTP':'先把手機放下，找個能讓手和身體忙起來的嗜好；不談事工，先回到真實生活。'
+};
+function pastorQuoteFor(d,o,candidate){
+  return PASTOR_CANDIDATE_QUOTES[`${d.key}-${o.id}-${candidate.type}`]||o.quote;
+}
+
 const DATA=[
 {key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'你第一句會說什麼？',opts:[
 {id:'A',role:'務實的守護者',answer:'你先坐下來，慢慢說，我們先不要急著把所有事情一次解決',instinct:'穩定感',explain:'人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',survey:36.8,quote:'先坐下來吧，事情可以一件一件說',axis:{I:55,E:45,S:80,N:20,T:15,F:85,J:80,P:20},confidence:'中',signal:'xSFJ',show:2,note:'S、F、J 很清楚；I / E 比較接近，所以 ISFJ 與 ESFJ 都保留'},
@@ -12963,16 +13210,19 @@ function renderCandidates(d,optionIndex){
   const ranked=orderedCandidates(d,optionIndex);
   candidates.replaceChildren();
   candidates.dataset.count=String(ranked.length);
+  candidates.hidden=ranked.length<=1;
   activeCandidate=Math.min(activeCandidate,Math.max(0,ranked.length-1));
   ranked.forEach((c,i)=>{
     const b=document.createElement('button');
     b.type='button';
     b.className='pastor-candidate-card'+(i===activeCandidate?' is-active':'');
-    b.innerHTML=`<span class="pastor-candidate-type">${c.type}</span><span class="pastor-candidate-name">${c.character}</span><span class="pastor-candidate-score">類型符合度 ${(c.score*100).toFixed(1)}%</span>`;
-    b.onclick=()=>{activeCandidate=i;showAdvisor(c,o.quote)};
+    b.setAttribute('aria-label',`切換成 ${c.type} ${c.character} 的說法，類型符合度 ${(c.score*100).toFixed(1)}%`);
+    b.innerHTML=`<span class="pastor-candidate-type">${c.type}</span><span class="pastor-candidate-name">${c.character}</span><span class="pastor-candidate-score">${(c.score*100).toFixed(1)}%</span>`;
+    b.onclick=()=>{activeCandidate=i;showAdvisor(c,pastorQuoteFor(d,o,c))};
     candidates.append(b);
   });
-  showAdvisor(ranked[activeCandidate]||ranked[0],o.quote);
+  const active=ranked[activeCandidate]||ranked[0];
+  if(active)showAdvisor(active,pastorQuoteFor(d,o,active));
   return ranked;
 }
 
