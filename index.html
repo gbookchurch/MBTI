@@ -6808,6 +6808,169 @@ section > .section-title {
   .pastor-inline-stat{font-size:.62rem;padding:3px 6px}
 }
 </style>
+
+<style id="v141-pastor-character-column-and-minimal-others">
+/* v141｜主人物完整左欄；MBTI＋姓名放大置於人物上方；另外三個回答只留「角色代號＋MBTI／人物」 */
+.pastor-insight-card{
+  max-width:760px!important;
+  grid-template-columns:148px minmax(0,1fr)!important;
+  gap:16px!important;
+  padding:14px 16px!important;
+  align-items:stretch!important;
+}
+.pastor-character-column{
+  width:148px!important;
+  height:auto!important;
+  min-height:238px;
+  overflow:visible!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  display:flex!important;
+  flex-direction:column;
+  align-items:center;
+  align-self:stretch!important;
+}
+.pastor-character-column .pastor-dialogue-identity{
+  width:100%;
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  gap:5px!important;
+  min-height:0!important;
+  margin:0 0 5px!important;
+  white-space:nowrap;
+}
+.pastor-character-column .pastor-dialogue-identity #pastor-advisor-type{
+  margin:0!important;
+  padding:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#456858!important;
+  font-size:1.08rem!important;
+  font-weight:950!important;
+  line-height:1.2!important;
+  letter-spacing:.025em;
+}
+.pastor-character-column .pastor-dialogue-identity #pastor-advisor-name{
+  color:#405D50!important;
+  font-size:1.12rem!important;
+  font-weight:950!important;
+  line-height:1.2!important;
+}
+.pastor-full-figure{
+  flex:1 1 auto;
+  width:100%;
+  min-height:205px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+}
+.pastor-full-figure img{
+  width:100%!important;
+  height:218px!important;
+  max-width:148px!important;
+  margin:0 auto!important;
+  display:block!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+}
+.pastor-dialogue-body{align-self:stretch}
+
+/* 另外三個回答：只保留「角色代號（例如立即的行動者）＋所有主要候選的 MBTI／人物姓名」 */
+.pastor-other{gap:7px!important;margin-top:10px!important}
+.pastor-other-item{
+  display:flex!important;
+  align-items:center;
+  gap:10px;
+  padding:9px 11px!important;
+  border:1px solid #E1D9CE!important;
+  border-radius:13px!important;
+  background:#FFFDF9!important;
+  min-height:48px;
+}
+.pastor-other-instinct{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#EEF3EF;
+  color:#456858!important;
+  font-size:.72rem!important;
+  font-weight:950!important;
+  line-height:1.2;
+  margin:0!important;
+  white-space:nowrap;
+}
+.pastor-other-people,
+.pastor-other-people[data-count="1"],
+.pastor-other-people[data-count="2"],
+.pastor-other-people[data-count="3"],
+.pastor-other-people[data-count="4"]{
+  flex:1 1 auto;
+  display:flex!important;
+  align-items:center;
+  justify-content:flex-start!important;
+  flex-wrap:wrap;
+  gap:5px 9px!important;
+  min-width:0;
+}
+.pastor-other-person{
+  display:inline-flex;
+  align-items:baseline;
+  gap:4px;
+  min-width:0;
+  padding:0!important;
+  text-align:left!important;
+}
+.pastor-other-person-type{
+  display:inline!important;
+  color:#405D50!important;
+  font-size:.76rem!important;
+  font-weight:950!important;
+  line-height:1.25!important;
+}
+.pastor-other-person-name{
+  display:inline!important;
+  margin:0!important;
+  color:#665E56!important;
+  font-size:.76rem!important;
+  font-weight:820!important;
+  line-height:1.25!important;
+  white-space:nowrap;
+}
+.pastor-other-head,.pastor-other-count,.pastor-other-role-title,.pastor-other-hint,.pastor-other-person-art{display:none!important}
+
+@media(max-width:620px){
+  .pastor-insight-card{
+    grid-template-columns:108px minmax(0,1fr)!important;
+    gap:10px!important;
+    padding:10px 11px!important;
+  }
+  .pastor-character-column{width:108px!important;min-height:215px}
+  .pastor-character-column .pastor-dialogue-identity{gap:3px!important;margin-bottom:3px!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-type{font-size:.96rem!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-name{font-size:.88rem!important}
+  .pastor-full-figure{min-height:184px}
+  .pastor-full-figure img{height:190px!important;max-width:108px!important}
+  .pastor-other-item{align-items:flex-start;gap:8px;padding:8px 9px!important}
+  .pastor-other-instinct{font-size:.68rem!important;padding:4px 7px}
+  .pastor-other-people{gap:4px 8px!important}
+  .pastor-other-person-type,.pastor-other-person-name{font-size:.71rem!important}
+}
+@media(max-width:390px){
+  .pastor-insight-card{grid-template-columns:94px minmax(0,1fr)!important;gap:8px!important}
+  .pastor-character-column{width:94px!important;min-height:205px}
+  .pastor-full-figure img{height:180px!important;max-width:94px!important}
+  .pastor-character-column .pastor-dialogue-identity{flex-direction:column;align-items:center!important;gap:0!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-type{font-size:.90rem!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-name{font-size:.82rem!important}
+  .pastor-other-item{display:grid!important;grid-template-columns:auto minmax(0,1fr)}
+}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8843,9 +9006,11 @@ section > .section-title {
     </section>
     <div class="pastor-reveal" id="pastor-reveal" hidden>
       <div class="pastor-advisor pastor-dialogue-card pastor-insight-card">
-        <div class="pastor-advisor-art pastor-avatar-crop"><img id="pastor-advisor-img" alt=""/></div>
-        <div class="pastor-dialogue-body">
+        <div class="pastor-advisor-art pastor-character-column">
           <div class="pastor-dialogue-identity"><small id="pastor-advisor-type"></small><b id="pastor-advisor-name"></b></div>
+          <div class="pastor-full-figure"><img id="pastor-advisor-img" alt=""/></div>
+        </div>
+        <div class="pastor-dialogue-body">
           <blockquote id="pastor-advisor-quote"></blockquote>
           <div class="pastor-candidate-grid pastor-dialogue-switches" id="pastor-candidates" aria-label="切換這個回答可能對應的聖經人物"></div>
           <div class="pastor-inline-summary" aria-label="這次回答的重點摘要">
@@ -8869,7 +9034,7 @@ section > .section-title {
         </div>
       </div>
       <section class="pastor-result-card pastor-other-zone" aria-label="其他回答">
-        <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三種回答怎麼說 →</button>
+        <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三個怎麼說 →</button>
         <div class="pastor-other" id="pastor-other" hidden></div>
       </section>
     </div>
@@ -13347,7 +13512,7 @@ function choose(i,{scroll=true}={}){
   renderAxes(o.axis);
   renderCandidates(d,i);
   other.hidden=true;
-  otherBtn.textContent='聽聽另外三種回答怎麼說 →';
+  otherBtn.textContent='聽聽另外三個怎麼說 →';
   reveal.hidden=false;
   renderTabs();
   renderRecord();
@@ -13378,7 +13543,7 @@ otherBtn.onclick=()=>{
   const d=DATA[current];
   if(!other.hidden){
     other.hidden=true;
-    otherBtn.textContent='聽聽另外三種回答怎麼說 →';
+    otherBtn.textContent='聽聽另外三個怎麼說 →';
     return;
   }
   other.replaceChildren();
@@ -13394,16 +13559,12 @@ otherBtn.onclick=()=>{
       return `<span class="pastor-other-person"><span class="pastor-other-person-type">${c.type}</span><span class="pastor-other-person-name">${c.character}</span></span>`;
     }).join('');
 
-    x.innerHTML=`<span class="pastor-other-head"><span class="pastor-other-role-title">${o.role}</span><span class="pastor-other-count">${ranked.length} 位可能類型</span></span><span class="pastor-other-people" data-count="${ranked.length}">${people}</span>`;
-    x.onclick=()=>{choose(i);requestAnimationFrame(()=>{other.hidden=true;otherBtn.textContent='聽聽另外三種回答怎麼說 →'})};
+    x.innerHTML=`<span class="pastor-other-instinct">${o.role}</span><span class="pastor-other-people" data-count="${ranked.length}">${people}</span>`;
+    x.onclick=()=>{choose(i);requestAnimationFrame(()=>{other.hidden=true;otherBtn.textContent='聽聽另外三個怎麼說 →'})};
     other.append(x);
   });
-  const hint=document.createElement('div');
-  hint.className='pastor-other-hint';
-  hint.textContent='先看每個回答有幾個主要候選，以及對應的 MBTI／人物；點開後再看完整結果';
-  other.append(hint);
   other.hidden=false;
-  otherBtn.textContent='收起另外三種回答 ↑';
+  otherBtn.textContent='收起另外三個回答 ↑';
 };
 
 viewBtns.forEach(b=>b.onclick=()=>{
