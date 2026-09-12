@@ -7405,6 +7405,97 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v146-other-buttons-match-dialogue-switches">
+/* v146｜其他三回答按鈕直接沿用一句話下方人物切換按鈕的視覺語言 */
+.pastor-other{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:6px!important;
+  width:100%!important;
+  margin-top:8px!important;
+  padding:0!important;
+  overflow:visible!important;
+}
+.pastor-other-item,
+.pastor-other-item:nth-child(1),
+.pastor-other-item:nth-child(2),
+.pastor-other-item:nth-child(3){
+  min-width:0!important;
+  min-height:38px!important;
+  padding:6px 7px!important;
+  border:1px solid #DDD5CA!important;
+  border-radius:10px!important;
+  background:#F7F4EE!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  color:#B28A3F!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr!important;
+  align-items:center!important;
+  justify-content:stretch!important;
+  gap:5px!important;
+  text-align:left!important;
+  overflow:hidden!important;
+  transition:border-color .16s ease,background .16s ease,transform .16s ease!important;
+}
+.pastor-other-item:hover,
+.pastor-other-item:focus-visible{
+  border-color:#759083!important;
+  background:#EEF4F0!important;
+  background-image:none!important;
+  box-shadow:inset 0 0 0 1px rgba(69,104,88,.08)!important;
+  transform:translateY(-1px)!important;
+  outline:none!important;
+}
+.pastor-other-people,
+.pastor-other-people[data-count="1"]{
+  display:contents!important;
+}
+.pastor-other-person{
+  display:contents!important;
+}
+.pastor-other-person-type,
+.pastor-other-person-name{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  color:#B28A3F!important;
+  line-height:1.1!important;
+  white-space:nowrap!important;
+}
+.pastor-other-person-type{
+  font-size:.70rem!important;
+  font-weight:950!important;
+  letter-spacing:.035em!important;
+}
+.pastor-other-person-name{
+  min-width:0!important;
+  font-size:.72rem!important;
+  font-weight:600!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+/* 一句話下方的人物切換按鈕也統一成相同金色字 */
+.pastor-dialogue-switches .pastor-candidate-type,
+.pastor-dialogue-switches .pastor-candidate-name{
+  color:#B28A3F!important;
+}
+@media(max-width:620px){
+  .pastor-other{gap:5px!important}
+  .pastor-other-item{
+    min-height:38px!important;
+    padding:6px 6px!important;
+    border-radius:10px!important;
+  }
+  .pastor-other-person-type{font-size:clamp(.57rem,2.35vw,.68rem)!important}
+  .pastor-other-person-name{font-size:clamp(.58rem,2.35vw,.69rem)!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
