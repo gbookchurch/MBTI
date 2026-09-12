@@ -7330,6 +7330,81 @@ section > .section-title {
 }
 </style>
 
+
+
+<style id="v145-refined-deep-green-other-buttons">
+/* v145｜其他三回答按鈕：深綠底＋淺色字；移除文字後方淡色塊；圓角與人物一句話卡一致 */
+.pastor-other{
+  gap:8px!important;
+}
+.pastor-other-item,
+.pastor-other-item:nth-child(1),
+.pastor-other-item:nth-child(2),
+.pastor-other-item:nth-child(3){
+  min-height:38px!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(231,226,213,.16)!important;
+  border-radius:18px!important;
+  background:linear-gradient(180deg,#4D685D 0%,#425B51 100%)!important;
+  color:#EEE9DC!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 3px 10px rgba(38,58,50,.10)!important;
+  transition:background .16s ease,border-color .16s ease,box-shadow .16s ease,transform .16s ease!important;
+}
+.pastor-other-item:hover,
+.pastor-other-item:focus-visible{
+  background:linear-gradient(180deg,#557166 0%,#486257 100%)!important;
+  border-color:rgba(238,233,220,.24)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 5px 14px rgba(38,58,50,.14)!important;
+  transform:translateY(-1px)!important;
+  outline:none!important;
+}
+/* 清掉舊版留在文字 span 後方的淡色底與多餘邊距 */
+.pastor-other-item span,
+.pastor-other-people,
+.pastor-other-person,
+.pastor-other-person-type,
+.pastor-other-person-name{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.pastor-other-people{
+  margin:0!important;
+  padding:0!important;
+}
+.pastor-other-person{
+  margin:0!important;
+  padding:0!important;
+  gap:5px!important;
+}
+.pastor-other-person-type{
+  margin:0!important;
+  padding:0!important;
+  color:#F1ECDD!important;
+  font-weight:900!important;
+  letter-spacing:.03em!important;
+}
+.pastor-other-person-name{
+  margin:0!important;
+  padding:0!important;
+  color:#DCD8CC!important;
+  font-weight:400!important;
+}
+@media(max-width:620px){
+  .pastor-other{gap:6px!important}
+  .pastor-other-item{
+    min-height:36px!important;
+    padding:6px 7px!important;
+    border-radius:16px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
