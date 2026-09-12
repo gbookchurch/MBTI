@@ -6097,6 +6097,170 @@ section > .section-title {
   .pastor-axis-label strong{font-size:.76rem}
 }
 </style>
+
+<style id="v135-pastor-dialogue-integration">
+/* v135｜牧者版資訊減量：人物圖只留在對話卡；第一直覺合併；台詞比照平信徒版大引號 */
+.pastor-view-intro{
+  max-width:680px;
+  margin:10px auto 16px!important;
+  color:#405D50!important;
+  font-size:1.03rem!important;
+  font-weight:900;
+  line-height:1.5;
+  text-align:center!important;
+}
+
+/* 第一反應由四層文字壓成一條主訊息 + 一句說明 */
+.pastor-instinct-summary{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:5px;
+  max-width:700px;
+  margin:0 auto 6px;
+  line-height:1.45;
+}
+.pastor-instinct-summary .pastor-archetype{
+  color:#6B625A;
+  font-size:.84rem;
+  font-weight:850;
+}
+.pastor-instinct-divider{
+  color:#C9BFB4;
+  font-size:.85rem;
+}
+.pastor-instinct-summary .pastor-instinct-label{
+  margin:0;
+  color:#776F67;
+  font-size:.84rem;
+}
+.pastor-instinct-summary #pastor-instinct{
+  color:#456858;
+  font-size:1.35rem;
+  font-weight:950;
+}
+#pastor-explain{
+  max-width:610px!important;
+  margin:5px auto 10px!important;
+  color:#5D5751!important;
+  line-height:1.65!important;
+  text-align:center!important;
+}
+
+/* 所有「按鈕型」候選只留 MBTI + 姓名 + 必要數字，不放人物圖 */
+.pastor-candidate-card{
+  padding:10px 9px!important;
+  min-height:70px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.pastor-candidate-card img{display:none!important}
+.pastor-candidate-name{margin-top:2px!important}
+
+.pastor-other-person-art{display:none!important}
+.pastor-other-people{
+  gap:7px!important;
+  align-items:stretch!important;
+}
+.pastor-other-people[data-count="1"]{grid-template-columns:minmax(84px,130px)!important}
+.pastor-other-people[data-count="2"]{grid-template-columns:repeat(2,minmax(78px,1fr))!important}
+.pastor-other-people[data-count="3"]{grid-template-columns:repeat(3,minmax(70px,1fr))!important}
+.pastor-other-people[data-count="4"]{grid-template-columns:repeat(2,minmax(78px,1fr))!important}
+.pastor-other-person{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:50px;
+  padding:7px 5px!important;
+  border-radius:10px;
+  background:#F7F4EE;
+  text-align:center;
+}
+.pastor-other-person-type{
+  font-size:.78rem!important;
+  color:#456858!important;
+}
+.pastor-other-person-name{
+  margin-top:3px!important;
+  font-size:.73rem!important;
+}
+
+/* 聖經人物只在真正的對話卡出現 */
+.pastor-advisor{
+  max-width:680px!important;
+  grid-template-columns:125px minmax(0,1fr)!important;
+  gap:8px;
+  padding:14px 18px!important;
+  background:#F8F5EF!important;
+  border:1px solid #E7DED2;
+  border-radius:18px!important;
+}
+.pastor-advisor-art span{display:none!important}
+.pastor-advisor-art b{
+  margin-top:2px;
+  color:#4E6258;
+  font-size:.9rem;
+}
+#pastor-advisor-type{
+  margin-top:2px!important;
+  font-size:.72rem!important;
+}
+.pastor-advisor blockquote{
+  position:relative;
+  max-width:470px;
+  margin:0 auto!important;
+  padding:17px 38px 20px!important;
+  color:#49443F!important;
+  font-size:1.08rem!important;
+  font-weight:750;
+  line-height:1.68!important;
+  text-align:center!important;
+}
+.pastor-advisor blockquote::before,
+.pastor-advisor blockquote::after{
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  font-family:Georgia,'Times New Roman',serif;
+  font-weight:900;
+  line-height:1;
+  color:#B45F3C;
+  opacity:.27;
+}
+.pastor-advisor blockquote::before{
+  content:'“';
+  left:2px;
+  top:-5px;
+  font-size:3.15rem;
+}
+.pastor-advisor blockquote::after{
+  content:'„';
+  right:2px;
+  bottom:-8px;
+  font-size:3.05rem;
+}
+
+@media(max-width:620px){
+  .pastor-instinct-summary{gap:4px;margin-bottom:5px}
+  .pastor-instinct-summary #pastor-instinct{font-size:1.22rem}
+  .pastor-advisor{
+    grid-template-columns:92px minmax(0,1fr)!important;
+    padding:11px 10px!important;
+  }
+  .pastor-advisor-art img{width:78px!important;height:102px!important}
+  .pastor-advisor blockquote{
+    padding:14px 28px 17px!important;
+    font-size:.97rem!important;
+    line-height:1.62!important;
+  }
+  .pastor-advisor blockquote::before{left:0;top:-2px;font-size:2.5rem}
+  .pastor-advisor blockquote::after{right:0;bottom:-5px;font-size:2.4rem}
+  .pastor-other-people[data-count="4"]{grid-template-columns:repeat(2,minmax(72px,1fr))!important}
+}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8042,7 +8206,7 @@ section > .section-title {
 <button type="button" class="theater-view-btn is-active" data-theater-view="lay" aria-selected="true">👥 我是會友</button>
 <button type="button" class="theater-view-btn" data-theater-view="pastor" aria-selected="false">🎙️ 如果我是牧者</button>
 </div>
-<p class="pastor-view-intro" hidden>換個位置，事情看起來就不一樣了</p>
+<p class="pastor-view-intro" hidden>如果今天你是牧者，你第一句會說什麼？</p>
 <div class="temperament-theater-intro-share theater-lay-only" id="temperament-theater-share-mobile" aria-live="polite">
 <span class="temperament-theater-share-kicker">100 人教會縮影</span>
 <p><strong id="temperament-theater-share-group">SJ 穩定派</strong>約 <b id="temperament-theater-share-people">—</b> 人 <span>（<b id="temperament-theater-share-percent">—</b>%）</span></p>
@@ -8130,9 +8294,12 @@ section > .section-title {
     <h3 id="pastor-question"></h3>
     <div class="pastor-options" id="pastor-options"></div>
     <div class="pastor-reveal" id="pastor-reveal" hidden>
-      <span class="pastor-instinct-kicker">PASTOR'S FIRST INSTINCT｜牧者第一直覺</span>
-      <div class="pastor-instinct-label">你先看見的是</div><strong id="pastor-instinct"></strong>
-      <div class="pastor-archetype" id="pastor-archetype"></div>
+      <div class="pastor-instinct-summary">
+        <span class="pastor-archetype" id="pastor-archetype"></span>
+        <span class="pastor-instinct-divider" aria-hidden="true">｜</span>
+        <span class="pastor-instinct-label">你先看見的是</span>
+        <strong id="pastor-instinct"></strong>
+      </div>
       <p id="pastor-explain"></p>
       <p class="pastor-stat" id="pastor-stat"></p>
       <div class="pastor-model-panel" id="pastor-model-panel">
@@ -12541,8 +12708,7 @@ function renderCandidates(d,optionIndex){
     const b=document.createElement('button');
     b.type='button';
     b.className='pastor-candidate-card'+(i===activeCandidate?' is-active':'');
-    const src=art(c.character);
-    b.innerHTML=`${src?`<img src="${src}" alt="${c.type} ${c.character}的聖經人物插圖">`:''}<span class="pastor-candidate-type">${c.type}</span><span class="pastor-candidate-name">${c.character}</span><span class="pastor-candidate-score">類型符合度 ${(c.score*100).toFixed(1)}%</span>`;
+    b.innerHTML=`<span class="pastor-candidate-type">${c.type}</span><span class="pastor-candidate-name">${c.character}</span><span class="pastor-candidate-score">類型符合度 ${(c.score*100).toFixed(1)}%</span>`;
     b.onclick=()=>{activeCandidate=i;showAdvisor(c,o.quote)};
     candidates.append(b);
   });
@@ -12613,8 +12779,7 @@ otherBtn.onclick=()=>{
     x.setAttribute('aria-label',`切換到${o.role}的完整結果，共 ${ranked.length} 位可能人物`);
 
     const people=ranked.map(c=>{
-      const src=art(c.character);
-      return `<span class="pastor-other-person"><span class="pastor-other-person-art">${src?`<img src="${src}" alt="${c.type} ${c.character}的聖經人物插圖">`:''}</span><span class="pastor-other-person-type">${c.type}</span><span class="pastor-other-person-name">${c.character}</span></span>`;
+      return `<span class="pastor-other-person"><span class="pastor-other-person-type">${c.type}</span><span class="pastor-other-person-name">${c.character}</span></span>`;
     }).join('');
 
     x.innerHTML=`<span class="pastor-other-head"><span class="pastor-other-role-title">${o.role}</span><span class="pastor-other-count">${ranked.length} 位可能類型</span></span><span class="pastor-other-people" data-count="${ranked.length}">${people}</span>`;
@@ -12623,7 +12788,7 @@ otherBtn.onclick=()=>{
   });
   const hint=document.createElement('div');
   hint.className='pastor-other-hint';
-  hint.textContent='先看每個回答實際有幾個主要候選；點開後再看符合度、作答比例與完整說明';
+  hint.textContent='先看每個回答有幾個主要候選，以及對應的 MBTI／人物；點開後再看完整結果';
   other.append(hint);
   other.hidden=false;
   otherBtn.textContent='收起另外三種回答 ↑';
