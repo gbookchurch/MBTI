@@ -6971,6 +6971,153 @@ section > .section-title {
   .pastor-other-item{display:grid!important;grid-template-columns:auto minmax(0,1fr)}
 }
 </style>
+
+<style id="v142-pastor-character-balance-colored-others-centered-tabs">
+/* v142｜人物名稱兩行並加大、完整人物左欄平衡；其他三回答單行彩色；劇情按鈕置中 */
+
+/* 最上方 5 個劇情選擇：置中排列，不再靠左橫滑 */
+.pastor-scene-tabs{
+  justify-content:center!important;
+  flex-wrap:wrap!important;
+  overflow:visible!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* 主人物左欄：MBTI 與人物名固定分成兩行，增加上方呼吸感 */
+.pastor-character-column{
+  padding-top:10px!important;
+}
+.pastor-character-column .pastor-dialogue-identity{
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:2px!important;
+  margin:6px 0 8px!important;
+  white-space:normal!important;
+  text-align:center!important;
+}
+.pastor-character-column .pastor-dialogue-identity #pastor-advisor-type{
+  display:block!important;
+  font-size:1.18rem!important;
+  line-height:1.08!important;
+  letter-spacing:.055em!important;
+}
+.pastor-character-column .pastor-dialogue-identity #pastor-advisor-name{
+  display:block!important;
+  font-size:1.28rem!important;
+  line-height:1.12!important;
+  letter-spacing:.01em!important;
+}
+.pastor-dialogue-body{
+  padding-top:10px!important;
+}
+
+/* 另外三個回答：每一塊只留「角色代號 / MBTI / 聖經人物」，單行呈現 */
+.pastor-other{
+  grid-template-columns:1fr!important;
+  gap:8px!important;
+}
+.pastor-other-item{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  flex-wrap:nowrap!important;
+  min-height:44px!important;
+  padding:9px 12px!important;
+  overflow-x:auto!important;
+  scrollbar-width:none;
+}
+.pastor-other-item::-webkit-scrollbar{display:none}
+.pastor-other-instinct{
+  flex:0 0 auto!important;
+  padding:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  font-size:.78rem!important;
+  line-height:1.2!important;
+}
+.pastor-other-instinct::after{
+  content:" /";
+  margin-left:4px;
+  color:rgba(74,67,61,.42);
+  font-weight:700;
+}
+.pastor-other-people,
+.pastor-other-people[data-count="1"],
+.pastor-other-people[data-count="2"],
+.pastor-other-people[data-count="3"],
+.pastor-other-people[data-count="4"]{
+  flex:0 0 auto!important;
+  flex-wrap:nowrap!important;
+  gap:0!important;
+  white-space:nowrap!important;
+}
+.pastor-other-person{
+  flex:0 0 auto!important;
+  gap:4px!important;
+  white-space:nowrap!important;
+}
+.pastor-other-person:not(:last-child)::after{
+  content:" /";
+  margin-left:6px;
+  margin-right:6px;
+  color:rgba(74,67,61,.38);
+  font-weight:700;
+}
+.pastor-other-person-type,
+.pastor-other-person-name{
+  font-size:.78rem!important;
+  line-height:1.2!important;
+}
+
+/* 三個其他回答給一點色彩，但維持低彩度，不搶主卡 */
+.pastor-other-item:nth-child(1){
+  background:#F2F7F3!important;
+  border-color:#CFE0D5!important;
+}
+.pastor-other-item:nth-child(1) .pastor-other-instinct,
+.pastor-other-item:nth-child(1) .pastor-other-person-type{color:#456858!important}
+
+.pastor-other-item:nth-child(2){
+  background:#FBF6E9!important;
+  border-color:#E8D8AA!important;
+}
+.pastor-other-item:nth-child(2) .pastor-other-instinct,
+.pastor-other-item:nth-child(2) .pastor-other-person-type{color:#8B6B2C!important}
+
+.pastor-other-item:nth-child(3){
+  background:#FBF0ED!important;
+  border-color:#E8C8BE!important;
+}
+.pastor-other-item:nth-child(3) .pastor-other-instinct,
+.pastor-other-item:nth-child(3) .pastor-other-person-type{color:#945E50!important}
+
+@media(max-width:620px){
+  .pastor-scene-tabs{justify-content:center!important;gap:6px!important}
+  .pastor-character-column{padding-top:8px!important}
+  .pastor-dialogue-body{padding-top:8px!important}
+  .pastor-character-column .pastor-dialogue-identity{margin:6px 0 7px!important;gap:2px!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-type{font-size:1.02rem!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-name{font-size:1.10rem!important}
+  .pastor-other-item{
+    display:flex!important;
+    grid-template-columns:none!important;
+    align-items:center!important;
+    gap:7px!important;
+    padding:9px 10px!important;
+  }
+  .pastor-other-instinct,
+  .pastor-other-person-type,
+  .pastor-other-person-name{font-size:.72rem!important}
+}
+@media(max-width:390px){
+  .pastor-other-item{display:flex!important;grid-template-columns:none!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-type{font-size:.98rem!important}
+  .pastor-character-column .pastor-dialogue-identity #pastor-advisor-name{font-size:1.04rem!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
