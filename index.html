@@ -6729,6 +6729,85 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v139-pastor-one-card-summary">
+/* v139｜把「穩定感／作答比例／簡短解釋」收進人物洞察卡，移除角色稱號，讓結果只剩一張主卡 */
+.pastor-insight-card{
+  grid-template-columns:82px minmax(0,1fr)!important;
+  gap:11px!important;
+  padding:12px 13px!important;
+}
+.pastor-avatar-crop{width:82px!important;height:82px!important;border-radius:14px!important}
+.pastor-insight-card blockquote{
+  margin:3px 0 6px!important;
+  padding:9px 25px 10px!important;
+  line-height:1.58!important;
+  text-wrap:balance;
+}
+.pastor-insight-card blockquote br{content:"";display:block;margin-top:2px}
+.pastor-inline-summary{
+  margin:7px 0 8px;
+  padding:8px 0 9px;
+  border-top:1px solid #E9E1D7;
+  border-bottom:1px solid #E9E1D7;
+}
+.pastor-inline-summary-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.pastor-inline-summary #pastor-instinct{
+  color:#456858;
+  font-size:.91rem;
+  line-height:1.35;
+  font-weight:950;
+}
+.pastor-inline-stat{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  padding:3px 7px;
+  border-radius:999px;
+  background:#EEE8DE;
+  color:#776D64;
+  font-size:.66rem;
+  line-height:1.25;
+  font-weight:850;
+}
+.pastor-inline-summary #pastor-explain{
+  max-width:none!important;
+  margin:4px 0 0!important;
+  color:#675F58!important;
+  font-size:.77rem!important;
+  line-height:1.5!important;
+  text-align:left!important;
+}
+/* 下方不再是一張第二結果卡，只保留「其他回答」控制區 */
+.pastor-other-zone{
+  max-width:720px!important;
+  margin:6px auto 0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+}
+.pastor-other-zone .pastor-other-btn{
+  margin-top:0!important;
+  border-top:0!important;
+}
+@media(max-width:620px){
+  .pastor-insight-card{grid-template-columns:68px minmax(0,1fr)!important;padding:10px!important;gap:9px!important}
+  .pastor-avatar-crop{width:68px!important;height:68px!important;border-radius:12px!important}
+  .pastor-dialogue-identity{gap:5px!important}
+  .pastor-insight-card blockquote{font-size:.92rem!important;padding:8px 19px 9px!important;line-height:1.55!important}
+  .pastor-inline-summary{margin:6px 0 7px;padding:7px 0 8px}
+  .pastor-inline-summary #pastor-instinct{font-size:.84rem}
+  .pastor-inline-summary #pastor-explain{font-size:.72rem!important}
+  .pastor-inline-stat{font-size:.62rem;padding:3px 6px}
+}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8769,6 +8848,13 @@ section > .section-title {
           <div class="pastor-dialogue-identity"><small id="pastor-advisor-type"></small><b id="pastor-advisor-name"></b></div>
           <blockquote id="pastor-advisor-quote"></blockquote>
           <div class="pastor-candidate-grid pastor-dialogue-switches" id="pastor-candidates" aria-label="切換這個回答可能對應的聖經人物"></div>
+          <div class="pastor-inline-summary" aria-label="這次回答的重點摘要">
+            <div class="pastor-inline-summary-row">
+              <strong id="pastor-instinct"></strong>
+              <span class="pastor-inline-stat" id="pastor-stat"></span>
+            </div>
+            <p id="pastor-explain"></p>
+          </div>
           <div class="pastor-inline-insight" aria-label="這個回答透露的 MBTI 四軸訊號">
             <div class="pastor-inline-insight-head">
               <p>這個回答透露了什麼？</p>
@@ -8782,18 +8868,7 @@ section > .section-title {
           </div>
         </div>
       </div>
-      <section class="pastor-result-card" aria-label="這次回答的分析">
-        <div class="pastor-compact-info" aria-label="這次回答的重點摘要">
-          <div class="pastor-compact-title-row">
-            <div class="pastor-instinct-summary pastor-result-heading">
-              <span class="pastor-archetype" id="pastor-archetype"></span>
-              <span class="pastor-instinct-divider" aria-hidden="true">·</span>
-              <strong id="pastor-instinct"></strong>
-            </div>
-            <p class="pastor-stat" id="pastor-stat"></p>
-          </div>
-          <p id="pastor-explain"></p>
-        </div>
+      <section class="pastor-result-card pastor-other-zone" aria-label="其他回答">
         <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三種回答怎麼說 →</button>
         <div class="pastor-other" id="pastor-other" hidden></div>
       </section>
@@ -13065,7 +13140,6 @@ question=document.getElementById('pastor-question'),
 options=document.getElementById('pastor-options'),
 reveal=document.getElementById('pastor-reveal'),
 instinct=document.getElementById('pastor-instinct'),
-arch=document.getElementById('pastor-archetype'),
 explain=document.getElementById('pastor-explain'),
 stat=document.getElementById('pastor-stat'),
 signal=document.getElementById('pastor-mbti-signal'),
@@ -13188,10 +13262,38 @@ function renderTabs(){
   });
 }
 
+function renderAdvisorQuote(text){
+  advQuote.replaceChildren();
+  const chunks=String(text||'').match(/[^，。！？；]+[，。！？；]?/g)||[String(text||'')];
+  const lines=[];
+  let line='';
+  const cleanLen=v=>String(v).replace(/\s/g,'').length;
+  chunks.forEach(part=>{
+    const piece=part.trim();
+    if(!piece)return;
+    const hardStop=/[。！？]$/.test(piece);
+    if(line && cleanLen(line+piece)>22){
+      lines.push(line);
+      line=piece;
+    }else{
+      line+=piece;
+    }
+    if(hardStop && cleanLen(line)>=10){
+      lines.push(line);
+      line='';
+    }
+  });
+  if(line)lines.push(line);
+  (lines.length?lines:[String(text||'')]).forEach((value,i,arr)=>{
+    advQuote.append(document.createTextNode(value));
+    if(i<arr.length-1)advQuote.append(document.createElement('br'));
+  });
+}
+
 function showAdvisor(candidate,quote){
   advName.textContent=candidate.character;
   advType.textContent=candidate.type;
-  advQuote.textContent=quote;
+  renderAdvisorQuote(quote);
   const src=art(candidate.character);
   if(src){
     advImg.src=src;
@@ -13235,9 +13337,9 @@ function choose(i,{scroll=true}={}){
     b.classList.toggle('is-muted',j!==i);
   });
   instinct.textContent=o.instinct;
-  arch.textContent=o.role;
   explain.textContent=o.explain;
-  stat.textContent=`本題牧者作答中，${o.survey.toFixed(1)}% 選了相同方向`;
+  stat.textContent=`${o.survey.toFixed(1)}%`;
+  stat.title='本題牧者作答中選擇相同方向的比例';
   signal.innerHTML=signalHTML(o.signal);
   signal.setAttribute('aria-label',o.signal.replace(/x/gi,'未定'));
   confidence.textContent=`判定信心：${o.confidence}`;
