@@ -7234,6 +7234,102 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v144-three-buttons-hero-green-gold-type-name-only">
+/* v144｜其他三回答：只顯示「MBTI 人物名」；背景取首頁墨綠約淡 20%，金色文字 */
+.pastor-other{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  gap:7px!important;
+  width:100%!important;
+  margin-top:8px!important;
+  overflow:visible!important;
+  padding:1px!important;
+}
+.pastor-other-item,
+.pastor-other-item:nth-child(1),
+.pastor-other-item:nth-child(2),
+.pastor-other-item:nth-child(3){
+  flex:1 1 0!important;
+  min-width:0!important;
+  min-height:34px!important;
+  padding:6px 8px!important;
+  border:1px solid rgba(48,76,64,.20)!important;
+  border-radius:999px!important;
+  background:#596F66!important; /* #304C40 混白約 20% */
+  color:#D6B66A!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+}
+.pastor-other-item:hover,
+.pastor-other-item:focus-visible{
+  background:#61786E!important;
+  border-color:rgba(48,76,64,.28)!important;
+}
+.pastor-other-instinct{display:none!important}
+.pastor-other-people,
+.pastor-other-people[data-count="1"],
+.pastor-other-people[data-count="2"],
+.pastor-other-people[data-count="3"],
+.pastor-other-people[data-count="4"]{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  white-space:nowrap!important;
+}
+.pastor-other-person{
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  gap:5px!important;
+  min-width:0!important;
+  width:100%!important;
+  white-space:nowrap!important;
+  color:#D6B66A!important;
+}
+.pastor-other-person:not(:last-child)::after{content:none!important}
+.pastor-other-person-type{
+  display:inline!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+  color:#D6B66A!important;
+  font-size:.72rem!important;
+  line-height:1!important;
+  font-weight:900!important;
+  letter-spacing:.025em!important;
+}
+.pastor-other-person-name{
+  display:inline!important;
+  min-width:0!important;
+  margin:0!important;
+  color:#D6B66A!important;
+  font-size:.72rem!important;
+  line-height:1!important;
+  font-weight:400!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+@media(max-width:620px){
+  .pastor-other{gap:5px!important;overflow:visible!important}
+  .pastor-other-item{
+    flex:1 1 0!important;
+    min-width:0!important;
+    min-height:32px!important;
+    padding:5px 5px!important;
+  }
+  .pastor-other-person{gap:3px!important}
+  .pastor-other-person-type,
+  .pastor-other-person-name{font-size:clamp(.55rem,2.35vw,.66rem)!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -13818,11 +13914,12 @@ otherBtn.onclick=()=>{
     x.className='pastor-other-item';
     x.setAttribute('aria-label',`切換到${o.role}的完整結果，共 ${ranked.length} 位可能人物`);
 
-    const people=ranked.map(c=>{
-      return `<span class="pastor-other-person"><span class="pastor-other-person-type">${c.type}</span><span class="pastor-other-person-name">${c.character}</span></span>`;
-    }).join('');
+    const representative=ranked[0];
+    const people=representative
+      ? `<span class="pastor-other-person"><span class="pastor-other-person-type">${representative.type}</span><span class="pastor-other-person-name">${representative.character}</span></span>`
+      : '';
 
-    x.innerHTML=`<span class="pastor-other-instinct">${o.role}</span><span class="pastor-other-people" data-count="${ranked.length}">${people}</span>`;
+    x.innerHTML=`<span class="pastor-other-people" data-count="1">${people}</span>`;
     x.onclick=()=>{choose(i);requestAnimationFrame(()=>{other.hidden=true;otherBtn.textContent='聽聽另外三個怎麼說 →'})};
     other.append(x);
   });
