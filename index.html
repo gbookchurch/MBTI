@@ -7118,6 +7118,122 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v143-three-long-muted-green-buttons">
+/* v143｜「聽聽另外三個怎麼說」展開後：三個小型長按鈕並排，統一低彩度鼠尾草綠 */
+.pastor-other{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  gap:7px!important;
+  width:100%!important;
+  margin-top:8px!important;
+  overflow-x:auto!important;
+  padding:1px 1px 3px!important;
+  scrollbar-width:none;
+}
+.pastor-other::-webkit-scrollbar{display:none}
+.pastor-other-item{
+  flex:1 1 0!important;
+  min-width:0!important;
+  min-height:36px!important;
+  padding:7px 9px!important;
+  border:1px solid #D7E0DA!important;
+  border-radius:999px!important;
+  background:#EEF3EF!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  flex-wrap:nowrap!important;
+  overflow:hidden!important;
+  cursor:pointer;
+  color:#4E6559!important;
+}
+.pastor-other-item:hover,
+.pastor-other-item:focus-visible{
+  background:#E8EFEA!important;
+  border-color:#C9D6CE!important;
+}
+.pastor-other-item:nth-child(1),
+.pastor-other-item:nth-child(2),
+.pastor-other-item:nth-child(3){
+  background:#EEF3EF!important;
+  border-color:#D7E0DA!important;
+}
+.pastor-other-item:nth-child(1) .pastor-other-instinct,
+.pastor-other-item:nth-child(2) .pastor-other-instinct,
+.pastor-other-item:nth-child(3) .pastor-other-instinct,
+.pastor-other-item:nth-child(1) .pastor-other-person-type,
+.pastor-other-item:nth-child(2) .pastor-other-person-type,
+.pastor-other-item:nth-child(3) .pastor-other-person-type{
+  color:#4E6559!important;
+}
+.pastor-other-instinct{
+  flex:0 1 auto!important;
+  min-width:0!important;
+  font-size:.69rem!important;
+  line-height:1.1!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.pastor-other-instinct::after{
+  content:" ·"!important;
+  margin-left:3px!important;
+  color:#8D9B93!important;
+}
+.pastor-other-people,
+.pastor-other-people[data-count="1"],
+.pastor-other-people[data-count="2"],
+.pastor-other-people[data-count="3"],
+.pastor-other-people[data-count="4"]{
+  flex:0 1 auto!important;
+  min-width:0!important;
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+}
+.pastor-other-person{
+  min-width:0!important;
+  flex:0 1 auto!important;
+  gap:3px!important;
+  white-space:nowrap!important;
+}
+.pastor-other-person:not(:last-child)::after{
+  content:" ·"!important;
+  margin:0 4px!important;
+  color:#9AA69F!important;
+}
+.pastor-other-person-type,
+.pastor-other-person-name{
+  font-size:.69rem!important;
+  line-height:1.1!important;
+  white-space:nowrap!important;
+}
+.pastor-other-person-name{color:#5F6B64!important}
+
+@media(max-width:620px){
+  .pastor-other{
+    gap:6px!important;
+    overflow-x:auto!important;
+  }
+  .pastor-other-item{
+    flex:0 0 auto!important;
+    min-width:178px!important;
+    min-height:34px!important;
+    padding:6px 8px!important;
+  }
+  .pastor-other-instinct,
+  .pastor-other-person-type,
+  .pastor-other-person-name{font-size:.66rem!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
