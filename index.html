@@ -6261,6 +6261,159 @@ section > .section-title {
   .pastor-other-people[data-count="4"]{grid-template-columns:repeat(2,minmax(72px,1fr))!important}
 }
 </style>
+
+<style id="v136-pastor-dialogue-first-layout">
+/* v136｜選項區與結果區分家：回答後先看到人物對話卡，再看整合分析 */
+.pastor-decision-card{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  box-shadow:none!important;
+}
+.pastor-choice-zone{
+  max-width:820px;
+  margin:0 auto;
+  padding:20px;
+  background:#FFFEFB;
+  border:1px solid #DDD5C9;
+  border-radius:22px;
+  box-shadow:0 10px 24px rgba(52,42,35,.055);
+}
+.pastor-choice-zone .pastor-scenario{margin-bottom:14px!important}
+.pastor-choice-zone .pastor-options{margin-top:0}
+/* 題目已由上方情境與四個回答承接，不再額外插入一行問題標題 */
+#pastor-question{display:none!important}
+
+.pastor-reveal{
+  max-width:820px;
+  margin:16px auto 0!important;
+  padding-top:0!important;
+  border-top:0!important;
+}
+/* 選完後第一眼就是一句話對話卡 */
+.pastor-dialogue-card{
+  margin:0 auto!important;
+  max-width:720px!important;
+  background:#FFFDF9!important;
+  border:1px solid #DED5C9!important;
+  box-shadow:0 10px 24px rgba(52,42,35,.07);
+}
+
+/* 其餘資訊全部收進第二張分析卡，和上面的選項按鈕視覺切開 */
+.pastor-result-card{
+  max-width:760px;
+  margin:12px auto 0;
+  padding:16px 18px 15px;
+  background:#F8F5EF;
+  border:1px solid #E3DBD0;
+  border-radius:18px;
+  text-align:center;
+}
+.pastor-result-heading{
+  margin:0 auto 5px!important;
+  gap:7px!important;
+}
+.pastor-result-heading .pastor-archetype{
+  color:#4E6258!important;
+  font-size:1rem!important;
+  font-weight:900!important;
+}
+.pastor-result-heading .pastor-instinct-divider{
+  color:#C5BAAE!important;
+  font-size:.9rem!important;
+}
+.pastor-result-heading #pastor-instinct{
+  color:#456858!important;
+  font-size:1rem!important;
+  font-weight:900!important;
+}
+.pastor-result-card #pastor-explain{
+  margin:4px auto 8px!important;
+  max-width:620px!important;
+  font-size:.9rem!important;
+  line-height:1.58!important;
+  color:#625B54!important;
+}
+.pastor-result-card .pastor-stat{
+  margin:0 auto 12px!important;
+  padding:5px 10px!important;
+  font-size:.73rem!important;
+  background:#EEE8DE!important;
+}
+
+/* MBTI 區塊不再另外疊一張卡，降低「卡片裡還有卡片」的雜訊 */
+.pastor-result-card .pastor-model-panel{
+  max-width:700px!important;
+  margin:12px auto 0!important;
+  padding:13px 0 0!important;
+  border:0!important;
+  border-top:1px solid #E3DBD0!important;
+  border-radius:0!important;
+  background:transparent!important;
+}
+.pastor-model-kicker{display:none!important}
+.pastor-model-head{margin-top:0!important}
+.pastor-model-head > span{font-size:.74rem!important;color:#81776E!important}
+.pastor-model-head strong{font-size:1.18rem!important}
+.pastor-model-note{
+  max-width:610px!important;
+  margin:5px auto 7px!important;
+  font-size:.76rem!important;
+  line-height:1.5!important;
+  color:#7B7168!important;
+}
+.pastor-result-card .pastor-axis-mini{
+  max-width:620px!important;
+  margin:9px auto 10px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+.pastor-axis-mini-title{
+  margin:0 0 7px!important;
+  font-size:.82rem!important;
+  color:#5D665F!important;
+  font-weight:900!important;
+}
+.pastor-axis-mini-note,
+.pastor-model-caption{display:none!important}
+.pastor-result-card .pastor-candidate-grid{margin-top:9px!important}
+.pastor-result-card .pastor-candidate-card{
+  background:#FFFDF9!important;
+  min-height:62px!important;
+  border-radius:12px!important;
+}
+.pastor-result-card .pastor-candidate-score{font-size:.66rem!important}
+.pastor-result-card .pastor-other-btn{
+  margin-top:12px!important;
+  padding:7px 10px;
+  border-top:1px solid #E3DBD0!important;
+  width:100%;
+}
+.pastor-result-card .pastor-other{margin-top:7px!important}
+
+/* 下方方法說明退到輔助層，不搶結果卡 */
+.pastor-note{
+  max-width:710px;
+  margin:10px auto!important;
+  font-size:.69rem!important;
+  opacity:.82;
+}
+
+@media(max-width:620px){
+  .pastor-choice-zone{padding:13px;border-radius:18px}
+  .pastor-reveal{margin-top:12px!important}
+  .pastor-dialogue-card{border-radius:17px!important}
+  .pastor-result-card{margin-top:10px;padding:13px 11px 12px;border-radius:16px}
+  .pastor-result-heading .pastor-archetype,
+  .pastor-result-heading #pastor-instinct{font-size:.92rem!important}
+  .pastor-result-card #pastor-explain{font-size:.84rem!important;line-height:1.55!important}
+  .pastor-model-note{font-size:.72rem!important}
+  .pastor-result-card .pastor-candidate-grid{gap:6px!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8290,40 +8443,42 @@ section > .section-title {
 <div class="pastor-theater" id="pastor-theater" hidden>
   <div class="pastor-scene-tabs" id="pastor-scene-tabs"></div>
   <article class="pastor-decision-card">
-    <div class="pastor-scenario"><span>現在發生的是</span><p id="pastor-scenario-text"></p></div>
-    <h3 id="pastor-question"></h3>
-    <div class="pastor-options" id="pastor-options"></div>
+    <section class="pastor-choice-zone" aria-label="牧者情境與回答選項">
+      <div class="pastor-scenario"><span>現在發生的是</span><p id="pastor-scenario-text"></p></div>
+      <div class="pastor-options" id="pastor-options"></div>
+    </section>
     <div class="pastor-reveal" id="pastor-reveal" hidden>
-      <div class="pastor-instinct-summary">
-        <span class="pastor-archetype" id="pastor-archetype"></span>
-        <span class="pastor-instinct-divider" aria-hidden="true">｜</span>
-        <span class="pastor-instinct-label">你先看見的是</span>
-        <strong id="pastor-instinct"></strong>
-      </div>
-      <p id="pastor-explain"></p>
-      <p class="pastor-stat" id="pastor-stat"></p>
-      <div class="pastor-model-panel" id="pastor-model-panel">
-        <div class="pastor-model-kicker">MBTI MODEL｜這次反應的人格訊號</div>
-        <div class="pastor-model-head">
-          <span>主要人格訊號</span>
-          <strong id="pastor-mbti-signal"></strong>
-          <em id="pastor-confidence"></em>
-        </div>
-        <p class="pastor-model-note" id="pastor-model-note"></p>
-        <div class="pastor-axis-mini" id="pastor-axis-mini" aria-label="這個回答的 MBTI 四軸訊號">
-          <p class="pastor-axis-mini-title">這個回答透露了什麼？</p>
-          <div class="pastor-axis-list" id="pastor-axis-list"></div>
-          <p class="pastor-axis-mini-note">每一列會把訊號較強的一側放左邊；數字是本頁文字判讀模型，不是問卷實測比例</p>
-        </div>
-        <div class="pastor-candidate-grid" id="pastor-candidates"></div>
-        <p class="pastor-model-caption">「類型符合度」是依 I/E、S/N、T/F、J/P 四軸試算的模型結果，不是原始問卷實測的 MBTI 機率</p>
-      </div>
-      <div class="pastor-advisor">
+      <div class="pastor-advisor pastor-dialogue-card">
         <div class="pastor-advisor-art"><img id="pastor-advisor-img" alt=""/><span>目前顯示</span><b id="pastor-advisor-name"></b><small id="pastor-advisor-type"></small></div>
         <blockquote id="pastor-advisor-quote"></blockquote>
       </div>
-      <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三種回答怎麼說 →</button>
-      <div class="pastor-other" id="pastor-other" hidden></div>
+      <section class="pastor-result-card" aria-label="這次回答的分析">
+        <div class="pastor-instinct-summary pastor-result-heading">
+          <span class="pastor-archetype" id="pastor-archetype"></span>
+          <span class="pastor-instinct-divider" aria-hidden="true">·</span>
+          <strong id="pastor-instinct"></strong>
+        </div>
+        <p id="pastor-explain"></p>
+        <p class="pastor-stat" id="pastor-stat"></p>
+        <div class="pastor-model-panel" id="pastor-model-panel">
+          <div class="pastor-model-kicker">MBTI MODEL｜這次反應的人格訊號</div>
+          <div class="pastor-model-head">
+            <span>主要人格訊號</span>
+            <strong id="pastor-mbti-signal"></strong>
+            <em id="pastor-confidence"></em>
+          </div>
+          <p class="pastor-model-note" id="pastor-model-note"></p>
+          <div class="pastor-axis-mini" id="pastor-axis-mini" aria-label="這個回答的 MBTI 四軸訊號">
+            <p class="pastor-axis-mini-title">這個回答透露了什麼？</p>
+            <div class="pastor-axis-list" id="pastor-axis-list"></div>
+            <p class="pastor-axis-mini-note">每一列會把訊號較強的一側放左邊；數字是本頁文字判讀模型，不是問卷實測比例</p>
+          </div>
+          <div class="pastor-candidate-grid" id="pastor-candidates"></div>
+          <p class="pastor-model-caption">「類型符合度」是依 I/E、S/N、T/F、J/P 四軸試算的模型結果，不是原始問卷實測的 MBTI 機率</p>
+        </div>
+        <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三種回答怎麼說 →</button>
+        <div class="pastor-other" id="pastor-other" hidden></div>
+      </section>
     </div>
   </article>
   <p class="pastor-note">本題作答比例來自原始牧者題目，選擇後才揭曉；MBTI 類型符合度則是依四軸試算模型計算，兩者不是同一組數據，也不代表牧者被固定分成四種類型</p>
@@ -12746,7 +12901,7 @@ function render(){
   const d=DATA[current];
   renderTabs();
   scenario.textContent=d.scenario;
-  question.textContent=d.q;
+  if(question) question.textContent=d.q;
   options.replaceChildren();
   d.opts.forEach((o,i)=>{
     const b=document.createElement('button');
