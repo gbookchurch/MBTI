@@ -6414,6 +6414,105 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v137-pastor-compact-info-card">
+/* v137｜把角色、直覺、作答比例、主要人格訊號與判定理由收成一張緊湊資訊卡 */
+.pastor-compact-info{
+  max-width:700px;
+  margin:0 auto 10px;
+  padding:11px 13px 10px;
+  background:#FFFDF9;
+  border:1px solid #E2D9CD;
+  border-radius:14px;
+  box-shadow:0 3px 10px rgba(52,42,35,.035);
+  text-align:left;
+}
+.pastor-compact-title-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.pastor-compact-info .pastor-result-heading{
+  justify-content:flex-start!important;
+  margin:0!important;
+  min-width:0;
+}
+.pastor-compact-info .pastor-result-heading .pastor-archetype,
+.pastor-compact-info .pastor-result-heading #pastor-instinct{
+  font-size:.9rem!important;
+}
+.pastor-compact-info .pastor-stat{
+  flex:0 0 auto;
+  margin:0!important;
+  padding:4px 8px!important;
+  font-size:.67rem!important;
+  line-height:1.35;
+  white-space:nowrap;
+  background:#F1ECE3!important;
+}
+.pastor-compact-info #pastor-explain{
+  max-width:none!important;
+  margin:6px 0 7px!important;
+  font-size:.81rem!important;
+  line-height:1.48!important;
+  color:#5E5750!important;
+  text-align:left!important;
+}
+.pastor-compact-model-row{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  gap:7px 12px;
+  padding-top:7px;
+  border-top:1px solid #EEE7DD;
+}
+.pastor-compact-info .pastor-model-head{
+  margin:0!important;
+  justify-content:flex-start;
+  gap:5px;
+  flex-wrap:nowrap;
+  white-space:nowrap;
+}
+.pastor-compact-info .pastor-model-head > span{
+  font-size:.66rem!important;
+  color:#857A71!important;
+}
+.pastor-compact-info .pastor-model-head strong{
+  font-size:1rem!important;
+  line-height:1;
+}
+.pastor-compact-info .pastor-model-head em{
+  padding:2px 6px!important;
+  font-size:.61rem!important;
+}
+.pastor-compact-info .pastor-model-note{
+  max-width:none!important;
+  margin:0!important;
+  font-size:.68rem!important;
+  line-height:1.38!important;
+  color:#7A7168!important;
+  text-align:left!important;
+}
+/* 四軸與候選從摘要資訊卡下方開始，避免重複卡片感 */
+.pastor-result-card .pastor-model-panel{
+  margin-top:8px!important;
+  padding-top:9px!important;
+}
+@media(max-width:620px){
+  .pastor-compact-info{padding:10px 10px 9px;border-radius:13px;margin-bottom:8px}
+  .pastor-compact-title-row{align-items:flex-start;gap:6px}
+  .pastor-compact-info .pastor-result-heading{gap:4px!important}
+  .pastor-compact-info .pastor-result-heading .pastor-archetype,
+  .pastor-compact-info .pastor-result-heading #pastor-instinct{font-size:.82rem!important}
+  .pastor-compact-info .pastor-stat{font-size:.61rem!important;padding:3px 6px!important;white-space:normal;text-align:right;max-width:43%}
+  .pastor-compact-info #pastor-explain{font-size:.76rem!important;margin:5px 0 6px!important}
+  .pastor-compact-model-row{grid-template-columns:1fr;gap:4px;padding-top:6px}
+  .pastor-compact-info .pastor-model-head{justify-content:flex-start}
+  .pastor-compact-info .pastor-model-note{font-size:.65rem!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -8453,21 +8552,27 @@ section > .section-title {
         <blockquote id="pastor-advisor-quote"></blockquote>
       </div>
       <section class="pastor-result-card" aria-label="這次回答的分析">
-        <div class="pastor-instinct-summary pastor-result-heading">
-          <span class="pastor-archetype" id="pastor-archetype"></span>
-          <span class="pastor-instinct-divider" aria-hidden="true">·</span>
-          <strong id="pastor-instinct"></strong>
+        <div class="pastor-compact-info" aria-label="這次回答的重點摘要">
+          <div class="pastor-compact-title-row">
+            <div class="pastor-instinct-summary pastor-result-heading">
+              <span class="pastor-archetype" id="pastor-archetype"></span>
+              <span class="pastor-instinct-divider" aria-hidden="true">·</span>
+              <strong id="pastor-instinct"></strong>
+            </div>
+            <p class="pastor-stat" id="pastor-stat"></p>
+          </div>
+          <p id="pastor-explain"></p>
+          <div class="pastor-compact-model-row">
+            <div class="pastor-model-head">
+              <span>主要人格訊號</span>
+              <strong id="pastor-mbti-signal"></strong>
+              <em id="pastor-confidence"></em>
+            </div>
+            <p class="pastor-model-note" id="pastor-model-note"></p>
+          </div>
         </div>
-        <p id="pastor-explain"></p>
-        <p class="pastor-stat" id="pastor-stat"></p>
         <div class="pastor-model-panel" id="pastor-model-panel">
           <div class="pastor-model-kicker">MBTI MODEL｜這次反應的人格訊號</div>
-          <div class="pastor-model-head">
-            <span>主要人格訊號</span>
-            <strong id="pastor-mbti-signal"></strong>
-            <em id="pastor-confidence"></em>
-          </div>
-          <p class="pastor-model-note" id="pastor-model-note"></p>
           <div class="pastor-axis-mini" id="pastor-axis-mini" aria-label="這個回答的 MBTI 四軸訊號">
             <p class="pastor-axis-mini-title">這個回答透露了什麼？</p>
             <div class="pastor-axis-list" id="pastor-axis-list"></div>
