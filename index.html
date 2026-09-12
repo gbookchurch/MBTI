@@ -7496,6 +7496,21 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v147-other-toggle-radius-and-hidden-fix">
+/* v147｜「聽聽另外三個怎麼說」本身的圓角，比照人物切換按鈕；修正展開後無法收合 */
+.pastor-other-zone .pastor-other-btn{
+  border-radius:10px!important;
+}
+/* 先前 .pastor-other 使用 display:grid!important，會蓋掉 hidden 的預設 display:none；這裡明確修正 */
+.pastor-other[hidden]{
+  display:none!important;
+}
+@media(max-width:620px){
+  .pastor-other-zone .pastor-other-btn{border-radius:10px!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -9559,7 +9574,7 @@ section > .section-title {
         </div>
       </div>
       <section class="pastor-result-card pastor-other-zone" aria-label="其他回答">
-        <button type="button" class="pastor-other-btn" id="pastor-other-btn">聽聽另外三個怎麼說 →</button>
+        <button type="button" class="pastor-other-btn" id="pastor-other-btn" aria-expanded="false" aria-controls="pastor-other">聽聽另外三個怎麼說 →</button>
         <div class="pastor-other" id="pastor-other" hidden></div>
       </section>
     </div>
@@ -13849,6 +13864,13 @@ recordList=document.getElementById('pastor-record-list');
 const answers=Array(DATA.length).fill(null);
 let current=0,selected=null,activeCandidate=0;
 
+function setOtherOpen(open){
+  if(!other||!otherBtn)return;
+  other.hidden=!open;
+  otherBtn.setAttribute('aria-expanded',String(open));
+  otherBtn.textContent=open?'收起另外三個回答 ↑':'聽聽另外三個怎麼說 →';
+}
+
 function art(name){try{return typeof getCharacterArt==='function'?getCharacterArt(name):''}catch(e){return ''}}
 
 function renderAxes(axis){
@@ -14036,8 +14058,7 @@ function choose(i,{scroll=true}={}){
   modelNote.textContent=o.note;
   renderAxes(o.axis);
   renderCandidates(d,i);
-  other.hidden=true;
-  otherBtn.textContent='聽聽另外三個怎麼說 →';
+  setOtherOpen(false);
   reveal.hidden=false;
   renderTabs();
   renderRecord();
@@ -14059,16 +14080,15 @@ function render(){
     options.append(b);
   });
   reveal.hidden=true;
-  other.hidden=true;
+  setOtherOpen(false);
   renderRecord();
   if(selected!==null)choose(selected,{scroll:false});
 }
 
 otherBtn.onclick=()=>{
   const d=DATA[current];
-  if(!other.hidden){
-    other.hidden=true;
-    otherBtn.textContent='聽聽另外三個怎麼說 →';
+  if(otherBtn.getAttribute('aria-expanded')==='true'){
+    setOtherOpen(false);
     return;
   }
   other.replaceChildren();
@@ -14086,11 +14106,13 @@ otherBtn.onclick=()=>{
       : '';
 
     x.innerHTML=`<span class="pastor-other-people" data-count="1">${people}</span>`;
-    x.onclick=()=>{choose(i);requestAnimationFrame(()=>{other.hidden=true;otherBtn.textContent='聽聽另外三個怎麼說 →'})};
+    x.onclick=()=>{
+      setOtherOpen(false);
+      choose(i);
+    };
     other.append(x);
   });
-  other.hidden=false;
-  otherBtn.textContent='收起另外三個回答 ↑';
+  setOtherOpen(true);
 };
 
 viewBtns.forEach(b=>b.onclick=()=>{
