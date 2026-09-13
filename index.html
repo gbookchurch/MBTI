@@ -7777,6 +7777,67 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v150-pastor-character-column-vertical-center">
+/* v150｜牧者人物欄：MBTI／人物名＋完整人物圖視為同一組，桌機與手機都垂直置中 */
+.temperament-theater-section.is-pastor-view .pastor-character-column{
+  padding-top:0!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.temperament-theater-section.is-pastor-view .pastor-character-column .pastor-dialogue-identity{
+  flex:0 0 auto!important;
+  margin:0 0 4px!important;
+  transform:none!important;
+}
+.temperament-theater-section.is-pastor-view .pastor-full-figure{
+  flex:0 0 auto!important;
+  min-height:0!important;
+  height:218px!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.temperament-theater-section.is-pastor-view .pastor-full-figure img{
+  height:218px!important;
+  object-position:center center!important;
+  transform:none!important;
+  transform-origin:center center!important;
+}
+/* 取消 v149 對摩西的單獨上下位移，改由所有人物共用同一套置中規則 */
+.temperament-theater-section.is-pastor-view .pastor-insight-card[data-character="摩西"][data-mbti="ESTJ"] .pastor-character-column .pastor-dialogue-identity,
+.temperament-theater-section.is-pastor-view .pastor-insight-card[data-character="摩西"][data-mbti="ESTJ"] .pastor-full-figure img{
+  transform:none!important;
+}
+@media(max-width:620px){
+  .temperament-theater-section.is-pastor-view .pastor-character-column{
+    padding-top:0!important;
+    justify-content:center!important;
+  }
+  .temperament-theater-section.is-pastor-view .pastor-character-column .pastor-dialogue-identity{
+    margin:0 0 3px!important;
+    transform:none!important;
+  }
+  .temperament-theater-section.is-pastor-view .pastor-full-figure{
+    height:184px!important;
+    min-height:0!important;
+    align-items:center!important;
+  }
+  .temperament-theater-section.is-pastor-view .pastor-full-figure img{
+    height:184px!important;
+    object-position:center center!important;
+    transform:none!important;
+  }
+}
+@media(max-width:390px){
+  .temperament-theater-section.is-pastor-view .pastor-full-figure{
+    height:174px!important;
+  }
+  .temperament-theater-section.is-pastor-view .pastor-full-figure img{
+    height:174px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
