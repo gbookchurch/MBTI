@@ -8614,6 +8614,141 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 }
 </style>
 
+
+<style id="v160-pastor-record-description-share">
+/* v160｜牧養直覺：每張卡補一行結果描述，並加入圖片／連結分享 */
+#temperament-section .pastor-record-item{
+  min-height:205px!important;
+}
+#temperament-section .pastor-record-body{
+  justify-content:flex-start!important;
+  padding:13px 10px 15px!important;
+}
+#temperament-section .pastor-record-desc{
+  display:block;
+  width:100%;
+  min-height:3.15em;
+  margin:0 0 10px;
+  color:#403B36;
+  font-size:.75rem;
+  font-weight:800;
+  line-height:1.55;
+  letter-spacing:.005em;
+}
+#temperament-section .pastor-record-signal{
+  margin-top:auto!important;
+}
+#temperament-section .pastor-share-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:14px 18px;
+  align-items:center;
+  margin:16px 0 0;
+  padding:16px 17px;
+  border:1px solid #D8CDBE;
+  border-radius:16px;
+  background:linear-gradient(135deg,#FFFCF6 0%,#F4EFE5 100%);
+  box-shadow:0 8px 20px rgba(47,39,32,.065);
+}
+#temperament-section .pastor-share-copy strong{
+  display:block;
+  color:#315746;
+  font-size:.9rem;
+  font-weight:950;
+  line-height:1.35;
+}
+#temperament-section .pastor-share-copy span{
+  display:block;
+  margin-top:4px;
+  color:#716960;
+  font-size:.72rem;
+  line-height:1.55;
+}
+#temperament-section .pastor-share-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:8px;
+}
+#temperament-section .pastor-share-btn{
+  appearance:none;
+  min-height:42px;
+  padding:9px 14px;
+  border:1px solid #BFAF98;
+  border-radius:11px;
+  background:#FFFDF8;
+  color:#365548;
+  font:inherit;
+  font-size:.76rem;
+  font-weight:900;
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;
+}
+#temperament-section .pastor-share-btn-primary{
+  border-color:#315746;
+  background:#315746;
+  color:#FFF8ED;
+  box-shadow:0 5px 13px rgba(49,87,70,.13);
+}
+#temperament-section .pastor-share-btn:hover,
+#temperament-section .pastor-share-btn:focus-visible{
+  transform:translateY(-1px);
+  border-color:#315746;
+  box-shadow:0 7px 16px rgba(49,87,70,.11);
+}
+#temperament-section .pastor-share-btn-primary:hover,
+#temperament-section .pastor-share-btn-primary:focus-visible{
+  background:#3B6552;
+}
+#temperament-section .pastor-share-status{
+  grid-column:1/-1;
+  min-height:1.2em;
+  margin:-3px 0 0;
+  color:#7A6E61;
+  font-size:.67rem;
+  line-height:1.45;
+  text-align:right;
+}
+@media(max-width:720px){
+  #temperament-section .pastor-record-item{min-height:0!important}
+  #temperament-section .pastor-record-desc{
+    min-height:0;
+    margin-bottom:9px;
+    font-size:.78rem;
+    line-height:1.52;
+  }
+  #temperament-section .pastor-record-signal{margin-top:0!important}
+  #temperament-section .pastor-share-panel{
+    grid-template-columns:1fr;
+    gap:12px;
+    padding:15px 13px 13px;
+    border-radius:15px;
+  }
+  #temperament-section .pastor-share-copy{text-align:center}
+  #temperament-section .pastor-share-copy strong{font-size:.92rem}
+  #temperament-section .pastor-share-copy span{font-size:.73rem}
+  #temperament-section .pastor-share-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    width:100%;
+  }
+  #temperament-section .pastor-share-btn{
+    width:100%;
+    min-height:44px;
+    padding:10px 8px;
+    font-size:.76rem;
+  }
+  #temperament-section .pastor-share-status{
+    margin:-4px 0 0;
+    text-align:center;
+  }
+}
+@media(max-width:390px){
+  #temperament-section .pastor-share-actions{grid-template-columns:1fr}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -10702,6 +10837,17 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
       <span class="pastor-record-complete">5 / 5 完成</span>
     </div>
     <div class="pastor-record-list" id="pastor-record-list"></div>
+    <div class="pastor-share-panel" id="pastor-share-panel">
+      <div class="pastor-share-copy">
+        <strong>把這五個直覺帶走</strong>
+        <span>可分享成一張結果圖，也可以把同一組結果用連結傳給朋友。</span>
+      </div>
+      <div class="pastor-share-actions">
+        <button type="button" class="pastor-share-btn pastor-share-btn-primary" id="pastor-share-image">分享結果圖</button>
+        <button type="button" class="pastor-share-btn" id="pastor-share-link">分享結果連結</button>
+      </div>
+      <p class="pastor-share-status" id="pastor-share-status" aria-live="polite"></p>
+    </div>
     <p class="pastor-record-foot"><strong>你不需要在每個情境裡都像同一種人。</strong><br>這五題記錄的是你在不同壓力裡「先看見什麼」，不是把你算成一個固定的牧者類型。</p>
   </section>
 </div>
@@ -15020,6 +15166,30 @@ function pastorQuoteFor(d,o,candidate){
   return PASTOR_CANDIDATE_QUOTES[`${d.key}-${o.id}-${candidate.type}`]||o.quote;
 }
 
+const PASTOR_RECORD_DESCRIPTIONS={
+  'support-A':'你會先讓人穩下來，確認他不是一個人扛著。',
+  'support-B':'你傾向先抓出最急的問題，從能處理的第一步開始。',
+  'support-C':'你會穿過眼前混亂，去找反覆發生的深層模式。',
+  'support-D':'你容易在危機裡尋找新的可能，而不只想恢復原狀。',
+  'meeting-A':'你會先收斂討論、建立秩序，讓團隊重新往前走。',
+  'meeting-B':'你先照顧沒說出口的情緒，讓團隊恢復安全感。',
+  'meeting-C':'你會先定位真正卡住的問題，再決定該怎麼解。',
+  'meeting-D':'你傾向打破原框架，用新的可能把僵局打開。',
+  'conflict-A':'你會先釐清事實與界線，避免和好變成模糊責任。',
+  'conflict-B':'你最先保護的是關係，避免衝突把群體撕裂。',
+  'conflict-C':'你會先找出傷口與深層原因，而不只處理表面爭吵。',
+  'conflict-D':'你重視清楚界線，也願意把責任還給當事人。',
+  'money-A':'你會先盤清資源與風險，再決定是否跨出下一步。',
+  'money-B':'你會先確認信仰方向，不讓恐懼成為唯一決策標準。',
+  'money-C':'你希望重大決定由團隊共同理解、共同承擔。',
+  'money-D':'你會把眼光放到長期價值，評估這一步是否值得投資。',
+  'rest-A':'你需要真正退下角色，讓安靜與距離恢復自己。',
+  'rest-B':'你會透過重新學習與吸收，找回思考和服事的活力。',
+  'rest-C':'你需要被同路人陪伴，而不是一直當照顧別人的那一個。',
+  'rest-D':'你會用與事工無關的生活，重新找回普通人的自己。'
+};
+function pastorRecordDescription(d,o){return PASTOR_RECORD_DESCRIPTIONS[`${d.key}-${o.id}`]||o.explain||''}
+
 const DATA=[
 {key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'你會先怎麼回？',opts:[
 {id:'A',role:'務實的守護者',answer:'你先坐下來，慢慢說，我們不可能一次解決，不要急。',instinct:'穩定感',explain:'人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',survey:36.8,quote:'先坐下來吧，事情可以一件一件說',axis:{I:55,E:45,S:80,N:20,T:15,F:85,J:80,P:20},confidence:'中',signal:'xSFJ',show:2},
@@ -15076,7 +15246,10 @@ otherBtn=document.getElementById('pastor-other-btn'),
 other=document.getElementById('pastor-other'),
 recordJump=document.getElementById('pastor-record-jump'),
 record=document.getElementById('pastor-instinct-record'),
-recordList=document.getElementById('pastor-record-list');
+recordList=document.getElementById('pastor-record-list'),
+shareImageBtn=document.getElementById('pastor-share-image'),
+shareLinkBtn=document.getElementById('pastor-share-link'),
+shareStatus=document.getElementById('pastor-share-status');
 
 const answers=Array(DATA.length).fill(null);
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -15161,10 +15334,110 @@ function renderRecord(){
     const o=d.opts[answers[i]];
     const item=document.createElement('div');
     item.className='pastor-record-item';
-    item.innerHTML=`<span class="pastor-record-scene">${d.tab}</span><div class="pastor-record-body"><strong class="pastor-record-signal" aria-label="${o.signal.replace(/x/gi,'未定')}">${signalHTML(o.signal)}</strong><span class="pastor-record-instinct">先看見：${o.instinct}</span><small class="pastor-record-role">${o.role}</small></div>`;
+    item.innerHTML=`<span class="pastor-record-scene">${d.tab}</span><div class="pastor-record-body"><p class="pastor-record-desc">${pastorRecordDescription(d,o)}</p><strong class="pastor-record-signal" aria-label="${o.signal.replace(/x/gi,'未定')}">${signalHTML(o.signal)}</strong><span class="pastor-record-instinct">先看見：${o.instinct}</span><small class="pastor-record-role">${o.role}</small></div>`;
     recordList.append(item);
   });
   record.hidden=false;
+}
+
+function setShareStatus(message=''){
+  if(shareStatus)shareStatus.textContent=message;
+}
+function buildPastorShareURL(){
+  try{
+    const url=new URL(window.location.href);
+    url.searchParams.set('pastor',answers.join(''));
+    url.hash='pastor-instinct-record';
+    return url.toString();
+  }catch(e){return window.location.href}
+}
+async function copyTextFallback(text){
+  if(navigator.clipboard&&window.isSecureContext){
+    await navigator.clipboard.writeText(text);return true;
+  }
+  const area=document.createElement('textarea');
+  area.value=text;area.setAttribute('readonly','');area.style.position='fixed';area.style.opacity='0';
+  document.body.append(area);area.select();
+  const ok=document.execCommand('copy');area.remove();return ok;
+}
+async function sharePastorLink(){
+  if(!answers.every(v=>v!==null))return;
+  const url=buildPastorShareURL();
+  const data={title:'我的牧養直覺紀錄',text:'這是我在五個牧養情境裡，最先看見的事情。',url};
+  if(navigator.share){
+    try{await navigator.share(data);setShareStatus('已開啟分享選單。');return}
+    catch(e){if(e&&e.name==='AbortError'){setShareStatus('已取消分享。');return}}
+  }
+  try{await copyTextFallback(url);setShareStatus(location.protocol==='file:'?'結果連結已複製；正式上線後，朋友就能用這個連結開啟相同結果。':'結果連結已複製。')}
+  catch(e){setShareStatus('無法自動複製，請從瀏覽器網址列複製連結。')}
+}
+function roundRectPath(ctx,x,y,w,h,r){
+  const rr=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+rr,y);ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();
+}
+function wrapCanvasText(ctx,text,maxWidth){
+  const chars=[...String(text||'')],lines=[];let line='';
+  chars.forEach(ch=>{const test=line+ch;if(line&&ctx.measureText(test).width>maxWidth){lines.push(line);line=ch}else line=test});
+  if(line)lines.push(line);return lines;
+}
+function buildPastorShareCanvas(){
+  const W=1080,H=1580,canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;
+  const ctx=canvas.getContext('2d');
+  const font='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+  const cards=[
+    {deep:'#315746',light:'#EAF1EC',border:'#C9D8D0',accent:'#315746'},
+    {deep:'#A95E40',light:'#F7EAE3',border:'#E6C9BB',accent:'#8F4F38'},
+    {deep:'#876B2B',light:'#F7EED4',border:'#E6D6A3',accent:'#6F5725'},
+    {deep:'#456858',light:'#EDF3EF',border:'#D0DDD6',accent:'#365548'},
+    {deep:'#5A7669',light:'#F1F5F2',border:'#D8E2DC',accent:'#456153'}
+  ];
+  ctx.fillStyle='#F8F4EA';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#24483A';ctx.fillRect(0,0,W,240);
+  ctx.fillStyle='#D6B564';ctx.font=`900 28px ${font}`;ctx.fillText('5 SCENES｜五個情境',78,72);
+  ctx.fillStyle='#FFF9EF';ctx.font=`900 58px ${font}`;ctx.fillText('你的牧養直覺紀錄',78,145);
+  ctx.fillStyle='rgba(255,249,239,.78)';ctx.font=`500 25px ${font}`;ctx.fillText('五個情境，記錄你在壓力裡最先看見什麼。',78,195);
+  let y=278;
+  DATA.forEach((d,i)=>{
+    const o=d.opts[answers[i]],c=cards[i],x=72,w=936,h=214,head=52;
+    ctx.fillStyle=c.light;roundRectPath(ctx,x,y,w,h,24);ctx.fill();
+    ctx.strokeStyle=c.border;ctx.lineWidth=2;roundRectPath(ctx,x,y,w,h,24);ctx.stroke();
+    ctx.save();roundRectPath(ctx,x,y,w,h,24);ctx.clip();ctx.fillStyle=c.deep;ctx.fillRect(x,y,w,head);ctx.restore();
+    ctx.fillStyle='#FFF9EF';ctx.font=`900 26px ${font}`;ctx.fillText(`${i+1}. ${d.tab}`,x+28,y+35);
+    ctx.fillStyle='#403B36';ctx.font=`800 27px ${font}`;
+    const desc=wrapCanvasText(ctx,pastorRecordDescription(d,o),w-56).slice(0,2);
+    desc.forEach((line,li)=>ctx.fillText(line,x+28,y+92+li*36));
+    const metaY=y+170;
+    ctx.fillStyle=c.accent;ctx.font=`900 28px ${font}`;ctx.fillText(o.signal.replace(/x/gi,'●'),x+28,metaY);
+    ctx.fillStyle='#403B36';ctx.font=`800 23px ${font}`;ctx.fillText(`先看見：${o.instinct}`,x+205,metaY);
+    ctx.fillStyle=c.accent;ctx.globalAlpha=.76;ctx.font=`700 21px ${font}`;ctx.textAlign='right';ctx.fillText(o.role,x+w-28,metaY);ctx.textAlign='left';ctx.globalAlpha=1;
+    y+=232;
+  });
+  ctx.fillStyle='#315746';ctx.font=`900 25px ${font}`;ctx.fillText('你不需要在每個情境裡都像同一種人。',78,1470);
+  ctx.fillStyle='#756D64';ctx.font=`500 20px ${font}`;ctx.fillText('這是一份情境直覺紀錄，不是固定的牧者人格類型。',78,1510);
+  ctx.fillStyle='#A68439';ctx.font=`800 19px ${font}`;ctx.textAlign='right';ctx.fillText('人物小劇場・牧者版',1002,1510);ctx.textAlign='left';
+  return canvas;
+}
+function canvasBlob(canvas){return new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('image encode failed')),'image/png'))}
+function downloadBlob(blob,name){
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);
+}
+async function sharePastorImage(){
+  if(!answers.every(v=>v!==null))return;
+  try{
+    setShareStatus('正在產生結果圖…');
+    const blob=await canvasBlob(buildPastorShareCanvas());
+    const file=new File([blob],'我的牧養直覺紀錄.png',{type:'image/png'});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      try{await navigator.share({title:'我的牧養直覺紀錄',text:'這是我的五個牧養直覺結果。',files:[file]});setShareStatus('已開啟圖片分享選單。');return}
+      catch(e){if(e&&e.name==='AbortError'){setShareStatus('已取消分享。');return}}
+    }
+    downloadBlob(blob,'我的牧養直覺紀錄.png');
+    setShareStatus('結果圖已產生；如果瀏覽器沒有開啟分享選單，圖片會改用下載方式儲存。');
+  }catch(e){setShareStatus('結果圖產生失敗，請改用「分享結果連結」。')}
+}
+function restorePastorSharedResult(){
+  let raw='';try{raw=new URLSearchParams(location.search).get('pastor')||''}catch(e){}
+  if(!new RegExp(`^[0-3]{${DATA.length}}$`).test(raw))return false;
+  [...raw].forEach((v,i)=>answers[i]=Number(v));current=0;selected=answers[0];previewed=null;activeCandidate=0;return true;
 }
 
 function updateProgress(){
@@ -15359,13 +15632,21 @@ previewNote?.addEventListener('click',()=>{
   const official=answers[current];if(official===null)return;previewed=null;renderResult(official,{preview:false,scroll:false,focus:false});
 });
 recordJump?.addEventListener('click',()=>record?.scrollIntoView({behavior:'smooth',block:'start'}));
+shareImageBtn?.addEventListener('click',sharePastorImage);
+shareLinkBtn?.addEventListener('click',sharePastorLink);
 
 viewBtns.forEach(b=>b.onclick=()=>{
   const isPastor=b.dataset.theaterView==='pastor';section.classList.toggle('is-pastor-view',isPastor);pastor.hidden=!isPastor;intro.hidden=!isPastor;
   viewBtns.forEach(x=>{const a=x===b;x.classList.toggle('is-active',a);x.setAttribute('aria-selected',String(a))});
   if(isPastor&&!tabs.children.length)render();
 });
+const sharedResultLoaded=restorePastorSharedResult();
 render();
+if(sharedResultLoaded){
+  const pastorViewBtn=viewBtns.find(x=>x.dataset.theaterView==='pastor');
+  pastorViewBtn?.click();
+  setTimeout(()=>record?.scrollIntoView({behavior:'auto',block:'start'}),80);
+}
 })();
 </script>
 
