@@ -7909,6 +7909,153 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v152-navigation-mobile-performance">
+/* v152｜Hero 目錄導航、返回頂部、手機選擇器與閱讀效能 */
+html{scroll-behavior:smooth}
+.hero-content{max-width:760px}
+.hero-toc{
+  margin:20px auto 0;
+  width:min(100%,720px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  color:#F7F4EC;
+}
+.hero-toc-label{
+  flex:0 0 auto;
+  color:rgba(247,244,236,.68);
+  font-size:.76rem;
+  font-weight:850;
+  letter-spacing:.12em;
+}
+.hero-toc-track{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:7px;
+}
+.hero-toc-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:7px 11px;
+  border:1px solid rgba(214,182,106,.34);
+  border-radius:10px;
+  background:rgba(247,244,236,.08);
+  color:#E7D39B;
+  text-decoration:none;
+  font-size:.78rem;
+  font-weight:760;
+  line-height:1;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.hero-toc-link:hover,.hero-toc-link:focus-visible{
+  background:rgba(214,182,106,.14);
+  border-color:rgba(214,182,106,.68);
+  transform:translateY(-1px);
+  outline:none;
+}
+.back-to-top{
+  position:fixed;
+  right:clamp(14px,2.2vw,28px);
+  bottom:clamp(16px,2.4vw,28px);
+  z-index:999;
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(214,182,106,.52);
+  border-radius:12px;
+  background:#304C40;
+  color:#E7D39B;
+  box-shadow:0 8px 24px rgba(34,45,39,.20);
+  font-size:1.2rem;
+  font-weight:900;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .2s ease,transform .2s ease,background .2s ease;
+}
+.back-to-top.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-top:hover,.back-to-top:focus-visible{background:#456B58;outline:none}
+
+/* 16 型選擇器：手機改為兩列水平滑動，保留足夠點擊面積 */
+@media (max-width:640px){
+  .hero{padding-left:16px;padding-right:16px}
+  .hero-toc{display:block;margin-top:18px}
+  .hero-toc-label{display:block;text-align:left;margin:0 0 7px 2px}
+  .hero-toc-track{
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    overflow-x:auto;
+    padding:1px 1px 7px;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .hero-toc-track::-webkit-scrollbar{display:none}
+  .hero-toc-link{flex:0 0 auto;scroll-snap-align:start}
+  #mbti-lookup .mbti-picker-grid{
+    display:grid!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
+    grid-auto-flow:column!important;
+    grid-auto-columns:124px!important;
+    grid-template-columns:none!important;
+    gap:8px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:3px 2px 10px!important;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  #mbti-lookup .mbti-picker-grid::-webkit-scrollbar{display:none}
+  #mbti-lookup .mbti-option{
+    width:124px!important;
+    min-width:124px!important;
+    min-height:64px!important;
+    padding:9px 8px!important;
+    scroll-snap-align:start;
+  }
+  #mbti-lookup .mbti-option-type{font-size:1rem!important}
+  #mbti-lookup .mbti-option-group{font-size:.73rem!important;line-height:1.3!important}
+
+  /* 排行榜：手機提高正文可讀性、留白與行距 */
+  #lay-ranking .mbti-card,#pastor-ranking .mbti-card{
+    padding:17px 15px!important;
+    border-radius:12px!important;
+  }
+  #lay-ranking .brief-desc,#pastor-ranking .brief-desc{
+    font-size:.93rem!important;
+    line-height:1.7!important;
+    font-style:normal!important;
+  }
+  #lay-ranking .full-desc,#pastor-ranking .full-desc{
+    font-size:.91rem!important;
+    line-height:1.75!important;
+    margin-top:12px!important;
+    padding-top:12px!important;
+  }
+  .back-to-top{width:44px;height:44px;right:14px;bottom:16px}
+}
+
+/* 非關鍵區塊延遲繪製，降低長頁初始 paint 成本 */
+#ranking-compare,#lay-ranking,#pastor-ranking,#question-stats-section,#enfj-mystery,#temperament-section,#final-cta{
+  content-visibility:auto;
+  contain-intrinsic-size:1px 900px;
+}
+/* 只在動畫真正執行時提示 GPU，避免大量元素長期佔記憶體 */
+.icon-person.active,.is-animating,.heart-active{will-change:transform,opacity,filter;transform:translateZ(0)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-toc-link,.back-to-top{transition:none!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -7956,6 +8103,16 @@ section > .section-title {
 </div>
 <p class="hero-story">從排行、性格分布，到幾個沒想到的結果。</p>
 <button class="cta-btn" id="hero-start-button" type="button">先看看結果 →</button>
+<nav class="hero-toc" aria-label="目錄導航">
+  <span class="hero-toc-label">目錄導航</span>
+  <div class="hero-toc-track">
+    <a class="hero-toc-link" href="#discovery-section">核心發現</a>
+    <a class="hero-toc-link" href="#mbti-lookup">找我的 MBTI</a>
+    <a class="hero-toc-link" href="#ranking-compare">16 型排行榜</a>
+    <a class="hero-toc-link" href="#question-stats-section">答題統計</a>
+    <a class="hero-toc-link" href="#temperament-section">人物小劇場</a>
+  </div>
+</nav>
 </div></section><section class="f-section" id="discovery-section"><div class="discovery-grid phase2-discovery-grid">
 <article class="discovery-card discovery-tone-olive">
 <div class="discovery-title">F 情感型的人比思考型多，佔全體七成</div>
@@ -10457,11 +10614,19 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
                 node.textContent = formatter(target);
                 return;
             }
+            const frameInterval = 1000 / 30;
             const start = performance.now();
+            let lastPaint = start - frameInterval;
+            const animationId = (node.__countAnimationId || 0) + 1;
+            node.__countAnimationId = animationId;
             function step(now) {
+                if (node.__countAnimationId !== animationId) return;
                 const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                node.textContent = formatter(target * eased);
+                if ((now - lastPaint) >= frameInterval || progress >= 1) {
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    node.textContent = formatter(target * eased);
+                    lastPaint = now;
+                }
                 if (progress < 1) requestAnimationFrame(step);
             }
             requestAnimationFrame(step);
@@ -14574,5 +14739,45 @@ viewBtns.forEach(b=>b.onclick=()=>{
 render();
 })();
 </script>
+
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回頂部" title="返回頂部">
+  <span aria-hidden="true">↑</span>
+</button>
+
+
+<script id="v152-nav-performance-js">
+(() => {
+  const back = document.getElementById('back-to-top');
+  if (back) {
+    let ticking = false;
+    const update = () => {
+      const threshold = Math.max(window.innerHeight, 600);
+      back.classList.toggle('is-visible', window.scrollY > threshold);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+    back.addEventListener('click', () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+
+  // Embedded images are heavy; defer non-critical decoding/loading where supported.
+  document.querySelectorAll('img').forEach((img) => {
+    if (!img.closest('.hero')) {
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
