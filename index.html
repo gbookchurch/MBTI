@@ -8749,6 +8749,52 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 }
 </style>
 
+
+<style id="v161-mobile-record-and-share-url">
+/* v161｜手機牧養直覺卡：結果描述獨立成完整橫列，避免與 MBTI/角色資訊擠在同一格 */
+@media(max-width:720px){
+  #temperament-section .pastor-record-body{
+    grid-template-columns:66px minmax(0,1fr)!important;
+    grid-template-areas:
+      'desc desc'
+      'signal instinct'
+      'signal role'!important;
+    align-items:center!important;
+    column-gap:10px!important;
+    row-gap:2px!important;
+    padding:11px 13px 12px!important;
+  }
+  #temperament-section .pastor-record-desc{
+    grid-area:desc!important;
+    width:auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    margin:0 0 8px!important;
+    padding:0 0 9px!important;
+    border-bottom:1px solid var(--record-border)!important;
+    color:#403B36!important;
+    font-size:.77rem!important;
+    font-weight:760!important;
+    line-height:1.58!important;
+    letter-spacing:.003em!important;
+    text-align:left!important;
+  }
+}
+@media(max-width:390px){
+  #temperament-section .pastor-record-body{
+    grid-template-columns:58px minmax(0,1fr)!important;
+    column-gap:8px!important;
+    padding:10px 11px 11px!important;
+  }
+  #temperament-section .pastor-record-desc{
+    margin-bottom:7px!important;
+    padding-bottom:8px!important;
+    font-size:.75rem!important;
+    line-height:1.56!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -15343,6 +15389,7 @@ function renderRecord(){
 function setShareStatus(message=''){
   if(shareStatus)shareStatus.textContent=message;
 }
+const PASTOR_SHARE_SITE='https://gbookchurch.github.io/MBTI/';
 function buildPastorShareURL(){
   try{
     const url=new URL(window.location.href);
@@ -15363,7 +15410,7 @@ async function copyTextFallback(text){
 async function sharePastorLink(){
   if(!answers.every(v=>v!==null))return;
   const url=buildPastorShareURL();
-  const data={title:'我的牧養直覺紀錄',text:'這是我在五個牧養情境裡，最先看見的事情。',url};
+  const data={title:'我的牧養直覺紀錄',text:`教會小本本｜這是我在五個牧養情境裡，最先看見的事情。\n一起測測：${PASTOR_SHARE_SITE}`,url};
   if(navigator.share){
     try{await navigator.share(data);setShareStatus('已開啟分享選單。');return}
     catch(e){if(e&&e.name==='AbortError'){setShareStatus('已取消分享。');return}}
@@ -15411,9 +15458,14 @@ function buildPastorShareCanvas(){
     ctx.fillStyle=c.accent;ctx.globalAlpha=.76;ctx.font=`700 21px ${font}`;ctx.textAlign='right';ctx.fillText(o.role,x+w-28,metaY);ctx.textAlign='left';ctx.globalAlpha=1;
     y+=232;
   });
-  ctx.fillStyle='#315746';ctx.font=`900 25px ${font}`;ctx.fillText('你不需要在每個情境裡都像同一種人。',78,1470);
-  ctx.fillStyle='#756D64';ctx.font=`500 20px ${font}`;ctx.fillText('這是一份情境直覺紀錄，不是固定的牧者人格類型。',78,1510);
-  ctx.fillStyle='#A68439';ctx.font=`800 19px ${font}`;ctx.textAlign='right';ctx.fillText('人物小劇場・牧者版',1002,1510);ctx.textAlign='left';
+  ctx.fillStyle='#315746';ctx.font=`900 25px ${font}`;ctx.fillText('你不需要在每個情境裡都像同一種人。',78,1462);
+  ctx.fillStyle='#756D64';ctx.font=`500 20px ${font}`;ctx.fillText('這是一份情境直覺紀錄，不是固定的牧者人格類型。',78,1500);
+  ctx.fillStyle='#A68439';ctx.font=`800 19px ${font}`;ctx.textAlign='right';ctx.fillText('人物小劇場・牧者版',1002,1500);ctx.textAlign='left';
+  // 分享圖品牌露出：維持低調但清楚可辨識，與網站網址放在同一行。
+  ctx.textAlign='center';
+  ctx.fillStyle='#315746';ctx.font=`900 22px ${font}`;ctx.fillText('教會小本本',W/2,1540);
+  ctx.fillStyle='#A68439';ctx.font=`700 17px ${font}`;ctx.fillText(PASTOR_SHARE_SITE,W/2,1568);
+  ctx.textAlign='left';
   return canvas;
 }
 function canvasBlob(canvas){return new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('image encode failed')),'image/png'))}
@@ -15427,7 +15479,7 @@ async function sharePastorImage(){
     const blob=await canvasBlob(buildPastorShareCanvas());
     const file=new File([blob],'我的牧養直覺紀錄.png',{type:'image/png'});
     if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
-      try{await navigator.share({title:'我的牧養直覺紀錄',text:'這是我的五個牧養直覺結果。',files:[file]});setShareStatus('已開啟圖片分享選單。');return}
+      try{await navigator.share({title:'我的牧養直覺紀錄',text:`教會小本本｜我的五個牧養直覺結果。\n一起測測：${PASTOR_SHARE_SITE}`,files:[file]});setShareStatus('已開啟圖片分享選單。');return}
       catch(e){if(e&&e.name==='AbortError'){setShareStatus('已取消分享。');return}}
     }
     downloadBlob(blob,'我的牧養直覺紀錄.png');
