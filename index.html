@@ -8133,6 +8133,201 @@ html{scroll-behavior:smooth}
 }
 </style>
 
+
+<style id="v156-visual-color-system">
+/* v156｜全站色彩系統：深森林綠 × 鼠尾草 × 香檳金 × 陶土橘 × 暖象牙白 */
+:root{
+  --v156-forest:#315746;
+  --v156-forest-deep:#24483A;
+  --v156-forest-soft:#557868;
+  --v156-sage:#89A696;
+  --v156-sage-pale:#EAF1EC;
+  --v156-gold:#D6B564;
+  --v156-gold-soft:#F1E6C7;
+  --v156-terra:#BE6C49;
+  --v156-terra-deep:#9F563A;
+  --v156-terra-pale:#F6E9E1;
+  --v156-ivory:#FFFDF8;
+  --v156-cream:#F7F3EA;
+  --v156-cream-2:#F1ECE2;
+  --v156-ink:#403A34;
+  --v156-muted:#756D65;
+  --v156-line:#E2D9CC;
+  --v156-shadow:0 12px 30px rgba(55,45,37,.075);
+}
+
+body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
+
+/* HERO：提高層次與對比，仍保留原本沉穩氣質 */
+.hero{
+  background:
+    radial-gradient(circle at 18% 18%,rgba(137,166,150,.19),transparent 34%),
+    radial-gradient(circle at 82% 72%,rgba(214,181,100,.10),transparent 30%),
+    linear-gradient(135deg,#386451 0%,var(--v156-forest-deep) 72%)!important;
+}
+.hero-eyebrow{color:rgba(243,239,226,.72)!important;letter-spacing:.08em}
+.hero-total-number{color:var(--v156-gold)!important;text-shadow:0 2px 0 rgba(0,0,0,.05)}
+.hero-total-label{color:rgba(245,242,232,.76)!important}
+.hero h1{color:#FFF9EF!important;text-shadow:0 2px 10px rgba(20,40,32,.12)}
+.hero-sample-split span{
+  border-color:rgba(214,181,100,.36)!important;
+  background:rgba(255,255,255,.035)!important;
+  color:rgba(248,244,234,.78)!important;
+}
+.hero-sample-split strong{color:var(--v156-gold)!important}
+.hero-story{color:rgba(240,242,235,.74)!important}
+.hero-toc-link{
+  border-color:rgba(214,181,100,.31)!important;
+  background:rgba(255,255,255,.055)!important;
+  color:#EAD49A!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+}
+.hero-toc-link:hover,.hero-toc-link:focus-visible{background:rgba(214,181,100,.13)!important;border-color:rgba(214,181,100,.60)!important}
+.hero-toc-primary{
+  background:var(--v156-terra)!important;
+  border-color:#D08766!important;
+  color:#FFF8EF!important;
+  box-shadow:0 7px 18px rgba(32,25,21,.20)!important;
+}
+.hero-toc-primary:hover,.hero-toc-primary:focus-visible{background:#CA7957!important;border-color:#DD9576!important}
+
+/* 全站標題與分隔線統一 */
+.section-title,.temperament-theater-title{color:#3F6B58!important}
+.section-tag{
+  background:var(--v156-forest)!important;color:#FFF9EF!important;
+  border-radius:8px!important;box-shadow:0 4px 12px rgba(49,87,70,.10)
+}
+.divider{background:var(--v156-terra)!important;border-color:var(--v156-terra)!important}
+
+/* 核心發現：保留四色，但收斂為同一低彩度家族 */
+#discovery-section{background:linear-gradient(180deg,#FAF7F0 0%,#F6F1E8 100%)!important}
+#discovery-section .discovery-card{
+  background:var(--v156-ivory)!important;
+  border-color:rgba(96,79,66,.12)!important;
+  box-shadow:var(--v156-shadow)!important;
+}
+#discovery-section .discovery-tone-olive{--discovery-accent:#6F835F!important;border-left-color:#81946F!important;background:linear-gradient(90deg,#F2F5EC 0%,#FFFDF8 48%)!important}
+#discovery-section .discovery-tone-sage{--discovery-accent:#55796B!important;border-left-color:#719383!important;background:linear-gradient(90deg,#EAF2EE 0%,#FFFDF8 48%)!important}
+#discovery-section .discovery-tone-apricot{--discovery-accent:#A96543!important;border-left-color:#C57B56!important;background:linear-gradient(90deg,#F8ECE2 0%,#FFFDF8 48%)!important}
+#discovery-section .discovery-tone-rose{--discovery-accent:#98655D!important;border-left-color:#B77F74!important;background:linear-gradient(90deg,#F4E9E5 0%,#FFFDF8 48%)!important}
+#discovery-section .discovery-jump{color:var(--v156-forest)!important}
+#discovery-section .discovery-jump:hover{color:var(--v156-terra-deep)!important}
+
+/* MBTI 小檔案：加入淡鼠尾草底，讓 16 型卡片更有呼吸與分類感 */
+#mbti-lookup{background:linear-gradient(180deg,#F8F4EC 0%,#EEF4EF 100%)!important}
+#mbti-lookup .mbti-lookup-shell{
+  background:rgba(255,253,248,.94)!important;border-color:#E3D7C8!important;
+  box-shadow:var(--v156-shadow)!important;
+}
+#mbti-lookup .mbti-option{
+  background:#FFFDF9!important;border-color:#DAD1C5!important;color:var(--v156-forest)!important;
+  box-shadow:0 3px 0 rgba(49,87,70,.06)!important;
+}
+#mbti-lookup .mbti-option:hover{background:#F2F6F2!important;border-color:#89A696!important;transform:translateY(-1px)}
+#mbti-lookup .mbti-option[aria-pressed="true"],#mbti-lookup .mbti-option.is-active{
+  background:var(--v156-forest)!important;border-color:var(--v156-forest)!important;color:#FFF9EF!important;
+  box-shadow:0 7px 18px rgba(49,87,70,.16)!important;
+}
+#mbti-lookup .mbti-option[aria-pressed="true"] .mbti-option-type,#mbti-lookup .mbti-option.is-active .mbti-option-type{color:#FFF9EF!important}
+#mbti-lookup .mbti-option-group{border-radius:999px!important;padding:2px 7px!important;margin-top:3px!important;width:max-content;max-width:100%}
+#mbti-lookup .temperament-badge-nt{background:#E2ECE7!important;color:#315746!important}
+#mbti-lookup .temperament-badge-nf{background:#E9EFE4!important;color:#5C775C!important}
+#mbti-lookup .temperament-badge-sj{background:#F5E7DE!important;color:#9C5A3D!important}
+#mbti-lookup .temperament-badge-sp{background:#F3E8C8!important;color:#84692F!important}
+#mbti-lookup .mbti-option[aria-pressed="true"] .mbti-option-group,#mbti-lookup .mbti-option.is-active .mbti-option-group{background:rgba(255,255,255,.13)!important;color:#FFF7E7!important}
+
+/* 方法條與排行榜：暖白卡片＋平信徒綠／牧者陶土雙色系 */
+#method-strip .method-toggle{background:#FBF8F1!important;border-color:#DCD2C4!important;color:var(--v156-forest)!important}
+#method-strip .method-toggle::after{color:var(--v156-terra)!important}
+#method-strip .method-panel{background:var(--v156-ivory)!important;border-color:#DCD2C4!important}
+#ranking-compare{background:linear-gradient(180deg,#FBF8F1 0%,#F6F1E7 100%)!important}
+#ranking-compare .rank-compare-shell{border-color:#DED5C8!important;box-shadow:var(--v156-shadow)!important;background:var(--v156-ivory)!important}
+#ranking-compare .rank-compare-head-lay{background:#EAF1EC!important;color:#315746!important}
+#ranking-compare .rank-compare-head-pastor{background:#F7EAE3!important;color:#A2583D!important}
+#ranking-compare .rank-compare-cell{background:#FFFDF9!important}
+#ranking-compare .rank-compare-cell:hover{background:#FAF6EE!important}
+#ranking-compare .rank-compare-cell-lay .rank-compare-type,#ranking-compare .rank-compare-cell-lay .rank-compare-character{color:#35624F!important}
+#ranking-compare .rank-compare-cell-pastor .rank-compare-type,#ranking-compare .rank-compare-cell-pastor .rank-compare-character{color:#A9573D!important}
+#ranking-compare .rank-compare-rank{color:#9A7A3E!important}
+#ranking-compare .rank-compare-toggle{background:#F4E9CF!important;color:#8E6C2C!important}
+.ranking-data-source{background:#F2EFE7!important;border-left-color:var(--v156-forest)!important;color:#665E56!important}
+
+/* 答題統計：作為全頁深色節奏點，加入金色數字與更乾淨卡面 */
+#question-stats-section{
+  background:
+    radial-gradient(circle at 12% 16%,rgba(137,166,150,.15),transparent 28%),
+    linear-gradient(180deg,#285344 0%,#1F4638 100%)!important;
+}
+#question-stats-section .section-title{color:#FFF8EC!important}
+#question-stats-section .divider{background:var(--v156-gold)!important;border-color:var(--v156-gold)!important}
+#question-stats-section .question-audience-switch{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.18)!important}
+#question-stats-section .question-audience-btn{color:#D8E3DC!important}
+#question-stats-section .question-audience-btn.is-active,#question-stats-section .question-audience-btn[aria-pressed="true"]{background:#FFF9EF!important;color:var(--v156-forest)!important;box-shadow:0 5px 14px rgba(0,0,0,.12)!important}
+#question-stats-section .question-highlight-card{background:#F7FAF6!important;border-color:#C8D8CF!important;box-shadow:0 8px 20px rgba(13,43,32,.12)!important}
+#question-stats-section .question-highlight-value{color:#2E6A52!important}
+#question-stats-section .question-explorer{background:#F7FAF8!important;border-color:#D8E4DD!important;box-shadow:0 14px 30px rgba(10,38,28,.18)!important}
+#question-stats-section .question-tab{background:#FFFDF8!important;border-color:#D6D4CA!important;color:#66625B!important}
+#question-stats-section .question-tab.is-active,#question-stats-section .question-tab[aria-selected="true"]{background:#46715D!important;border-color:#46715D!important;color:#FFF9EF!important}
+#question-stats-section .question-bar-fill{background:linear-gradient(90deg,#4E7A65,#89A696)!important}
+#question-stats-section .question-sample-pill{background:#E7EFEA!important;color:#49715E!important}
+#question-stats-section .question-stats-note{background:rgba(255,255,255,.09)!important;border-color:rgba(255,255,255,.16)!important;color:#E0E8E2!important}
+#question-stats-section .question-stats-note strong{color:#E8C977!important}
+
+/* ENFJ 懸案：改成淡桃金，而不是幾乎褪色的灰白 */
+#enfj-mystery{background:linear-gradient(180deg,#FBF5EC 0%,#F8F0E7 100%)!important}
+#enfj-mystery .section-title{color:#5D806F!important}
+#enfj-mystery .section-tag{background:#718C7D!important}
+#enfj-mystery .mystery-card,#enfj-mystery .mystery-box{background:var(--v156-ivory)!important;border-color:#E7CFAE!important}
+
+/* 人物小劇場：整體暖一點，互動使用綠＋陶土＋金三層色 */
+#temperament-section{background:linear-gradient(180deg,#F4EFE6 0%,#F8F4ED 100%)!important}
+#temperament-section .theater-view-toggle{background:#E9E3D8!important;border:1px solid rgba(126,105,87,.08)}
+#temperament-section .theater-view-btn{color:#766D64!important}
+#temperament-section .theater-view-btn.is-active{background:#FFFDF9!important;color:var(--v156-forest)!important;box-shadow:0 6px 18px rgba(70,58,48,.09)!important}
+#temperament-section .temperament-theater-mobile-panel,#temperament-section .temperament-theater-card{background:#FFFDF9!important;border-color:#E3D9CD!important;box-shadow:var(--v156-shadow)!important}
+#temperament-section .temperament-theater-scene{background:#FFFDF9!important;border-color:#DED5C8!important;color:#6C645D!important}
+#temperament-section .temperament-theater-scene.is-active{background:#4D735F!important;border-color:#4D735F!important;color:#FFF9EF!important}
+#temperament-section .temperament-theater-group-btn.is-active{border-color:var(--v156-terra)!important;background:#F7EAE3!important;color:#8F4F38!important}
+#temperament-section .temperament-theater-character.is-active{background:var(--v156-terra)!important;border-color:var(--v156-terra)!important;color:#FFF8EF!important}
+
+/* 牧者小劇場同一套色彩語言 */
+#temperament-section .pastor-scene-tab{background:#FFFDF9!important;border-color:#D9D2C6!important;color:#6B645D!important}
+#temperament-section .pastor-scene-tab.is-active{background:#557766!important;border-color:#557766!important;color:#FFF9EF!important;box-shadow:0 5px 14px rgba(49,87,70,.12)!important}
+#temperament-section .pastor-decision-card,#temperament-section .pastor-result-card,#temperament-section .pastor-insight-card,#temperament-section .pastor-instinct-record{background:#FFFDF9!important;border-color:#E1D6C7!important;box-shadow:var(--v156-shadow)!important}
+#temperament-section .pastor-scenario{background:#F3EEE5!important;border-left-color:var(--v156-gold)!important}
+#temperament-section .pastor-option{background:#FFFEFA!important;border-color:#DED6CA!important}
+#temperament-section .pastor-option:hover{background:#F2F6F2!important;border-color:#89A696!important}
+#temperament-section .pastor-option.is-selected{background:#EAF1EC!important;border-color:#668A78!important}
+#temperament-section .pastor-option.is-selected b{background:#5C7D6D!important;color:#FFF9EF!important}
+#temperament-section .pastor-candidate-card,#temperament-section .pastor-other-item,#temperament-section .pastor-other-btn{border-color:#CBBEAA!important}
+#temperament-section .pastor-candidate-card[aria-pressed="true"]{background:#EAF1EC!important;border-color:#779684!important}
+#temperament-section .pastor-record-jump{background:#EAF1EC!important;border-color:#C8D8CF!important;color:#3F6654!important}
+
+/* 收尾：回到 Hero 同一組深綠與香檳金，形成完整首尾呼應 */
+#final-cta{
+  background:
+    radial-gradient(circle at 82% 16%,rgba(214,181,100,.10),transparent 30%),
+    linear-gradient(135deg,#2F5948 0%,#1F4638 100%)!important;
+}
+#final-cta h2{color:#E0BC67!important}
+#final-cta .final-kicker,#final-cta .final-subtitle{color:rgba(248,244,234,.80)!important}
+#final-cta .final-hub-btn{border-color:rgba(214,181,100,.68)!important;background:rgba(255,255,255,.035)!important;color:#FFF8ED!important}
+#final-cta .final-hub-btn:hover{background:rgba(214,181,100,.12)!important;border-color:var(--v156-gold)!important}
+#final-cta .final-sticker-card,#final-cta .final-info-card{background:rgba(255,255,255,.055)!important;border-color:rgba(255,255,255,.16)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+#final-cta .final-info-card h3,#final-cta .final-license a,#final-cta .footer-easter-egg{color:#E0BC67!important}
+
+.back-to-top{background:var(--v156-forest-deep)!important;border-color:rgba(214,181,100,.56)!important;color:#E7C66F!important}
+.back-to-top:hover,.back-to-top:focus-visible{background:#3D6A56!important}
+
+/* 手機：維持鮮明但不擁擠 */
+@media(max-width:640px){
+  .hero-toc-link{background:rgba(255,255,255,.065)!important}
+  #discovery-section .discovery-card{box-shadow:0 7px 18px rgba(55,45,37,.055)!important}
+  #mbti-lookup .mbti-option{box-shadow:none!important}
+  #question-stats-section .question-highlight-card{box-shadow:0 5px 14px rgba(13,43,32,.10)!important}
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
