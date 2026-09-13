@@ -7915,20 +7915,12 @@ section > .section-title {
 html{scroll-behavior:smooth}
 .hero-content{max-width:760px}
 .hero-toc{
-  margin:20px auto 0;
+  margin:24px auto 0;
   width:min(100%,720px);
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
   color:#F7F4EC;
-}
-.hero-toc-label{
-  flex:0 0 auto;
-  color:rgba(247,244,236,.68);
-  font-size:.76rem;
-  font-weight:850;
-  letter-spacing:.12em;
 }
 .hero-toc-track{
   display:flex;
@@ -7951,6 +7943,19 @@ html{scroll-behavior:smooth}
   font-weight:760;
   line-height:1;
   transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+
+.hero-toc-primary{
+  background:#B45F3C;
+  border-color:#C97754;
+  color:#FFF8EE;
+  font-weight:850;
+  box-shadow:0 5px 14px rgba(45,28,20,.16);
+}
+.hero-toc-primary:hover,.hero-toc-primary:focus-visible{
+  background:#C56B46;
+  border-color:#D48765;
+  color:#FFFFFF;
 }
 .hero-toc-link:hover,.hero-toc-link:focus-visible{
   background:rgba(214,182,106,.14);
@@ -7987,7 +7992,6 @@ html{scroll-behavior:smooth}
 @media (max-width:640px){
   .hero{padding-left:16px;padding-right:16px}
   .hero-toc{display:block;margin-top:18px}
-  .hero-toc-label{display:block;text-align:left;margin:0 0 7px 2px}
   .hero-toc-track{
     flex-wrap:nowrap;
     justify-content:flex-start;
@@ -8102,10 +8106,9 @@ html{scroll-behavior:smooth}
 <span><strong id="hero-pastor-total">1,649</strong> 牧者</span>
 </div>
 <p class="hero-story">從排行、性格分布，到幾個沒想到的結果。</p>
-<button class="cta-btn" id="hero-start-button" type="button">先看看結果 →</button>
-<nav class="hero-toc" aria-label="目錄導航">
-  <span class="hero-toc-label">目錄導航</span>
+<nav class="hero-toc" aria-label="頁面導覽">
   <div class="hero-toc-track">
+    <a class="hero-toc-link hero-toc-primary" id="hero-start-button" href="#discovery-section">先看結果 →</a>
     <a class="hero-toc-link" href="#discovery-section">核心發現</a>
     <a class="hero-toc-link" href="#mbti-lookup">找我的 MBTI</a>
     <a class="hero-toc-link" href="#ranking-compare">16 型排行榜</a>
@@ -10994,7 +10997,10 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
                 if (totals[key] != null) node.textContent=totals[key].toLocaleString('zh-TW');
             });
             const button=document.getElementById('hero-start-button');
-            if (button) button.addEventListener('click',() => document.getElementById('discovery-section')?.scrollIntoView({behavior:prefersReducedMotion.matches?'auto':'smooth',block:'start'}));
+            if (button) button.addEventListener('click',(event) => {
+                event.preventDefault();
+                document.getElementById('discovery-section')?.scrollIntoView({behavior:prefersReducedMotion.matches?'auto':'smooth',block:'start'});
+            });
         }
 
         function initMethodPanel() {
@@ -14370,23 +14376,23 @@ function pastorQuoteFor(d,o,candidate){
 }
 
 const DATA=[
-{key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'你第一句會說什麼？',opts:[
-{id:'A',role:'務實的守護者',answer:'你先坐下來，慢慢說，我們先不要急著把所有事情一次解決',instinct:'穩定感',explain:'人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',survey:36.8,quote:'先坐下來吧，事情可以一件一件說',axis:{I:55,E:45,S:80,N:20,T:15,F:85,J:80,P:20},confidence:'中',signal:'xSFJ',show:2,note:'S、F、J 很清楚；I / E 比較接近，所以 ISFJ 與 ESFJ 都保留'},
-{id:'B',role:'立即的行動者',answer:'我們先看現在最急的是哪一件，我陪你先把眼前這關過掉',instinct:'眼前危機',explain:'有些問題不能只談感受，今天能處理的事情就先處理',survey:11.8,quote:'先把眼前最急的洞補起來，再談下一步',axis:{I:35,E:65,S:90,N:10,T:65,F:35,J:30,P:70},confidence:'高',signal:'ESTP',show:1,note:'眼前、具體、立即行動與彈性處理的訊號集中，ESTP 最明顯'},
+{key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'你會先怎麼回？',opts:[
+{id:'A',role:'務實的守護者',answer:'你先坐下來，慢慢說，我們不可能一次解決，不要急。',instinct:'穩定感',explain:'人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',survey:36.8,quote:'先坐下來吧，事情可以一件一件說',axis:{I:55,E:45,S:80,N:20,T:15,F:85,J:80,P:20},confidence:'中',signal:'xSFJ',show:2,note:'S、F、J 很清楚；I / E 比較接近，所以 ISFJ 與 ESFJ 都保留'},
+{id:'B',role:'立即的行動者',answer:'有哪個是最急的，需要馬上解決的，我們先聊這個',instinct:'眼前危機',explain:'有些問題不能只談感受，今天能處理的事情就先處理',survey:11.8,quote:'先把眼前最急的洞補起來，再談下一步',axis:{I:35,E:65,S:90,N:10,T:65,F:35,J:30,P:70},confidence:'高',signal:'ESTP',show:1,note:'眼前、具體、立即行動與彈性處理的訊號集中，ESTP 最明顯'},
 {id:'C',role:'長遠的策略家',answer:'這些事情好像不是第一次一起出現，我們看看背後是不是有一個一直重複的模式',instinct:'問題根源',explain:'眼前的混亂可能只是表面，真正重要的是不要讓同樣的事情一直重演',survey:21.4,quote:'先別只看今天，我想知道這個模式從哪裡開始',axis:{I:65,E:35,S:10,N:90,T:80,F:20,J:85,P:15},confidence:'高',signal:'INTJ',show:1,note:'模式、長期策略、理性規劃與收斂方向都很集中，INTJ 最明顯'},
 {id:'D',role:'可能性的啟發者',answer:'我知道現在很亂，但也許神正在帶你重新看一條沒想過的路',instinct:'新的可能',explain:'危機不一定只有恢復原狀一種答案，也可能成為重新選擇方向的起點',survey:29.9,quote:'也許現在看不清楚，但新的路不一定是壞事',axis:{I:45,E:55,S:10,N:90,T:25,F:75,J:15,P:85},confidence:'中',signal:'xNFP',show:2,note:'N、F、P 很清楚；E / I 幾乎五五波，所以 ENFP 與 INFP 都合理'}
 ]},
-{key:'meeting',tab:'會議卡住',scenario:'同工會議已經開了一個半小時。有人一直離題、有人明顯不爽、有人從頭到尾沒說話，原本要決定的事情一件都還沒有結論。',q:'如果今天你是牧者，你第一個會做什麼？',opts:[
+{key:'meeting',tab:'會議卡住',scenario:'同工會議已經開了一個半小時。有人一直離題、有人明顯不爽、有人從頭到尾沒說話，原本要決定的事情一件都還沒有結論。',q:'你這時候會先怎麼剛大家說？',opts:[
 {id:'A',role:'主席',answer:'我們先停一下，現在還有三件事情要決定，一件一件來',instinct:'秩序',explain:'如果沒有人收斂討論、做出決定，再好的想法都只會留在會議室裡',survey:45.5,quote:'先把大家帶回要決定的事情，該定的就定下來',axis:{I:20,E:80,S:70,N:30,T:85,F:15,J:95,P:5},confidence:'高',signal:'ESTJ',show:1,note:'主動帶領、具體議程、效率與結論都高度集中，ESTJ 最明顯'},
 {id:'B',role:'照顧者',answer:'我覺得大家今天好像都有一些情緒，我想先聽聽是不是有什麼話還沒說出來',instinct:'關係',explain:'事情可以晚一點決定，但如果團隊開始不敢說真話，問題通常只會越來越深',survey:29.0,quote:'先讓大家敢說真話，會議才真的有可能往前走',axis:{I:25,E:75,S:65,N:35,T:10,F:90,J:70,P:30},confidence:'高',signal:'ESFJ',show:1,note:'群體互動、現場感受、關係照顧與維持秩序都指向 ESFJ'},
 {id:'C',role:'顧問',answer:'我先確認一下，我們現在真正卡住的是哪一個問題？',instinct:'盲點',explain:'有時候大家不是沒有答案，而是一直回答錯的問題',survey:9.2,quote:'先把真正的問題找出來，不然再談兩小時也一樣',axis:{I:90,E:10,S:30,N:70,T:90,F:10,J:35,P:65},confidence:'高',signal:'INTP',show:1,note:'安靜觀察、抽象拆解、客觀分析與保留探索空間都很集中，INTP 最明顯'},
 {id:'D',role:'催化劑',answer:'我們先不要被原本那幾個方案綁住，如果全部重來一次，還有沒有別的做法？',instinct:'突破口',explain:'當討論陷入僵局，換一個框架可能比繼續爭同一件事更有效',survey:16.2,quote:'既然卡住了，不如先換個框架再玩一次',axis:{I:15,E:85,S:5,N:95,T:65,F:35,J:10,P:90},confidence:'高',signal:'ENTP',show:1,note:'外放腦暴、可能性、邏輯挑戰與跳脫框架的訊號高度集中，ENTP 最明顯'}
 ]},
 {key:'conflict',tab:'教會八卦',scenario:'兩位會友最近鬧得很僵。事情本來只是私人衝突，但小組裡已經開始出現不同版本的故事，甚至有人問你：「牧師，你應該知道到底是誰有問題吧？」',q:'如果今天你是牧者，你會怎麼介入？',opts:[
-{id:'A',role:'法官',answer:'先不要再傳了，我會把雙方找來，我們把事實跟聖經原則一起講清楚',instinct:'是非與界線',explain:'和好不等於模糊責任，有些事情需要被清楚說明',survey:14.3,quote:'先把事實和原則講清楚，合一不是假裝什麼都沒發生',axis:{I:55,E:45,S:75,N:25,T:90,F:10,J:90,P:10},confidence:'中',signal:'xSTJ',show:2,note:'S、T、J 很明確；I / E 不足以單靠這句判斷，所以 ISTJ 與 ESTJ 都保留'},
+{id:'A',role:'法官',answer:'先不要再傳了，我會把雙方找來，我們把事實跟信仰原則一起講清楚',instinct:'是非與界線',explain:'和好不等於模糊責任，有些事情需要被清楚說明',survey:14.3,quote:'先把事實和原則講清楚，合一不是假裝什麼都沒發生',axis:{I:55,E:45,S:75,N:25,T:90,F:10,J:90,P:10},confidence:'中',signal:'xSTJ',show:2,note:'S、T、J 很明確；I / E 不足以單靠這句判斷，所以 ISTJ 與 ESTJ 都保留'},
 {id:'B',role:'和事佬',answer:'現在最重要的是不要再讓關係繼續撕裂，我希望大家先停下來，彼此留一點空間',instinct:'合一',explain:'如果所有人都只想證明自己沒有錯，最後可能誰都贏了，教會卻輸了',survey:28.5,quote:'先別急著分輸贏，關係如果全斷了就更難談',axis:{I:30,E:70,S:55,N:45,T:5,F:95,J:75,P:25},confidence:'中',signal:'ExFJ',show:2,note:'E、F、J 清楚；S / N 很接近，因此 ESFJ 與 ENFJ 都有合理性'},
 {id:'C',role:'醫生',answer:'我比較想知道，為什麼這件事情會傷成這樣，我想分別跟他們談談',instinct:'傷口',explain:'八卦和衝突常常不是病因，而是某個更深問題浮到表面的症狀',survey:26.3,quote:'我想先看看傷口在哪裡，不只是處理表面的爭吵',axis:{I:75,E:25,S:15,N:85,T:15,F:85,J:65,P:35},confidence:'高',signal:'INFJ',show:1,note:'往內理解、找深層模式、重視感受並希望有方向地修復，INFJ 最明顯'},
-{id:'D',role:'隱士',answer:'我會把原則講清楚，但他們也需要學習自己面對，不是每次都由牧者當裁判',instinct:'界線',explain:'不是每一個衝突都必須由牧者親自進場解決',survey:30.8,quote:'有些事情我會說清楚，但不是每一場爭執我都要站進中間',axis:{I:95,E:5,S:35,N:65,T:85,F:15,J:45,P:55},confidence:'中',signal:'INTx',show:2,note:'I、N、T 較清楚；J / P 接近，因此 INTP 與 INTJ 都保留'}
+{id:'D',role:'隱士',answer:'我會把信仰原則講清楚，但他們也需要學習自己面對，不是每次都由牧者當裁判',instinct:'界線',explain:'不是每一個衝突都必須由牧者親自進場解決',survey:30.8,quote:'有些事情我會說清楚，但不是每一場爭執我都要站進中間',axis:{I:95,E:5,S:35,N:65,T:85,F:15,J:45,P:55},confidence:'中',signal:'INTx',show:2,note:'I、N、T 較清楚；J / P 接近，因此 INTP 與 INTJ 都保留'}
 ]},
 {key:'money',tab:'財務決策',scenario:'教會出現一個很大的機會。如果現在投入一筆不小的預算，可能讓事工跨出很大一步；但判斷錯了，也可能讓接下來一兩年的財務變得很緊。',q:'最後大家都看著你，你的第一個反應是？',opts:[
 {id:'A',role:'務實的管家',answer:'先把現金流、最壞情況跟我們能承受的風險全部算清楚',instinct:'責任',explain:'信心不是不知道代價，而是知道自己正在管理神所託付的資源',survey:34.1,quote:'先把資源和風險盤清楚，忠心也包括知道我們承擔得起什麼',axis:{I:55,E:45,S:95,N:5,T:95,F:5,J:95,P:5},confidence:'中',signal:'xSTJ',show:2,note:'S、T、J 幾乎沒有疑問；I / E 資訊不足，所以 ISTJ 與 ESTJ 都保留'},
