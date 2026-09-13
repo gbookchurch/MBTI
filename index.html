@@ -9638,7 +9638,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 <h2 class="section-title" id="mbti-lookup-title">關於我的小檔案</h2>
 <div class="divider"></div>
-<p class="section-subtitle">選擇你的 MBTI，快速看看這一型在本次調查中的排名、比例、稀有度，以及對應的聖經人物和近代代表人物。</p>
+<p class="section-subtitle">選一型，把人物、亮點、盲點、關係和信仰氣質放進同一份角色檔案裡。</p>
 <div class="mbti-lookup-shell">
 <fieldset class="mbti-picker">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
@@ -9661,64 +9661,149 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">表演者</span></button>
 </div>
 </fieldset>
-<div class="mbti-lookup-result" hidden="" id="mbti-lookup-result" role="dialog" aria-modal="false" aria-labelledby="lookup-sheet-title">
-<div class="lookup-sheet-toolbar"><strong id="lookup-sheet-title">我的 MBTI 小檔案</strong><button class="lookup-sheet-close" id="lookup-sheet-close" type="button" aria-label="關閉小檔案">×</button></div>
-<p class="lookup-you-are">你是 <strong data-field="type">…</strong><span class="lookup-temperament-badge" data-field="temperament-label">…</span></p>
-<div class="lookup-result-grid">
-<article aria-labelledby="lookup-lay-title" class="lookup-world-card" id="lookup-lay-card">
-<div class="lookup-world-content">
-<div class="lookup-world-label" id="lookup-lay-title">平信徒排名</div>
-<div class="lookup-character"><span data-field="lay-character">…</span></div>
-<div class="lookup-rank">第 <span data-field="lay-rank">…</span> 名</div>
-</div>
-<figure aria-hidden="true" class="lookup-character-art" data-role-art="lay" hidden="">
-<img alt="" data-role-art-img="lay" decoding="async"/>
-</figure>
-</article>
-<article aria-labelledby="lookup-pastor-title" class="lookup-world-card" id="lookup-pastor-card">
-<div class="lookup-world-content">
-<div class="lookup-world-label" id="lookup-pastor-title">牧者排名</div>
-<div class="lookup-character"><span data-field="pastor-character">…</span></div>
-<div class="lookup-rank">第 <span data-field="pastor-rank">…</span> 名</div>
-</div>
-<figure aria-hidden="true" class="lookup-character-art" data-role-art="pastor" hidden="">
-<img alt="" data-role-art-img="pastor" decoding="async"/>
-</figure>
-</article>
-</div>
-<div aria-live="polite" class="lookup-character-intros" id="lookup-character-intros"></div>
-<div class="lookup-rarity">
-<div><strong>樣本稀有度</strong> <span class="lookup-rarity-stars" data-field="rarity-stars">☆☆☆☆☆</span></div>
-<p class="lookup-rarity-note">娛樂指標，依本次平信徒 16 型樣本比例的相對位置計算；比例越低，星數越高。</p>
-</div>
-<div class="lookup-profile-extra">
-<div class="lookup-profile-eyebrow">這一型的相關資料</div>
-<div class="lookup-profile-tags" data-field="profile-tags">…</div>
-<div class="lookup-modern-title">近代代表人物</div>
-<div class="lookup-modern-grid">
-<div class="lookup-modern-person" data-modern-card="1">
-<figure aria-hidden="true" class="lookup-modern-art" data-modern-art="1" hidden="">
-<img alt="" data-modern-art-img="1" decoding="async" loading="lazy"/>
-</figure>
-<div class="lookup-modern-copy">
-<strong data-field="modern-1-name">…</strong>
-<span data-field="modern-1-role">…</span>
-<p class="lookup-modern-desc" data-field="modern-1-desc">…</p>
-</div>
-</div>
-<div class="lookup-modern-person" data-modern-card="2">
-<figure aria-hidden="true" class="lookup-modern-art" data-modern-art="2" hidden="">
-<img alt="" data-modern-art-img="2" decoding="async" loading="lazy"/>
-</figure>
-<div class="lookup-modern-copy">
-<strong data-field="modern-2-name">…</strong>
-<span data-field="modern-2-role">…</span>
-<p class="lookup-modern-desc" data-field="modern-2-desc">…</p>
-</div>
-</div>
-</div>
-<p class="lookup-modern-note">原測驗卡片的娛樂性對照，並非對當事人的正式 MBTI 判定。</p>
-</div>
+<div class="mbti-lookup-result profile-dossier" hidden="" id="mbti-lookup-result" role="region" aria-live="polite" aria-label="我的人物小檔案">
+  <section class="profile-dossier-hero">
+    <div class="profile-dossier-copy">
+      <div class="profile-dossier-kicker">BIBLE CHARACTER PROFILE</div>
+      <div class="profile-dossier-code">
+        <strong data-field="type">…</strong>
+        <span data-field="profile-title">…</span>
+        <span class="lookup-temperament-badge" data-field="temperament-label">…</span>
+      </div>
+      <h3 class="profile-dossier-character" data-field="profile-character">…</h3>
+      <p class="profile-dossier-intro" data-field="profile-intro">…</p>
+      <div class="profile-dossier-tags" data-field="profile-tags-rich" aria-label="人格標籤"></div>
+
+      <div class="profile-survey-position" aria-label="本次調查中的位置">
+        <div class="profile-survey-position-head">本次調查中的位置</div>
+        <div class="profile-survey-position-grid">
+          <div>
+            <span>平信徒</span>
+            <strong>第 <b data-field="lay-rank">…</b> 名</strong>
+            <small><b data-field="lay-percent">…</b>% · <span data-field="lay-character">…</span></small>
+          </div>
+          <div>
+            <span>牧者</span>
+            <strong>第 <b data-field="pastor-rank">…</b> 名</strong>
+            <small><b data-field="pastor-percent">…</b>% · <span data-field="pastor-character">…</span></small>
+          </div>
+          <div class="profile-rarity-cell">
+            <span>樣本稀有度</span>
+            <strong class="lookup-rarity-stars" data-field="rarity-stars">☆☆☆☆☆</strong>
+            <small>依本次平信徒樣本相對位置</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="profile-dossier-art" aria-hidden="true">
+      <div class="profile-dossier-art-halo"></div>
+      <img id="profile-character-img" alt="" decoding="async"/>
+      <figcaption>
+        <span data-field="profile-book">…</span>
+        <small>推薦閱讀</small>
+      </figcaption>
+    </figure>
+  </section>
+
+  <div class="profile-insight-grid">
+    <article class="profile-insight-card profile-insight-strength">
+      <div class="profile-insight-icon" aria-hidden="true">✦</div>
+      <h3>你身上的亮點</h3>
+      <ul data-field="profile-strengths"></ul>
+    </article>
+
+    <article class="profile-insight-card profile-insight-blind">
+      <div class="profile-insight-icon" aria-hidden="true">◌</div>
+      <h3>疑似缺點</h3>
+      <ul data-field="profile-weaknesses"></ul>
+    </article>
+
+    <article class="profile-insight-card profile-insight-relations">
+      <div class="profile-insight-icon" aria-hidden="true">↔</div>
+      <h3>你和人的距離</h3>
+      <div class="profile-relation-row is-friend">
+        <span>適合當朋友</span>
+        <strong data-field="profile-friend-name">…</strong>
+        <p data-field="profile-friend-desc">…</p>
+      </div>
+      <div class="profile-relation-row is-rival">
+        <span>應該死對頭</span>
+        <strong data-field="profile-rival-name">…</strong>
+        <p data-field="profile-rival-desc">…</p>
+      </div>
+    </article>
+
+    <article class="profile-insight-card profile-insight-faith">
+      <div class="profile-insight-icon" aria-hidden="true">✧</div>
+      <h3>你的信仰氣質</h3>
+      <div class="profile-book-line">
+        <span>推薦聖經卷書</span>
+        <strong data-field="profile-book-inline">…</strong>
+      </div>
+      <div class="profile-meter-list">
+        <div class="profile-meter" data-profile-meter="faith">
+          <div><span>信仰狂熱</span><b data-field="profile-faith">…</b></div>
+          <i><em></em></i>
+        </div>
+        <div class="profile-meter" data-profile-meter="eq">
+          <div><span>EQ</span><b data-field="profile-eq">…</b></div>
+          <i><em></em></i>
+        </div>
+        <div class="profile-meter" data-profile-meter="lonely">
+          <div><span>孤獨指數</span><b data-field="profile-lonely">…</b></div>
+          <i><em></em></i>
+        </div>
+      </div>
+      <p class="profile-meter-note">三項指數沿用原人物卡設定，尺度為 1–10。</p>
+    </article>
+  </div>
+
+  <section class="profile-modern-section">
+    <div class="profile-modern-heading">
+      <div>
+        <span>如果把你放進今天的世界</span>
+        <h3>近代代表人物</h3>
+      </div>
+      <p>原測驗卡片的娛樂性對照，不代表當事人的正式 MBTI 判定。</p>
+    </div>
+    <div class="lookup-modern-grid">
+      <div class="lookup-modern-person" data-modern-card="1">
+        <figure aria-hidden="true" class="lookup-modern-art" data-modern-art="1" hidden="">
+          <img alt="" data-modern-art-img="1" decoding="async" loading="lazy"/>
+        </figure>
+        <div class="lookup-modern-copy">
+          <strong data-field="modern-1-name">…</strong>
+          <span data-field="modern-1-role">…</span>
+          <p class="lookup-modern-desc" data-field="modern-1-desc">…</p>
+        </div>
+      </div>
+      <div class="lookup-modern-person" data-modern-card="2">
+        <figure aria-hidden="true" class="lookup-modern-art" data-modern-art="2" hidden="">
+          <img alt="" data-modern-art-img="2" decoding="async" loading="lazy"/>
+        </figure>
+        <div class="lookup-modern-copy">
+          <strong data-field="modern-2-name">…</strong>
+          <span data-field="modern-2-role">…</span>
+          <p class="lookup-modern-desc" data-field="modern-2-desc">…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile-passport-panel">
+    <div class="profile-passport-copy">
+      <span>分享版會換一個樣子</span>
+      <strong>把你的人物檔案做成一張小護照</strong>
+      <p>分享圖會保留人物、MBTI、人格特質、三個關鍵字、推薦卷書與人物簡介，並搭配簡化的教會職人入境章。</p>
+    </div>
+    <div class="profile-passport-actions">
+      <button class="profile-passport-btn is-primary" id="profile-passport-share" type="button">分享我的人物護照</button>
+      <button class="profile-passport-btn" id="profile-copy-link" type="button">複製結果連結</button>
+      <button class="profile-passport-btn" id="profile-see-others" type="button">看看其他 15 型</button>
+    </div>
+    <div class="profile-share-status" id="profile-share-status" aria-live="polite"></div>
+  </section>
 </div>
 <p aria-atomic="true" aria-live="polite" class="sr-only" id="mbti-result-announcer"></p>
 <div class="lookup-sheet-backdrop" id="lookup-sheet-backdrop" hidden></div>
@@ -11771,6 +11856,16 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
             'ISTP', 'ISFP', 'ESTP', 'ESFP'
         ];
 
+        const MBTI_PROFILE_MASTER = {"ESTP":{"character":"彼得","title":"企業家","tags":"果斷、實際、愛冒險","book":"馬可福音","faith":6,"eq":6,"lonely":4,"strengths":"精力充沛、注重行動；善於抓住機會；有魅力；在緊急情況下反應迅速。","weaknesses":"容易衝動、缺乏耐心；不喜歡理論；有時會因魯莽而犯錯。","friend":"ENFJ 亞伯拉罕。對方的安定、細心和支持，能為喜歡冒險、活在當下的你提供可靠的後方基地。","rival":"INFJ 但以理。你的現實主義和眼見為憑，與對方對弦外之音和深層意義的追求，容易在看待世界的根本方式上產生衝突。","intro":"彼得是一位充滿激情、行動先於思考的漁夫。他第一個認出耶穌是基督，也曾衝動地拔刀砍掉士兵的耳朵。他活在當下，勇於冒險。"},"ISTP":{"character":"參孫","title":"巧匠","tags":"實用、冷靜、臨危不亂","book":"箴言","faith":6,"eq":5,"lonely":7,"strengths":"注重實際；足智多謀；善於隨機應變；在危機中能保持冷靜和理性。","weaknesses":"容易衝動；不喜歡承諾和長遠規劃；可能忽視情感和人際關係的複雜性。","friend":"ESTJ 摩西。兩者都是務實的行動派。對方能提供你所欠缺的長遠規劃和組織性，而你能提供臨場應變和技術支援。","rival":"ENFJ 亞伯拉罕。你的獨立和對任務的專注，可能讓渴望情感連結的對方感到被忽視；而對方的熱情和對人的關注，則會讓你感到分心和不自在。","intro":"他是一位憑藉神所賜予的超凡力量行動的士師。他的行為往往是即興的、實際的，直接用行動來解決問題，無論是殺死獅子還是對抗非利士人。"},"INTJ":{"character":"保羅","title":"建築師","tags":"策略規劃、遠見、獨立","book":"羅馬書","faith":8,"eq":6,"lonely":7,"strengths":"具備宏大的異象、邏輯清晰；意志堅定、善於策略規劃；能夠將複雜的信仰概念系統化，並為達成目標堅持不懈。","weaknesses":"有時可能顯得固執、缺乏耐心；不善於處理他人的情感；對不符合其邏輯與標準的人事物批判性較強。","friend":"ENFP 巴拿巴。對方的熱情與創意能點燃你的生活並欣賞你深刻的遠見；你的安定和計畫能力則能幫助他的夢想落地。","rival":"ESFP 撒馬利亞婦人。你長遠規劃和理論深度，與對方活在當下、注重感官體驗的生活方式形成巨大反差，容易覺得對方不切實際或太過嚴肅。","intro":"原是迫害基督徒的法利賽人，後經歷戲劇性轉變，成為早期教會最重要、最具影響力的思想家和宣教士。他建立了初代教會的神學框架，並有策略地規劃多次宣教旅程。"},"ISFP":{"character":"大衛","title":"探險家","tags":"溫和、隨和、藝術感","book":"詩篇","faith":7,"eq":7,"lonely":6,"strengths":"溫和、有藝術氣質；忠於內心價值觀；活在當下；富有同情心。","weaknesses":"非常不喜歡衝突；情緒敏感多變；在做長遠規劃方面可能比較薄弱。","friend":"ENFJ 亞伯拉罕。對方的遠見和鼓舞人心的能力，能欣賞並提升你的藝術才華，為其創作賦予更宏大的意義和舞台。","rival":"ENTJ 底波拉。你活在當下、忠於自我感受的藝術家氣質，與對方目標導向、著眼未來的指揮官風格，在生活節奏和決策方式上截然不同。","intro":"在成為君王之前，大衛是一位牧羊人、音樂家和詩人，他透過詩篇表達了自己最深刻的情感。從讚美、喜悅到懷疑、痛苦，他的內心世界豐富而敏感。"},"ESFP":{"character":"撒馬利亞婦人","title":"表演者","tags":"熱情、外向、樂於助人","book":"腓立比書","faith":6,"eq":7,"lonely":3,"strengths":"熱情奔放；喜歡與人互動、慷慨；會享受生活；善於將人們聚集在一起。","weaknesses":"不喜歡獨處；可能尋求刺激而忽略後果；在處理複雜的抽象概念時會感到困難。","friend":"ISTJ 尼希米。對方的計畫性和責任感，能為你多姿多彩的生活帶來必要的安定和秩序；而你能為對方注入輕鬆、歡樂和社交活力。","rival":"INTJ 保羅。你追求即時的快樂和感官體驗，而對方專注於長遠的規劃和抽象理念，兩者幾乎像是活在不同的星球。","intro":"她在井邊與耶穌的相遇，展現了她直率、善於交際的性格。在經歷生命的改變後，她立刻跑回城裡，熱情地向所有人分享她的經歷。"},"ENFP":{"character":"巴拿巴","title":"競選者","tags":"樂觀、鼓舞人心、充滿創意","book":"使徒行傳","faith":7,"eq":8,"lonely":4,"strengths":"熱情洋溢、富有感染力；善於鼓勵他人；充滿創意；喜歡探索新的可能性。","weaknesses":"容易分心；不喜歡處理細節和繁瑣的行政；有時想法多變；難以貫徹到底。","friend":"INTJ 保羅。對方的深度、策略和可靠性能為你天馬行空的想法提供一個堅實的支持和實現路徑，讓夢想不再只是夢想。","rival":"ISTJ 尼希米。你的隨性、多變和對新可能性的熱情，在對方看來可能混亂和不可靠；而對方對傳統和規則的堅持，則會讓你感到窒息。","intro":"他的名字意為「勸慰子」，他總是能看到他人的潛力。他接納了曾被眾人排斥的保羅，並給予年輕的馬可第二次機會。他充滿熱情，是連結眾人的催化劑。"},"ISTJ":{"character":"尼希米","title":"物流師","tags":"忠誠、重視細節、實事求是","book":"尼希米記","faith":8,"eq":6,"lonely":6,"strengths":"盡忠職守、注重細節；有條理；誠實可靠；尊重傳統與規則。","weaknesses":"有時會顯得固執；不夠靈活；抗拒改變；可能會忽略他人的情感需求。","friend":"ESFP 撒馬利亞婦人。對方能為你嚴謹規律的生活帶來陽光、樂趣和即興色彩，而你的安定和可靠則能給予對方安全感。","rival":"ENFP 巴拿巴。你的座右銘是「按部就班」，而對方的座右銘是「讓我們看看會發生什麼！」兩者在生活節奏和價值排序上存在根本矛盾。","intro":"作為波斯王的酒政，他聽聞耶路撒冷城牆頹圮，便帶著使命感回去重建。他是一位傑出的管理者和組織者，詳細規劃、分配任務、監督進度，並在反對聲中堅持完成使命。"},"INTP":{"character":"多馬","title":"邏輯學家","tags":"分析、好奇、理性","book":"傳道書","faith":7,"eq":5,"lonely":8,"strengths":"充滿好奇心、客觀；追求真理與知識；思想開放；不盲從。","weaknesses":"可能因為過度分析而陷入懷疑與現實脫節；在需要憑信心行動時，會感到猶豫。","friend":"ENTJ 底波拉。你的深度思考和創新理念，能為對方的宏大計畫提供完整理論支持；對方的決斷力和執行力則能將你的想法變為現實。","rival":"ESFJ 馬大。你對抽象理論的熱愛和不喜社交的傾向，與對方重視社群和諧、實際需求的價值觀，容易產生摩擦。","intro":"被稱為「懷疑的多馬」，他需要親眼看見、親手觸摸耶穌復活的證據才願意相信。這代表了他對真理的渴求，是建立在理性驗證和個人理解之上。"},"INFJ":{"character":"但以理","title":"提倡者","tags":"洞察、理想、同理心","book":"但以理書","faith":9,"eq":8,"lonely":7,"strengths":"富有理想、有原則；具備深刻的洞察力；關懷他人；有強烈的使命感。","weaknesses":"容易因理想與現實的差距而感到失望；對他人的批評非常敏感；有時會過度背負他人的重擔。","friend":"ENTP 雅各。對方的機智與開放性能激發你的潛能，並欣賞其深邃思想；你的安定與洞察力則能引導對方的創造力走向更深遠的目標。","rival":"ESTP 彼得。你重視未來和深層意義，而對方專注於當下的刺激和感官現實，兩者對「什麼是重要的」有著根本分歧。","intro":"在被擄到巴比倫的異國宮廷中，但以理始終堅守信仰原則，同時以其超凡的智慧和解夢能力服事君王。他對未來有深刻洞察力，並為自己的同胞懷有深切負擔。"},"ENFJ":{"character":"亞伯拉罕","title":"主人公","tags":"有感染力、善於啟發他人","book":"希伯來書","faith":8,"eq":9,"lonely":5,"strengths":"富有魅力和感召力；善於溝通；關懷並激勵他人；是天生的社群建立者。","weaknesses":"有時可能過於理想化；為了和諧而犧牲自己的需要；可能會過度干預他人的生活。","friend":"INFP 約翰。你能被對方的真誠和深度所吸引，並有能力引導和激勵他們；對方則能為你提供一個可以展現真實情感的避風港。","rival":"ISTP 參孫。你天生渴望與人連結和建立社群，而對方是獨立的個體戶，這種差異會讓你感到挫敗，讓對方感到被侵犯。","intro":"被稱為「信心之父」，他順服神的呼召，離開本地本族，前往未知的應許之地。他是一位天生的族長，熱情好客，並能激勵和帶領跟隨他的人。"},"ENTJ":{"character":"底波拉","title":"指揮官","tags":"領導、果斷、組織力","book":"士師記","faith":7,"eq":6,"lonely":6,"strengths":"天生的領袖、果斷；有遠見、善於組織與動員；能自信地帶領眾人朝著共同目標前進。","weaknesses":"可能顯得強勢；缺乏耐心；對效率和結果的追求有時會忽略他人的感受。","friend":"INTP 多馬。這是個智識上的強力組合。對方能提供你所需的深度分析和創意，而你能帶領對方走出理論，實現共同目標。","rival":"ISFP 大衛。你的目標導向和對效率的追求，可能會無意中傷害到對方敏感的內心和個人價值觀，而對方的隨性則可能讓你感到失控。","intro":"她是舊約中的一位女士師、先知和軍事策略家。在以色列人受壓迫時，她果斷地發號施令，帶領以色列人贏得勝利。"},"INFP":{"character":"約翰","title":"調停者","tags":"感性、忠於自我、理想主義","book":"約翰福音","faith":9,"eq":8,"lonely":8,"strengths":"富有同理心；忠於自己的價值觀；充滿創意與想像力；尋求和諧與深層次的連結。","weaknesses":"極度理想化；在面對衝突時可能會逃避；容易沉浸在自己的情感世界中。","friend":"ENFJ 亞伯拉罕。對方的熱情、領導力和對人的關懷，能給予你巨大的肯定和支持，幫助你將內心的理想實現出來，是一個非常溫暖的組合。","rival":"ESTJ 摩西。你的理想主義和對個人價值的堅持，與對方注重規則、效率和集體標準的作風，會在「應該如何做事」上產生持續衝突。","intro":"被稱為「耶穌所愛的那門徒」，他的福音書和書信中充滿了對「愛」、「光」和「生命」的深刻感悟。他更關注人內在的靈性狀態和與神的關係。"},"ESFJ":{"character":"馬大","title":"執政官","tags":"關懷、善於協調、樂於服務","book":"路加福音","faith":7,"eq":8,"lonely":4,"strengths":"熱情好客、有責任心；樂於助人；注重社群和諧；善於處理實際事務。","weaknesses":"容易過度擔心他人的看法而焦慮；可能忽略自己的需求；有時會過於注重傳統和社會規範。","friend":"INTP 多馬。這是經典的互補組合。你能將對方從純理論的世界中拉出來，關心其生活並引介給社群；對方則能為你提供深刻洞見和客觀分析。","rival":"ISTP 參孫。你熱心腸地想幫助和融入，但對方極度獨立、喜歡自己解決問題。你的關心可能被視為干涉，而對方的冷靜則可能被視為冷漠。","intro":"在耶穌到訪她家時，馬大忙於伺候，熱切地想為客人提供最好的款待。她關心實際的需求，是社群中的關懷者和服務者。"},"ENTP":{"character":"雅各","title":"辯論家","tags":"創新、辯論、挑戰傳統","book":"創世記","faith":6,"eq":7,"lonely":5,"strengths":"機智聰明、反應迅速；善於發現問題和新的可能性；勇於挑戰權威和傳統。","weaknesses":"可能喜歡為了辯論而辯論；不喜歡遵循規則；有時顯得不夠可靠或狡猾。","friend":"INFJ 但以理。對方的深刻洞見和堅定信念，能給你無盡的靈感探索一個安定的「錨」；你則能幫助對方放鬆，並從更多元角度看世界。","rival":"ISFJ 路得。你喜愛挑戰傳統、質疑一切的風格，會直接衝擊到對方對安定、和諧與秩序的根本需求，是最經典的衝突組合之一。","intro":"從用計謀騙取長子名分和祝福，到與神摔跤並得名「以色列」，雅各的一生充滿了挑戰、計謀和辯論。他總是在尋找機會，挑戰現狀。"},"ISFJ":{"character":"路得","title":"守衛者","tags":"溫柔、樂於助人、持守本分","book":"路得記","faith":9,"eq":8,"lonely":5,"strengths":"忠誠可靠、有愛心；樂於奉獻、注重細節；有強烈的責任感來保護和照顧所愛的人。","weaknesses":"不喜歡改變；過於謙遜以至於壓抑自己的需求；在面對衝突時傾向於退讓。","friend":"ESTP 彼得。對方的冒險精神能帶領你體驗世界的精彩，而你的溫暖和細心則能為對方提供一個安心的「家」，讓他們有充電和停靠的港灣。","rival":"ENTP 雅各。對方對傳統的質疑和辯論的熱愛，會讓重視和諧與安定的你感到極大不安與壓力，覺得自己的世界被攪亂。","intro":"在丈夫去世後，她選擇忠誠地跟隨婆婆拿俄米，離開自己的故鄉，來到一個陌生的國度。她以謙卑、勤勞和善良的品格默默照顧婆婆，最終蒙神賜福。"},"ESTJ":{"character":"摩西","title":"總經理","tags":"務實、領導能力、組織力強","book":"出埃及記","faith":7,"eq":6,"lonely":5,"strengths":"天生的組織者；決策力強；注重秩序與法規；有強烈的責任感。","weaknesses":"有時會因壓力而發怒；可能顯得固執、缺乏彈性；傾向於用自己的方式做事。","friend":"ISFP 大衛。對方能幫助務實的你接觸到內心的情感和生活美學，軟化你強硬的作風；你則能為對方提供實現藝術所需的結構和方向。","rival":"INFP 約翰。你的集體主義和對規章制度的強調，與對方的個人主義和對內心價值的絕對忠誠，幾乎在所有層面都會產生衝突。","intro":"神揀選他帶領數百萬以色列人出埃及。他是一位強大的律法頒布者、組織者和管理者。他建立了以色列的社會和宗教體系，並處理各種實際的民生問題。"}};
+
+        const PROFILE_SITE_URL = 'https://gbookchurch.github.io/MBTI/';
+        const PROFILE_PALETTE = {
+            SJ: {accent:'#6F877B', deep:'#455D51', soft:'#EDF2EE'},
+            NF: {accent:'#B28A3F', deep:'#70592C', soft:'#F6EFD9'},
+            SP: {accent:'#B76745', deep:'#78412E', soft:'#F6E7DF'},
+            NT: {accent:'#304C40', deep:'#1F372E', soft:'#E7EEEA'}
+        };
+
         const BASE_TITLE = '教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？';
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -12451,27 +12546,495 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             }
         }
 
+
+        function renderProfileList(field, text) {
+            const host = document.querySelector(`[data-field="${field}"]`);
+            if (!host) return;
+            host.innerHTML = '';
+            String(text || '').split(/[；。]/).map(s => s.trim()).filter(Boolean).forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                host.appendChild(li);
+            });
+        }
+
+        function parseProfileRelation(text) {
+            const raw = String(text || '').trim();
+            const match = raw.match(/^([EI][NS][TF][JP]\s+[^。]+)。(.*)$/);
+            return match ? { name: match[1].trim(), desc: match[2].trim() } : { name: raw, desc: '' };
+        }
+
+        function renderProfileTags(text) {
+            const host = document.querySelector('[data-field="profile-tags-rich"]');
+            if (!host) return;
+            host.innerHTML = '';
+            String(text || '').split('、').map(s => s.trim()).filter(Boolean).forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = tag;
+                host.appendChild(span);
+            });
+        }
+
+        function renderProfileMeter(key, value) {
+            const meter = document.querySelector(`[data-profile-meter="${key}"]`);
+            const bar = meter?.querySelector('em');
+            if (bar) bar.style.width = `${Math.max(0, Math.min(10, Number(value) || 0)) * 10}%`;
+        }
+
+        function renderProfileCharacterArt(character) {
+            const img = document.getElementById('profile-character-img');
+            if (!img) return;
+            const src = getCharacterArt(character);
+            if (src) {
+                img.src = src;
+                img.hidden = false;
+            } else {
+                img.removeAttribute('src');
+                img.hidden = true;
+            }
+        }
+
+        function getProfileShareUrl(type) {
+            return `${PROFILE_SITE_URL}?type=${encodeURIComponent(type)}#mbti-lookup`;
+        }
+
+        function profileRoundRect(ctx, x, y, w, h, r) {
+            const rr = Math.min(r, w / 2, h / 2);
+            ctx.beginPath();
+            ctx.moveTo(x + rr, y);
+            ctx.arcTo(x + w, y, x + w, y + h, rr);
+            ctx.arcTo(x + w, y + h, x, y + h, rr);
+            ctx.arcTo(x, y + h, x, y, rr);
+            ctx.arcTo(x, y, x + w, y, rr);
+            ctx.closePath();
+        }
+
+        function profileWrapText(ctx, text, maxWidth) {
+            const lines = [];
+            let line = '';
+            [...String(text || '')].forEach(ch => {
+                const test = line + ch;
+                if (line && ctx.measureText(test).width > maxWidth) {
+                    lines.push(line);
+                    line = ch;
+                } else {
+                    line = test;
+                }
+            });
+            if (line) lines.push(line);
+            return lines;
+        }
+
+        function loadProfileImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = src;
+            });
+        }
+
+
+        function drawArcText(ctx, text, radius, centerAngle = -Math.PI / 2, extraSpacingPx = 4) {
+            const chars = String(text || '').split('');
+            if (!chars.length) return;
+
+            const widths = chars.map(char => Math.max(ctx.measureText(char).width, 1));
+            const totalArc = widths.reduce((sum, width) => sum + width, 0) + extraSpacingPx * Math.max(chars.length - 1, 0);
+            let angle = centerAngle + (totalArc / radius) / 2;
+
+            chars.forEach((char, index) => {
+                const charAngle = widths[index] / radius;
+                angle -= charAngle / 2;
+
+                ctx.save();
+                ctx.rotate(angle);
+                ctx.translate(0, -radius);
+                ctx.rotate(Math.PI / 2);
+                ctx.fillText(char, 0, 0);
+                ctx.restore();
+
+                angle -= charAngle / 2 + (index < chars.length - 1 ? extraSpacingPx / radius : 0);
+            });
+        }
+
+        function drawArcTextBottom(ctx, text, radius, centerAngle = Math.PI / 2, extraSpacingPx = 4) {
+            const chars = String(text || '').split('').reverse();
+            if (!chars.length) return;
+
+            const widths = chars.map(char => Math.max(ctx.measureText(char).width, 1));
+            const totalArc = widths.reduce((sum, width) => sum + width, 0) + extraSpacingPx * Math.max(chars.length - 1, 0);
+            let angle = centerAngle + (totalArc / radius) / 2;
+
+            chars.forEach((char, index) => {
+                const charAngle = widths[index] / radius;
+                angle -= charAngle / 2;
+
+                ctx.save();
+                ctx.rotate(angle);
+                ctx.translate(0, -radius);
+                ctx.rotate(-Math.PI / 2);
+                ctx.fillText(char, 0, 0);
+                ctx.restore();
+
+                angle -= charAngle / 2 + (index < chars.length - 1 ? extraSpacingPx / radius : 0);
+            });
+        }
+
+        function drawStampNick(ctx, radius, angle, length, lineWidth = 2) {
+            ctx.save();
+            ctx.rotate(angle);
+            ctx.translate(0, -radius);
+            ctx.strokeStyle = 'rgba(255,255,255,.42)';
+            ctx.lineWidth = lineWidth;
+            ctx.beginPath();
+            ctx.moveTo(-length / 2, 0);
+            ctx.lineTo(length / 2, 0);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+
+        const PROFILE_STAMP_META = {
+            SJ: { titleZh: '服事總務組', titleEn: 'SERVICE ADMIN' },
+            NF: { titleZh: '陪伴關懷組', titleEn: 'CARE MINISTRY' },
+            SP: { titleZh: '現場機動組', titleEn: 'RESPONSE CREW' },
+            NT: { titleZh: '事工策劃組', titleEn: 'MINISTRY DESK' }
+        };
+
+        async function makeProfilePassportImage(type) {
+            const profile = MBTI_PROFILE_MASTER[type];
+            if (!profile) throw new Error('missing profile');
+            const group = getTemperamentGroup(type);
+            const palette = PROFILE_PALETTE[group] || PROFILE_PALETTE.NT;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = 1080;
+            canvas.height = 1920;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width, H = canvas.height;
+
+            // 紙張與護照內頁
+            ctx.fillStyle = '#D9D2C5';
+            ctx.fillRect(0, 0, W, H);
+            const paper = ctx.createLinearGradient(70, 70, 1010, 1850);
+            paper.addColorStop(0, '#F6F1E7');
+            paper.addColorStop(1, '#EAE2D4');
+            ctx.fillStyle = paper;
+            profileRoundRect(ctx, 52, 48, 976, 1824, 42);
+            ctx.fill();
+
+            ctx.strokeStyle = 'rgba(66,57,49,.32)';
+            ctx.lineWidth = 3;
+            profileRoundRect(ctx, 77, 73, 926, 1774, 30);
+            ctx.stroke();
+
+            // 護照底紋
+            ctx.save();
+            ctx.globalAlpha = .08;
+            ctx.strokeStyle = palette.accent;
+            ctx.lineWidth = 2;
+            for (let y = 160; y < 1760; y += 74) {
+                ctx.beginPath();
+                for (let x = 100; x <= 980; x += 20) {
+                    const yy = y + Math.sin((x + y) / 58) * 12;
+                    if (x === 100) ctx.moveTo(x, yy); else ctx.lineTo(x, yy);
+                }
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            // Header
+            ctx.fillStyle = '#2D2925';
+            ctx.font = '800 28px sans-serif';
+            ctx.fillText('教會小本本', 112, 132);
+            ctx.textAlign = 'right';
+            ctx.fillStyle = palette.deep;
+            ctx.font = '800 18px sans-serif';
+            ctx.fillText(`DOCUMENT TYPE｜文件類型  MBTI / ${group}`, 968, 132);
+            ctx.textAlign = 'left';
+
+            ctx.fillStyle = palette.deep;
+            ctx.font = '900 43px sans-serif';
+            ctx.fillText('BIBLE CHARACTER PASSPORT', 112, 205);
+            ctx.fillStyle = '#6B6258';
+            ctx.font = '700 24px sans-serif';
+            ctx.fillText('聖經人物人格護照', 114, 244);
+
+            ctx.fillStyle = palette.accent;
+            ctx.fillRect(112, 275, 856, 7);
+
+            // 左側人物照片區
+            ctx.fillStyle = '#EEE8DC';
+            profileRoundRect(ctx, 112, 330, 405, 670, 26);
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(64,58,52,.18)';
+            ctx.lineWidth = 2;
+            profileRoundRect(ctx, 112, 330, 405, 670, 26);
+            ctx.stroke();
+
+            const art = getCharacterArt(profile.character);
+            if (art) {
+                try {
+                    const im = await loadProfileImage(art);
+                    const maxW = 355, maxH = 585;
+                    const ratio = Math.min(maxW / im.width, maxH / im.height);
+                    const w = im.width * ratio, h = im.height * ratio;
+                    ctx.save();
+                    ctx.shadowColor = 'rgba(42,34,29,.18)';
+                    ctx.shadowBlur = 22;
+                    ctx.shadowOffsetY = 12;
+                    ctx.drawImage(im, 112 + (405 - w) / 2, 370 + (590 - h), w, h);
+                    ctx.restore();
+                } catch (e) {}
+            }
+
+            // 右側識別欄
+            ctx.fillStyle = palette.deep;
+            ctx.font = '900 88px sans-serif';
+            ctx.fillText(type, 566, 435);
+            ctx.fillStyle = '#2A2724';
+            ctx.font = '900 58px sans-serif';
+            ctx.fillText(profile.character, 566, 508);
+
+            ctx.fillStyle = '#786F66';
+            ctx.font = '750 19px sans-serif';
+            ctx.fillText('PERSONALITY｜人格稱號', 566, 574);
+            ctx.fillStyle = '#2D2925';
+            ctx.font = '800 31px sans-serif';
+            ctx.fillText(profile.title, 566, 616);
+
+            ctx.fillStyle = '#786F66';
+            ctx.font = '750 19px sans-serif';
+            ctx.fillText('KEYWORDS｜關鍵特質', 566, 685);
+            ctx.fillStyle = '#2D2925';
+            ctx.font = '700 27px sans-serif';
+            const tags = String(profile.tags || '').split('、');
+            tags.slice(0, 3).forEach((tag, i) => ctx.fillText(tag, 566, 728 + i * 48));
+
+            ctx.fillStyle = '#786F66';
+            ctx.font = '750 19px sans-serif';
+            ctx.fillText('BOOK｜推薦卷書', 566, 892);
+            ctx.fillStyle = palette.deep;
+            ctx.font = '850 31px sans-serif';
+            ctx.fillText(profile.book, 566, 936);
+
+            // Stamp｜簡化的仿真護照入境章＋教會職人章
+            const stampMeta = PROFILE_STAMP_META[group] || PROFILE_STAMP_META.NT;
+            ctx.save();
+            ctx.translate(847, 1080);
+            ctx.rotate(-0.095);
+            ctx.globalAlpha = .82;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // 外圈：保留輕微偏位與缺墨，模擬實體橡皮章
+            ctx.strokeStyle = palette.accent;
+            ctx.lineWidth = 6.5;
+            ctx.beginPath();
+            ctx.arc(0, 0, 113, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.save();
+            ctx.translate(1.7, -1.3);
+            ctx.globalAlpha = .25;
+            ctx.lineWidth = 2.1;
+            ctx.beginPath();
+            ctx.arc(0, 0, 108, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+
+            // 內圈留出中央職人章空間
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.arc(0, 0, 88, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = palette.deep;
+
+            // 第一圈直接排文字：沿最外圈的內徑，不再留空白
+            ctx.font = '800 10.2px sans-serif';
+            drawArcText(ctx, 'BIBLE CHARACTER PASSPORT', 101, -Math.PI / 2, 4.8);
+
+            // 下半圈只留品牌與 MBTI 型別，簡化入境章資訊，並旋轉 180 度呈現
+            ctx.font = '800 9.4px sans-serif';
+            drawArcTextBottom(ctx, `教會小本本 · ${type}`, 101, Math.PI / 2, 4.0);
+
+            // 中央只保留教會職人名稱與英文，不再放額外狀態資訊
+            ctx.font = '900 28px sans-serif';
+            ctx.fillText(stampMeta.titleZh, 0, -8);
+            ctx.font = '800 13px sans-serif';
+            ctx.fillText(stampMeta.titleEn, 0, 18);
+            ctx.font = '850 11.5px monospace';
+            ctx.fillText(`${group} · ${type}`, 0, 39);
+
+            // 少量缺墨與雜點，保留真實蓋章感但不搶畫面
+            drawStampNick(ctx, 112, -2.66, 15, 3.0);
+            drawStampNick(ctx, 112, -1.02, 10, 2.3);
+            drawStampNick(ctx, 88, 0.62, 9, 1.8);
+            drawStampNick(ctx, 112, 2.34, 13, 2.6);
+
+            ctx.fillStyle = palette.accent;
+            ctx.globalAlpha = .30;
+            [
+                [-78,-37,1.8],[-88,14,1.4],[76,-44,1.6],[86,22,1.35],[56,78,1.2]
+            ].forEach(([x,y,r]) => {
+                ctx.beginPath();
+                ctx.arc(x,y,r,0,Math.PI*2);
+                ctx.fill();
+            });
+
+            ctx.textBaseline = 'alphabetic';
+            ctx.restore();
+            ctx.textAlign = 'left';
+
+            // Profile
+            // MBTI 人格特質
+            ctx.fillStyle = '#786F66';
+            ctx.font = '750 22px sans-serif';
+            ctx.fillText('MBTI TRAITS｜人格特質', 112, 1090);
+
+            const strengthParts = String(profile.strengths || '')
+                .split(/[；。]/)
+                .map(s => s.trim())
+                .filter(Boolean);
+            const traitText = `${type} ${profile.title}常見的氣質包含${profile.tags}。${strengthParts.slice(0, 2).join('，')}。`;
+            ctx.fillStyle = '#2D2925';
+            ctx.font = '700 29px sans-serif';
+            let py = 1143;
+            for (const line of profileWrapText(ctx, traitText, 790).slice(0, 5)) {
+                ctx.fillText(line, 112, py);
+                py += 43;
+            }
+
+            // 聖經人物簡介
+            ctx.fillStyle = '#786F66';
+            ctx.font = '750 21px sans-serif';
+            ctx.fillText('CHARACTER NOTE｜人物簡介', 112, 1338);
+            ctx.fillStyle = '#4F4943';
+            ctx.font = '650 25px sans-serif';
+            let cy = 1380;
+            for (const line of profileWrapText(ctx, profile.intro, 790).slice(0, 3)) {
+                ctx.fillText(line, 112, cy);
+                cy += 37;
+            }
+
+            // 資料列
+            ctx.fillStyle = 'rgba(255,255,255,.44)';
+            profileRoundRect(ctx, 112, 1510, 856, 184, 22);
+            ctx.fill();
+
+            const cells = [
+                ['FAITH｜信仰狂熱', profile.faith],
+                ['EQ｜情緒理解', profile.eq],
+                ['SOLITUDE｜孤獨指數', profile.lonely]
+            ];
+            cells.forEach((cell, i) => {
+                const x = 150 + i * 270;
+                ctx.fillStyle = '#756C62';
+                ctx.font = '750 16px sans-serif';
+                ctx.fillText(cell[0], x, 1565);
+                ctx.fillStyle = palette.deep;
+                ctx.font = '900 48px sans-serif';
+                ctx.fillText(`${cell[1]}/10`, x, 1624);
+            });
+
+            // Footer
+            ctx.fillStyle = palette.accent;
+            ctx.fillRect(112, 1730, 856, 5);
+            ctx.fillStyle = '#2D2925';
+            ctx.font = '800 24px sans-serif';
+            ctx.fillText('ISSUED BY｜發行單位  教會小本本', 112, 1788);
+            ctx.fillStyle = '#746B62';
+            ctx.font = '650 21px sans-serif';
+            ctx.fillText('gbookchurch.github.io/MBTI/', 112, 1832);
+            ctx.textAlign = 'right';
+            ctx.font = '700 18px monospace';
+            ctx.fillText(`BIBLE<CHARACTER<${type}<<<<<<<<`, 968, 1832);
+            ctx.textAlign = 'left';
+
+            return await new Promise(resolve => canvas.toBlob(resolve, 'image/png', .95));
+        }
+
+        async function shareProfilePassport(type) {
+            const profile = MBTI_PROFILE_MASTER[type];
+            if (!profile) return;
+            const status = document.getElementById('profile-share-status');
+            const url = getProfileShareUrl(type);
+            try {
+                const blob = await makeProfilePassportImage(type);
+                const file = new File([blob], `教會小本本_${type}_${profile.character}_人物護照.png`, {type:'image/png'});
+                const text = `教會小本本｜${type} ${profile.character} 人物護照\n${url}`;
+                if (navigator.canShare && navigator.canShare({files:[file]})) {
+                    await navigator.share({title:`${type}｜${profile.character} 人物護照`, text, files:[file]});
+                    if (status) status.textContent = '分享選單已開啟。';
+                    return;
+                }
+                const a = document.createElement('a');
+                const objectUrl = URL.createObjectURL(blob);
+                a.href = objectUrl;
+                a.download = file.name;
+                a.click();
+                window.setTimeout(() => URL.revokeObjectURL(objectUrl), 2500);
+                if (status) status.textContent = '人物護照圖片已產生。';
+            } catch (error) {
+                try {
+                    if (navigator.share) {
+                        await navigator.share({title:`${type}｜${profile.character} 人物護照`, text:`教會小本本｜${type} ${profile.character} 人物護照`, url});
+                        if (status) status.textContent = '分享選單已開啟。';
+                    } else {
+                        throw error;
+                    }
+                } catch (_) {
+                    if (status) status.textContent = '這個瀏覽器暫時無法直接分享，可以使用「複製結果連結」。';
+                }
+            }
+        }
+
         function renderMbtiResult(type, options = {}) {
             const entry = mbtiData[type];
-            if (!entry?.lay || !entry?.pastor) return false;
+            const master = MBTI_PROFILE_MASTER[type];
+            if (!entry?.lay || !entry?.pastor || !master) return false;
 
             document.querySelectorAll('.mbti-option').forEach((button) => {
                 button.setAttribute('aria-pressed', button.dataset.type === type ? 'true' : 'false');
             });
 
-            const profile = MBTI_PROFILE_EXTRAS[type] || { tags: '…', reps: [] };
+            const profile = MBTI_PROFILE_EXTRAS[type] || { reps: [] };
             const result = document.getElementById('mbti-lookup-result');
+            const group = getTemperamentGroup(type);
 
             setField('type', type);
-            renderLookupTemperament(type);
+            setField('profile-title', master.title || '…');
+            setField('profile-character', master.character || '…');
+            setField('profile-intro', master.intro || '…');
+            setField('profile-book', master.book || '…');
+            setField('profile-book-inline', master.book || '…');
+            setField('profile-faith', `${master.faith}/10`);
+            setField('profile-eq', `${master.eq}/10`);
+            setField('profile-lonely', `${master.lonely}/10`);
+
             setField('lay-character', entry.lay.character || '…');
             setField('pastor-character', entry.pastor.character || '…');
+            setField('lay-percent', Number(entry.lay.percent).toFixed(1));
+            setField('pastor-percent', Number(entry.pastor.percent).toFixed(1));
             setField('rarity-stars', getRarityStars(entry.lay.percent));
-            setField('profile-tags', profile.tags || '…');
 
-            renderLookupCharacterArt('lay', entry.lay.character);
-            renderLookupCharacterArt('pastor', entry.pastor.character);
-            renderCharacterIntros(entry);
+            renderLookupTemperament(type);
+            renderProfileTags(master.tags);
+            renderProfileList('profile-strengths', master.strengths);
+            renderProfileList('profile-weaknesses', master.weaknesses);
+            renderProfileCharacterArt(master.character);
+
+            const friend = parseProfileRelation(master.friend);
+            const rival = parseProfileRelation(master.rival);
+            setField('profile-friend-name', friend.name || '…');
+            setField('profile-friend-desc', friend.desc || '');
+            setField('profile-rival-name', rival.name || '…');
+            setField('profile-rival-desc', rival.desc || '');
+
+            renderProfileMeter('faith', master.faith);
+            renderProfileMeter('eq', master.eq);
+            renderProfileMeter('lonely', master.lonely);
 
             [0, 1].forEach((index) => {
                 const rep = profile.reps?.[index] || {};
@@ -12479,31 +13042,59 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             });
 
             if (result) {
+                result.dataset.currentType = type;
+                result.dataset.profileGroup = group;
                 result.hidden = false;
                 result.classList.remove('is-entering');
                 void result.offsetWidth;
                 result.classList.add('is-entering');
             }
 
-            if (options.openSheet !== false && mobileLookupSheetMedia.matches) {
-                openMobileLookupSheet(options.trigger || null);
-            }
-
             animateResultNumbers(entry);
 
             const announcer = document.getElementById('mbti-result-announcer');
             if (announcer) {
-                announcer.textContent = `${type} 結果已更新。平信徒版本代表 ${entry.lay.character}，第 ${entry.lay.rank} 名；牧者版本代表 ${entry.pastor.character}，第 ${entry.pastor.rank} 名。`;
+                announcer.textContent = `${type} 人物檔案已更新，對應聖經人物 ${master.character}。`;
             }
 
             if (options.updateUrl !== false) updateUrlType(type);
             document.title = `${type}｜教會 MBTI 圖鑑`;
+
+            // 手機不再跳出底部抽屜，直接留在頁面閱讀；點選後只把結果帶到視線附近。
+            if (mobileLookupSheetMedia.matches && options.scrollResult !== false) {
+                window.requestAnimationFrame(() => {
+                    result?.scrollIntoView({ behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+                });
+            }
             return true;
         }
 
         function initMbtiLookup() {
             document.querySelectorAll('.mbti-option').forEach((button) => {
                 button.addEventListener('click', () => renderMbtiResult(button.dataset.type, { trigger: button }));
+            });
+
+            document.getElementById('profile-passport-share')?.addEventListener('click', () => {
+                const type = document.getElementById('mbti-lookup-result')?.dataset.currentType;
+                if (type) shareProfilePassport(type);
+            });
+            document.getElementById('profile-copy-link')?.addEventListener('click', async () => {
+                const type = document.getElementById('mbti-lookup-result')?.dataset.currentType;
+                if (!type) return;
+                const status = document.getElementById('profile-share-status');
+                const url = getProfileShareUrl(type);
+                try {
+                    await navigator.clipboard.writeText(url);
+                    if (status) status.textContent = '結果連結已複製。';
+                } catch (error) {
+                    if (status) status.textContent = url;
+                }
+            });
+            document.getElementById('profile-see-others')?.addEventListener('click', () => {
+                document.querySelector('#mbti-lookup .mbti-picker')?.scrollIntoView({
+                    behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+                    block: 'center'
+                });
             });
 
             document.getElementById('lookup-sheet-close')?.addEventListener('click', () => closeMobileLookupSheet());
@@ -16950,6 +17541,507 @@ ${url}`,files:[file]}); els.status.textContent='分享選單已開啟。'; retur
   #song-dedication-section .song-letter-lyric blockquote{
     font-size:1.08rem;
   }
+}
+</style>
+
+
+<style id="v182-profile-dossier-passport">
+#mbti-lookup{
+  --profile-accent:#304C40;
+  --profile-deep:#1F372E;
+  --profile-soft:#E7EEEA;
+}
+#mbti-lookup .mbti-lookup-result,
+#mbti-lookup .mbti-lookup-result.mobile-sheet-open{
+  position:static!important;
+  inset:auto!important;
+  transform:none!important;
+  width:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  overflow:visible!important;
+  margin:20px auto 0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+#mbti-lookup .lookup-sheet-backdrop{display:none!important}
+body.lookup-sheet-active{overflow:auto!important}
+#mbti-lookup .profile-dossier[data-profile-group="SJ"]{--profile-accent:#6F877B;--profile-deep:#455D51;--profile-soft:#EDF2EE}
+#mbti-lookup .profile-dossier[data-profile-group="NF"]{--profile-accent:#B28A3F;--profile-deep:#70592C;--profile-soft:#F6EFD9}
+#mbti-lookup .profile-dossier[data-profile-group="SP"]{--profile-accent:#B76745;--profile-deep:#78412E;--profile-soft:#F6E7DF}
+#mbti-lookup .profile-dossier[data-profile-group="NT"]{--profile-accent:#304C40;--profile-deep:#1F372E;--profile-soft:#E7EEEA}
+
+#mbti-lookup .profile-dossier-hero{
+  width:min(980px,calc(100% - 28px));
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+  min-height:500px;
+  overflow:hidden;
+  border:1px solid rgba(61,54,48,.12);
+  border-radius:26px;
+  background:linear-gradient(125deg,#FFFDF8 0%,#FFFDF8 56%,var(--profile-soft) 100%);
+  box-shadow:0 20px 54px rgba(52,44,37,.09);
+}
+#mbti-lookup .profile-dossier-copy{
+  padding:42px 42px 34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+#mbti-lookup .profile-dossier-kicker{
+  color:var(--profile-accent);
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.11em;
+}
+#mbti-lookup .profile-dossier-code{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin-top:14px;
+}
+#mbti-lookup .profile-dossier-code>strong{
+  color:var(--profile-deep);
+  font-size:clamp(2.6rem,7vw,5.4rem);
+  line-height:.9;
+  letter-spacing:-.05em;
+  font-weight:950;
+}
+#mbti-lookup .profile-dossier-code>span:not(.lookup-temperament-badge){
+  color:#6F665E;
+  font-size:.9rem;
+  font-weight:800;
+}
+#mbti-lookup .profile-dossier-character{
+  margin:16px 0 9px;
+  color:#2F2A26;
+  font-size:clamp(2rem,4vw,3.35rem);
+  line-height:1.05;
+  font-weight:950;
+}
+#mbti-lookup .profile-dossier-intro{
+  margin:0;
+  max-width:590px;
+  color:#5B534C;
+  font-size:.98rem;
+  line-height:1.82;
+}
+#mbti-lookup .profile-dossier-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:18px;
+}
+#mbti-lookup .profile-dossier-tags span{
+  border:1px solid color-mix(in srgb,var(--profile-accent) 34%,transparent);
+  border-radius:10px;
+  background:color-mix(in srgb,var(--profile-soft) 70%,#FFF 30%);
+  color:var(--profile-deep);
+  padding:7px 10px;
+  font-size:.78rem;
+  font-weight:850;
+}
+#mbti-lookup .profile-survey-position{
+  margin-top:27px;
+  padding-top:18px;
+  border-top:1px solid rgba(61,54,48,.10);
+}
+#mbti-lookup .profile-survey-position-head{
+  color:#82796F;
+  font-size:.69rem;
+  font-weight:850;
+  letter-spacing:.06em;
+}
+#mbti-lookup .profile-survey-position-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:10px;
+}
+#mbti-lookup .profile-survey-position-grid>div{
+  min-width:0;
+  padding:11px 12px;
+  border-radius:12px;
+  background:#F6F2EB;
+}
+#mbti-lookup .profile-survey-position-grid span{
+  display:block;
+  color:#8A8178;
+  font-size:.66rem;
+  font-weight:780;
+}
+#mbti-lookup .profile-survey-position-grid strong{
+  display:block;
+  margin-top:2px;
+  color:#342F2B;
+  font-size:.91rem;
+}
+#mbti-lookup .profile-survey-position-grid small{
+  display:block;
+  margin-top:3px;
+  color:#716860;
+  font-size:.66rem;
+  line-height:1.4;
+}
+#mbti-lookup .profile-rarity-cell .lookup-rarity-stars{
+  color:var(--profile-accent)!important;
+  letter-spacing:.02em;
+}
+#mbti-lookup .profile-dossier-art{
+  margin:0;
+  position:relative;
+  min-height:500px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+  padding:44px 24px 66px;
+}
+#mbti-lookup .profile-dossier-art-halo{
+  position:absolute;
+  width:310px;
+  height:310px;
+  border-radius:50%;
+  top:76px;
+  left:50%;
+  transform:translateX(-50%);
+  background:radial-gradient(circle,color-mix(in srgb,var(--profile-accent) 18%,#FFF 82%) 0 45%,transparent 46%);
+  border:1px solid color-mix(in srgb,var(--profile-accent) 24%,transparent);
+}
+#mbti-lookup .profile-dossier-art img{
+  position:relative;
+  z-index:2;
+  display:block;
+  max-width:100%;
+  max-height:405px;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 18px rgba(49,39,31,.13));
+}
+#mbti-lookup .profile-dossier-art figcaption{
+  position:absolute;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  z-index:3;
+  text-align:center;
+  color:var(--profile-deep);
+}
+#mbti-lookup .profile-dossier-art figcaption span{
+  display:block;
+  font-size:1rem;
+  font-weight:900;
+}
+#mbti-lookup .profile-dossier-art figcaption small{
+  display:block;
+  margin-top:2px;
+  color:#837970;
+  font-size:.66rem;
+}
+
+#mbti-lookup .profile-insight-grid{
+  width:min(980px,calc(100% - 28px));
+  margin:14px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+#mbti-lookup .profile-insight-card{
+  position:relative;
+  min-height:250px;
+  padding:26px 27px;
+  overflow:hidden;
+  border:1px solid rgba(61,54,48,.10);
+  border-radius:20px;
+  background:#FFFDF9;
+  box-shadow:0 10px 30px rgba(52,44,37,.045);
+}
+#mbti-lookup .profile-insight-card::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:5px;
+  background:var(--profile-accent);
+}
+#mbti-lookup .profile-insight-icon{
+  position:absolute;
+  right:22px;
+  top:14px;
+  color:color-mix(in srgb,var(--profile-accent) 35%,transparent);
+  font-size:2.35rem;
+  font-weight:900;
+}
+#mbti-lookup .profile-insight-card h3{
+  margin:0 0 15px;
+  color:#342F2B;
+  font-size:1.07rem;
+}
+#mbti-lookup .profile-insight-card ul{
+  margin:0;
+  padding-left:1.12rem;
+  display:grid;
+  gap:8px;
+}
+#mbti-lookup .profile-insight-card li,
+#mbti-lookup .profile-relation-row p{
+  color:#625A52;
+  font-size:.87rem;
+  line-height:1.67;
+}
+#mbti-lookup .profile-relation-row{
+  padding:12px 0;
+  border-top:1px solid rgba(61,54,48,.09);
+}
+#mbti-lookup .profile-relation-row:first-of-type{border-top:0;padding-top:0}
+#mbti-lookup .profile-relation-row>span{
+  display:block;
+  color:#8A8178;
+  font-size:.66rem;
+  font-weight:820;
+  letter-spacing:.04em;
+}
+#mbti-lookup .profile-relation-row strong{
+  display:block;
+  margin-top:3px;
+  color:var(--profile-deep);
+  font-size:.94rem;
+}
+#mbti-lookup .profile-relation-row p{margin:5px 0 0}
+#mbti-lookup .profile-book-line{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:13px;
+  border-bottom:1px solid rgba(61,54,48,.09);
+}
+#mbti-lookup .profile-book-line span{
+  color:#7D746B;
+  font-size:.72rem;
+  font-weight:780;
+}
+#mbti-lookup .profile-book-line strong{
+  color:var(--profile-deep);
+  font-size:1.08rem;
+}
+#mbti-lookup .profile-meter-list{
+  display:grid;
+  gap:11px;
+  margin-top:15px;
+}
+#mbti-lookup .profile-meter>div{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:5px;
+}
+#mbti-lookup .profile-meter span{
+  color:#5E5750;
+  font-size:.78rem;
+  font-weight:780;
+}
+#mbti-lookup .profile-meter b{
+  color:var(--profile-deep);
+  font-size:.76rem;
+}
+#mbti-lookup .profile-meter i{
+  display:block;
+  height:8px;
+  overflow:hidden;
+  border-radius:4px;
+  background:#EEE9E1;
+}
+#mbti-lookup .profile-meter em{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:4px;
+  background:linear-gradient(90deg,var(--profile-accent),var(--profile-deep));
+  transition:width .55s ease;
+}
+#mbti-lookup .profile-meter-note{
+  margin:13px 0 0;
+  color:#90877E;
+  font-size:.66rem;
+  line-height:1.45;
+}
+
+#mbti-lookup .profile-modern-section{
+  width:min(980px,calc(100% - 28px));
+  margin:14px auto 0;
+  padding:26px;
+  border-radius:20px;
+  background:#F3F0E9;
+  border:1px solid rgba(61,54,48,.09);
+}
+#mbti-lookup .profile-modern-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:16px;
+}
+#mbti-lookup .profile-modern-heading span{
+  color:var(--profile-accent);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.06em;
+}
+#mbti-lookup .profile-modern-heading h3{
+  margin:4px 0 0;
+  color:#342F2B;
+  font-size:1.15rem;
+}
+#mbti-lookup .profile-modern-heading p{
+  max-width:360px;
+  margin:0;
+  color:#827970;
+  font-size:.7rem;
+  line-height:1.5;
+  text-align:right;
+}
+
+#mbti-lookup .profile-passport-panel{
+  width:min(980px,calc(100% - 28px));
+  margin:14px auto 0;
+  padding:23px 25px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  border-radius:18px;
+  border:1px solid rgba(61,54,48,.12);
+  background:linear-gradient(120deg,#2C2926,#423A34);
+  color:#FFF;
+}
+#mbti-lookup .profile-passport-copy span{
+  display:block;
+  color:color-mix(in srgb,var(--profile-accent) 75%,#FFF 25%);
+  font-size:.69rem;
+  font-weight:900;
+  letter-spacing:.06em;
+}
+#mbti-lookup .profile-passport-copy strong{
+  display:block;
+  margin-top:4px;
+  color:#FFF;
+  font-size:1.04rem;
+}
+#mbti-lookup .profile-passport-copy p{
+  margin:5px 0 0;
+  max-width:560px;
+  color:rgba(255,255,255,.68);
+  font-size:.76rem;
+  line-height:1.55;
+}
+#mbti-lookup .profile-passport-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:8px;
+}
+#mbti-lookup .profile-passport-btn{
+  appearance:none;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:10px;
+  background:rgba(255,255,255,.07);
+  color:#FFF;
+  padding:10px 12px;
+  font:inherit;
+  font-size:.75rem;
+  font-weight:850;
+  cursor:pointer;
+}
+#mbti-lookup .profile-passport-btn.is-primary{
+  border-color:var(--profile-accent);
+  background:var(--profile-accent);
+  color:#FFF;
+}
+#mbti-lookup .profile-share-status{
+  grid-column:1/-1;
+  min-height:1em;
+  color:rgba(255,255,255,.72);
+  font-size:.68rem;
+  text-align:right;
+}
+
+@media(max-width:768px){
+  #mbti-lookup .profile-dossier-hero{
+    width:calc(100% - 20px);
+    grid-template-columns:1fr;
+    border-radius:22px;
+  }
+  #mbti-lookup .profile-dossier-art{
+    grid-row:1;
+    min-height:330px;
+    padding:28px 18px 48px;
+  }
+  #mbti-lookup .profile-dossier-art-halo{
+    width:245px;height:245px;top:36px;
+  }
+  #mbti-lookup .profile-dossier-art img{max-height:285px}
+  #mbti-lookup .profile-dossier-copy{
+    grid-row:2;
+    padding:23px 20px 22px;
+  }
+  #mbti-lookup .profile-dossier-code{
+    justify-content:center;
+    text-align:center;
+  }
+  #mbti-lookup .profile-dossier-code>strong{
+    width:100%;
+    font-size:3.55rem;
+  }
+  #mbti-lookup .profile-dossier-character,
+  #mbti-lookup .profile-dossier-intro{
+    text-align:center;
+  }
+  #mbti-lookup .profile-dossier-character{font-size:2.15rem}
+  #mbti-lookup .profile-dossier-tags{justify-content:center}
+  #mbti-lookup .profile-survey-position-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  #mbti-lookup .profile-rarity-cell{grid-column:1/-1}
+  #mbti-lookup .profile-insight-grid{
+    width:calc(100% - 20px);
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  #mbti-lookup .profile-insight-card{
+    min-height:auto;
+    padding:22px 20px;
+    border-radius:16px;
+  }
+  #mbti-lookup .profile-modern-section{
+    width:calc(100% - 20px);
+    padding:20px 16px;
+  }
+  #mbti-lookup .profile-modern-heading{
+    display:block;
+  }
+  #mbti-lookup .profile-modern-heading p{
+    margin-top:5px;
+    text-align:left;
+  }
+  #mbti-lookup .profile-passport-panel{
+    width:calc(100% - 20px);
+    grid-template-columns:1fr;
+    padding:20px 16px;
+  }
+  #mbti-lookup .profile-passport-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    justify-content:stretch;
+  }
+  #mbti-lookup .profile-passport-btn.is-primary{grid-column:1/-1}
+  #mbti-lookup .profile-share-status{text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  #mbti-lookup .profile-meter em{transition:none}
 }
 </style>
 
