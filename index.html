@@ -7838,6 +7838,77 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v151-pastor-equal-width-option-align">
+/* v151｜牧者模式：情境回答區、人物結果卡、其他三回答區統一寬度；ABCD 與回答文字垂直對齊 */
+.temperament-theater-section.is-pastor-view .pastor-choice-zone,
+.temperament-theater-section.is-pastor-view .pastor-insight-card,
+.temperament-theater-section.is-pastor-view .pastor-other-zone{
+  width:100%!important;
+  max-width:820px!important;
+  box-sizing:border-box!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* 結果區本身也維持相同版心，避免內外寬度跳動 */
+.temperament-theater-section.is-pastor-view .pastor-reveal{
+  width:100%!important;
+  max-width:820px!important;
+  box-sizing:border-box!important;
+}
+
+/* ABCD 不再用絕對定位；和答案文字成為同一列，長短文都能自然置中對齊 */
+.temperament-theater-section.is-pastor-view .pastor-option{
+  display:grid!important;
+  grid-template-columns:24px minmax(0,1fr)!important;
+  align-items:center!important;
+  column-gap:9px!important;
+  padding:13px 14px!important;
+  text-align:left!important;
+}
+.temperament-theater-section.is-pastor-view .pastor-option b{
+  position:static!important;
+  left:auto!important;
+  top:auto!important;
+  transform:none!important;
+  width:23px!important;
+  height:23px!important;
+  margin:0!important;
+  align-self:center!important;
+  justify-self:center!important;
+  display:grid!important;
+  place-items:center!important;
+  line-height:1!important;
+}
+.temperament-theater-section.is-pastor-view .pastor-option-text{
+  min-width:0!important;
+  align-self:center!important;
+  line-height:1.55!important;
+}
+
+/* 展開「另外三個」時，三顆按鈕完整使用與上方兩區一致的版心 */
+.temperament-theater-section.is-pastor-view .pastor-other{
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+
+@media(max-width:620px){
+  .temperament-theater-section.is-pastor-view .pastor-choice-zone,
+  .temperament-theater-section.is-pastor-view .pastor-insight-card,
+  .temperament-theater-section.is-pastor-view .pastor-other-zone,
+  .temperament-theater-section.is-pastor-view .pastor-reveal{
+    width:100%!important;
+    max-width:820px!important;
+  }
+  .temperament-theater-section.is-pastor-view .pastor-option{
+    grid-template-columns:23px minmax(0,1fr)!important;
+    column-gap:8px!important;
+    padding:11px 12px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -14448,7 +14519,7 @@ function render(){
     const b=document.createElement('button');
     b.type='button';
     b.className='pastor-option';
-    b.innerHTML=`<b>${o.id}</b>${o.answer}`;
+    b.innerHTML=`<b>${o.id}</b><span class="pastor-option-text">${o.answer}</span>`;
     b.onclick=()=>choose(i);
     options.append(b);
   });
