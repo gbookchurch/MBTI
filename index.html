@@ -7727,6 +7727,56 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v149-mobile-pastor-polish">
+/* v149｜手機版：劇情橫滑、ESTJ 摩西人物欄置中、四軸解說提高可讀性 */
+@media(max-width:620px){
+  /* 劇情選擇比照平信徒版：單列左右滑，不換行 */
+  .temperament-theater-section.is-pastor-view .pastor-scene-tabs{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    gap:7px!important;
+    padding:4px 14px 11px!important;
+    margin-left:-2px!important;
+    margin-right:-2px!important;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .temperament-theater-section.is-pastor-view .pastor-scene-tabs::-webkit-scrollbar{display:none!important}
+  .temperament-theater-section.is-pastor-view .pastor-scene-tab{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    scroll-snap-align:start;
+  }
+
+  /* 摩西：名稱往下、人物往上，讓左欄重心往中央靠攏 */
+  .pastor-insight-card[data-character="摩西"][data-mbti="ESTJ"] .pastor-character-column .pastor-dialogue-identity{
+    transform:translateY(8px)!important;
+    margin-bottom:2px!important;
+  }
+  .pastor-insight-card[data-character="摩西"][data-mbti="ESTJ"] .pastor-full-figure img{
+    transform:translateY(-9px)!important;
+    transform-origin:center center!important;
+  }
+
+  /* 四軸下方說明：字級與行距提高，像一段真正的分析而不是備註 */
+  .pastor-inline-insight .pastor-model-note{
+    margin-top:8px!important;
+    padding:8px 9px!important;
+    border-radius:9px!important;
+    background:#F5F2EB!important;
+    color:#5E5A54!important;
+    font-size:.69rem!important;
+    line-height:1.58!important;
+    letter-spacing:.005em!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -14221,6 +14271,11 @@ function renderAdvisorQuote(text){
 function showAdvisor(candidate,quote){
   advName.textContent=candidate.character;
   advType.textContent=candidate.type;
+  const insightCard=advImg.closest('.pastor-insight-card');
+  if(insightCard){
+    insightCard.dataset.character=candidate.character;
+    insightCard.dataset.mbti=candidate.type;
+  }
   renderAdvisorQuote(quote);
   const src=art(candidate.character);
   if(src){
@@ -14256,6 +14311,47 @@ function renderCandidates(d,optionIndex){
   return ranked;
 }
 
+const PASTOR_AXIS_MEANING={
+  I:'先留出內在空間整理自己',
+  E:'先透過互動與外在連結推進',
+  S:'先看眼前具體需要與可做的事',
+  N:'先看背後模式、可能性與長遠方向',
+  T:'先用原則、邏輯與客觀判斷',
+  F:'先顧人的感受、關係與價值',
+  J:'傾向先建立秩序、安排與結論',
+  P:'傾向保留彈性，不急著把事情定死'
+};
+
+function clearerPastorModelNote(d,optionIndex){
+  const o=d.opts[optionIndex];
+  const pairs=[['I','E'],['S','N'],['T','F'],['J','P']];
+  const sig=String(o.signal||'xxxx').padEnd(4,'x');
+  const clear=[];
+  const uncertain=[];
+  pairs.forEach(([a,b],idx)=>{
+    const letter=sig[idx];
+    if(letter && letter.toLowerCase()!=='x'){
+      clear.push(`${letter}（${PASTOR_AXIS_MEANING[letter]}）`);
+    }else{
+      uncertain.push(`${a} / ${b}`);
+    }
+  });
+  let note='';
+  if(clear.length){
+    note+=`這個回答比較明顯的是 ${clear.join('、')}。`;
+  }
+  if(uncertain.length){
+    note+=`${uncertain.join('、')} 的差距比較小，單靠這一題還不能判定。`;
+  }
+  const ranked=orderedCandidates(d,optionIndex);
+  if(ranked.length>1){
+    note+=`所以目前保留 ${ranked.map(c=>c.type).join('、')} 這 ${ranked.length} 種可能。`;
+  }else if(ranked.length===1){
+    note+=`整體最接近 ${ranked[0].type}。`;
+  }
+  return note;
+}
+
 function choose(i,{scroll=true}={}){
   selected=i;activeCandidate=0;
   answers[current]=i;
@@ -14271,7 +14367,7 @@ function choose(i,{scroll=true}={}){
   signal.innerHTML=signalHTML(o.signal);
   signal.setAttribute('aria-label',o.signal.replace(/x/gi,'未定'));
   confidence.textContent=`判定信心：${o.confidence}`;
-  modelNote.textContent=o.note;
+  modelNote.textContent=clearerPastorModelNote(d,i);
   renderAxes(o.axis);
   renderCandidates(d,i);
   setOtherOpen(false);
