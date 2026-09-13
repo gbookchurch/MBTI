@@ -10087,7 +10087,7 @@ html{scroll-behavior:smooth}
 <button type="button" class="theater-view-btn is-active" data-theater-view="lay" aria-selected="true">👥 我是會友</button>
 <button type="button" class="theater-view-btn" data-theater-view="pastor" aria-selected="false">🎙️ 如果我是牧者</button>
 </div>
-<p class="pastor-view-intro" hidden>如果今天你是牧者，你第一句會說什麼？</p>
+<p class="pastor-view-intro" hidden>換個位置，看看你會先注意什麼。</p>
 <div class="temperament-theater-intro-share theater-lay-only" id="temperament-theater-share-mobile" aria-live="polite">
 <span class="temperament-theater-share-kicker">100 人教會縮影</span>
 <p><strong id="temperament-theater-share-group">SJ 穩定派</strong>約 <b id="temperament-theater-share-people">—</b> 人 <span>（<b id="temperament-theater-share-percent">—</b>%）</span></p>
@@ -10169,8 +10169,9 @@ html{scroll-behavior:smooth}
 </article>
 </div>
 <div class="pastor-theater" id="pastor-theater" hidden>
-  <div class="pastor-scene-tabs" id="pastor-scene-tabs"></div>
-  <article class="pastor-decision-card">
+  <div class="pastor-progress" id="pastor-progress" aria-live="polite">已完成 0 / 5</div>
+  <div class="pastor-scene-tabs" id="pastor-scene-tabs" role="tablist" aria-label="牧者小劇場情境"></div>
+  <article class="pastor-decision-card" id="pastor-scene-panel">
     <section class="pastor-choice-zone" aria-label="牧者情境與回答選項">
       <div class="pastor-scenario"><span>現在發生的是</span><p id="pastor-scenario-text"></p></div>
       <div class="pastor-options" id="pastor-options"></div>
@@ -10182,6 +10183,8 @@ html{scroll-behavior:smooth}
           <div class="pastor-full-figure"><img id="pastor-advisor-img" alt=""/></div>
         </div>
         <div class="pastor-dialogue-body">
+          <button class="pastor-preview-note" id="pastor-preview-note" type="button" hidden>預覽其他回答 · 回到我的選擇</button>
+          <span class="pastor-dialogue-caption">這一型可能會這樣說</span>
           <blockquote id="pastor-advisor-quote"></blockquote>
           <div class="pastor-candidate-grid pastor-dialogue-switches" id="pastor-candidates" aria-label="切換這個回答可能對應的聖經人物"></div>
           <div class="pastor-inline-summary" aria-label="這次回答的重點摘要">
@@ -10208,6 +10211,7 @@ html{scroll-behavior:smooth}
         <button type="button" class="pastor-other-btn" id="pastor-other-btn" aria-expanded="false" aria-controls="pastor-other">聽聽另外三個怎麼說 →</button>
         <div class="pastor-other" id="pastor-other" hidden></div>
       </section>
+      <button class="pastor-record-jump" id="pastor-record-jump" type="button" hidden>看我的牧養直覺紀錄 ↓</button>
     </div>
   </article>
   <p class="pastor-note">本題作答比例來自原始牧者題目，選擇後才揭曉；MBTI 類型符合度則是依四軸試算模型計算，兩者不是同一組數據，也不代表牧者被固定分成四種類型</p>
@@ -14399,7 +14403,88 @@ section > .divider {
 }
 </style>
 
-<script id="v131-pastor-theater-mbti-model-js">
+
+<style id="v155-pastor-quality-polish">
+/* v155｜牧者小劇場品質整理：進度、預覽狀態、四軸解讀、可及性與手機橫滑提示 */
+.temperament-theater-section.is-pastor-view .pastor-view-intro{
+  max-width:820px;margin:8px auto 12px;text-align:center;color:#756D65;font-size:.88rem;line-height:1.55
+}
+.temperament-theater-section.is-pastor-view .pastor-progress{
+  width:min(820px,100%);box-sizing:border-box;margin:0 auto 6px;padding:0 4px;text-align:right;
+  color:#8A8178;font-size:.68rem;font-weight:800;letter-spacing:.03em
+}
+.temperament-theater-section.is-pastor-view .pastor-dialogue-caption{
+  display:block;margin:0 0 2px;color:#94897F;font-size:.66rem;font-weight:750;letter-spacing:.035em;text-align:center
+}
+.temperament-theater-section.is-pastor-view .pastor-preview-note{
+  display:block;margin:0 auto 5px;padding:4px 8px;border:0;border-radius:8px;background:#F1EDE5;color:#7A6F64;
+  font:700 .64rem/1.35 inherit;cursor:pointer;text-align:center
+}
+.temperament-theater-section.is-pastor-view .pastor-preview-note[hidden]{display:none!important}
+.temperament-theater-section.is-pastor-view .pastor-preview-note:hover{background:#EAE4D9;color:#4F6559}
+.temperament-theater-section.is-pastor-view .pastor-candidate-score{font-variant-numeric:tabular-nums}
+.temperament-theater-section.is-pastor-view .pastor-model-note{
+  color:#746B63!important;font-size:.69rem!important;line-height:1.58!important
+}
+.temperament-theater-section.is-pastor-view .pastor-record-jump{
+  display:block;width:min(720px,100%);margin:10px auto 0;padding:10px 14px;border:1px solid rgba(71,101,87,.24);
+  border-radius:10px;background:#EEF3EF;color:#405F51;font-weight:850;cursor:pointer
+}
+.temperament-theater-section.is-pastor-view .pastor-record-jump[hidden]{display:none!important}
+.temperament-theater-section.is-pastor-view .pastor-record-jump:hover{background:#E4ECE7}
+.temperament-theater-section.is-pastor-view .pastor-other-item.is-active,
+.temperament-theater-section.is-pastor-view .pastor-candidate-card[aria-pressed="true"]{
+  outline:2px solid rgba(199,164,91,.34);outline-offset:1px
+}
+.temperament-theater-section.is-pastor-view .pastor-scene-tab:focus-visible,
+.temperament-theater-section.is-pastor-view .pastor-option:focus-visible,
+.temperament-theater-section.is-pastor-view .pastor-candidate-card:focus-visible,
+.temperament-theater-section.is-pastor-view .pastor-other-item:focus-visible,
+.temperament-theater-section.is-pastor-view .pastor-other-btn:focus-visible,
+.temperament-theater-section.is-pastor-view .pastor-preview-note:focus-visible,
+.temperament-theater-section.is-pastor-view .pastor-record-jump:focus-visible{
+  outline:3px solid rgba(199,164,91,.52);outline-offset:2px
+}
+
+@media(max-width:720px){
+  .temperament-theater-section.is-pastor-view .pastor-progress{padding:0 2px;margin-bottom:5px}
+  .temperament-theater-section.is-pastor-view .pastor-scene-tabs{transition:-webkit-mask-image .18s ease,mask-image .18s ease}
+  .temperament-theater-section.is-pastor-view .pastor-scene-tabs.can-scroll-right{
+    -webkit-mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 22px),transparent 100%);
+    mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 22px),transparent 100%)
+  }
+  .temperament-theater-section.is-pastor-view .pastor-scene-tabs.can-scroll-left:not(.can-scroll-right){
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 100%);
+    mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 100%)
+  }
+  .temperament-theater-section.is-pastor-view .pastor-scene-tabs.can-scroll-left.can-scroll-right{
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%)
+  }
+}
+
+@media(max-width:620px){
+  .temperament-theater-section.is-pastor-view .pastor-insight-card{
+    grid-template-areas:
+      "preview preview"
+      "caption caption"
+      "quote quote"
+      "switches switches"
+      "character summary"
+      "character insight"!important
+  }
+  .temperament-theater-section.is-pastor-view .pastor-preview-note{grid-area:preview;margin:0 auto 1px}
+  .temperament-theater-section.is-pastor-view .pastor-dialogue-caption{grid-area:caption;margin:0 0 -2px;font-size:.62rem}
+  .temperament-theater-section.is-pastor-view .pastor-inline-insight .pastor-model-note{font-size:.67rem!important;line-height:1.58!important}
+  .temperament-theater-section.is-pastor-view .pastor-record-jump{margin-top:9px;font-size:.82rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .temperament-theater-section.is-pastor-view *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+
+<script id="v155-pastor-theater-quality-js">
 (()=>{
 const section=document.getElementById('temperament-section');if(!section)return;
 const pastor=document.getElementById('pastor-theater'),
@@ -14414,10 +14499,14 @@ const PASTOR_CHARACTER={
 };
 const ALL_TYPES=Object.keys(PASTOR_CHARACTER);
 
-// v138｜同一答案若有多個 MBTI 候選，每個人物有自己的說法；人物只是 MBTI 結果的視覺化。
+/* 同一答案若有多個 MBTI 候選，每個人物有自己的說法；人物只是 MBTI 結果的視覺化。 */
 const PASTOR_CANDIDATE_QUOTES={
   'support-A-ISFJ':'你先慢慢說，不用急著把所有事情一次講完；我們一件一件來，我會陪你把眼前的混亂接住。',
   'support-A-ESFJ':'你先坐好，今天不用一個人撐；我們先把最需要有人陪你的地方找出來，再一起往下走。',
+  'support-B-ESTP':'先把最急的那件事拉出來，我們就從現在能做的第一步開始。',
+  'support-B-ISTP':'先別一次處理全部。哪一件最急、最能動手解決，我們先處理那一件。',
+  'support-B-ESFP':'先告訴我你現在最撐不住的是哪一塊，我們先把今天最難的那一關陪你過掉。',
+  'support-B-ISFP':'先不用把全部都說清楚。現在最讓你喘不過氣的那件事，我們先一起面對。',
   'support-D-ENFP':'也許這段混亂不是終點，我們一起看看，神是不是正在打開一條你以前沒想過的新路。',
   'support-D-INFP':'你現在不用急著決定方向；等心稍微安靜一點，也許你會慢慢看見神正在邀請你往哪裡走。',
 
@@ -14430,6 +14519,8 @@ const PASTOR_CANDIDATE_QUOTES={
 
   'money-A-ISTJ':'先把現金流、風險和最壞情況列清楚；知道承擔範圍，再談這一步要不要走。',
   'money-A-ESTJ':'先把數字攤開，責任和風險都算明白；重大決定不能只靠氣氛往前推。',
+  'money-B-ENFP':'我們先禱告，也別讓害怕先替我們做決定；如果方向越來越清楚，就勇敢往前走。',
+  'money-B-INFP':'先安靜禱告，確認這一步是不是忠於我們真正相信的；如果是，就不要只因為風險退後。',
   'money-C-ESFJ':'這件事會由大家一起承擔，所以我想先讓核心同工把擔心和期待都說清楚。',
   'money-C-ENFJ':'先把不同聲音帶進來；我想確認我們最後往前走時，大家知道自己為什麼願意一起承擔。',
   'money-D-ENTJ':'先看五年後這個選擇能不能真正推動使命；值得的突破，本來就需要有計算過的冒險。',
@@ -14450,38 +14541,39 @@ function pastorQuoteFor(d,o,candidate){
 
 const DATA=[
 {key:'support',tab:'有人求助',scenario:'聚會結束後，一位核心同工留到最後，跟你說：「牧師，我家裡、工作、信仰最近全部一起出問題，我真的不知道怎麼辦了。」',q:'你會先怎麼回？',opts:[
-{id:'A',role:'務實的守護者',answer:'你先坐下來，慢慢說，我們不可能一次解決，不要急。',instinct:'穩定感',explain:'人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',survey:36.8,quote:'先坐下來吧，事情可以一件一件說',axis:{I:55,E:45,S:80,N:20,T:15,F:85,J:80,P:20},confidence:'中',signal:'xSFJ',show:2,note:'S、F、J 很清楚；I / E 比較接近，所以 ISFJ 與 ESFJ 都保留'},
-{id:'B',role:'立即的行動者',answer:'有哪個是最急的，需要馬上解決的，我們先聊這個',instinct:'眼前危機',explain:'有些問題不能只談感受，今天能處理的事情就先處理',survey:11.8,quote:'先把眼前最急的洞補起來，再談下一步',axis:{I:35,E:65,S:90,N:10,T:65,F:35,J:30,P:70},confidence:'高',signal:'ESTP',show:1,note:'眼前、具體、立即行動與彈性處理的訊號集中，ESTP 最明顯'},
-{id:'C',role:'長遠的策略家',answer:'這些事情好像不是第一次一起出現，我們看看背後是不是有一個一直重複的模式',instinct:'問題根源',explain:'眼前的混亂可能只是表面，真正重要的是不要讓同樣的事情一直重演',survey:21.4,quote:'先別只看今天，我想知道這個模式從哪裡開始',axis:{I:65,E:35,S:10,N:90,T:80,F:20,J:85,P:15},confidence:'高',signal:'INTJ',show:1,note:'模式、長期策略、理性規劃與收斂方向都很集中，INTJ 最明顯'},
-{id:'D',role:'可能性的啟發者',answer:'我知道現在很亂，但也許神正在帶你重新看一條沒想過的路',instinct:'新的可能',explain:'危機不一定只有恢復原狀一種答案，也可能成為重新選擇方向的起點',survey:29.9,quote:'也許現在看不清楚，但新的路不一定是壞事',axis:{I:45,E:55,S:10,N:90,T:25,F:75,J:15,P:85},confidence:'中',signal:'xNFP',show:2,note:'N、F、P 很清楚；E / I 幾乎五五波，所以 ENFP 與 INFP 都合理'}
+{id:'A',role:'務實的守護者',answer:'你先坐下來，慢慢說，我們不可能一次解決，不要急。',instinct:'穩定感',explain:'人在混亂裡，第一件事不一定是得到答案，而是先知道自己有人接得住',survey:36.8,quote:'先坐下來吧，事情可以一件一件說',axis:{I:55,E:45,S:80,N:20,T:15,F:85,J:80,P:20},confidence:'中',signal:'xSFJ',show:2},
+{id:'B',role:'立即的行動者',answer:'有哪個是最急的，需要馬上解決的，我們先聊這個',instinct:'眼前危機',explain:'有些問題不能只談感受，今天能處理的事情就先處理',survey:11.8,quote:'先把眼前最急的洞補起來，再談下一步',axis:{I:45,E:55,S:90,N:10,T:60,F:40,J:30,P:70},confidence:'中',signal:'xSxP',show:4},
+{id:'C',role:'長遠的策略家',answer:'這些事情好像不是第一次一起出現，我們看看背後是不是有一個一直重複的模式',instinct:'問題根源',explain:'眼前的混亂可能只是表面，真正重要的是不要讓同樣的事情一直重演',survey:21.4,quote:'先別只看今天，我想知道這個模式從哪裡開始',axis:{I:65,E:35,S:10,N:90,T:80,F:20,J:85,P:15},confidence:'高',signal:'INTJ',show:1},
+{id:'D',role:'可能性的啟發者',answer:'我知道現在很亂，但也許神正在帶你重新看一條沒想過的路',instinct:'新的可能',explain:'危機不一定只有恢復原狀一種答案，也可能成為重新選擇方向的起點',survey:29.9,quote:'也許現在看不清楚，但新的路不一定是壞事',axis:{I:45,E:55,S:10,N:90,T:25,F:75,J:15,P:85},confidence:'中',signal:'xNFP',show:2}
 ]},
-{key:'meeting',tab:'會議卡住',scenario:'同工會議已經開了一個半小時。有人一直離題、有人明顯不爽、有人從頭到尾沒說話，原本要決定的事情一件都還沒有結論。',q:'你這時候會先怎麼剛大家說？',opts:[
-{id:'A',role:'主席',answer:'我們先停一下，現在還有三件事情要決定，一件一件來',instinct:'秩序',explain:'如果沒有人收斂討論、做出決定，再好的想法都只會留在會議室裡',survey:45.5,quote:'先把大家帶回要決定的事情，該定的就定下來',axis:{I:20,E:80,S:70,N:30,T:85,F:15,J:95,P:5},confidence:'高',signal:'ESTJ',show:1,note:'主動帶領、具體議程、效率與結論都高度集中，ESTJ 最明顯'},
-{id:'B',role:'照顧者',answer:'我覺得大家今天好像都有一些情緒，我想先聽聽是不是有什麼話還沒說出來',instinct:'關係',explain:'事情可以晚一點決定，但如果團隊開始不敢說真話，問題通常只會越來越深',survey:29.0,quote:'先讓大家敢說真話，會議才真的有可能往前走',axis:{I:25,E:75,S:65,N:35,T:10,F:90,J:70,P:30},confidence:'高',signal:'ESFJ',show:1,note:'群體互動、現場感受、關係照顧與維持秩序都指向 ESFJ'},
-{id:'C',role:'顧問',answer:'我先確認一下，我們現在真正卡住的是哪一個問題？',instinct:'盲點',explain:'有時候大家不是沒有答案，而是一直回答錯的問題',survey:9.2,quote:'先把真正的問題找出來，不然再談兩小時也一樣',axis:{I:90,E:10,S:30,N:70,T:90,F:10,J:35,P:65},confidence:'高',signal:'INTP',show:1,note:'安靜觀察、抽象拆解、客觀分析與保留探索空間都很集中，INTP 最明顯'},
-{id:'D',role:'催化劑',answer:'我們先不要被原本那幾個方案綁住，如果全部重來一次，還有沒有別的做法？',instinct:'突破口',explain:'當討論陷入僵局，換一個框架可能比繼續爭同一件事更有效',survey:16.2,quote:'既然卡住了，不如先換個框架再玩一次',axis:{I:15,E:85,S:5,N:95,T:65,F:35,J:10,P:90},confidence:'高',signal:'ENTP',show:1,note:'外放腦暴、可能性、邏輯挑戰與跳脫框架的訊號高度集中，ENTP 最明顯'}
+{key:'meeting',tab:'會議卡住',scenario:'同工會議已經開了一個半小時。有人一直離題、有人明顯不爽、有人從頭到尾沒說話，原本要決定的事情一件都還沒有結論。',q:'你這時候會先怎麼跟大家說？',opts:[
+{id:'A',role:'主席',answer:'我們先停一下，現在還有三件事情要決定，一件一件來',instinct:'秩序',explain:'如果沒有人收斂討論、做出決定，再好的想法都只會留在會議室裡',survey:45.5,quote:'先把大家帶回要決定的事情，該定的就定下來',axis:{I:20,E:80,S:70,N:30,T:85,F:15,J:95,P:5},confidence:'高',signal:'ESTJ',show:1},
+{id:'B',role:'照顧者',answer:'我覺得大家今天好像都有一些情緒，我想先聽聽是不是有什麼話還沒說出來',instinct:'關係',explain:'事情可以晚一點決定，但如果團隊開始不敢說真話，問題通常只會越來越深',survey:29.0,quote:'先讓大家敢說真話，會議才真的有可能往前走',axis:{I:25,E:75,S:65,N:35,T:10,F:90,J:70,P:30},confidence:'高',signal:'ESFJ',show:1},
+{id:'C',role:'顧問',answer:'我先確認一下，我們現在真正卡住的是哪一個問題？',instinct:'盲點',explain:'有時候大家不是沒有答案，而是一直回答錯的問題',survey:9.2,quote:'先把真正的問題找出來，不然再談兩小時也一樣',axis:{I:90,E:10,S:30,N:70,T:90,F:10,J:35,P:65},confidence:'高',signal:'INTP',show:1},
+{id:'D',role:'催化劑',answer:'我們先不要被原本那幾個方案綁住，如果全部重來一次，還有沒有別的做法？',instinct:'突破口',explain:'當討論陷入僵局，換一個框架可能比繼續爭同一件事更有效',survey:16.2,quote:'既然卡住了，不如先換個框架再玩一次',axis:{I:15,E:85,S:5,N:95,T:65,F:35,J:10,P:90},confidence:'高',signal:'ENTP',show:1}
 ]},
 {key:'conflict',tab:'教會八卦',scenario:'兩位會友最近鬧得很僵。事情本來只是私人衝突，但小組裡已經開始出現不同版本的故事，甚至有人問你：「牧師，你應該知道到底是誰有問題吧？」',q:'如果今天你是牧者，你會怎麼介入？',opts:[
-{id:'A',role:'法官',answer:'先不要再傳了，我會把雙方找來，我們把事實跟信仰原則一起講清楚',instinct:'是非與界線',explain:'和好不等於模糊責任，有些事情需要被清楚說明',survey:14.3,quote:'先把事實和原則講清楚，合一不是假裝什麼都沒發生',axis:{I:55,E:45,S:75,N:25,T:90,F:10,J:90,P:10},confidence:'中',signal:'xSTJ',show:2,note:'S、T、J 很明確；I / E 不足以單靠這句判斷，所以 ISTJ 與 ESTJ 都保留'},
-{id:'B',role:'和事佬',answer:'現在最重要的是不要再讓關係繼續撕裂，我希望大家先停下來，彼此留一點空間',instinct:'合一',explain:'如果所有人都只想證明自己沒有錯，最後可能誰都贏了，教會卻輸了',survey:28.5,quote:'先別急著分輸贏，關係如果全斷了就更難談',axis:{I:30,E:70,S:55,N:45,T:5,F:95,J:75,P:25},confidence:'中',signal:'ExFJ',show:2,note:'E、F、J 清楚；S / N 很接近，因此 ESFJ 與 ENFJ 都有合理性'},
-{id:'C',role:'醫生',answer:'我比較想知道，為什麼這件事情會傷成這樣，我想分別跟他們談談',instinct:'傷口',explain:'八卦和衝突常常不是病因，而是某個更深問題浮到表面的症狀',survey:26.3,quote:'我想先看看傷口在哪裡，不只是處理表面的爭吵',axis:{I:75,E:25,S:15,N:85,T:15,F:85,J:65,P:35},confidence:'高',signal:'INFJ',show:1,note:'往內理解、找深層模式、重視感受並希望有方向地修復，INFJ 最明顯'},
-{id:'D',role:'隱士',answer:'我會把信仰原則講清楚，但他們也需要學習自己面對，不是每次都由牧者當裁判',instinct:'界線',explain:'不是每一個衝突都必須由牧者親自進場解決',survey:30.8,quote:'有些事情我會說清楚，但不是每一場爭執我都要站進中間',axis:{I:95,E:5,S:35,N:65,T:85,F:15,J:45,P:55},confidence:'中',signal:'INTx',show:2,note:'I、N、T 較清楚；J / P 接近，因此 INTP 與 INTJ 都保留'}
+{id:'A',role:'法官',answer:'先不要再傳了，我會把雙方找來，我們把事實跟信仰原則一起講清楚',instinct:'是非與界線',explain:'和好不等於模糊責任，有些事情需要被清楚說明',survey:14.3,quote:'先把事實和原則講清楚，合一不是假裝什麼都沒發生',axis:{I:55,E:45,S:75,N:25,T:90,F:10,J:90,P:10},confidence:'中',signal:'xSTJ',show:2},
+{id:'B',role:'和事佬',answer:'現在最重要的是不要再讓關係繼續撕裂，我希望大家先停下來，彼此留一點空間',instinct:'合一',explain:'如果所有人都只想證明自己沒有錯，最後可能誰都贏了，教會卻輸了',survey:28.5,quote:'先別急著分輸贏，關係如果全斷了就更難談',axis:{I:30,E:70,S:55,N:45,T:5,F:95,J:75,P:25},confidence:'中',signal:'ExFJ',show:2},
+{id:'C',role:'醫生',answer:'我比較想知道，為什麼這件事情會傷成這樣，我想分別跟他們談談',instinct:'傷口',explain:'八卦和衝突常常不是病因，而是某個更深問題浮到表面的症狀',survey:26.3,quote:'我想先看看傷口在哪裡，不只是處理表面的爭吵',axis:{I:75,E:25,S:15,N:85,T:15,F:85,J:65,P:35},confidence:'高',signal:'INFJ',show:1},
+{id:'D',role:'隱士',answer:'我會把信仰原則講清楚，但他們也需要學習自己面對，不是每次都由牧者當裁判',instinct:'界線',explain:'不是每一個衝突都必須由牧者親自進場解決',survey:30.8,quote:'有些事情我會說清楚，但不是每一場爭執我都要站進中間',axis:{I:95,E:5,S:35,N:65,T:85,F:15,J:45,P:55},confidence:'中',signal:'INTx',show:2}
 ]},
 {key:'money',tab:'財務決策',scenario:'教會出現一個很大的機會。如果現在投入一筆不小的預算，可能讓事工跨出很大一步；但判斷錯了，也可能讓接下來一兩年的財務變得很緊。',q:'最後大家都看著你，你的第一個反應是？',opts:[
-{id:'A',role:'務實的管家',answer:'先把現金流、最壞情況跟我們能承受的風險全部算清楚',instinct:'責任',explain:'信心不是不知道代價，而是知道自己正在管理神所託付的資源',survey:34.1,quote:'先把資源和風險盤清楚，忠心也包括知道我們承擔得起什麼',axis:{I:55,E:45,S:95,N:5,T:95,F:5,J:95,P:5},confidence:'中',signal:'xSTJ',show:2,note:'S、T、J 幾乎沒有疑問；I / E 資訊不足，所以 ISTJ 與 ESTJ 都保留'},
-{id:'B',role:'信心的使徒',answer:'我們先一起禱告，如果神真的清楚帶領，就不能只因為害怕風險而不走',instinct:'信心',explain:'有些關鍵決定永遠不可能等到所有風險都消失才出發',survey:16.2,quote:'如果神真的帶領，不能因為前面看不清楚就永遠不出發',axis:{I:35,E:65,S:15,N:85,T:20,F:80,J:25,P:75},confidence:'高',signal:'ENFP',show:1,note:'可能性、內在價值與願意在不確定中跨出去的訊號集中，ENFP 最明顯'},
-{id:'C',role:'民主的議長',answer:'這件事不能只有我一個人覺得，我希望核心同工把不同意見都講完再決定',instinct:'共識',explain:'重大決定越多人需要一起承擔，就越需要讓真正的聲音進入決策',survey:33.9,quote:'這不是一個人逞強的決定，先讓該說話的人都說話',axis:{I:15,E:85,S:55,N:45,T:5,F:95,J:85,P:15},confidence:'中',signal:'ExFJ',show:2,note:'E、F、J 很明顯；S / N 接近，因此 ESFJ 與 ENFJ 都保留'},
-{id:'D',role:'創新的投資者',answer:'我想看的不是這筆錢現在花多少，而是五年後它可能把教會帶到哪裡',instinct:'未來價值',explain:'資源有限，有時真正的問題不是省不省，而是值得不值得',survey:15.7,quote:'別只問今天花多少，也要問這個選擇將來會結出什麼果子',axis:{I:45,E:55,S:5,N:95,T:90,F:10,J:75,P:25},confidence:'中',signal:'xNTJ',show:2,note:'N、T、J 很清楚；E / I 很接近，所以 ENTJ 與 INTJ 都合理'}
+{id:'A',role:'務實的管家',answer:'先把現金流、最壞情況跟我們能承受的風險全部算清楚',instinct:'責任',explain:'信心不是不知道代價，而是知道自己正在管理神所託付的資源',survey:34.1,quote:'先把資源和風險盤清楚，忠心也包括知道我們承擔得起什麼',axis:{I:55,E:45,S:95,N:5,T:95,F:5,J:95,P:5},confidence:'中',signal:'xSTJ',show:2},
+{id:'B',role:'信心的使徒',answer:'我們先一起禱告，如果神真的清楚帶領，就不能只因為害怕風險而不走',instinct:'信心',explain:'有些關鍵決定永遠不可能等到所有風險都消失才出發',survey:16.2,quote:'如果神真的帶領，不能因為前面看不清楚就永遠不出發',axis:{I:45,E:55,S:15,N:85,T:20,F:80,J:25,P:75},confidence:'中',signal:'xNFP',show:2},
+{id:'C',role:'民主的議長',answer:'這件事不能只有我一個人覺得，我希望核心同工把不同意見都講完再決定',instinct:'共識',explain:'重大決定越多人需要一起承擔，就越需要讓真正的聲音進入決策',survey:33.9,quote:'這不是一個人逞強的決定，先讓該說話的人都說話',axis:{I:15,E:85,S:55,N:45,T:5,F:95,J:85,P:15},confidence:'中',signal:'ExFJ',show:2},
+{id:'D',role:'創新的投資者',answer:'我想看的不是這筆錢現在花多少，而是五年後它可能把教會帶到哪裡',instinct:'未來價值',explain:'資源有限，有時真正的問題不是省不省，而是值得不值得',survey:15.7,quote:'別只問今天花多少，也要問這個選擇將來會結出什麼果子',axis:{I:45,E:55,S:5,N:95,T:90,F:10,J:75,P:25},confidence:'中',signal:'xNTJ',show:2}
 ]},
 {key:'rest',tab:'我累了',scenario:'最近你開始發現自己不太對勁。訊息不太想回、講道預備變得很慢、有人約你吃飯你只覺得累。有一天晚上你終於承認：「我好像真的沒有力氣了。」',q:'如果今天你是牧者，你會怎麼讓自己休息？',opts:[
-{id:'A',role:'歸隱田園',answer:'我要消失幾天，最好沒有人知道我在哪裡',instinct:'安靜',explain:'不是換一個地方繼續服事，而是真的暫時不扮演牧者',survey:45.0,quote:'先睡吧。不是每一次沒有力氣，都需要立刻找到屬靈答案',axis:{I:90,E:10,S:65,N:35,T:35,F:65,J:20,P:80},confidence:'中',signal:'IxFP',show:2,note:'I、F、P 都很明顯；「先睡、先回到身體需要」讓 S 稍微領先，但 S / N 仍有空間，因此 ISFP 與 INFP 都保留'},
-{id:'B',role:'重返校園',answer:'我需要去學點東西，讓腦袋重新被餵飽',instinct:'重新被刺激',explain:'有時候累不是因為做太多，而是太久沒有重新吸收新的東西',survey:4.9,quote:'也許你需要暫時從輸出的人，重新變成學習的人',axis:{I:75,E:25,S:30,N:70,T:85,F:15,J:45,P:55},confidence:'中',signal:'INTx',show:2,note:'I、N、T 很清楚；J / P 接近，因此 INTP 與 INTJ 都合理'},
-{id:'C',role:'呼朋引伴',answer:'我要找幾個真正懂牧者生活的人出去走走',instinct:'被同行',explain:'牧者平常一直在陪別人，但自己也需要一群不用牧養的人',survey:19.9,quote:'這次不用你照顧大家，找幾個能陪你的人就好',axis:{I:5,E:95,S:65,N:35,T:10,F:90,J:30,P:70},confidence:'高',signal:'ESFP',show:1,note:'向外連結、具體相處、情感支持與彈性活動的訊號集中，ESFP 最明顯'},
-{id:'D',role:'投入嗜好',answer:'我想做點完全跟教會沒有關係的事情',instinct:'重新做一個普通人',explain:'有時候最好的安息，就是暫時不要讓人生所有事情都有事工意義',survey:30.1,quote:'去做一件你單純喜歡的事，不需要每件事都變成事工',axis:{I:50,E:50,S:90,N:10,T:50,F:50,J:15,P:85},confidence:'低',signal:'xSxP',show:4,note:'S 與 P 很強，但 I / E、T / F 都沒有足夠資訊，因此四種 SP 類型同時保留'}
+{id:'A',role:'歸隱田園',answer:'我要消失幾天，最好沒有人知道我在哪裡',instinct:'安靜',explain:'不是換一個地方繼續服事，而是真的暫時不扮演牧者',survey:45.0,quote:'先睡吧。不是每一次沒有力氣，都需要立刻找到屬靈答案',axis:{I:90,E:10,S:65,N:35,T:35,F:65,J:20,P:80},confidence:'中',signal:'IxFP',show:2},
+{id:'B',role:'重返校園',answer:'我需要去學點東西，讓腦袋重新被餵飽',instinct:'重新被刺激',explain:'有時候累不是因為做太多，而是太久沒有重新吸收新的東西',survey:4.9,quote:'也許你需要暫時從輸出的人，重新變成學習的人',axis:{I:75,E:25,S:30,N:70,T:85,F:15,J:45,P:55},confidence:'中',signal:'INTx',show:2},
+{id:'C',role:'呼朋引伴',answer:'我要找幾個真正懂牧者生活的人出去走走',instinct:'被同行',explain:'牧者平常一直在陪別人，但自己也需要一群不用牧養的人',survey:19.9,quote:'這次不用你照顧大家，找幾個能陪你的人就好',axis:{I:5,E:95,S:65,N:35,T:10,F:90,J:30,P:70},confidence:'高',signal:'ESFP',show:1},
+{id:'D',role:'投入嗜好',answer:'我想做點完全跟教會沒有關係的事情',instinct:'重新做一個普通人',explain:'有時候最好的安息，就是暫時不要讓人生所有事情都有事工意義',survey:30.1,quote:'去做一件你單純喜歡的事，不需要每件事都變成事工',axis:{I:50,E:50,S:90,N:10,T:50,F:50,J:15,P:85},confidence:'低',signal:'xSxP',show:4}
 ]}
 ];
 
 const tabs=document.getElementById('pastor-scene-tabs'),
+progress=document.getElementById('pastor-progress'),
 scenario=document.getElementById('pastor-scenario-text'),
 question=document.getElementById('pastor-question'),
 options=document.getElementById('pastor-options'),
@@ -14498,13 +14590,18 @@ advImg=document.getElementById('pastor-advisor-img'),
 advName=document.getElementById('pastor-advisor-name'),
 advType=document.getElementById('pastor-advisor-type'),
 advQuote=document.getElementById('pastor-advisor-quote'),
+previewNote=document.getElementById('pastor-preview-note'),
 otherBtn=document.getElementById('pastor-other-btn'),
 other=document.getElementById('pastor-other'),
+recordJump=document.getElementById('pastor-record-jump'),
 record=document.getElementById('pastor-instinct-record'),
 recordList=document.getElementById('pastor-record-list');
 
 const answers=Array(DATA.length).fill(null);
-let current=0,selected=null,activeCandidate=0;
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let current=0,selected=null,previewed=null,activeCandidate=0;
+
+if(reveal){reveal.tabIndex=-1;reveal.setAttribute('aria-live','polite')}
 
 function setOtherOpen(open){
   if(!other||!otherBtn)return;
@@ -14512,7 +14609,6 @@ function setOtherOpen(open){
   otherBtn.setAttribute('aria-expanded',String(open));
   otherBtn.textContent=open?'收起另外三個回答 ↑':'聽聽另外三個怎麼說 →';
 }
-
 function art(name){try{return typeof getCharacterArt==='function'?getCharacterArt(name):''}catch(e){return ''}}
 
 function renderAxes(axis){
@@ -14537,61 +14633,47 @@ function modelDistribution(axis){
     return {type,character:PASTOR_CHARACTER[type],score};
   }).sort((a,b)=>b.score-a.score);
 }
+function candidateList(o){return modelDistribution(o.axis).slice(0,o.show)}
 
-/* V130+｜同一情境的「代表人物」去重規則
-   - show:1 的高辨識答案先固定代表人物。
-   - 多候選答案若最高分完全同分，優先從同分者中選尚未被本情境其他答案當代表的人物。
-   - 只調整「代表顯示」與同分排序，不改四軸、符合度、候選集合或原始作答比例。 */
-function candidateList(o){
-  return modelDistribution(o.axis).slice(0,o.show);
-}
-
+/* 同一情境主代表去重：只影響「預覽代表人物」和同分顯示順序，不改模型分數。 */
 function sceneRepresentatives(d){
-  const reps=new Array(d.opts.length);
-  const used=new Set();
-
+  const reps=new Array(d.opts.length),used=new Set();
   d.opts.forEach((o,i)=>{
     if(o.show!==1)return;
     const c=candidateList(o)[0];
     if(c){reps[i]=c;used.add(c.type)}
   });
-
   d.opts.forEach((o,i)=>{
     if(reps[i])return;
-    const list=candidateList(o);
-    if(!list.length)return;
-    const topScore=list[0].score;
-    const tied=list.filter(c=>Math.abs(c.score-topScore)<1e-12);
+    const list=candidateList(o);if(!list.length)return;
+    const top=list[0].score;
+    const tied=list.filter(c=>Math.abs(c.score-top)<1e-12);
     const chosen=tied.find(c=>!used.has(c.type))||list[0];
-    reps[i]=chosen;
-    used.add(chosen.type);
+    reps[i]=chosen;used.add(chosen.type);
   });
   return reps;
 }
-
 function orderedCandidates(d,optionIndex){
   const list=candidateList(d.opts[optionIndex]);
   const rep=sceneRepresentatives(d)[optionIndex];
   if(!rep||!list.length)return list;
   const idx=list.findIndex(c=>c.type===rep.type);
   if(idx>0&&Math.abs(list[idx].score-list[0].score)<1e-12){
-    const [chosen]=list.splice(idx,1);
-    list.unshift(chosen);
+    const [chosen]=list.splice(idx,1);list.unshift(chosen);
   }
   return list;
 }
 
 function signalHTML(value){
-  return String(value||'').split('').map(ch=>
-    ch.toLowerCase()==='x'
-      ? '<span class="pastor-signal-unknown" title="此軸未定" aria-label="未定">●</span>'
-      : ch
-  ).join('');
+  return String(value||'').split('').map(ch=>ch.toLowerCase()==='x'
+    ? '<span class="pastor-signal-unknown" title="此軸未定" aria-label="未定">●</span>'
+    : ch).join('');
 }
 
 function renderRecord(){
   if(!record||!recordList)return;
   const complete=answers.every(v=>v!==null);
+  if(recordJump)recordJump.hidden=!complete;
   if(!complete){record.hidden=true;return}
   recordList.replaceChildren();
   DATA.forEach((d,i)=>{
@@ -14604,38 +14686,62 @@ function renderRecord(){
   record.hidden=false;
 }
 
+function updateProgress(){
+  if(!progress)return;
+  const done=answers.filter(v=>v!==null).length;
+  progress.textContent=`已完成 ${done} / ${DATA.length}`;
+}
+
+function updateTabsScrollCue(){
+  if(!tabs)return;
+  const max=Math.max(0,tabs.scrollWidth-tabs.clientWidth);
+  tabs.classList.toggle('can-scroll-left',tabs.scrollLeft>4);
+  tabs.classList.toggle('can-scroll-right',tabs.scrollLeft<max-4);
+}
+
 function renderTabs(){
   tabs.replaceChildren();
   DATA.forEach((d,i)=>{
     const b=document.createElement('button');
-    b.type='button';
+    b.type='button';b.role='tab';
     b.className='pastor-scene-tab'+(i===current?' is-active':'')+(answers[i]!==null?' is-done':'');
     b.textContent=d.tab;
-    b.onclick=()=>{current=i;selected=answers[i];activeCandidate=0;render()};
+    b.setAttribute('aria-selected',String(i===current));
+    b.setAttribute('aria-controls','pastor-scene-panel');
+    b.tabIndex=i===current?0:-1;
+    b.onclick=()=>{current=i;selected=answers[i];previewed=null;activeCandidate=0;render()};
     tabs.append(b);
   });
+  updateProgress();
+  requestAnimationFrame(updateTabsScrollCue);
 }
+
+tabs?.addEventListener('scroll',()=>requestAnimationFrame(updateTabsScrollCue),{passive:true});
+window.addEventListener('resize',()=>requestAnimationFrame(updateTabsScrollCue),{passive:true});
+tabs?.addEventListener('keydown',e=>{
+  const btn=e.target.closest('.pastor-scene-tab');if(!btn)return;
+  const buttons=[...tabs.querySelectorAll('.pastor-scene-tab')];
+  let idx=buttons.indexOf(btn),next=idx;
+  if(e.key==='ArrowRight')next=Math.min(buttons.length-1,idx+1);
+  else if(e.key==='ArrowLeft')next=Math.max(0,idx-1);
+  else if(e.key==='Home')next=0;
+  else if(e.key==='End')next=buttons.length-1;
+  else return;
+  e.preventDefault();
+  current=next;selected=answers[next];previewed=null;activeCandidate=0;render();
+  requestAnimationFrame(()=>tabs.querySelectorAll('.pastor-scene-tab')[next]?.focus());
+});
 
 function renderAdvisorQuote(text){
   advQuote.replaceChildren();
   const chunks=String(text||'').match(/[^，。！？；]+[，。！？；]?/g)||[String(text||'')];
-  const lines=[];
-  let line='';
+  const lines=[];let line='';
   const cleanLen=v=>String(v).replace(/\s/g,'').length;
   chunks.forEach(part=>{
-    const piece=part.trim();
-    if(!piece)return;
+    const piece=part.trim();if(!piece)return;
     const hardStop=/[。！？]$/.test(piece);
-    if(line && cleanLen(line+piece)>22){
-      lines.push(line);
-      line=piece;
-    }else{
-      line+=piece;
-    }
-    if(hardStop && cleanLen(line)>=10){
-      lines.push(line);
-      line='';
-    }
+    if(line&&cleanLen(line+piece)>22){lines.push(line);line=piece}else line+=piece;
+    if(hardStop&&cleanLen(line)>=10){lines.push(line);line=''}
   });
   if(line)lines.push(line);
   (lines.length?lines:[String(text||'')]).forEach((value,i,arr)=>{
@@ -14645,174 +14751,137 @@ function renderAdvisorQuote(text){
 }
 
 function showAdvisor(candidate,quote){
-  advName.textContent=candidate.character;
-  advType.textContent=candidate.type;
+  advName.textContent=candidate.character;advType.textContent=candidate.type;
   const insightCard=advImg.closest('.pastor-insight-card');
-  if(insightCard){
-    insightCard.dataset.character=candidate.character;
-    insightCard.dataset.mbti=candidate.type;
-  }
+  if(insightCard){insightCard.dataset.character=candidate.character;insightCard.dataset.mbti=candidate.type}
   renderAdvisorQuote(quote);
   const src=art(candidate.character);
-  if(src){
-    advImg.src=src;
-    advImg.alt=`${candidate.type} ${candidate.character}的聖經人物插圖`;
-    advImg.hidden=false;
-  }else{
-    advImg.removeAttribute('src');
-    advImg.alt='';
-    advImg.hidden=true;
-  }
-  [...candidates.querySelectorAll('.pastor-candidate-card')].forEach((b,i)=>b.classList.toggle('is-active',i===activeCandidate));
+  if(src){advImg.src=src;advImg.alt=`${candidate.type} ${candidate.character}的聖經人物插圖`;advImg.hidden=false}
+  else{advImg.removeAttribute('src');advImg.alt='';advImg.hidden=true}
+  [...candidates.querySelectorAll('.pastor-candidate-card')].forEach((b,i)=>{
+    const active=i===activeCandidate;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));
+  });
 }
 
 function renderCandidates(d,optionIndex){
-  const o=d.opts[optionIndex];
-  const ranked=orderedCandidates(d,optionIndex);
-  candidates.replaceChildren();
-  candidates.dataset.count=String(ranked.length);
-  candidates.hidden=ranked.length<=1;
+  const o=d.opts[optionIndex],ranked=orderedCandidates(d,optionIndex);
+  candidates.replaceChildren();candidates.dataset.count=String(ranked.length);candidates.hidden=ranked.length<=1;
   activeCandidate=Math.min(activeCandidate,Math.max(0,ranked.length-1));
+  const scores=ranked.map(c=>c.score*100);
+  const tied=ranked.length>1&&(Math.max(...scores)-Math.min(...scores)<0.05);
   ranked.forEach((c,i)=>{
     const b=document.createElement('button');
-    b.type='button';
-    b.className='pastor-candidate-card'+(i===activeCandidate?' is-active':'');
-    b.setAttribute('aria-label',`切換成 ${c.type} ${c.character} 的說法，類型符合度 ${(c.score*100).toFixed(1)}%`);
-    b.innerHTML=`<span class="pastor-candidate-type">${c.type}</span><span class="pastor-candidate-name">${c.character}</span><span class="pastor-candidate-score">${(c.score*100).toFixed(1)}%</span>`;
+    b.type='button';b.className='pastor-candidate-card'+(i===activeCandidate?' is-active':'');
+    b.setAttribute('aria-pressed',String(i===activeCandidate));
+    b.setAttribute('aria-label',`切換成 ${c.type} ${c.character} 的說法${tied?'':`，類型符合度 ${(c.score*100).toFixed(1)}%`}`);
+    const score=tied?'':`<span class="pastor-candidate-score">符合 ${(c.score*100).toFixed(1)}%</span>`;
+    b.innerHTML=`<span class="pastor-candidate-type">${c.type}</span><span class="pastor-candidate-name">${c.character}</span>${score}`;
     b.onclick=()=>{activeCandidate=i;showAdvisor(c,pastorQuoteFor(d,o,c))};
     candidates.append(b);
   });
-  const active=ranked[activeCandidate]||ranked[0];
-  if(active)showAdvisor(active,pastorQuoteFor(d,o,active));
+  const active=ranked[activeCandidate]||ranked[0];if(active)showAdvisor(active,pastorQuoteFor(d,o,active));
   return ranked;
 }
 
-const PASTOR_AXIS_MEANING={
-  I:'先留出內在空間整理自己',
-  E:'先透過互動與外在連結推進',
-  S:'先看眼前具體需要與可做的事',
-  N:'先看背後模式、可能性與長遠方向',
-  T:'先用原則、邏輯與客觀判斷',
-  F:'先顧人的感受、關係與價值',
-  J:'傾向先建立秩序、安排與結論',
-  P:'傾向保留彈性，不急著把事情定死'
+const AXIS_MEANING={
+  I:'先往內整理、保留自己的空間',E:'先透過互動與外在連結推進',
+  S:'先看眼前具體需要與可做的事',N:'先看背後模式、可能性與長遠方向',
+  T:'先用原則、邏輯與客觀判斷',F:'先顧人的感受、關係與價值',
+  J:'傾向先建立秩序、安排與結論',P:'傾向保留彈性、邊走邊調整'
 };
-
 function clearerPastorModelNote(d,optionIndex){
-  const o=d.opts[optionIndex];
-  const pairs=[['I','E'],['S','N'],['T','F'],['J','P']];
-  const sig=String(o.signal||'xxxx').padEnd(4,'x');
-  const clear=[];
-  const uncertain=[];
+  const o=d.opts[optionIndex],pairs=[['I','E'],['S','N'],['T','F'],['J','P']],sig=String(o.signal||'xxxx').padEnd(4,'x');
+  const clear=[],uncertain=[];
   pairs.forEach(([a,b],idx)=>{
-    const letter=sig[idx];
-    if(letter && letter.toLowerCase()!=='x'){
-      clear.push(`${letter}（${PASTOR_AXIS_MEANING[letter]}）`);
+    const letter=sig[idx],av=o.axis[a],bv=o.axis[b];
+    if(letter&&letter.toLowerCase()!=='x'){
+      const other=letter===a?b:a;
+      clear.push(`${letter} ${o.axis[letter]}（${AXIS_MEANING[letter]}）`);
     }else{
-      uncertain.push(`${a} / ${b}`);
+      uncertain.push(`${a} ${av} / ${b} ${bv}`);
     }
   });
   let note='';
-  if(clear.length){
-    note+=`這個回答比較明顯的是 ${clear.join('、')}。`;
-  }
-  if(uncertain.length){
-    note+=`${uncertain.join('、')} 的差距比較小，單靠這一題還不能判定。`;
-  }
+  if(clear.length)note+=`比較明顯的是 ${clear.join('、')}。`;
+  if(uncertain.length)note+=`${uncertain.join('、')} 比較接近，這一題不足以判定。`;
   const ranked=orderedCandidates(d,optionIndex);
   if(ranked.length>1){
-    note+=`所以目前保留 ${ranked.map(c=>c.type).join('、')} 這 ${ranked.length} 種可能。`;
-  }else if(ranked.length===1){
-    note+=`整體最接近 ${ranked[0].type}。`;
-  }
+    const vals=ranked.map(c=>c.score*100),tied=Math.max(...vals)-Math.min(...vals)<0.05;
+    note+=tied
+      ? `因此 ${ranked.map(c=>c.type).join('、')} 的模型符合度相同，全部保留。`
+      : `因此目前保留 ${ranked.map(c=>c.type).join('、')} 這 ${ranked.length} 種可能。`;
+  }else if(ranked.length===1)note+=`整體最接近 ${ranked[0].type}。`;
   return note;
 }
 
-function choose(i,{scroll=true}={}){
-  selected=i;activeCandidate=0;
-  answers[current]=i;
-  const d=DATA[current],o=d.opts[i];
+function updateOptionState(){
+  const official=answers[current];
   [...options.children].forEach((b,j)=>{
-    b.classList.toggle('is-selected',j===i);
-    b.classList.toggle('is-muted',j!==i);
+    const on=j===official;b.classList.toggle('is-selected',on);b.classList.toggle('is-muted',official!==null&&!on);b.setAttribute('aria-pressed',String(on));
   });
-  instinct.textContent=o.instinct;
-  explain.textContent=o.explain;
-  stat.textContent=`${o.survey.toFixed(1)}%`;
-  stat.title='本題牧者作答中選擇相同方向的比例';
-  signal.innerHTML=signalHTML(o.signal);
-  signal.setAttribute('aria-label',o.signal.replace(/x/gi,'未定'));
+}
+
+function renderResult(i,{preview=false,scroll=false,focus=false}={}){
+  const d=DATA[current],o=d.opts[i];activeCandidate=0;
+  instinct.textContent=o.instinct;explain.textContent=o.explain;
+  stat.textContent=`${o.survey.toFixed(1)}%`;stat.title='本題牧者作答中選擇相同方向的比例';
+  signal.innerHTML=signalHTML(o.signal);signal.setAttribute('aria-label',o.signal.replace(/x/gi,'未定'));
   confidence.textContent=`判定信心：${o.confidence}`;
-  modelNote.textContent=clearerPastorModelNote(d,i);
-  renderAxes(o.axis);
-  renderCandidates(d,i);
-  setOtherOpen(false);
-  reveal.hidden=false;
-  renderTabs();
-  renderRecord();
+  modelNote.textContent=clearerPastorModelNote(d,i);renderAxes(o.axis);renderCandidates(d,i);
+  if(previewNote){previewNote.hidden=!preview;previewNote.setAttribute('aria-label',preview?'正在預覽其他回答；按一下回到你的正式選擇':'')}
+  reveal.dataset.preview=preview?'true':'false';reveal.hidden=false;
+  updateOptionState();renderTabs();renderRecord();
   if(scroll)reveal.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(focus)setTimeout(()=>reveal.focus({preventScroll:true}),reducedMotion.matches?0:320);
+}
+
+function choose(i,{scroll=true}={}){
+  selected=i;previewed=null;answers[current]=i;setOtherOpen(false);
+  renderResult(i,{preview:false,scroll,focus:scroll});
+}
+
+function previewAnswer(i){
+  if(answers[current]===null)return;
+  previewed=i;setOtherOpen(false);renderResult(i,{preview:true,scroll:false,focus:false});
 }
 
 function render(){
-  const d=DATA[current];
-  renderTabs();
-  scenario.textContent=d.scenario;
-  if(question) question.textContent=d.q;
+  const d=DATA[current];renderTabs();scenario.textContent=d.scenario;if(question)question.textContent=d.q;
   options.replaceChildren();
   d.opts.forEach((o,i)=>{
-    const b=document.createElement('button');
-    b.type='button';
-    b.className='pastor-option';
-    b.innerHTML=`<b>${o.id}</b><span class="pastor-option-text">${o.answer}</span>`;
-    b.onclick=()=>choose(i);
-    options.append(b);
+    const b=document.createElement('button');b.type='button';b.className='pastor-option';b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-label',`${o.id}，${o.answer}`);b.innerHTML=`<b aria-hidden="true">${o.id}</b><span class="pastor-option-text">${o.answer}</span>`;
+    b.onclick=()=>choose(i);options.append(b);
   });
-  reveal.hidden=true;
-  setOtherOpen(false);
-  renderRecord();
-  if(selected!==null)choose(selected,{scroll:false});
+  reveal.hidden=true;setOtherOpen(false);renderRecord();updateOptionState();
+  const official=answers[current];selected=official;previewed=null;
+  if(official!==null)renderResult(official,{preview:false,scroll:false,focus:false});
 }
 
 otherBtn.onclick=()=>{
-  const d=DATA[current];
-  if(otherBtn.getAttribute('aria-expanded')==='true'){
-    setOtherOpen(false);
-    return;
-  }
+  const d=DATA[current],official=answers[current];if(official===null)return;
+  if(otherBtn.getAttribute('aria-expanded')==='true'){setOtherOpen(false);return}
   other.replaceChildren();
   d.opts.forEach((o,i)=>{
-    if(i===selected)return;
-    const ranked=orderedCandidates(d,i);
-    const x=document.createElement('button');
-    x.type='button';
-    x.className='pastor-other-item';
-    x.setAttribute('aria-label',`切換到${o.role}的完整結果，共 ${ranked.length} 位可能人物`);
-
-    const representative=ranked[0];
-    const people=representative
-      ? `<span class="pastor-other-person"><span class="pastor-other-person-type">${representative.type}</span><span class="pastor-other-person-name">${representative.character}</span></span>`
-      : '';
-
+    if(i===official)return;
+    const ranked=orderedCandidates(d,i),rep=ranked[0],x=document.createElement('button');
+    x.type='button';x.className='pastor-other-item'+(i===previewed?' is-active':'');x.setAttribute('aria-pressed',String(i===previewed));
+    x.setAttribute('aria-label',`預覽 ${rep?`${rep.type} ${rep.character}`:o.role} 的回答，不會改變你的正式選擇`);
+    const people=rep?`<span class="pastor-other-person"><span class="pastor-other-person-type">${rep.type}</span><span class="pastor-other-person-name">${rep.character}</span></span>`:'';
     x.innerHTML=`<span class="pastor-other-people" data-count="1">${people}</span>`;
-    x.onclick=()=>{
-      setOtherOpen(false);
-      choose(i);
-    };
-    other.append(x);
+    x.onclick=()=>previewAnswer(i);other.append(x);
   });
   setOtherOpen(true);
 };
 
+previewNote?.addEventListener('click',()=>{
+  const official=answers[current];if(official===null)return;previewed=null;renderResult(official,{preview:false,scroll:false,focus:false});
+});
+recordJump?.addEventListener('click',()=>record?.scrollIntoView({behavior:'smooth',block:'start'}));
+
 viewBtns.forEach(b=>b.onclick=()=>{
-  const isPastor=b.dataset.theaterView==='pastor';
-  section.classList.toggle('is-pastor-view',isPastor);
-  pastor.hidden=!isPastor;
-  intro.hidden=!isPastor;
-  viewBtns.forEach(x=>{
-    const a=x===b;
-    x.classList.toggle('is-active',a);
-    x.setAttribute('aria-selected',String(a));
-  });
+  const isPastor=b.dataset.theaterView==='pastor';section.classList.toggle('is-pastor-view',isPastor);pastor.hidden=!isPastor;intro.hidden=!isPastor;
+  viewBtns.forEach(x=>{const a=x===b;x.classList.toggle('is-active',a);x.setAttribute('aria-selected',String(a))});
   if(isPastor&&!tabs.children.length)render();
 });
 render();
