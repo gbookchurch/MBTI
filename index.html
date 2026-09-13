@@ -9638,29 +9638,144 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 <h2 class="section-title" id="mbti-lookup-title">關於我的小檔案</h2>
 <div class="divider"></div>
-<p class="section-subtitle">選一型，把人物、亮點、盲點、關係和信仰氣質放進同一份角色檔案裡。</p>
+<p class="section-subtitle">先在入境櫃台選一張人格護照，再打開你的聖經人物檔案。</p>
 <div class="mbti-lookup-shell">
-<fieldset class="mbti-picker">
+<fieldset class="mbti-picker mbti-entry-counter">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
-<div aria-label="16 型 MBTI 選擇器" class="mbti-picker-grid" role="group">
-<button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button"><span class="mbti-option-type">INTJ</span><span class="mbti-option-group temperament-badge-nt">建築師</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="INTP" type="button"><span class="mbti-option-type">INTP</span><span class="mbti-option-group temperament-badge-nt">邏輯學家</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button"><span class="mbti-option-type">ENTJ</span><span class="mbti-option-group temperament-badge-nt">指揮官</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button"><span class="mbti-option-type">ENTP</span><span class="mbti-option-group temperament-badge-nt">辯論家</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button"><span class="mbti-option-type">INFJ</span><span class="mbti-option-group temperament-badge-nf">提倡者</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="INFP" type="button"><span class="mbti-option-type">INFP</span><span class="mbti-option-group temperament-badge-nf">調停者</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button"><span class="mbti-option-type">ENFJ</span><span class="mbti-option-group temperament-badge-nf">主人公</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button"><span class="mbti-option-type">ENFP</span><span class="mbti-option-group temperament-badge-nf">競選者</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button"><span class="mbti-option-type">ISTJ</span><span class="mbti-option-group temperament-badge-sj">物流師</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button"><span class="mbti-option-type">ISFJ</span><span class="mbti-option-group temperament-badge-sj">守衛者</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button"><span class="mbti-option-type">ESTJ</span><span class="mbti-option-group temperament-badge-sj">總經理</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button"><span class="mbti-option-type">ESFJ</span><span class="mbti-option-group temperament-badge-sj">執政官</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button"><span class="mbti-option-type">ISTP</span><span class="mbti-option-group temperament-badge-sp">鑑賞家</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button"><span class="mbti-option-type">ISFP</span><span class="mbti-option-group temperament-badge-sp">探險家</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button"><span class="mbti-option-type">ESTP</span><span class="mbti-option-group temperament-badge-sp">企業家</span></button>
-<button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">表演者</span></button>
+<div class="mbti-entry-counter-head" aria-hidden="true">
+  <div>
+    <span class="mbti-entry-eyebrow">SELECT YOUR PROFILE</span>
+    <strong>人格入境櫃台</strong>
+    <small>選一張人格護照，查驗後開啟人物檔案。</small>
+  </div>
+  <div class="mbti-entry-count"><b>16</b><span>PERSONALITY<br/>PASSPORTS</span></div>
 </div>
-</fieldset>
+<div aria-label="16 型 MBTI 人格入境櫃台" class="mbti-picker-grid mbti-passport-trays" role="group">
+<section class="mbti-passport-tray" data-tray-group="NT" aria-label="想法與策略 NT">
+  <header class="mbti-passport-tray-head">
+    <div><span>IDEA & STRATEGY</span><strong>想法與策略</strong></div>
+    <small>NT</small>
+  </header>
+  <div class="mbti-passport-tray-cards">
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="INTJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · INTJ</span>
+  <span class="mbti-option-type">INTJ</span>
+  <span class="mbti-option-group temperament-badge-nt">建築師</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="INTP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · INTP</span>
+  <span class="mbti-option-type">INTP</span>
+  <span class="mbti-option-group temperament-badge-nt">邏輯學家</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ENTJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ENTJ</span>
+  <span class="mbti-option-type">ENTJ</span>
+  <span class="mbti-option-group temperament-badge-nt">指揮官</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ENTP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ENTP</span>
+  <span class="mbti-option-type">ENTP</span>
+  <span class="mbti-option-group temperament-badge-nt">辯論家</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+</div></section>
+<section class="mbti-passport-tray" data-tray-group="NF" aria-label="關係與理想 NF">
+  <header class="mbti-passport-tray-head">
+    <div><span>PEOPLE & POSSIBILITY</span><strong>關係與理想</strong></div>
+    <small>NF</small>
+  </header>
+  <div class="mbti-passport-tray-cards">
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="INFJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · INFJ</span>
+  <span class="mbti-option-type">INFJ</span>
+  <span class="mbti-option-group temperament-badge-nf">提倡者</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="INFP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · INFP</span>
+  <span class="mbti-option-type">INFP</span>
+  <span class="mbti-option-group temperament-badge-nf">調停者</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ENFJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ENFJ</span>
+  <span class="mbti-option-type">ENFJ</span>
+  <span class="mbti-option-group temperament-badge-nf">主人公</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ENFP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ENFP</span>
+  <span class="mbti-option-type">ENFP</span>
+  <span class="mbti-option-group temperament-badge-nf">競選者</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+</div></section>
+<section class="mbti-passport-tray" data-tray-group="SJ" aria-label="責任與日常 SJ">
+  <header class="mbti-passport-tray-head">
+    <div><span>CARE & ROUTINE</span><strong>責任與日常</strong></div>
+    <small>SJ</small>
+  </header>
+  <div class="mbti-passport-tray-cards">
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ISTJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ISTJ</span>
+  <span class="mbti-option-type">ISTJ</span>
+  <span class="mbti-option-group temperament-badge-sj">物流師</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ISFJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ISFJ</span>
+  <span class="mbti-option-type">ISFJ</span>
+  <span class="mbti-option-group temperament-badge-sj">守衛者</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ESTJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ESTJ</span>
+  <span class="mbti-option-type">ESTJ</span>
+  <span class="mbti-option-group temperament-badge-sj">總經理</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ESFJ" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ESFJ</span>
+  <span class="mbti-option-type">ESFJ</span>
+  <span class="mbti-option-group temperament-badge-sj">執政官</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+</div></section>
+<section class="mbti-passport-tray" data-tray-group="SP" aria-label="行動與現場 SP">
+  <header class="mbti-passport-tray-head">
+    <div><span>ACTION & MOMENT</span><strong>行動與現場</strong></div>
+    <small>SP</small>
+  </header>
+  <div class="mbti-passport-tray-cards">
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ISTP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ISTP</span>
+  <span class="mbti-option-type">ISTP</span>
+  <span class="mbti-option-group temperament-badge-sp">鑑賞家</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ISFP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ISFP</span>
+  <span class="mbti-option-type">ISFP</span>
+  <span class="mbti-option-group temperament-badge-sp">探險家</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ESTP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ESTP</span>
+  <span class="mbti-option-type">ESTP</span>
+  <span class="mbti-option-group temperament-badge-sp">企業家</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+<button aria-pressed="false" class="mbti-option mbti-passport-card" data-type="ESFP" type="button">
+  <span class="mbti-passport-micro" aria-hidden="true">BIBLE PROFILE · ESFP</span>
+  <span class="mbti-option-type">ESFP</span>
+  <span class="mbti-option-group temperament-badge-sp">表演者</span>
+  <span class="mbti-option-stamp" aria-hidden="true"><b>已查驗</b><small>PROFILE CHECKED</small></span>
+</button>
+</div></section>
+</div></fieldset>
 <div class="mbti-lookup-result profile-dossier" hidden="" id="mbti-lookup-result" role="region" aria-live="polite" aria-label="我的人物小檔案">
   <section class="profile-dossier-hero">
     <div class="profile-dossier-copy">
@@ -17566,6 +17681,8 @@ ${url}`,files:[file]}); els.status.textContent='分享選單已開啟。'; retur
   border-radius:0!important;
   box-shadow:none!important;
   background:transparent!important;
+  opacity:1!important;
+  pointer-events:auto!important;
 }
 #mbti-lookup .lookup-sheet-backdrop{display:none!important}
 body.lookup-sheet-active{overflow:auto!important}
@@ -18042,6 +18159,421 @@ body.lookup-sheet-active{overflow:auto!important}
 }
 @media(prefers-reduced-motion:reduce){
   #mbti-lookup .profile-meter em{transition:none}
+}
+@media(max-width:768px){
+  #mbti-lookup #mbti-lookup-result:not([hidden]){
+    opacity:1!important;
+    pointer-events:auto!important;
+    transform:none!important;
+    visibility:visible!important;
+  }
+}
+</style>
+
+
+<style id="v192-mbti-entry-counter">
+/* v192｜人格入境櫃台：把 16 型選擇器改成四個人格護照托盤 */
+#mbti-lookup .mbti-entry-counter{
+  width:min(1040px,calc(100% - 28px));
+  margin:22px auto 0!important;
+  padding:0!important;
+  border:0!important;
+  min-inline-size:0;
+  background:transparent!important;
+}
+#mbti-lookup .mbti-entry-counter-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin:0 0 14px;
+  padding:0 4px;
+}
+#mbti-lookup .mbti-entry-counter-head>div:first-child{
+  min-width:0;
+}
+#mbti-lookup .mbti-entry-eyebrow{
+  display:block;
+  margin-bottom:4px;
+  color:#887E73;
+  font-size:.67rem;
+  font-weight:900;
+  letter-spacing:.13em;
+}
+#mbti-lookup .mbti-entry-counter-head strong{
+  display:block;
+  color:#2F2A26;
+  font-size:1.18rem;
+  line-height:1.2;
+  font-weight:950;
+}
+#mbti-lookup .mbti-entry-counter-head small{
+  display:block;
+  margin-top:5px;
+  color:#7D746B;
+  font-size:.76rem;
+  line-height:1.5;
+}
+#mbti-lookup .mbti-entry-count{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 9px 7px 10px;
+  border:1px solid #D8D0C3;
+  border-radius:12px;
+  background:#F8F4EC;
+  box-shadow:0 4px 0 rgba(72,62,51,.05);
+}
+#mbti-lookup .mbti-entry-count b{
+  color:#3F4A45;
+  font-size:1.3rem;
+  line-height:1;
+  font-weight:950;
+}
+#mbti-lookup .mbti-entry-count span{
+  color:#8A8177;
+  font-size:.49rem;
+  line-height:1.15;
+  font-weight:850;
+  letter-spacing:.06em;
+}
+
+#mbti-lookup .mbti-picker-grid.mbti-passport-trays{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:10px!important;
+  overflow:visible!important;
+  padding:0!important;
+  margin:0!important;
+  scroll-snap-type:none!important;
+}
+#mbti-lookup .mbti-passport-tray{
+  --tray-accent:#304C40;
+  --tray-deep:#1F372E;
+  --tray-soft:#E7EEEA;
+  position:relative;
+  display:grid;
+  grid-template-columns:150px minmax(0,1fr);
+  gap:12px;
+  align-items:stretch;
+  padding:11px;
+  border:1px solid rgba(70,60,50,.10);
+  border-radius:18px;
+  background:
+    linear-gradient(90deg,color-mix(in srgb,var(--tray-soft) 72%,#FFF 28%),#FBF8F2 44%,#FBF8F2 100%);
+  box-shadow:0 7px 20px rgba(52,44,37,.045), inset 0 -3px 0 rgba(65,55,45,.035);
+  overflow:hidden;
+}
+#mbti-lookup .mbti-passport-tray::after{
+  content:"";
+  position:absolute;
+  left:174px;
+  right:14px;
+  bottom:8px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(88,76,64,.13),transparent);
+  pointer-events:none;
+}
+#mbti-lookup .mbti-passport-tray[data-tray-group="NT"]{--tray-accent:#304C40;--tray-deep:#1F372E;--tray-soft:#E7EEEA}
+#mbti-lookup .mbti-passport-tray[data-tray-group="NF"]{--tray-accent:#B28A3F;--tray-deep:#70592C;--tray-soft:#F6EFD9}
+#mbti-lookup .mbti-passport-tray[data-tray-group="SJ"]{--tray-accent:#6F877B;--tray-deep:#455D51;--tray-soft:#EDF2EE}
+#mbti-lookup .mbti-passport-tray[data-tray-group="SP"]{--tray-accent:#B76745;--tray-deep:#78412E;--tray-soft:#F6E7DF}
+#mbti-lookup .mbti-passport-tray:has(.mbti-option[aria-pressed="true"]){
+  border-color:color-mix(in srgb,var(--tray-accent) 38%,#D8D0C3 62%);
+  box-shadow:0 10px 24px rgba(52,44,37,.065), inset 4px 0 0 var(--tray-accent);
+}
+#mbti-lookup .mbti-passport-tray-head{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:10px;
+  margin:0;
+  padding:10px 8px 9px 10px;
+  border:0;
+  text-align:left;
+}
+#mbti-lookup .mbti-passport-tray-head span{
+  display:block;
+  color:var(--tray-accent);
+  font-size:.51rem;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+#mbti-lookup .mbti-passport-tray-head strong{
+  display:block;
+  margin-top:4px;
+  color:#3F3933;
+  font-size:.88rem;
+  line-height:1.3;
+  font-weight:950;
+}
+#mbti-lookup .mbti-passport-tray-head small{
+  display:inline-flex;
+  width:max-content;
+  align-items:center;
+  justify-content:center;
+  min-width:34px;
+  height:22px;
+  padding:0 7px;
+  border-radius:999px;
+  background:color-mix(in srgb,var(--tray-accent) 10%,#FFF 90%);
+  color:var(--tray-deep);
+  font-size:.55rem;
+  font-weight:950;
+  letter-spacing:.08em;
+}
+#mbti-lookup .mbti-passport-tray-cards{
+  position:relative;
+  z-index:1;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:9px!important;
+  min-width:0;
+}
+#mbti-lookup .mbti-option.mbti-passport-card{
+  --card-accent:var(--tray-accent);
+  --card-deep:var(--tray-deep);
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-end!important;
+  gap:0!important;
+  min-width:0!important;
+  min-height:112px!important;
+  height:auto!important;
+  padding:15px 13px 13px 16px!important;
+  overflow:hidden!important;
+  border:1px solid #D9D1C4!important;
+  border-radius:14px!important;
+  background:
+    linear-gradient(92deg,var(--card-accent) 0 5px,#FFFDF8 5px 100%)!important;
+  color:#3F4642!important;
+  text-align:left!important;
+  box-shadow:0 5px 0 rgba(67,58,48,.055),0 9px 17px rgba(67,58,48,.035)!important;
+  transform:none!important;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease!important;
+  scroll-snap-align:center;
+  isolation:isolate;
+}
+#mbti-lookup .mbti-option.mbti-passport-card::before{
+  content:""!important;
+  position:absolute!important;
+  left:11px!important;
+  top:11px!important;
+  width:7px!important;
+  height:7px!important;
+  border:1px solid color-mix(in srgb,var(--card-accent) 55%,transparent)!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--card-accent) 7%,transparent)!important;
+  opacity:.8!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  height:7px!important;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--card-accent) 16%,transparent),transparent)!important;
+  transform:none!important;
+  opacity:.7!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card:hover{
+  border-color:color-mix(in srgb,var(--card-accent) 48%,#D9D1C4 52%)!important;
+  background:linear-gradient(92deg,var(--card-accent) 0 5px,#FFF 5px 100%)!important;
+  box-shadow:0 8px 0 rgba(67,58,48,.055),0 15px 24px rgba(67,58,48,.075)!important;
+  transform:translateY(-3px)!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card:focus-visible{
+  outline:3px solid color-mix(in srgb,var(--card-accent) 34%,transparent)!important;
+  outline-offset:3px!important;
+}
+#mbti-lookup .mbti-passport-micro{
+  position:absolute;
+  top:10px;
+  left:30px;
+  right:10px;
+  display:block;
+  overflow:hidden;
+  color:#A1988E;
+  font-size:.45rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+#mbti-lookup .mbti-option.mbti-passport-card .mbti-option-type{
+  position:relative;
+  z-index:2;
+  display:block!important;
+  margin:0!important;
+  color:#3D4541!important;
+  font-size:1.18rem!important;
+  line-height:1!important;
+  font-weight:950!important;
+  letter-spacing:.015em!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card .mbti-option-type::before{
+  display:none!important;
+  content:none!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card .mbti-option-group{
+  position:relative;
+  z-index:2;
+  display:inline-flex!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin:7px 0 0!important;
+  padding:3px 7px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:color-mix(in srgb,var(--card-accent) 12%,#FFF 88%)!important;
+  color:var(--card-deep)!important;
+  font-size:.68rem!important;
+  line-height:1.25!important;
+  font-weight:900!important;
+}
+#mbti-lookup .mbti-option-stamp{
+  position:absolute;
+  z-index:3;
+  top:8px;
+  right:7px;
+  width:52px;
+  height:52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1px;
+  border:1.5px solid currentColor;
+  border-radius:50%;
+  color:#FFF9EF;
+  opacity:0;
+  transform:rotate(-13deg) scale(.68);
+  transition:opacity .18s ease,transform .24s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+#mbti-lookup .mbti-option-stamp::before{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border:1px dashed currentColor;
+  border-radius:50%;
+  opacity:.72;
+}
+#mbti-lookup .mbti-option-stamp b,
+#mbti-lookup .mbti-option-stamp small{
+  position:relative;
+  z-index:1;
+  display:block;
+  color:inherit!important;
+  line-height:1.05;
+  text-align:center;
+}
+#mbti-lookup .mbti-option-stamp b{font-size:.58rem;font-weight:950}
+#mbti-lookup .mbti-option-stamp small{font-size:.31rem;font-weight:900;letter-spacing:.04em}
+
+#mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"],
+#mbti-lookup .mbti-option.mbti-passport-card.is-active{
+  border-color:var(--card-deep)!important;
+  background:
+    linear-gradient(135deg,color-mix(in srgb,var(--card-deep) 96%,#000 4%),var(--card-accent))!important;
+  box-shadow:0 10px 0 color-mix(in srgb,var(--card-deep) 13%,transparent),0 19px 30px rgba(38,33,28,.16)!important;
+  transform:translateY(-5px)!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-passport-micro,
+#mbti-lookup .mbti-option.mbti-passport-card.is-active .mbti-passport-micro{
+  color:rgba(255,255,255,.54)!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-type,
+#mbti-lookup .mbti-option.mbti-passport-card.is-active .mbti-option-type{
+  color:#FFF9EF!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-group,
+#mbti-lookup .mbti-option.mbti-passport-card.is-active .mbti-option-group{
+  background:rgba(255,255,255,.14)!important;
+  color:#FFF9EF!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-stamp,
+#mbti-lookup .mbti-option.mbti-passport-card.is-active .mbti-option-stamp{
+  opacity:.82;
+  transform:rotate(-13deg) scale(1);
+  animation:passportStampIn .34s cubic-bezier(.18,.82,.2,1);
+}
+@keyframes passportStampIn{
+  0%{opacity:0;transform:rotate(-13deg) scale(1.45)}
+  68%{opacity:.9;transform:rotate(-13deg) scale(.93)}
+  100%{opacity:.82;transform:rotate(-13deg) scale(1)}
+}
+
+@media(max-width:760px){
+  #mbti-lookup .mbti-entry-counter{width:calc(100% - 18px)}
+  #mbti-lookup .mbti-entry-counter .mbti-picker-grid.mbti-passport-trays{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:none!important;
+    grid-auto-flow:row!important;
+    grid-auto-columns:auto!important;
+    gap:10px!important;
+    overflow:visible!important;
+    overflow-x:visible!important;
+    overflow-y:visible!important;
+    padding:0!important;
+    scroll-snap-type:none!important;
+  }
+  #mbti-lookup .mbti-entry-counter-head{align-items:center;padding:0 2px}
+  #mbti-lookup .mbti-entry-count{display:none}
+  #mbti-lookup .mbti-passport-tray{
+    grid-template-columns:1fr;
+    gap:4px;
+    padding:10px 0 10px 10px;
+    border-radius:16px;
+  }
+  #mbti-lookup .mbti-passport-tray::after{display:none}
+  #mbti-lookup .mbti-passport-tray-head{
+    flex-direction:row;
+    align-items:center;
+    padding:3px 12px 5px 4px;
+  }
+  #mbti-lookup .mbti-passport-tray-head>div{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  #mbti-lookup .mbti-passport-tray-head span{font-size:.46rem}
+  #mbti-lookup .mbti-passport-tray-head strong{margin:0;font-size:.78rem}
+  #mbti-lookup .mbti-passport-tray-cards{
+    display:flex!important;
+    grid-template-columns:none!important;
+    gap:8px!important;
+    overflow-x:auto!important;
+    padding:4px 14px 10px 1px!important;
+    scroll-snap-type:x proximity!important;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  #mbti-lookup .mbti-passport-tray-cards::-webkit-scrollbar{display:none}
+  #mbti-lookup .mbti-option.mbti-passport-card{
+    flex:0 0 142px!important;
+    min-height:104px!important;
+    padding:14px 11px 12px 15px!important;
+  }
+  #mbti-lookup .mbti-option-stamp{width:47px;height:47px}
+}
+@media(max-width:390px){
+  #mbti-lookup .mbti-entry-counter-head small{font-size:.7rem}
+  #mbti-lookup .mbti-option.mbti-passport-card{flex-basis:132px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #mbti-lookup .mbti-option.mbti-passport-card,
+  #mbti-lookup .mbti-option-stamp{transition:none!important}
+  #mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-stamp{animation:none!important}
 }
 </style>
 
