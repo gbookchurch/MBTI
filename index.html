@@ -9361,6 +9361,175 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 }
 </style>
 
+
+<style id="v173-song-four-family-gradient-player">
+/* v173｜16 型維持四個色系，每組四階；播放器與歌單以連續漸層銜接換歌 */
+@property --song-a {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #7D9588;
+}
+@property --song-b {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #B0C2B9;
+}
+@property --song-soft {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #EDF3F0;
+}
+#song-dedication-section,
+#song-card,
+.song-now-console{
+  transition:--song-a .78s cubic-bezier(.22,.61,.36,1),--song-b .78s cubic-bezier(.22,.61,.36,1),--song-soft .78s cubic-bezier(.22,.61,.36,1)!important;
+}
+.song-now-console{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden!important;
+  background:
+    radial-gradient(circle at 12% 18%,color-mix(in srgb,var(--song-b) 62%,transparent) 0%,transparent 38%),
+    radial-gradient(circle at 92% 88%,color-mix(in srgb,var(--song-a) 58%,transparent) 0%,transparent 42%),
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--song-a) 66%,#171615) 0%,
+      color-mix(in srgb,var(--song-b) 48%,#24211F) 52%,
+      color-mix(in srgb,var(--song-a) 76%,#121110) 100%)!important;
+  border-color:color-mix(in srgb,var(--song-b) 48%,#3C3835)!important;
+  box-shadow:0 12px 28px color-mix(in srgb,var(--song-a) 24%,rgba(22,19,17,.32))!important;
+}
+.song-now-console::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(105deg,rgba(255,255,255,.07),transparent 36%,rgba(255,255,255,.025) 68%,transparent);
+}
+.song-now-disc{
+  transition:--song-a .78s cubic-bezier(.22,.61,.36,1),--song-b .78s cubic-bezier(.22,.61,.36,1),transform .55s ease!important;
+  background:radial-gradient(circle at center,#F9F7F3 0 8%,var(--song-b) 9% 18%,#201E1C 19% 45%,color-mix(in srgb,var(--song-a) 38%,#282522) 46% 55%,#1D1B19 56% 100%)!important;
+}
+.song-now-console:hover .song-now-disc{transform:rotate(7deg)}
+.song-browse-toggle,
+.song-transport-btn,
+.song-transport .song-random-btn{
+  background:rgba(25,23,21,.34)!important;
+  border-color:rgba(255,255,255,.20)!important;
+  color:#FFFDFC!important;
+  backdrop-filter:blur(7px);
+}
+.song-browse-toggle:hover,.song-browse-toggle:focus-visible,
+.song-transport-btn:hover,.song-transport-btn:focus-visible,
+.song-transport .song-random-btn:hover,.song-transport .song-random-btn:focus-visible{
+  background:rgba(255,255,255,.13)!important;
+  border-color:rgba(255,255,255,.30)!important;
+}
+
+/* 打開 16 型時，清單本身成為一條由 NT→NF→SJ→SP 的連續四色漸層 */
+.song-picker{
+  position:relative;
+  background:linear-gradient(180deg,
+    #263F35 0%,
+    #39594A 19%,
+    #7A683A 27%,
+    #B28A3F 43%,
+    #8E936B 53%,
+    #6F877B 68%,
+    #8F7059 78%,
+    #BE6C49 100%)!important;
+  border-color:rgba(255,255,255,.16)!important;
+  box-shadow:0 16px 34px rgba(31,27,24,.18)!important;
+}
+.song-type-btn{
+  background:rgba(20,18,17,.12)!important;
+  border-bottom-color:rgba(255,255,255,.14)!important;
+  color:#FFF!important;
+  transition:background .24s ease,box-shadow .24s ease,transform .24s ease!important;
+}
+.song-type-btn .song-type-code,
+.song-type-btn .song-type-name,
+.song-type-btn .song-type-track{color:#FFF!important;text-shadow:0 1px 8px rgba(0,0,0,.18)!important}
+.song-type-btn .song-type-artist{color:rgba(255,255,255,.72)!important}
+.song-type-swatch{
+  background:var(--type-a)!important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.48),0 0 14px color-mix(in srgb,var(--type-a) 50%,transparent)!important;
+}
+.song-type-btn:hover,.song-type-btn:focus-visible{
+  background:rgba(255,255,255,.13)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)!important;
+}
+.song-type-btn[aria-selected="true"],.song-type-btn[aria-pressed="true"]{
+  background:rgba(255,255,255,.19)!important;
+  box-shadow:inset 3px 0 0 rgba(255,255,255,.92),inset 0 0 0 1px rgba(255,255,255,.10)!important;
+}
+.song-type-btn[aria-selected="true"] .song-type-code,
+.song-type-btn[aria-selected="true"] .song-type-name,
+.song-type-btn[aria-pressed="true"] .song-type-code,
+.song-type-btn[aria-pressed="true"] .song-type-name{color:#FFF!important}
+
+/* 讓歌卡上的四群色也跟著同一個 0.78 秒節奏換色 */
+.song-card,
+.song-character-panel,
+.song-letter,
+.song-letter-details,
+.song-story-details,
+.song-share-actions{
+  transition:border-color .78s cubic-bezier(.22,.61,.36,1),background-color .78s cubic-bezier(.22,.61,.36,1),box-shadow .78s cubic-bezier(.22,.61,.36,1)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  #song-dedication-section,#song-card,.song-now-console,.song-now-disc{transition:none!important}
+  .song-now-console:hover .song-now-disc{transform:none}
+}
+</style>
+
+
+<style id="v174-song-playlists-follow-player">
+/* v174｜完整歌單區跟隨 NOW PLAYING 的四系色票連續換色；精簡區塊色塊標籤 */
+#song-dedication-section .song-playlists{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 18%,color-mix(in srgb,var(--song-b) 62%,transparent) 0%,transparent 40%),
+    radial-gradient(circle at 92% 88%,color-mix(in srgb,var(--song-a) 55%,transparent) 0%,transparent 44%),
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--song-a) 61%,#1A1817) 0%,
+      color-mix(in srgb,var(--song-b) 43%,#282522) 54%,
+      color-mix(in srgb,var(--song-a) 73%,#151312) 100%)!important;
+  border-color:color-mix(in srgb,var(--song-b) 44%,#48423D)!important;
+  box-shadow:0 12px 30px color-mix(in srgb,var(--song-a) 22%,rgba(27,23,21,.28))!important;
+  transition:--song-a .78s cubic-bezier(.22,.61,.36,1),--song-b .78s cubic-bezier(.22,.61,.36,1),--song-soft .78s cubic-bezier(.22,.61,.36,1)!important;
+}
+#song-dedication-section .song-playlists::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:linear-gradient(108deg,rgba(255,255,255,.075),transparent 34%,rgba(255,255,255,.025) 68%,transparent);
+}
+#song-dedication-section .song-playlists-copy strong{
+  color:#FFFDFC!important;
+}
+#song-dedication-section .song-playlists-copy span{
+  color:rgba(255,253,250,.78)!important;
+}
+#song-dedication-section .song-playlist-link{
+  background:rgba(24,22,20,.28)!important;
+  border-color:rgba(255,255,255,.20)!important;
+  color:#FFFDFC!important;
+  backdrop-filter:blur(7px);
+}
+#song-dedication-section .song-playlist-link:hover,
+#song-dedication-section .song-playlist-link:focus-visible{
+  background:rgba(255,255,255,.14)!important;
+  border-color:rgba(255,255,255,.34)!important;
+}
+/* 色塊標籤移除後，主標題本身負責區塊起點，不額外製造空白。 */
+#song-dedication-section .song-series-head .section-title,
+#mbti-lookup > .section-title,
+#ranking-compare > .section-title{
+  margin-top:0!important;
+}
+</style>
+
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -9447,7 +9616,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </article>
 </div></section>
 <section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
-<div class="section-tag">找到你的位置</div>
+
 <h2 class="section-title" id="mbti-lookup-title">關於我的小檔案</h2>
 <div class="divider"></div>
 <p class="section-subtitle">選擇你的 MBTI，快速看看這一型在本次調查中的排名、比例、稀有度，以及對應的聖經人物和近代代表人物。</p>
@@ -9552,10 +9721,10 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 <section class="f-section song-dedication-section" id="song-dedication-section" aria-labelledby="song-series-title">
   <div class="song-series-head">
-    <div class="section-tag">人格點歌</div>
+    
     <h2 class="section-title" id="song-series-title">今天，為你的聖經人物點一首歌</h2>
     <div class="divider"></div>
-    <p class="section-subtitle">如果你的聖經人物活在今天，《教會小本本》為你們點了一首歌</p>
+    <p class="section-subtitle">《教會小本本》為你們點了一首歌</p>
   </div>
   <div class="song-series-shell">
     <div class="song-picker-wrap song-browser">
@@ -9630,7 +9799,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 
 <section class="rank-compare-section" id="ranking-compare" aria-labelledby="ranking-compare-title">
-  <div class="section-tag">排行榜</div>
+  
   <h2 class="section-title" id="ranking-compare-title">16 型排行榜</h2>
   <div class="divider"></div>
   <div class="rank-compare-shell">
@@ -10095,7 +10264,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </section>
 <div class="ranking-data-source" hidden aria-hidden="true">
 <section id="lay-ranking">
-<div class="section-tag">排行榜</div>
+
 <h2 class="section-title">平信徒 16 型<br class="mobile-title-break"/>全排行</h2>
 <div class="divider"></div>
 <div style="display: grid; gap: 20px; margin: 30px 0;">
@@ -10955,7 +11124,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 @media (max-width: 780px){.rank-compare-cell{padding:11px 8px !important;grid-template-columns:34px minmax(0,1fr) 16px !important;column-gap:7px;row-gap:1px;min-height:74px !important;}.rank-compare-thumb{width:34px;height:34px;border-radius:10px;}.rank-compare-copy{gap:1px;}}
 </style>
 </section><section class="alt" id="pastor-ranking">
-<div class="section-tag">排行榜</div>
+
 <h2 class="section-title">牧者 16 型全排行</h2>
 <div class="divider"></div>
 <div class="pastor-top-grid" style="display: grid; gap: 30px; margin: 30px 0;">
@@ -16388,26 +16557,26 @@ if(sharedResultLoaded){
   const SONG_DATA = {"ESTJ":{"character":"摩西","artKey":"摩西","artist":"Foo Fighters","song":"Walk","youtube":"https://youtu.be/4PkcfQtibmU?si=vPp1WHFFgq60yCz3","tagline":"今天不用把整條路走完，先把下一步走出去。","intro":"你是 ESTJ。事情一多，你很自然就開始排順序、分工作、抓進度。比起一直討論，你更在意這件事到底要怎麼落地。摩西接下的任務非常麻煩。他面對的是一群剛離開奴役生活、還在學習怎麼一起生活的百姓。曠野沒有現成流程，他只能一路處理問題，一路建立新的秩序。","reasons":[["重新學會走路","帶一個團隊從零開始，很多事情沒有前例，只能邊走邊建立方法。"],["等夠了，就開始做","ESTJ 可以評估很久，但到了該決定的時候，你通常不喜歡再拖。"],["長途才看得出功力","摩西面對的考驗很少一次結束。真正消耗人的，往往是同一件事要處理很久。"]],"ending":"你的曠野可能是工作、家庭、事工，或一個一直卡著的專案。今天不用把整條路走完，先把下一步走出去。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你常常是那個把混亂重新排出順序的人。事情一多，你會開始想先做什麼、誰負責哪一段、什麼時候要完成。對你來說，方向如果只停在口號裡，心裡很難踏實。","摩西接下的任務非常大。他帶著一群剛離開奴役生活的百姓走進曠野，沿路要處理食物、衝突、抱怨、制度與信仰。每天都有新狀況，很多事沒有現成答案。"],"sections":[["把藍圖拆成下一步","ESTJ 的能力常出現在落地的那一刻。願景很好，但你更在意今天要做什麼。摩西也是一路把抽象的使命變成可執行的安排，讓一群人慢慢學會一起生活、一起前進。"],["領導很少照表操課","你喜歡有計畫，可是人不會像表格一樣運作。有人抱怨、有人害怕、有人臨時改變，這些都會打亂原先安排。領導久了，你會發現調整方法也是工作的一部分。"],["長途才看得出功力","曠野不是一場短跑。很多責任真正考驗人的地方，在於同一件事要處理很久。今天解決一題，明天又來另一題。你願意一段一段走，這份持續本身就很有力量。"]],"close":["〈Walk〉很適合放在這段旅程旁邊。它有重新起步的感覺，也有走過疲累之後再次往前的力道。","如果你最近也在帶一個團隊、照顧一個家，或推一件卡了很久的事，不用一次把終點扛在肩上。今天先把下一步走出去。"]}},"ISTJ":{"character":"尼希米","artKey":"尼希米","artist":"Journey","song":"Don’t Stop Believin’","youtube":"https://youtu.be/1k8craCGpgs?si=zKxX85ouTQE3GFKn","tagline":"很多事情最後能完成，只因每天都有人回來，把今天這一段做好。","intro":"你是 ISTJ。交到你手上的事，你通常會記得，也會想辦法把它完成。尼希米聽見耶路撒冷城牆毀壞後，沒有只停在難過。他先禱告、觀察、規劃，再開始分工重建。","reasons":[["事情可以一段一段完成","城牆沒有一天蓋好。今天修這裡，明天處理下一段，最後才慢慢看見全貌。"],["責任要變成具體安排","尼希米面對敵人的威脅，也面對內部問題。他安排守望、分工，也處理百姓之間的不公平。"],["團隊累的時候，需要有人還記得下一步","ISTJ 不一定最會炒熱氣氛，但常常有人靠著你的持續，才沒有半途放掉。"]],"ending":"很多事情最後能完成，只因每天都有人回來，把今天該做的那一段做好。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你可能不太迷戀大場面。比起喊得響亮，你更在意事情有沒有被記住、安排好、做完。團隊裡那些容易被忽略的細節，常常會先被你看到。","尼希米聽見耶路撒冷城牆毀壞後，先難過，也先禱告。到了現場，他沒有急著做秀，先在夜裡察看城牆、盤點狀況，再把工作分出去。"],"sections":[["工程是一段一段完成的","城牆不可能一天蓋好。有人修這一段，有人處理下一段，時間、材料、人力都要接得起來。這種工作很適合 ISTJ 的節奏，慢慢把每個環節放回位置。"],["責任感會遇到現實摩擦","外面有人挑釁，裡面也有人灰心，還有內部的不公平需要處理。尼希米的工作從來不只是一道牆。你也可能很熟悉這種狀況，原本只想把事情做好，最後連人的情緒與關係都要一起顧。"],["信念需要有人每天回來","熱血很難天天有。很多長期計畫最後能完成，是因為有人到了隔天還願意回來，繼續做昨天沒有做完的部分。你常常就是那個記得的人。"]],"close":["〈Don’t Stop Believin’〉放在尼希米旁邊，很像一首工程做到一半時會需要的歌。","不用每天都很激昂。記得方向，然後把今天該做的那一段完成，就已經往前了。"]}},"ESFJ":{"character":"馬大","artKey":"馬大","artist":"Florence + The Machine","song":"Shake It Out","youtube":"https://youtu.be/WbN0nX61rIs?si=aXQHIAGDbmczXh9Q","tagline":"今天如果行程已經排滿了，留一格空白給自己。","intro":"你是 ESFJ。進到一個空間，你很容易先注意誰還沒被照顧、哪裡需要補位、誰看起來有點尷尬。馬大招待耶穌時也是如此。她張羅很多事，希望大家都好好的。事情一多，心裡的壓力也跟著累積。","reasons":[["別人的需要很容易被你一起帶回家","有人不開心、事情沒做好，你常會放在心上。"],["有些責任可以晚一點處理","每件事都有自己的時間，不必全部在今天接手；每個人的情緒，也不需要全放到你身上。"],["你的人生不能只剩待辦事項","馬大很會服事，也需要有自己的位置坐下來。"]],"ending":"今天如果行程已經排滿了，留一格空白給自己。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你很容易看見別人的需要。誰還沒吃飯、誰坐在角落、哪裡少一雙手，你常常不用人提醒就會開始處理。這種敏銳讓人感到被照顧，也讓你很容易把很多事放進自己的待辦清單。","馬大招待耶穌時也是如此。她忙著準備，希望每個環節都妥當。忙到後來，原本出於愛的付出開始變成心裡的重量，委屈也跟著冒出來。"],"sections":[["你很會照顧一個空間","ESFJ 常常能讓陌生的人感到有人在意，也能讓群體變得有溫度。這是很珍貴的能力。只是當你一直把注意力放在別人身上，自己的感受很容易排到最後。"],["責任有時需要放回原位","不是每一件事都得今天處理，也不是每個人的情緒都要放到你身上。有人失望，不一定代表你做錯了；有人沒有被滿足，也不一定需要你立刻補上。"],["留一個位置給自己","馬大的故事很像一個提醒。你可以繼續愛人、服事、安排，也可以坐下來。休息不是離開責任，休息讓你有空間重新感受自己正在做什麼。"]],"close":["〈Shake It Out〉很適合在行程滿到沒有縫的時候播放。那股把重量甩開的節奏，像是替自己挪出一點空氣。","今天如果事情很多，先留一格空白。那一格不需要交代給任何人。"]}},"ISFJ":{"character":"路得","artKey":"路得","artist":"Miley Cyrus","song":"The Climb","youtube":"https://youtu.be/NG2zyeVRcbs?si=3FUKdjiYPcQpjH66","tagline":"你可能還看不到山的另一邊。今天這一步，也算數。","intro":"你是 ISFJ。你很重承諾，也常把愛放進日常的小事情裡。丈夫過世後，路得可以回到自己的家鄉。她卻選擇陪拿俄米前往伯利恆。那意味著離開熟悉的生活，到一個幾乎沒有保障的地方重新開始。","reasons":[["重要的路，常常一天只能走一點","路得出發時，不知道後面會遇見波阿斯，也不知道自己的故事最後會走到哪裡。"],["你的勇敢很少大張旗鼓","去異鄉、到田裡拾麥穗、重新生活，每一步都需要勇氣。"],["你在意的是怎麼一路走過來","有些愛沒有漂亮台詞，只是每天還願意留下來。"]],"ending":"你可能還看不到山的另一邊。今天這一步，也算數。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你重視承諾，也很容易把愛放進日常的小事裡。你不一定會把話說得很大聲，但一旦決定陪一個人走，常常會走得比別人想像得久。","路得失去丈夫之後，本來可以回到熟悉的家鄉。她卻選擇陪拿俄米前往伯利恆。那條路沒有保證，也沒有誰先告訴她結局會很好。"],"sections":[["陪伴常常長得很普通","很多重要的愛，不會天天出現戲劇性的時刻。它可能只是一起走路、一起找吃的、在對方很難過時還在旁邊。路得的忠心就是這樣，一天接一天。"],["異鄉生活需要很多勇氣","到田裡拾麥穗、進入陌生群體、學著適應新的生活，每一件看起來都很平常，背後卻需要勇氣。ISFJ 的勇敢往往不張揚，可是會留下很長的痕跡。"],["結果出現以前，路還是要走","路得出發時不知道會遇見波阿斯，也不知道自己後來會進入怎樣的家族故事。她能做的，就是把今天走完。"]],"close":["〈The Climb〉很適合路得，因為它把注意力放回旅程本身。","你可能還看不到山的另一邊。沒關係，今天這一步，也算數。"]}},"ENFP":{"character":"巴拿巴","artKey":"巴拿巴","artist":"Jessie J feat. B.o.B","song":"Price Tag","youtube":"https://youtu.be/qMxX-QOV9tI?si=deUCbULeCWLnALNQ","tagline":"一個願意先相信你的人，可能會改變很多事。","intro":"你是 ENFP。看到一個人還有機會，你通常很難完全放著不管。巴拿巴賣掉田產，把所得交給使徒。後來大家還怕保羅時，也是他願意把保羅帶進群體，替他說話。","reasons":[["你很少只用價格衡量一件事","錢、效率、名聲都重要，但一個人能不能重新得到機會，你也會放進考量。"],["你很會讓氣氛重新有空氣","一群人開始緊張、排斥或失去信心時，你常能提出另一種可能。"],["你願意把舞台分給別人","巴拿巴沒有一直搶著站在最前面。他願意陪別人成長，這也改變了保羅後來的路。"]],"ending":"有些東西沒有標價。一個願意先相信你的人，可能會改變很多事。","group":"NF","letter":{"opener":"給親愛的你","lead":["你很容易看到一個人還沒有被看見的部分。當大家已經下了結論，你可能還會想，也許他還有別的可能。這份對人的期待，常讓你成為別人的鼓勵。","巴拿巴在早期教會裡做過很多這樣的事。他分享自己的資源，也在大家害怕保羅的時候願意替保羅說話，把他帶進群體。"],"sections":[["你很在意一件事有沒有意義","金錢、效率、名聲都會影響決定，但 ENFP 往往還會多問一題：這件事會不會讓人得到新的機會？巴拿巴願意把手上的東西拿出來，也願意把自己的信用放在別人身上。"],["鼓勵不是空話","真正有用的鼓勵常常會帶著行動。替一個人介紹、陪他進入群體、在眾人面前替他說一句話，這些都比單純說加油更有重量。"],["你可以替別人的成長開心","巴拿巴沒有一直把舞台留給自己。後來保羅成為重要角色，他早期曾經得到巴拿巴的支持。能夠看見別人發光，還願意替他高興，是很難得的能力。"]],"close":["〈Price Tag〉有一種輕快又不被標價綁住的感覺，很適合巴拿巴。","有些東西沒有價格。一個願意先相信你的人，可能會改變很多事。"]}},"INFP":{"character":"約翰","artKey":"約翰","artist":"Coldplay","song":"O (Fly On)","youtube":"https://youtu.be/Ap-HeMIKi-c?si=LbnMtsodxTim39Ys","tagline":"你可能只寫下一句話，卻陪一個人很多年。","intro":"你是 INFP。心裡常有很多感受，但不一定會立刻說出口。約翰曾靠近耶穌，也站在十字架旁。後來，他把那些經歷寫成關於愛、光、生命與真理的文字。","reasons":[["你很會陪人待在安靜裡","有些時候，人需要的答案可以晚一點出現，先有人留在身邊也很重要。"],["你的感受常常會變成文字","約翰寫得很深，語言卻不一定複雜。幾句話就可能留在人心裡很久。"],["離開不代表所有連結都消失","有些人走遠之後，留下的話、回憶與愛，還是會繼續陪著我們。"]],"ending":"約翰經歷過很多離別，後來留下最多的文字之一，仍然是愛。你可能只寫下一句話，卻陪一個人很多年。","group":"NF","letter":{"opener":"給親愛的你","lead":["你心裡常常有很多感受，但不一定會立刻說出口。你習慣先放著、想一想，等到找到合適的文字，才把那些細小又難說的東西寫下來。","約翰曾靠近耶穌，也站在十字架旁。後來，他把記憶、失去、愛與信仰寫進福音書和書信裡。那些文字沒有靠喧鬧取勝，卻陪了很多人很久。"],"sections":[["有些陪伴不用急著給答案","一個人在難過時，未必需要馬上被分析。有人願意留下來，讓沉默有地方待著，常常已經很重要。INFP 很容易理解這種陪伴。"],["感受可以慢慢變成文字","約翰寫愛、光、生命，也寫離別。語言不一定複雜，內容卻能留下很深的回音。你也可能有這種習慣，把一段感受放很久，最後只寫出幾句話，卻比長篇解釋更接近心裡。"],["離別之後，關係仍會留下痕跡","有些人離開了，曾經一起走過的路、說過的話、留下的記憶還是會陪著我們。那段關係沒有被抓住不放，只是已經成為生命的一部分。"]],"close":["〈O (Fly On)〉的氣氛很適合邊聽邊讀這封信。它輕得像一段想念，也留著一點往前飛的空間。","你可能只寫下一句話，卻陪一個人很多年。"]}},"ENFJ":{"character":"亞伯拉罕","artKey":"亞伯拉罕","artist":"OneRepublic","song":"I Lived","youtube":"https://youtu.be/z0rxydSolwU?si=3DFbltGDbwBwlba6","tagline":"有一天回頭，希望你可以說：我真的活過。","intro":"你是 ENFJ。當你相信一件事值得投入，很容易把自己也放進那個方向。亞伯拉罕離開熟悉的土地時，手上沒有完整地圖。他只知道自己要往前走。","reasons":[["你很難只想到自己","亞伯拉罕收到的應許，從一開始就牽涉家庭、後代與更遠的未來。"],["你願意先走第一步","終點還看不到，方向卻已經足以讓你開始行動。"],["你會想知道自己最後留下了什麼","對 ENFJ 來說，一段人生有沒有影響到別人，常常比表面的成績更有份量。"]],"ending":"亞伯拉罕沒有親眼看見所有應許完成。他只走了自己能走的那一段。有一天回頭，希望你可以說：我真的活過。","group":"NF","letter":{"opener":"給親愛的你","lead":["你很容易被願景吸引。當你相信一個方向值得走，眼前的不確定不一定會把你留在原地。你會開始想，這條路最後能帶給哪些人新的可能。","亞伯拉罕離開熟悉的土地時，沒有完整地圖，也沒有立刻看到應許實現。他帶著家人往前，經歷等待、衝突、失落，也一次次重新確認自己正在走的方向。"],"sections":[["你很難只替自己規劃","ENFJ 常常會把別人的未來也放進心裡。亞伯拉罕收到的應許，從一開始就牽涉家庭、後代與更遠的世代。這讓他的選擇帶著很長的時間感。"],["願景會要求你先走一步","很多路在出發時看不到終點。你只能根據手上已經知道的部分先做決定。這種時候，勇氣比較像願意前進，不像什麼都已經確定。"],["人生最後留下的是影響","你可能很在意自己有沒有讓身邊的人多一點盼望、多一點方向。數字和成績會過去，人被怎麼影響，常常留得更久。"]],"close":["〈I Lived〉很像一封寫給未來自己的信。走過冒險、等待與選擇之後，回頭問自己有沒有把這段人生好好活過。","亞伯拉罕沒有看到所有應許完成，他只走了自己能走的那一段。有一天回頭，希望你也可以說：我真的活過。"]}},"INFJ":{"character":"但以理","artKey":"但以理","artist":"Lenka","song":"The Show","youtube":"https://youtu.be/elsh3J5lJ6g?si=411TSTY4J2Q5tZer","tagline":"只要記得自己想成為怎樣的人，就還找得到下一步。","intro":"你是 INFJ。人在現場時，你的心常常還會再往後看一層。但以理身在巴比倫宮廷，學習新的語言、文化與制度，也知道有些界線不能隨環境一起改變。","reasons":[["你常一邊生活，一邊觀察生活","人在群體裡，你還是會問：這件事最後會把大家帶去哪裡？"],["你不需要每件事都搶著表態","但以理很多選擇都很安靜。吃什麼、怎麼禱告、怎麼回答君王，慢慢形成他的立場。"],["有些答案要等很久","他也遇過看不明白的異象與漫長等待。"]],"ending":"人生有時像迷宮，也像一場還沒拿到完整劇本的戲。只要記得自己想成為怎樣的人，就還找得到下一步。","group":"NF","letter":{"opener":"給親愛的你","lead":["你在人群裡常常不急著搶話。你會先觀察氣氛、關係和事情的走向，心裡也會多想一層，這件事最後會把大家帶去哪裡。","但以理被帶到巴比倫之後，學習新的語言與制度，也在宮廷裡工作。他沒有拒絕所有外來文化，可是有些界線，他一直留在心裡。"],"sections":[["身在其中，也保留自己的座標","INFJ 很容易同時理解環境和自己的價值。你可以適應一個地方，也可以知道哪些東西不能隨著環境一起改變。"],["安靜不等於沒有立場","但以理很多重要選擇都不吵鬧。吃什麼、怎麼禱告、怎麼回答君王，一次次累積出他的立場。你也可能比較習慣用行動和長期選擇表達自己。"],["有些答案要等很久","但以理看過難以理解的異象，也經歷過漫長等待。INFJ 常常能想得很遠，可是未來不會因此提早揭曉。能做的，就是在還看不完整時保留方向感。"]],"close":["〈The Show〉有一種輕快又帶點迷惘的氣質，很像人在複雜世界裡一邊生活、一邊尋找位置。","你不一定知道下一幕會發生什麼。只要還記得自己想成為怎樣的人，就還找得到下一步。"]}},"ESTP":{"character":"彼得","artKey":"彼得","artist":"Bon Jovi","song":"It’s My Life","youtube":"https://youtu.be/vx2u5uUu3DE?si=z64kcQfAQWOHHdDF","tagline":"有些路要想過再走。有些時刻，真的得先跳下去。","intro":"你是 ESTP。事情發生時，你的反應通常很快。別人還在看，你可能已經開口；大家還在想，你可能先跨了一步。彼得就是這種人。看見耶穌走在水面上，他敢說自己也要去；復活之後知道岸上的人是耶穌，他又直接跳進水裡。","reasons":[["你習慣先試再調整","有些人要想很久才開始，你比較容易從行動裡得到答案。"],["機會來了，你很難無動於衷","關鍵時刻，你往往會有很強的現在就做的衝動。"],["你很多成長都發生在行動之後","彼得說錯過、害怕過，也否認過耶穌。後來他依然敢往前，只是開始知道行動也要承擔結果。"]],"ending":"有些路要想過再走。有些時刻，真的得先跳下去。","group":"SP","letter":{"opener":"給親愛的你","lead":["你的反應常常很快。事情才剛發生，你可能已經開口；大家還在觀察，你的腳已經往前一步。這份速度讓你有很多精彩故事，也讓你偶爾需要替剛剛的決定收尾。","彼得很像這樣。看見耶穌走在水面上，他想下去；復活之後認出岸上的耶穌，他又直接跳進水裡。很多時刻，他總是第一個有動作的人。"],"sections":[["行動會替你打開經驗","ESTP 很容易從實際碰過一次之後學得最快。站在岸上分析和真的踩進水裡，是兩種不同的資訊。你的優勢在於願意試。"],["速度也會帶來代價","彼得說過很有勇氣的話，也在壓力來時害怕過。他曾經高估自己，也曾經否認耶穌。這些經驗沒有把他定型，反而成了後來重新承擔責任的一部分。"],["成熟不需要把你的火熄掉","後來的彼得還是很有行動力。差別在於，他開始知道熱情需要方向，承諾也需要面對後果。你不必變成另一種人，只需要讓速度多帶一點判斷。"]],"close":["〈It’s My Life〉很適合彼得，因為它有一種現在就要活出去的衝勁。","有些路要想過再走。有些時刻，真的得先跳下去。"]}},"ISTP":{"character":"參孫","artKey":"參孫","artist":"Kelly Clarkson","song":"Stronger (What Doesn’t Kill You)","youtube":"https://youtu.be/Xn676-fLq7I?si=5qsrvzOvaXnP0hT5","tagline":"有些傷也會告訴你，下一次力量該用在哪裡。","intro":"你是 ISTP。遇到問題時，比起講很多，你往往更想直接處理。參孫有驚人的力量，也很相信自己可以搞定眼前的局面。這讓他一次次闖過危機，也讓他低估了一些選擇的代價。","reasons":[["你習慣靠自己的能力處理問題","事情越難，越容易讓你集中注意力。"],["受過傷之後，判斷會改變","參孫失去視力與力量後，人生來到完全不同的位置。"],["最後一次出手，和以前不太一樣","他最後呼求神時，已經知道自己的力量有來源，也知道自己的限制。"]],"ending":"你的能力可以帶你走很遠。有些傷也會告訴你，下一次力量該用在哪裡。","group":"SP","letter":{"opener":"給親愛的你","lead":["遇到問題時，你可能比較想直接處理，少一點會議，少一點繞圈。能力夠不夠、方法有沒有用，往往比話說得漂不漂亮更吸引你。","參孫有驚人的力量，也很習慣靠自己的能力處理危機。很多時候他真的辦到了，這也讓他越來越相信自己總能找到出口。"],"sections":[["能力會讓人形成自己的節奏","當你擅長一件事，很容易養成「我來就好」的習慣。這能讓事情快速前進，也可能讓你低估某些不能只靠技術解決的問題。"],["受傷之後，判斷會改變","參孫失去視力與自由後，再也不能照以前的方式生活。很多人也是到了某次失敗之後，才重新看見自己的限制。這種經驗很痛，但會改變下一次怎麼選。"],["最後一次出手帶著新的認識","參孫最後呼求神時，知道力量有來源，也知道自己已經走到生命的邊界。那個動作仍然直接，卻多了一層過去比較少見的自覺。"]],"close":["〈Stronger〉放在參孫旁邊，不只是因為力量，更因為它談受傷之後怎麼重新站起來。","有些傷會留下痕跡，也會告訴你下一次力量該用在哪裡。"]}},"ESFP":{"character":"撒馬利亞婦人","artKey":"井旁的撒馬利亞婦人","artist":"Keala Settle & The Greatest Showman Ensemble","song":"This Is Me","youtube":"https://youtu.be/CjxugyZCfuw?si=SXFuoEjSCvhm1c5R","tagline":"這就是我，而我的故事還沒結束。","intro":"你是 ESFP。你喜歡真實互動，也很容易感受到別人對你的反應。撒馬利亞婦人的故事，從正午的井邊開始。耶穌主動和她說話，也談到她那些很難面對的過去。談話結束後，她把水罐留在原地，跑回城裡找人。","reasons":[["你渴望有一天不用再躲","長期被議論之後，一個人連原本自然的樣子都可能收起來。"],["傷痕還在，故事卻可以繼續","過去沒有消失，但它不必決定你以後只能站在哪裡。"],["找到自己的聲音後，你會想分享出去","她沒有準備完整講稿，就直接回城裡告訴大家自己遇見了誰。"]],"ending":"有一天，你也可能重新走進人群。這就是我，而我的故事還沒結束。","group":"SP","letter":{"opener":"給親愛的你","lead":["你喜歡真實的互動，也很容易感受到別人的眼光。被接納時，你會發出很亮的能量；長期被議論時，那些目光也可能讓你慢慢把自己縮小。","撒馬利亞婦人的故事從正午井邊開始。她在一個不太尋常的時間來打水，耶穌主動和她說話，也碰到她生命裡那些很難說出口的部分。"],"sections":[["被看見之後，人會開始改變","有些人以為接納只是好聽的話，可是對長期活在評價裡的人來說，被平等地對待本身就會帶來改變。她在井邊沒有被趕走，也沒有被當成笑話。"],["過去可以留下，但不必綁住下一步","她的故事沒有被擦掉。那些關係、選擇和傷口都還是她人生的一部分。只是談話結束後，她不再只留在井旁。"],["重新找到聲音，就會想分享","她把水罐留下，跑回城裡叫人來看。沒有完整講稿，也沒有一套漂亮論證，她只是把自己遇見的事說出來。這種直接的感染力很像 ESFP。"]],"close":["〈This Is Me〉很適合從井邊走回城裡的那段路。那是一種不再把自己縮小的感覺。","你有過尷尬的故事，也有不想被提起的過去。你的故事還沒結束。"]}},"ISFP":{"character":"大衛","artKey":"大衛","artist":"Leonard Cohen","song":"Hallelujah","youtube":"https://www.youtube.com/watch?v=YrLk4vdY28Q","tagline":"有時候，是裂痕讓一首歌有了聲音。","intro":"你是 ISFP。你很容易被旋律、畫面、氣氛與情感打動。大衛會彈琴、寫詩，也會在約櫃前跳舞。他的感受很豐富，愛得很深，跌下去時也跌得很重。","reasons":[["你會用創作接近信仰","大衛留下的詩篇，很少只有漂亮話。喜樂、害怕、憤怒、羞愧，都被寫進去了。"],["你容易被美吸引","這份敏銳可以成為創作，也可能把人帶進危險。"],["破碎之後，歌還可以繼續唱","大衛的人生有很難看的部分，也有深刻的悔改。"]],"ending":"有些讚美會在生命最狼狽的時候出現。有時候，是裂痕讓一首歌有了聲音。","group":"SP","letter":{"opener":"給親愛的你","lead":["你很容易被聲音、畫面、氣味與情緒打動。對你來說，信仰很少只停在抽象概念裡，它會變成一首歌、一段眼淚、一場舞，或某個你記很久的夜晚。","大衛是牧童、戰士、君王，也是詩人。他彈琴、寫詩，在約櫃前跳舞，也曾因為慾望做出很嚴重的選擇。這個人的生命一直同時帶著美感、激情與裂痕。"],"sections":[["創作是你理解世界的方法","大衛留下的詩篇裡有喜樂、害怕、憤怒、羞愧，也有對神的渴望。他沒有把情緒整理成很乾淨的樣子才寫下來。很多 ISFP 也會透過創作，把難以解釋的感受變成可以被看見的東西。"],["對美的敏銳既珍貴也危險","能被美吸引，會讓你看見別人錯過的細節，也可能讓感官和慾望把人帶到危險的地方。大衛與拔示巴的故事，把這個張力留得很直接。"],["破碎之後仍然可以留下作品","大衛的失敗沒有變成一個可以輕輕帶過的插曲。悔改也沒有讓過去消失。可是在那些裂痕裡，他仍繼續寫、繼續唱，也留下很多後來的人會讀到的文字。"]],"close":["〈Hallelujah〉很適合大衛，因為它也把神聖、慾望、失去與讚美放在同一首歌裡。","有些讚美會在生命最狼狽的時候出現。有時候，是裂痕讓一首歌有了聲音。"]}},"ENTJ":{"character":"底波拉","artKey":"底波拉","artist":"Queen","song":"We Will Rock You","youtube":"https://youtu.be/-tJYN-eG1zk?si=G3DPS4e5u2elJ0DM","tagline":"節拍一開始，大家就知道該出發了。","intro":"你是 ENTJ。局面越亂，你越容易開始抓方向。底波拉身為士師與先知，在百姓害怕的時候召來巴拉，說明該做什麼，也願意親自同行。","reasons":[["你會替混亂打出節拍","當所有人各說各話，你很容易把注意力重新拉回目標。"],["你擅長讓人一起動起來","這首歌最有力量的地方，就是一群人一起踩出同一個節奏。"],["你留下的影響常超過一場勝利","好的領導會讓一群人記得：那一次，我們一起做到了。"]],"ending":"底波拉不需要太多鋪陳。節拍一開始，大家就知道該出發了。","group":"NT","letter":{"opener":"給親愛的你","lead":["局面越亂，你可能越容易開始抓方向。大家各自有意見時，你會想先確認目標、分清優先順序，然後找出誰可以把事情推動起來。","底波拉身為士師與先知，在百姓受壓迫的時候召來巴拉，說明接下來要做什麼。她不只給方向，也願意同行，讓原本害怕的人重新聚在一起。"],"sections":[["你會替混亂打出節拍","ENTJ 的領導力常常出現在節奏上。什麼先做、誰來負責、哪個問題先不要分心，這些判斷能讓團隊重新往同一個方向移動。"],["號召力來自你願意承擔","只下命令很容易，願意和團隊一起進場比較難。底波拉願意同行，讓她的話不只是口號。很多人願意跟著一個領袖，是因為看見對方也把自己放進風險裡。"],["好的領導會變成共同記憶","一場勝利結束後，留下來的不只有結果，還有「我們曾經一起做到」的感覺。這種共同經驗常會讓一個群體後來更敢面對新的挑戰。"]],"close":["〈We Will Rock You〉幾乎一響就會讓人一起踩出節拍，很適合底波拉的氣場。","不需要太多鋪陳。節拍一開始，大家就知道該出發了。"]}},"INTJ":{"character":"保羅","artKey":"保羅","artist":"Imagine Dragons","song":"Whatever It Takes","youtube":"https://youtu.be/gOsM-DYAEhY?si=UTfHRIKow7J9TGuN","tagline":"有些人替今天做決定，你常替還沒抵達的未來做決定。","intro":"你是 INTJ。一旦確認方向，你很容易把整條路一路想下去。保羅在大馬士革路上的經歷，讓人生整個轉向。之後的旅行、逼迫、監牢與風浪一次次打亂計畫，他仍然把注意力放在同一個使命上。","reasons":[["目標確定之後，你很難被拉走","INTJ 很在意一件事值不值得投入。一旦答案是肯定的，就會開始找路徑。"],["遇到阻力，你會改方法","換城市、換策略、重新安排，都只是前進的一部分。"],["你需要一個能做很多年的目標","今天做什麼很重要，你也會想這件事五年、十年後留下什麼。"]],"ending":"保羅的人生像一條拉得很長的線。有些人替今天做決定，你常替還沒抵達的未來做決定。","group":"NT","letter":{"opener":"給親愛的你","lead":["一旦確認方向，你很容易把整條路一路想下去。你會研究方法、預估阻力，也會考慮今天的選擇幾年後會留下什麼。","保羅在大馬士革路上的經歷讓人生整個轉向。之後的旅行、逼迫、監牢與風浪一次次打亂計畫，他仍然把注意力放在同一個使命上。"],"sections":[["使命確定之後，你會開始設計路徑","INTJ 很在意一件事值不值得投入。答案一旦確定，就會開始想資源怎麼分、路線怎麼走、哪裡需要調整。保羅在不同城市面對不同群體，也會改變溝通方式。"],["阻力會迫使策略升級","被拒絕、被追趕、被關進監牢，都沒有讓保羅的人生照原計畫進行。可是計畫被改，使命沒有跟著消失。對 INTJ 來說，方法可以換，核心方向可以留下。"],["你需要一個值得做很多年的目標","短期刺激很難滿足你太久。真正讓你投入的，往往是一個可以持續研究、建造、修正的長期方向。保羅的書信和旅程，就是這種長時間累積的結果。"]],"close":["〈Whatever It Takes〉的推進感很適合保羅。那股力道像是一個人知道前面還很遠，還是決定繼續走。","有些人替今天做決定，你常替還沒抵達的未來做決定。"]}},"ENTP":{"character":"雅各","artKey":"雅各","artist":"Queen","song":"Don’t Stop Me Now","youtube":"https://youtu.be/HgzGwKwLmgM?si=0y41jY-vz_cyIuIG","tagline":"你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。","intro":"你是 ENTP。看到規則時，腦中很容易先冒出一句：一定只能這樣嗎？雅各從出生抓著哥哥腳跟開始，一路想辦法取得長子名分、祝福，也在拉班那裡經歷各種鬥智。到了雅博渡口，他甚至和神摔跤到天亮。","reasons":[["你很會從縫隙找到辦法","限制一出現，你就開始重新排列可能性。"],["你很難甘心停在原地","雅各一直在追求下一個位置、下一個祝福、下一個出口。"],["再多方法，也會遇到用不上技巧的時刻","雅博渡口那一晚，他帶著傷離開，也得到新的名字。"]],"ending":"你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。","group":"NT","letter":{"opener":"給親愛的你","lead":["看到規則時，你腦中很容易先冒出一句：一定只能這樣嗎？你喜歡找新方法，也很會在限制裡看見別人沒有注意到的出口。","雅各的一生充滿這種腦筋轉得很快的時刻。從長子名分、父親的祝福，到後來和拉班周旋，他總有下一招。只是一路走到雅博渡口，他遇見了一場不能靠技巧輕鬆離開的摔跤。"],"sections":[["你很會重新排列可能性","ENTP 面對死路時，常會先懷疑那到底是不是死路。換角度、換條件、換個談法，都可能讓局面重新打開。雅各早年很多選擇都帶著這種機動性。"],["聰明會讓人很難停下來","當方法一直有效，很容易相信下一次也能找到辦法。雅各不斷追求新的位置、新的祝福，也不斷往下一個出口移動。那股能量很迷人，也很累。"],["有些夜晚沒有快捷鍵","雅博渡口那一夜，雅各摔跤到天亮，最後帶著傷離開，也得到新的名字。那一晚沒有漂亮解法，只剩下一個人面對自己最深的渴望。"]],"close":["〈Don’t Stop Me Now〉很像雅各前半生的速度，腦筋轉得快，腳步也不想停。","你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。"]}},"INTP":{"character":"多馬","artKey":"多馬","artist":"Simon & Garfunkel","song":"The Sound of Silence","youtube":"https://youtu.be/NAEppFUWLfc?si=iMOW6VEbxjjn6X3a","tagline":"我為什麼相信？有些答案會在安靜裡慢慢出現。","intro":"你是 INTP。一句話聽完之後，你腦中可能還會再多出好幾個問題。其他門徒告訴多馬，他們見到了復活的耶穌。多馬沒有立刻接受。他想親眼看見，也想確認那些傷痕。","reasons":[["你很習慣和問題待在一起","別人聊到下一個話題了，你可能還在想上一句哪裡說不通。"],["你對空洞的話很敏感","大家都在說話，不代表真的有交流；很多人聽見，也不代表有聽進去。"],["你的信仰需要容得下提問","多馬最後得到回應，他的問題沒有被草草帶過。"]],"ending":"你可能比別人多問一句：我為什麼相信？有些答案會在安靜裡慢慢出現。","group":"NT","letter":{"opener":"給親愛的你","lead":["一句話聽完之後，你腦中可能還會多出好幾個問題。你不太喜歡只因為大家都接受，就跟著點頭。你想知道證據在哪裡、說法有沒有矛盾、自己到底憑什麼相信。","其他門徒告訴多馬，他們已經見到復活的耶穌。多馬沒有立刻接受，他想親眼看見，也想確認那些傷痕。這讓他留下「疑惑的多馬」這個稱呼，可是他的追問也很誠實。"],"sections":[["你可以和問題待很久","有些人會因為問題沒有答案感到焦躁，你反而可能開始研究。別人已經換話題了，你還在想上一句哪裡有漏洞。這種耐性會讓你看見很多表面之下的東西。"],["你對空洞的話很敏感","大家都在說，不代表真的有交流；大家都點頭，也不代表內容經得起推敲。〈The Sound of Silence〉裡那種對群體溝通的疏離感，很接近 INTP 會注意到的世界。"],["信仰也可以容得下提問","多馬最後得到了回應。他的問題沒有被當成麻煩，也沒有被要求假裝沒有疑惑。對很多 INTP 來說，能夠提問本身就是走近信仰的一部分。"]],"close":["〈The Sound of Silence〉適合在夜深、房間安靜下來的時候聽。它留了很多空間，讓問題不用急著消失。","你可能會比別人多問一句：我為什麼相信？有些答案會在安靜裡慢慢出現。"]}}};
   const ORDER = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
   const SONG_PALETTE = {
-    /* SJ｜鼠尾草綠 */
-    ESTJ:{a:'#6F877B',b:'#A9BEB3',soft:'#EAF1ED'},
-    ISTJ:{a:'#6F877B',b:'#A9BEB3',soft:'#EAF1ED'},
-    ESFJ:{a:'#6F877B',b:'#A9BEB3',soft:'#EAF1ED'},
-    ISFJ:{a:'#6F877B',b:'#A9BEB3',soft:'#EAF1ED'},
-    /* NF｜香檳金 */
-    ENFP:{a:'#B28A3F',b:'#D6B564',soft:'#F8F0DA'},
-    INFP:{a:'#B28A3F',b:'#D6B564',soft:'#F8F0DA'},
-    ENFJ:{a:'#B28A3F',b:'#D6B564',soft:'#F8F0DA'},
-    INFJ:{a:'#B28A3F',b:'#D6B564',soft:'#F8F0DA'},
-    /* SP｜陶土橘 */
-    ESTP:{a:'#BE6C49',b:'#D99873',soft:'#F7E7DE'},
-    ISTP:{a:'#BE6C49',b:'#D99873',soft:'#F7E7DE'},
-    ESFP:{a:'#BE6C49',b:'#D99873',soft:'#F7E7DE'},
-    ISFP:{a:'#BE6C49',b:'#D99873',soft:'#F7E7DE'},
-    /* NT｜森林綠 */
-    ENTJ:{a:'#304C40',b:'#5F786A',soft:'#E7EEEA'},
-    INTJ:{a:'#304C40',b:'#5F786A',soft:'#E7EEEA'},
-    ENTP:{a:'#304C40',b:'#5F786A',soft:'#E7EEEA'},
-    INTP:{a:'#304C40',b:'#5F786A',soft:'#E7EEEA'}
+    /* SJ｜鼠尾草綠：同一色系做四階變化 */
+    ISTJ:{a:'#536A5F',b:'#7C9287',soft:'#E5ECE8'},
+    ISFJ:{a:'#60766B',b:'#8CA196',soft:'#E8EFEB'},
+    ESTJ:{a:'#6F877B',b:'#A0B4AA',soft:'#EAF1ED'},
+    ESFJ:{a:'#7D9588',b:'#B0C2B9',soft:'#EDF3F0'},
+    /* NF｜香檳金：由深金往亮金推進 */
+    INFJ:{a:'#7D642F',b:'#A08445',soft:'#F3E9CF'},
+    INFP:{a:'#8E7135',b:'#B0924C',soft:'#F5ECD4'},
+    ENFJ:{a:'#9E7D3A',b:'#C1A154',soft:'#F6EED8'},
+    ENFP:{a:'#B28A3F',b:'#D0B162',soft:'#F8F0DA'},
+    /* SP｜陶土橘：由深陶土往亮陶土推進 */
+    ISTP:{a:'#8F4B35',b:'#AF6A50',soft:'#F2DED5'},
+    ISFP:{a:'#A1583D',b:'#C2785A',soft:'#F4E2D9'},
+    ESTP:{a:'#B56545',b:'#D08767',soft:'#F6E5DC'},
+    ESFP:{a:'#C57654',b:'#DEA083',soft:'#F8E9E1'},
+    /* NT｜森林綠：由深森林往亮森林推進 */
+    INTJ:{a:'#263F35',b:'#3F5E50',soft:'#E1EAE5'},
+    INTP:{a:'#2B473B',b:'#496858',soft:'#E3ECE7'},
+    ENTJ:{a:'#304C40',b:'#557565',soft:'#E5EEE9'},
+    ENTP:{a:'#39594A',b:'#678778',soft:'#E8F0EC'}
   };
   const SITE_URL = 'https://gbookchurch.github.io/MBTI/';
   const picker = document.getElementById('song-picker');
@@ -16416,6 +16585,7 @@ if(sharedResultLoaded){
   const browseToggle = document.getElementById('song-browse-toggle');
   const browserPerson = document.getElementById('song-browser-person');
   const browserTrack = document.getElementById('song-browser-track');
+  const nowConsole = document.querySelector('.song-now-console');
   if (!picker || !card) return;
 
   const $ = id => document.getElementById(id);
@@ -16484,6 +16654,12 @@ if(sharedResultLoaded){
       songSection.style.setProperty('--song-a',palette.a);
       songSection.style.setProperty('--song-b',palette.b);
       songSection.style.setProperty('--song-soft',palette.soft);
+    }
+    // 播放器本身直接接收色票，讓 @property 在換歌時做連續色彩插值，不會瞬間跳色。
+    if (nowConsole) {
+      nowConsole.style.setProperty('--song-a',palette.a);
+      nowConsole.style.setProperty('--song-b',palette.b);
+      nowConsole.style.setProperty('--song-soft',palette.soft);
     }
     els.mbti.textContent = type;
     els.name.textContent = d.character;
