@@ -9530,6 +9530,25 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 }
 </style>
 
+
+<style id="v176-song-letter-pastoral-prose">
+/* v176｜長信改為連續書信散文；標題黑色；移除閱讀提示 */
+.song-letter-details summary{
+  color:#171615!important;
+  background:#FAF8F5!important;
+  font-family:"Noto Serif TC","Songti TC","PMingLiU","Noto Sans TC",serif!important;
+  font-weight:800!important;
+  letter-spacing:.015em;
+}
+.song-letter-details summary::after{color:#171615!important}
+.song-letter-details summary small{display:none!important}
+.song-letter-body{color:#272421!important;background:#FFF!important}
+.song-letter-body .song-letter-salutation{color:#171615!important;font-weight:800!important}
+.song-letter-body .song-letter-reflection{color:#2B2927!important}
+.song-letter-body .song-letter-reflection strong{color:inherit!important;font-weight:inherit!important}
+.song-letter-body .song-letter-closing{color:#2A2724!important;font-weight:600!important;border-top:0!important;padding-top:0!important}
+.song-letter-body .song-letter-closing.is-last{margin-top:-3px!important;font-weight:700!important}
+</style>
 </head>
 <body>
 <script id="v99-entry-top-fix">
@@ -9581,9 +9600,9 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
     <a class="hero-toc-link hero-toc-primary" id="hero-start-button" href="#discovery-section">先看結果 →</a>
     <a class="hero-toc-link" href="#discovery-section">核心發現</a>
     <a class="hero-toc-link" href="#mbti-lookup">找我的 MBTI</a>
-    <a class="hero-toc-link" href="#song-dedication-section">人格點歌</a>
     <a class="hero-toc-link" href="#ranking-compare">16 型排行榜</a>
     <a class="hero-toc-link" href="#question-stats-section">答題統計</a>
+    <a class="hero-toc-link" href="#song-dedication-section">人格點歌</a>
     <a class="hero-toc-link" href="#temperament-section">人物小劇場</a>
   </div>
 </nav>
@@ -9717,85 +9736,6 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </div>
 </div>
 
-
-
-<section class="f-section song-dedication-section" id="song-dedication-section" aria-labelledby="song-series-title">
-  <div class="song-series-head">
-    
-    <h2 class="section-title" id="song-series-title">今天，為你的聖經人物點一首歌</h2>
-    <div class="divider"></div>
-    <p class="section-subtitle">《教會小本本》為你們點了一首歌</p>
-  </div>
-  <div class="song-series-shell">
-    <div class="song-picker-wrap song-browser">
-      <div class="song-now-console">
-        <div class="song-now-disc" aria-hidden="true"><span></span></div>
-        <div class="song-now-meta">
-          <small>NOW PLAYING</small>
-          <strong id="song-browser-person">ESFJ｜馬大</strong>
-          <span id="song-browser-track">Florence + The Machine · Shake It Out</span>
-        </div>
-        <button class="song-browse-toggle" id="song-browse-toggle" type="button" aria-expanded="false" aria-controls="song-picker">瀏覽 16 型 <span aria-hidden="true">⌄</span></button>
-      </div>
-      <div class="song-transport" aria-label="人格點歌切換">
-        <button class="song-transport-btn" id="song-prev-btn" type="button" aria-label="上一首人格點歌"><b aria-hidden="true">‹</b><span>上一首</span></button>
-        <button class="song-transport-btn song-random-btn" id="song-random-btn" type="button"><span aria-hidden="true">🎲</span><span>隨機</span></button>
-        <button class="song-transport-btn" id="song-next-btn" type="button" aria-label="下一首人格點歌"><span>下一首</span><b aria-hidden="true">›</b></button>
-      </div>
-      <div class="song-picker" id="song-picker" role="listbox" aria-label="瀏覽 16 型人格點歌" hidden></div>
-    </div>
-
-    <article class="song-card" id="song-card" data-group="SJ" aria-live="polite">
-      <div class="song-character-panel">
-        <div class="song-character-id">
-          <span class="song-mbti" id="song-mbti">ESFJ</span>
-          <span class="song-character-name" id="song-character-name">馬大</span>
-        </div>
-        <div class="song-character-art"><img id="song-character-img" alt="" decoding="async" loading="lazy"/></div>
-        <div class="song-mobile-track" aria-hidden="true">
-          <span class="song-now-label">🎧 今日點歌</span>
-          <h3 class="song-title" id="song-title-mobile">Shake It Out</h3>
-          <div class="song-artist" id="song-artist-mobile">Florence + The Machine</div>
-          <p class="song-tagline" id="song-tagline-mobile">今天如果行程已經排滿了，留一格空白給自己。</p>
-        </div>
-      </div>
-      <div class="song-card-body">
-        <span class="song-now-label">🎧 今日點歌</span>
-        <h3 class="song-title" id="song-title">Shake It Out</h3>
-        <div class="song-artist" id="song-artist">Florence + The Machine</div>
-        <p class="song-tagline" id="song-tagline">今天如果行程已經排滿了，留一格空白給自己。</p>
-        <div class="song-video-wrap" id="song-video-wrap">
-          <iframe id="song-youtube-player" title="YouTube 人格點歌播放器" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <details class="song-letter-details" id="song-letter-details">
-          <summary><span id="song-letter-summary">✉️ 打開給 ESFJ 馬大的一封信</span><small>邊聽邊讀</small></summary>
-          <div class="song-letter-body" id="song-letter-body"></div>
-        </details>
-        <p class="song-intro" id="song-intro"></p>
-        <details class="song-story-details" id="song-story-details">
-          <summary>為什麼點這首？</summary>
-          <div class="song-reasons" id="song-reasons"></div>
-          <p class="song-ending" id="song-ending"></p>
-        </details>
-        <div class="song-actions">
-          <a class="song-action song-action-primary" id="song-youtube-link" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube 聽這首</a>
-          <button class="song-action song-action-secondary" id="song-share-btn" type="button">分享這張點歌</button>
-          <button class="song-action song-action-ghost" id="song-copy-btn" type="button">複製分享連結</button>
-        </div>
-      </div>
-    </article>
-    <div class="song-share-status" id="song-share-status" aria-live="polite"></div>
-
-    <div class="song-playlists">
-      <div class="song-playlists-copy">
-        <strong>16 種人格，16 個聖經人物，16 首人生配樂。</strong>
-        <span>想一次聽完？完整歌單已經整理好了。</span>
-      </div>
-      <a class="song-playlist-link" href="https://music.apple.com/tw/playlist/%E6%95%99%E6%9C%83%E5%B0%8F%E6%9C%AC%E6%9C%AC-%E8%81%96%E7%B6%93%E4%BA%BA%E7%89%A9mbti%E9%BB%9E%E6%AD%8C%E7%B3%BB%E5%88%97/pl.u-xlyNJJlupR9eAx" target="_blank" rel="noopener noreferrer"> Apple Music 完整歌單</a>
-      <a class="song-playlist-link" href="https://youtube.com/playlist?list=PL9d9t6kvVqkvqYoE9k5T648mmTWb6qL_5&si=vK_jNMDbaGdLRg6B" target="_blank" rel="noopener noreferrer">▶ YouTube 完整歌單</a>
-    </div>
-  </div>
-</section>
 
 
 <section class="rank-compare-section" id="ranking-compare" aria-labelledby="ranking-compare-title">
@@ -11556,6 +11496,85 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <div class="enfj-note mystery-note">主日聚會剛結束，門口還在招呼新人、順手關心同工；有人說下週服事缺人，他已經開始揪人了。照我們的人物對應，這種很會把人聚在一起、也很會顧人的角色，就是 ENFJ 的亞伯拉罕。<br/><br/>結果數字很妙。平信徒裡 ENFJ 排第 4，占 9.0%；到了牧者樣本卻掉到第 15，只剩 0.9%。<br/><br/>看到這個落差，先不要把它解讀成「ENFJ 不適合當牧者」。這份資料來自網路自願填答。願不願意點開 MBTI，本身就會影響最後收進來的是哪些人。<br/><br/>這次收進來的 ENFJ 牧者比較少，不代表整體牧者族群也是如此。<br/><br/><strong>亞伯拉罕型沒有消失；這次只是比較少出現在問卷裡。</strong></div>
 </div>
 </div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
+<section class="f-section song-dedication-section" id="song-dedication-section" aria-labelledby="song-series-title">
+  <div class="song-series-head">
+    
+    <h2 class="section-title" id="song-series-title">今天，為你的聖經人物點一首歌</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">《教會小本本》為你們點了一首歌</p>
+  </div>
+  <div class="song-series-shell">
+    <div class="song-picker-wrap song-browser">
+      <div class="song-now-console">
+        <div class="song-now-disc" aria-hidden="true"><span></span></div>
+        <div class="song-now-meta">
+          <small>NOW PLAYING</small>
+          <strong id="song-browser-person">ESFJ｜馬大</strong>
+          <span id="song-browser-track">Florence + The Machine · Shake It Out</span>
+        </div>
+        <button class="song-browse-toggle" id="song-browse-toggle" type="button" aria-expanded="false" aria-controls="song-picker">瀏覽 16 型 <span aria-hidden="true">⌄</span></button>
+      </div>
+      <div class="song-transport" aria-label="人格點歌切換">
+        <button class="song-transport-btn" id="song-prev-btn" type="button" aria-label="上一首人格點歌"><b aria-hidden="true">‹</b><span>上一首</span></button>
+        <button class="song-transport-btn song-random-btn" id="song-random-btn" type="button"><span aria-hidden="true">🎲</span><span>隨機</span></button>
+        <button class="song-transport-btn" id="song-next-btn" type="button" aria-label="下一首人格點歌"><span>下一首</span><b aria-hidden="true">›</b></button>
+      </div>
+      <div class="song-picker" id="song-picker" role="listbox" aria-label="瀏覽 16 型人格點歌" hidden></div>
+    </div>
+
+    <article class="song-card" id="song-card" data-group="SJ" aria-live="polite">
+      <div class="song-character-panel">
+        <div class="song-character-id">
+          <span class="song-mbti" id="song-mbti">ESFJ</span>
+          <span class="song-character-name" id="song-character-name">馬大</span>
+        </div>
+        <div class="song-character-art"><img id="song-character-img" alt="" decoding="async" loading="lazy"/></div>
+        <div class="song-mobile-track" aria-hidden="true">
+          <span class="song-now-label">🎧 今日點歌</span>
+          <h3 class="song-title" id="song-title-mobile">Shake It Out</h3>
+          <div class="song-artist" id="song-artist-mobile">Florence + The Machine</div>
+          <p class="song-tagline" id="song-tagline-mobile">今天如果行程已經排滿了，留一格空白給自己。</p>
+        </div>
+      </div>
+      <div class="song-card-body">
+        <span class="song-now-label">🎧 今日點歌</span>
+        <h3 class="song-title" id="song-title">Shake It Out</h3>
+        <div class="song-artist" id="song-artist">Florence + The Machine</div>
+        <p class="song-tagline" id="song-tagline">今天如果行程已經排滿了，留一格空白給自己。</p>
+        <div class="song-video-wrap" id="song-video-wrap">
+          <iframe id="song-youtube-player" title="YouTube 人格點歌播放器" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <details class="song-letter-details" id="song-letter-details">
+          <summary><span id="song-letter-summary">給 ESFJ 的一封信</span></summary>
+          <div class="song-letter-body" id="song-letter-body"></div>
+        </details>
+        <p class="song-intro" id="song-intro"></p>
+        <details class="song-story-details" id="song-story-details">
+          <summary>為什麼點這首？</summary>
+          <div class="song-reasons" id="song-reasons"></div>
+          <p class="song-ending" id="song-ending"></p>
+        </details>
+        <div class="song-actions">
+          <a class="song-action song-action-primary" id="song-youtube-link" href="#" target="_blank" rel="noopener noreferrer">▶ YouTube 聽這首</a>
+          <button class="song-action song-action-secondary" id="song-share-btn" type="button">分享這張點歌</button>
+          <button class="song-action song-action-ghost" id="song-copy-btn" type="button">複製分享連結</button>
+        </div>
+      </div>
+    </article>
+    <div class="song-share-status" id="song-share-status" aria-live="polite"></div>
+
+    <div class="song-playlists">
+      <div class="song-playlists-copy">
+        <strong>16 種人格，16 個聖經人物，16 首人生配樂。</strong>
+        <span>想一次聽完？完整歌單已經整理好了。</span>
+      </div>
+      <a class="song-playlist-link" href="https://music.apple.com/tw/playlist/%E6%95%99%E6%9C%83%E5%B0%8F%E6%9C%AC%E6%9C%AC-%E8%81%96%E7%B6%93%E4%BA%BA%E7%89%A9mbti%E9%BB%9E%E6%AD%8C%E7%B3%BB%E5%88%97/pl.u-xlyNJJlupR9eAx" target="_blank" rel="noopener noreferrer"> Apple Music 完整歌單</a>
+      <a class="song-playlist-link" href="https://youtube.com/playlist?list=PL9d9t6kvVqkvqYoE9k5T648mmTWb6qL_5&si=vK_jNMDbaGdLRg6B" target="_blank" rel="noopener noreferrer">▶ YouTube 完整歌單</a>
+    </div>
+  </div>
+</section>
+
+
 <section class="alt temperament-theater-section" id="temperament-section">
 <h2 class="section-title temperament-theater-title">人物小劇場</h2>
 <div class="theater-view-toggle" role="tablist" aria-label="人物小劇場視角">
@@ -16554,7 +16573,7 @@ if(sharedResultLoaded){
 
 <script id="v164-song-dedication-script">
 (() => {
-  const SONG_DATA = {"ESTJ":{"character":"摩西","artKey":"摩西","artist":"Foo Fighters","song":"Walk","youtube":"https://youtu.be/4PkcfQtibmU?si=vPp1WHFFgq60yCz3","tagline":"今天不用把整條路走完，先把下一步走出去。","intro":"你是 ESTJ。事情一多，你很自然就開始排順序、分工作、抓進度。比起一直討論，你更在意這件事到底要怎麼落地。摩西接下的任務非常麻煩。他面對的是一群剛離開奴役生活、還在學習怎麼一起生活的百姓。曠野沒有現成流程，他只能一路處理問題，一路建立新的秩序。","reasons":[["重新學會走路","帶一個團隊從零開始，很多事情沒有前例，只能邊走邊建立方法。"],["等夠了，就開始做","ESTJ 可以評估很久，但到了該決定的時候，你通常不喜歡再拖。"],["長途才看得出功力","摩西面對的考驗很少一次結束。真正消耗人的，往往是同一件事要處理很久。"]],"ending":"你的曠野可能是工作、家庭、事工，或一個一直卡著的專案。今天不用把整條路走完，先把下一步走出去。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你常常是那個把混亂重新排出順序的人。事情一多，你會開始想先做什麼、誰負責哪一段、什麼時候要完成。對你來說，方向如果只停在口號裡，心裡很難踏實。","摩西接下的任務非常大。他帶著一群剛離開奴役生活的百姓走進曠野，沿路要處理食物、衝突、抱怨、制度與信仰。每天都有新狀況，很多事沒有現成答案。"],"sections":[["把藍圖拆成下一步","ESTJ 的能力常出現在落地的那一刻。願景很好，但你更在意今天要做什麼。摩西也是一路把抽象的使命變成可執行的安排，讓一群人慢慢學會一起生活、一起前進。"],["領導很少照表操課","你喜歡有計畫，可是人不會像表格一樣運作。有人抱怨、有人害怕、有人臨時改變，這些都會打亂原先安排。領導久了，你會發現調整方法也是工作的一部分。"],["長途才看得出功力","曠野不是一場短跑。很多責任真正考驗人的地方，在於同一件事要處理很久。今天解決一題，明天又來另一題。你願意一段一段走，這份持續本身就很有力量。"]],"close":["〈Walk〉很適合放在這段旅程旁邊。它有重新起步的感覺，也有走過疲累之後再次往前的力道。","如果你最近也在帶一個團隊、照顧一個家，或推一件卡了很久的事，不用一次把終點扛在肩上。今天先把下一步走出去。"]}},"ISTJ":{"character":"尼希米","artKey":"尼希米","artist":"Journey","song":"Don’t Stop Believin’","youtube":"https://youtu.be/1k8craCGpgs?si=zKxX85ouTQE3GFKn","tagline":"很多事情最後能完成，只因每天都有人回來，把今天這一段做好。","intro":"你是 ISTJ。交到你手上的事，你通常會記得，也會想辦法把它完成。尼希米聽見耶路撒冷城牆毀壞後，沒有只停在難過。他先禱告、觀察、規劃，再開始分工重建。","reasons":[["事情可以一段一段完成","城牆沒有一天蓋好。今天修這裡，明天處理下一段，最後才慢慢看見全貌。"],["責任要變成具體安排","尼希米面對敵人的威脅，也面對內部問題。他安排守望、分工，也處理百姓之間的不公平。"],["團隊累的時候，需要有人還記得下一步","ISTJ 不一定最會炒熱氣氛，但常常有人靠著你的持續，才沒有半途放掉。"]],"ending":"很多事情最後能完成，只因每天都有人回來，把今天該做的那一段做好。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你可能不太迷戀大場面。比起喊得響亮，你更在意事情有沒有被記住、安排好、做完。團隊裡那些容易被忽略的細節，常常會先被你看到。","尼希米聽見耶路撒冷城牆毀壞後，先難過，也先禱告。到了現場，他沒有急著做秀，先在夜裡察看城牆、盤點狀況，再把工作分出去。"],"sections":[["工程是一段一段完成的","城牆不可能一天蓋好。有人修這一段，有人處理下一段，時間、材料、人力都要接得起來。這種工作很適合 ISTJ 的節奏，慢慢把每個環節放回位置。"],["責任感會遇到現實摩擦","外面有人挑釁，裡面也有人灰心，還有內部的不公平需要處理。尼希米的工作從來不只是一道牆。你也可能很熟悉這種狀況，原本只想把事情做好，最後連人的情緒與關係都要一起顧。"],["信念需要有人每天回來","熱血很難天天有。很多長期計畫最後能完成，是因為有人到了隔天還願意回來，繼續做昨天沒有做完的部分。你常常就是那個記得的人。"]],"close":["〈Don’t Stop Believin’〉放在尼希米旁邊，很像一首工程做到一半時會需要的歌。","不用每天都很激昂。記得方向，然後把今天該做的那一段完成，就已經往前了。"]}},"ESFJ":{"character":"馬大","artKey":"馬大","artist":"Florence + The Machine","song":"Shake It Out","youtube":"https://youtu.be/WbN0nX61rIs?si=aXQHIAGDbmczXh9Q","tagline":"今天如果行程已經排滿了，留一格空白給自己。","intro":"你是 ESFJ。進到一個空間，你很容易先注意誰還沒被照顧、哪裡需要補位、誰看起來有點尷尬。馬大招待耶穌時也是如此。她張羅很多事，希望大家都好好的。事情一多，心裡的壓力也跟著累積。","reasons":[["別人的需要很容易被你一起帶回家","有人不開心、事情沒做好，你常會放在心上。"],["有些責任可以晚一點處理","每件事都有自己的時間，不必全部在今天接手；每個人的情緒，也不需要全放到你身上。"],["你的人生不能只剩待辦事項","馬大很會服事，也需要有自己的位置坐下來。"]],"ending":"今天如果行程已經排滿了，留一格空白給自己。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你很容易看見別人的需要。誰還沒吃飯、誰坐在角落、哪裡少一雙手，你常常不用人提醒就會開始處理。這種敏銳讓人感到被照顧，也讓你很容易把很多事放進自己的待辦清單。","馬大招待耶穌時也是如此。她忙著準備，希望每個環節都妥當。忙到後來，原本出於愛的付出開始變成心裡的重量，委屈也跟著冒出來。"],"sections":[["你很會照顧一個空間","ESFJ 常常能讓陌生的人感到有人在意，也能讓群體變得有溫度。這是很珍貴的能力。只是當你一直把注意力放在別人身上，自己的感受很容易排到最後。"],["責任有時需要放回原位","不是每一件事都得今天處理，也不是每個人的情緒都要放到你身上。有人失望，不一定代表你做錯了；有人沒有被滿足，也不一定需要你立刻補上。"],["留一個位置給自己","馬大的故事很像一個提醒。你可以繼續愛人、服事、安排，也可以坐下來。休息不是離開責任，休息讓你有空間重新感受自己正在做什麼。"]],"close":["〈Shake It Out〉很適合在行程滿到沒有縫的時候播放。那股把重量甩開的節奏，像是替自己挪出一點空氣。","今天如果事情很多，先留一格空白。那一格不需要交代給任何人。"]}},"ISFJ":{"character":"路得","artKey":"路得","artist":"Miley Cyrus","song":"The Climb","youtube":"https://youtu.be/NG2zyeVRcbs?si=3FUKdjiYPcQpjH66","tagline":"你可能還看不到山的另一邊。今天這一步，也算數。","intro":"你是 ISFJ。你很重承諾，也常把愛放進日常的小事情裡。丈夫過世後，路得可以回到自己的家鄉。她卻選擇陪拿俄米前往伯利恆。那意味著離開熟悉的生活，到一個幾乎沒有保障的地方重新開始。","reasons":[["重要的路，常常一天只能走一點","路得出發時，不知道後面會遇見波阿斯，也不知道自己的故事最後會走到哪裡。"],["你的勇敢很少大張旗鼓","去異鄉、到田裡拾麥穗、重新生活，每一步都需要勇氣。"],["你在意的是怎麼一路走過來","有些愛沒有漂亮台詞，只是每天還願意留下來。"]],"ending":"你可能還看不到山的另一邊。今天這一步，也算數。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你重視承諾，也很容易把愛放進日常的小事裡。你不一定會把話說得很大聲，但一旦決定陪一個人走，常常會走得比別人想像得久。","路得失去丈夫之後，本來可以回到熟悉的家鄉。她卻選擇陪拿俄米前往伯利恆。那條路沒有保證，也沒有誰先告訴她結局會很好。"],"sections":[["陪伴常常長得很普通","很多重要的愛，不會天天出現戲劇性的時刻。它可能只是一起走路、一起找吃的、在對方很難過時還在旁邊。路得的忠心就是這樣，一天接一天。"],["異鄉生活需要很多勇氣","到田裡拾麥穗、進入陌生群體、學著適應新的生活，每一件看起來都很平常，背後卻需要勇氣。ISFJ 的勇敢往往不張揚，可是會留下很長的痕跡。"],["結果出現以前，路還是要走","路得出發時不知道會遇見波阿斯，也不知道自己後來會進入怎樣的家族故事。她能做的，就是把今天走完。"]],"close":["〈The Climb〉很適合路得，因為它把注意力放回旅程本身。","你可能還看不到山的另一邊。沒關係，今天這一步，也算數。"]}},"ENFP":{"character":"巴拿巴","artKey":"巴拿巴","artist":"Jessie J feat. B.o.B","song":"Price Tag","youtube":"https://youtu.be/qMxX-QOV9tI?si=deUCbULeCWLnALNQ","tagline":"一個願意先相信你的人，可能會改變很多事。","intro":"你是 ENFP。看到一個人還有機會，你通常很難完全放著不管。巴拿巴賣掉田產，把所得交給使徒。後來大家還怕保羅時，也是他願意把保羅帶進群體，替他說話。","reasons":[["你很少只用價格衡量一件事","錢、效率、名聲都重要，但一個人能不能重新得到機會，你也會放進考量。"],["你很會讓氣氛重新有空氣","一群人開始緊張、排斥或失去信心時，你常能提出另一種可能。"],["你願意把舞台分給別人","巴拿巴沒有一直搶著站在最前面。他願意陪別人成長，這也改變了保羅後來的路。"]],"ending":"有些東西沒有標價。一個願意先相信你的人，可能會改變很多事。","group":"NF","letter":{"opener":"給親愛的你","lead":["你很容易看到一個人還沒有被看見的部分。當大家已經下了結論，你可能還會想，也許他還有別的可能。這份對人的期待，常讓你成為別人的鼓勵。","巴拿巴在早期教會裡做過很多這樣的事。他分享自己的資源，也在大家害怕保羅的時候願意替保羅說話，把他帶進群體。"],"sections":[["你很在意一件事有沒有意義","金錢、效率、名聲都會影響決定，但 ENFP 往往還會多問一題：這件事會不會讓人得到新的機會？巴拿巴願意把手上的東西拿出來，也願意把自己的信用放在別人身上。"],["鼓勵不是空話","真正有用的鼓勵常常會帶著行動。替一個人介紹、陪他進入群體、在眾人面前替他說一句話，這些都比單純說加油更有重量。"],["你可以替別人的成長開心","巴拿巴沒有一直把舞台留給自己。後來保羅成為重要角色，他早期曾經得到巴拿巴的支持。能夠看見別人發光，還願意替他高興，是很難得的能力。"]],"close":["〈Price Tag〉有一種輕快又不被標價綁住的感覺，很適合巴拿巴。","有些東西沒有價格。一個願意先相信你的人，可能會改變很多事。"]}},"INFP":{"character":"約翰","artKey":"約翰","artist":"Coldplay","song":"O (Fly On)","youtube":"https://youtu.be/Ap-HeMIKi-c?si=LbnMtsodxTim39Ys","tagline":"你可能只寫下一句話，卻陪一個人很多年。","intro":"你是 INFP。心裡常有很多感受，但不一定會立刻說出口。約翰曾靠近耶穌，也站在十字架旁。後來，他把那些經歷寫成關於愛、光、生命與真理的文字。","reasons":[["你很會陪人待在安靜裡","有些時候，人需要的答案可以晚一點出現，先有人留在身邊也很重要。"],["你的感受常常會變成文字","約翰寫得很深，語言卻不一定複雜。幾句話就可能留在人心裡很久。"],["離開不代表所有連結都消失","有些人走遠之後，留下的話、回憶與愛，還是會繼續陪著我們。"]],"ending":"約翰經歷過很多離別，後來留下最多的文字之一，仍然是愛。你可能只寫下一句話，卻陪一個人很多年。","group":"NF","letter":{"opener":"給親愛的你","lead":["你心裡常常有很多感受，但不一定會立刻說出口。你習慣先放著、想一想，等到找到合適的文字，才把那些細小又難說的東西寫下來。","約翰曾靠近耶穌，也站在十字架旁。後來，他把記憶、失去、愛與信仰寫進福音書和書信裡。那些文字沒有靠喧鬧取勝，卻陪了很多人很久。"],"sections":[["有些陪伴不用急著給答案","一個人在難過時，未必需要馬上被分析。有人願意留下來，讓沉默有地方待著，常常已經很重要。INFP 很容易理解這種陪伴。"],["感受可以慢慢變成文字","約翰寫愛、光、生命，也寫離別。語言不一定複雜，內容卻能留下很深的回音。你也可能有這種習慣，把一段感受放很久，最後只寫出幾句話，卻比長篇解釋更接近心裡。"],["離別之後，關係仍會留下痕跡","有些人離開了，曾經一起走過的路、說過的話、留下的記憶還是會陪著我們。那段關係沒有被抓住不放，只是已經成為生命的一部分。"]],"close":["〈O (Fly On)〉的氣氛很適合邊聽邊讀這封信。它輕得像一段想念，也留著一點往前飛的空間。","你可能只寫下一句話，卻陪一個人很多年。"]}},"ENFJ":{"character":"亞伯拉罕","artKey":"亞伯拉罕","artist":"OneRepublic","song":"I Lived","youtube":"https://youtu.be/z0rxydSolwU?si=3DFbltGDbwBwlba6","tagline":"有一天回頭，希望你可以說：我真的活過。","intro":"你是 ENFJ。當你相信一件事值得投入，很容易把自己也放進那個方向。亞伯拉罕離開熟悉的土地時，手上沒有完整地圖。他只知道自己要往前走。","reasons":[["你很難只想到自己","亞伯拉罕收到的應許，從一開始就牽涉家庭、後代與更遠的未來。"],["你願意先走第一步","終點還看不到，方向卻已經足以讓你開始行動。"],["你會想知道自己最後留下了什麼","對 ENFJ 來說，一段人生有沒有影響到別人，常常比表面的成績更有份量。"]],"ending":"亞伯拉罕沒有親眼看見所有應許完成。他只走了自己能走的那一段。有一天回頭，希望你可以說：我真的活過。","group":"NF","letter":{"opener":"給親愛的你","lead":["你很容易被願景吸引。當你相信一個方向值得走，眼前的不確定不一定會把你留在原地。你會開始想，這條路最後能帶給哪些人新的可能。","亞伯拉罕離開熟悉的土地時，沒有完整地圖，也沒有立刻看到應許實現。他帶著家人往前，經歷等待、衝突、失落，也一次次重新確認自己正在走的方向。"],"sections":[["你很難只替自己規劃","ENFJ 常常會把別人的未來也放進心裡。亞伯拉罕收到的應許，從一開始就牽涉家庭、後代與更遠的世代。這讓他的選擇帶著很長的時間感。"],["願景會要求你先走一步","很多路在出發時看不到終點。你只能根據手上已經知道的部分先做決定。這種時候，勇氣比較像願意前進，不像什麼都已經確定。"],["人生最後留下的是影響","你可能很在意自己有沒有讓身邊的人多一點盼望、多一點方向。數字和成績會過去，人被怎麼影響，常常留得更久。"]],"close":["〈I Lived〉很像一封寫給未來自己的信。走過冒險、等待與選擇之後，回頭問自己有沒有把這段人生好好活過。","亞伯拉罕沒有看到所有應許完成，他只走了自己能走的那一段。有一天回頭，希望你也可以說：我真的活過。"]}},"INFJ":{"character":"但以理","artKey":"但以理","artist":"Lenka","song":"The Show","youtube":"https://youtu.be/elsh3J5lJ6g?si=411TSTY4J2Q5tZer","tagline":"只要記得自己想成為怎樣的人，就還找得到下一步。","intro":"你是 INFJ。人在現場時，你的心常常還會再往後看一層。但以理身在巴比倫宮廷，學習新的語言、文化與制度，也知道有些界線不能隨環境一起改變。","reasons":[["你常一邊生活，一邊觀察生活","人在群體裡，你還是會問：這件事最後會把大家帶去哪裡？"],["你不需要每件事都搶著表態","但以理很多選擇都很安靜。吃什麼、怎麼禱告、怎麼回答君王，慢慢形成他的立場。"],["有些答案要等很久","他也遇過看不明白的異象與漫長等待。"]],"ending":"人生有時像迷宮，也像一場還沒拿到完整劇本的戲。只要記得自己想成為怎樣的人，就還找得到下一步。","group":"NF","letter":{"opener":"給親愛的你","lead":["你在人群裡常常不急著搶話。你會先觀察氣氛、關係和事情的走向，心裡也會多想一層，這件事最後會把大家帶去哪裡。","但以理被帶到巴比倫之後，學習新的語言與制度，也在宮廷裡工作。他沒有拒絕所有外來文化，可是有些界線，他一直留在心裡。"],"sections":[["身在其中，也保留自己的座標","INFJ 很容易同時理解環境和自己的價值。你可以適應一個地方，也可以知道哪些東西不能隨著環境一起改變。"],["安靜不等於沒有立場","但以理很多重要選擇都不吵鬧。吃什麼、怎麼禱告、怎麼回答君王，一次次累積出他的立場。你也可能比較習慣用行動和長期選擇表達自己。"],["有些答案要等很久","但以理看過難以理解的異象，也經歷過漫長等待。INFJ 常常能想得很遠，可是未來不會因此提早揭曉。能做的，就是在還看不完整時保留方向感。"]],"close":["〈The Show〉有一種輕快又帶點迷惘的氣質，很像人在複雜世界裡一邊生活、一邊尋找位置。","你不一定知道下一幕會發生什麼。只要還記得自己想成為怎樣的人，就還找得到下一步。"]}},"ESTP":{"character":"彼得","artKey":"彼得","artist":"Bon Jovi","song":"It’s My Life","youtube":"https://youtu.be/vx2u5uUu3DE?si=z64kcQfAQWOHHdDF","tagline":"有些路要想過再走。有些時刻，真的得先跳下去。","intro":"你是 ESTP。事情發生時，你的反應通常很快。別人還在看，你可能已經開口；大家還在想，你可能先跨了一步。彼得就是這種人。看見耶穌走在水面上，他敢說自己也要去；復活之後知道岸上的人是耶穌，他又直接跳進水裡。","reasons":[["你習慣先試再調整","有些人要想很久才開始，你比較容易從行動裡得到答案。"],["機會來了，你很難無動於衷","關鍵時刻，你往往會有很強的現在就做的衝動。"],["你很多成長都發生在行動之後","彼得說錯過、害怕過，也否認過耶穌。後來他依然敢往前，只是開始知道行動也要承擔結果。"]],"ending":"有些路要想過再走。有些時刻，真的得先跳下去。","group":"SP","letter":{"opener":"給親愛的你","lead":["你的反應常常很快。事情才剛發生，你可能已經開口；大家還在觀察，你的腳已經往前一步。這份速度讓你有很多精彩故事，也讓你偶爾需要替剛剛的決定收尾。","彼得很像這樣。看見耶穌走在水面上，他想下去；復活之後認出岸上的耶穌，他又直接跳進水裡。很多時刻，他總是第一個有動作的人。"],"sections":[["行動會替你打開經驗","ESTP 很容易從實際碰過一次之後學得最快。站在岸上分析和真的踩進水裡，是兩種不同的資訊。你的優勢在於願意試。"],["速度也會帶來代價","彼得說過很有勇氣的話，也在壓力來時害怕過。他曾經高估自己，也曾經否認耶穌。這些經驗沒有把他定型，反而成了後來重新承擔責任的一部分。"],["成熟不需要把你的火熄掉","後來的彼得還是很有行動力。差別在於，他開始知道熱情需要方向，承諾也需要面對後果。你不必變成另一種人，只需要讓速度多帶一點判斷。"]],"close":["〈It’s My Life〉很適合彼得，因為它有一種現在就要活出去的衝勁。","有些路要想過再走。有些時刻，真的得先跳下去。"]}},"ISTP":{"character":"參孫","artKey":"參孫","artist":"Kelly Clarkson","song":"Stronger (What Doesn’t Kill You)","youtube":"https://youtu.be/Xn676-fLq7I?si=5qsrvzOvaXnP0hT5","tagline":"有些傷也會告訴你，下一次力量該用在哪裡。","intro":"你是 ISTP。遇到問題時，比起講很多，你往往更想直接處理。參孫有驚人的力量，也很相信自己可以搞定眼前的局面。這讓他一次次闖過危機，也讓他低估了一些選擇的代價。","reasons":[["你習慣靠自己的能力處理問題","事情越難，越容易讓你集中注意力。"],["受過傷之後，判斷會改變","參孫失去視力與力量後，人生來到完全不同的位置。"],["最後一次出手，和以前不太一樣","他最後呼求神時，已經知道自己的力量有來源，也知道自己的限制。"]],"ending":"你的能力可以帶你走很遠。有些傷也會告訴你，下一次力量該用在哪裡。","group":"SP","letter":{"opener":"給親愛的你","lead":["遇到問題時，你可能比較想直接處理，少一點會議，少一點繞圈。能力夠不夠、方法有沒有用，往往比話說得漂不漂亮更吸引你。","參孫有驚人的力量，也很習慣靠自己的能力處理危機。很多時候他真的辦到了，這也讓他越來越相信自己總能找到出口。"],"sections":[["能力會讓人形成自己的節奏","當你擅長一件事，很容易養成「我來就好」的習慣。這能讓事情快速前進，也可能讓你低估某些不能只靠技術解決的問題。"],["受傷之後，判斷會改變","參孫失去視力與自由後，再也不能照以前的方式生活。很多人也是到了某次失敗之後，才重新看見自己的限制。這種經驗很痛，但會改變下一次怎麼選。"],["最後一次出手帶著新的認識","參孫最後呼求神時，知道力量有來源，也知道自己已經走到生命的邊界。那個動作仍然直接，卻多了一層過去比較少見的自覺。"]],"close":["〈Stronger〉放在參孫旁邊，不只是因為力量，更因為它談受傷之後怎麼重新站起來。","有些傷會留下痕跡，也會告訴你下一次力量該用在哪裡。"]}},"ESFP":{"character":"撒馬利亞婦人","artKey":"井旁的撒馬利亞婦人","artist":"Keala Settle & The Greatest Showman Ensemble","song":"This Is Me","youtube":"https://youtu.be/CjxugyZCfuw?si=SXFuoEjSCvhm1c5R","tagline":"這就是我，而我的故事還沒結束。","intro":"你是 ESFP。你喜歡真實互動，也很容易感受到別人對你的反應。撒馬利亞婦人的故事，從正午的井邊開始。耶穌主動和她說話，也談到她那些很難面對的過去。談話結束後，她把水罐留在原地，跑回城裡找人。","reasons":[["你渴望有一天不用再躲","長期被議論之後，一個人連原本自然的樣子都可能收起來。"],["傷痕還在，故事卻可以繼續","過去沒有消失，但它不必決定你以後只能站在哪裡。"],["找到自己的聲音後，你會想分享出去","她沒有準備完整講稿，就直接回城裡告訴大家自己遇見了誰。"]],"ending":"有一天，你也可能重新走進人群。這就是我，而我的故事還沒結束。","group":"SP","letter":{"opener":"給親愛的你","lead":["你喜歡真實的互動，也很容易感受到別人的眼光。被接納時，你會發出很亮的能量；長期被議論時，那些目光也可能讓你慢慢把自己縮小。","撒馬利亞婦人的故事從正午井邊開始。她在一個不太尋常的時間來打水，耶穌主動和她說話，也碰到她生命裡那些很難說出口的部分。"],"sections":[["被看見之後，人會開始改變","有些人以為接納只是好聽的話，可是對長期活在評價裡的人來說，被平等地對待本身就會帶來改變。她在井邊沒有被趕走，也沒有被當成笑話。"],["過去可以留下，但不必綁住下一步","她的故事沒有被擦掉。那些關係、選擇和傷口都還是她人生的一部分。只是談話結束後，她不再只留在井旁。"],["重新找到聲音，就會想分享","她把水罐留下，跑回城裡叫人來看。沒有完整講稿，也沒有一套漂亮論證，她只是把自己遇見的事說出來。這種直接的感染力很像 ESFP。"]],"close":["〈This Is Me〉很適合從井邊走回城裡的那段路。那是一種不再把自己縮小的感覺。","你有過尷尬的故事，也有不想被提起的過去。你的故事還沒結束。"]}},"ISFP":{"character":"大衛","artKey":"大衛","artist":"Leonard Cohen","song":"Hallelujah","youtube":"https://www.youtube.com/watch?v=YrLk4vdY28Q","tagline":"有時候，是裂痕讓一首歌有了聲音。","intro":"你是 ISFP。你很容易被旋律、畫面、氣氛與情感打動。大衛會彈琴、寫詩，也會在約櫃前跳舞。他的感受很豐富，愛得很深，跌下去時也跌得很重。","reasons":[["你會用創作接近信仰","大衛留下的詩篇，很少只有漂亮話。喜樂、害怕、憤怒、羞愧，都被寫進去了。"],["你容易被美吸引","這份敏銳可以成為創作，也可能把人帶進危險。"],["破碎之後，歌還可以繼續唱","大衛的人生有很難看的部分，也有深刻的悔改。"]],"ending":"有些讚美會在生命最狼狽的時候出現。有時候，是裂痕讓一首歌有了聲音。","group":"SP","letter":{"opener":"給親愛的你","lead":["你很容易被聲音、畫面、氣味與情緒打動。對你來說，信仰很少只停在抽象概念裡，它會變成一首歌、一段眼淚、一場舞，或某個你記很久的夜晚。","大衛是牧童、戰士、君王，也是詩人。他彈琴、寫詩，在約櫃前跳舞，也曾因為慾望做出很嚴重的選擇。這個人的生命一直同時帶著美感、激情與裂痕。"],"sections":[["創作是你理解世界的方法","大衛留下的詩篇裡有喜樂、害怕、憤怒、羞愧，也有對神的渴望。他沒有把情緒整理成很乾淨的樣子才寫下來。很多 ISFP 也會透過創作，把難以解釋的感受變成可以被看見的東西。"],["對美的敏銳既珍貴也危險","能被美吸引，會讓你看見別人錯過的細節，也可能讓感官和慾望把人帶到危險的地方。大衛與拔示巴的故事，把這個張力留得很直接。"],["破碎之後仍然可以留下作品","大衛的失敗沒有變成一個可以輕輕帶過的插曲。悔改也沒有讓過去消失。可是在那些裂痕裡，他仍繼續寫、繼續唱，也留下很多後來的人會讀到的文字。"]],"close":["〈Hallelujah〉很適合大衛，因為它也把神聖、慾望、失去與讚美放在同一首歌裡。","有些讚美會在生命最狼狽的時候出現。有時候，是裂痕讓一首歌有了聲音。"]}},"ENTJ":{"character":"底波拉","artKey":"底波拉","artist":"Queen","song":"We Will Rock You","youtube":"https://youtu.be/-tJYN-eG1zk?si=G3DPS4e5u2elJ0DM","tagline":"節拍一開始，大家就知道該出發了。","intro":"你是 ENTJ。局面越亂，你越容易開始抓方向。底波拉身為士師與先知，在百姓害怕的時候召來巴拉，說明該做什麼，也願意親自同行。","reasons":[["你會替混亂打出節拍","當所有人各說各話，你很容易把注意力重新拉回目標。"],["你擅長讓人一起動起來","這首歌最有力量的地方，就是一群人一起踩出同一個節奏。"],["你留下的影響常超過一場勝利","好的領導會讓一群人記得：那一次，我們一起做到了。"]],"ending":"底波拉不需要太多鋪陳。節拍一開始，大家就知道該出發了。","group":"NT","letter":{"opener":"給親愛的你","lead":["局面越亂，你可能越容易開始抓方向。大家各自有意見時，你會想先確認目標、分清優先順序，然後找出誰可以把事情推動起來。","底波拉身為士師與先知，在百姓受壓迫的時候召來巴拉，說明接下來要做什麼。她不只給方向，也願意同行，讓原本害怕的人重新聚在一起。"],"sections":[["你會替混亂打出節拍","ENTJ 的領導力常常出現在節奏上。什麼先做、誰來負責、哪個問題先不要分心，這些判斷能讓團隊重新往同一個方向移動。"],["號召力來自你願意承擔","只下命令很容易，願意和團隊一起進場比較難。底波拉願意同行，讓她的話不只是口號。很多人願意跟著一個領袖，是因為看見對方也把自己放進風險裡。"],["好的領導會變成共同記憶","一場勝利結束後，留下來的不只有結果，還有「我們曾經一起做到」的感覺。這種共同經驗常會讓一個群體後來更敢面對新的挑戰。"]],"close":["〈We Will Rock You〉幾乎一響就會讓人一起踩出節拍，很適合底波拉的氣場。","不需要太多鋪陳。節拍一開始，大家就知道該出發了。"]}},"INTJ":{"character":"保羅","artKey":"保羅","artist":"Imagine Dragons","song":"Whatever It Takes","youtube":"https://youtu.be/gOsM-DYAEhY?si=UTfHRIKow7J9TGuN","tagline":"有些人替今天做決定，你常替還沒抵達的未來做決定。","intro":"你是 INTJ。一旦確認方向，你很容易把整條路一路想下去。保羅在大馬士革路上的經歷，讓人生整個轉向。之後的旅行、逼迫、監牢與風浪一次次打亂計畫，他仍然把注意力放在同一個使命上。","reasons":[["目標確定之後，你很難被拉走","INTJ 很在意一件事值不值得投入。一旦答案是肯定的，就會開始找路徑。"],["遇到阻力，你會改方法","換城市、換策略、重新安排，都只是前進的一部分。"],["你需要一個能做很多年的目標","今天做什麼很重要，你也會想這件事五年、十年後留下什麼。"]],"ending":"保羅的人生像一條拉得很長的線。有些人替今天做決定，你常替還沒抵達的未來做決定。","group":"NT","letter":{"opener":"給親愛的你","lead":["一旦確認方向，你很容易把整條路一路想下去。你會研究方法、預估阻力，也會考慮今天的選擇幾年後會留下什麼。","保羅在大馬士革路上的經歷讓人生整個轉向。之後的旅行、逼迫、監牢與風浪一次次打亂計畫，他仍然把注意力放在同一個使命上。"],"sections":[["使命確定之後，你會開始設計路徑","INTJ 很在意一件事值不值得投入。答案一旦確定，就會開始想資源怎麼分、路線怎麼走、哪裡需要調整。保羅在不同城市面對不同群體，也會改變溝通方式。"],["阻力會迫使策略升級","被拒絕、被追趕、被關進監牢，都沒有讓保羅的人生照原計畫進行。可是計畫被改，使命沒有跟著消失。對 INTJ 來說，方法可以換，核心方向可以留下。"],["你需要一個值得做很多年的目標","短期刺激很難滿足你太久。真正讓你投入的，往往是一個可以持續研究、建造、修正的長期方向。保羅的書信和旅程，就是這種長時間累積的結果。"]],"close":["〈Whatever It Takes〉的推進感很適合保羅。那股力道像是一個人知道前面還很遠，還是決定繼續走。","有些人替今天做決定，你常替還沒抵達的未來做決定。"]}},"ENTP":{"character":"雅各","artKey":"雅各","artist":"Queen","song":"Don’t Stop Me Now","youtube":"https://youtu.be/HgzGwKwLmgM?si=0y41jY-vz_cyIuIG","tagline":"你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。","intro":"你是 ENTP。看到規則時，腦中很容易先冒出一句：一定只能這樣嗎？雅各從出生抓著哥哥腳跟開始，一路想辦法取得長子名分、祝福，也在拉班那裡經歷各種鬥智。到了雅博渡口，他甚至和神摔跤到天亮。","reasons":[["你很會從縫隙找到辦法","限制一出現，你就開始重新排列可能性。"],["你很難甘心停在原地","雅各一直在追求下一個位置、下一個祝福、下一個出口。"],["再多方法，也會遇到用不上技巧的時刻","雅博渡口那一晚，他帶著傷離開，也得到新的名字。"]],"ending":"你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。","group":"NT","letter":{"opener":"給親愛的你","lead":["看到規則時，你腦中很容易先冒出一句：一定只能這樣嗎？你喜歡找新方法，也很會在限制裡看見別人沒有注意到的出口。","雅各的一生充滿這種腦筋轉得很快的時刻。從長子名分、父親的祝福，到後來和拉班周旋，他總有下一招。只是一路走到雅博渡口，他遇見了一場不能靠技巧輕鬆離開的摔跤。"],"sections":[["你很會重新排列可能性","ENTP 面對死路時，常會先懷疑那到底是不是死路。換角度、換條件、換個談法，都可能讓局面重新打開。雅各早年很多選擇都帶著這種機動性。"],["聰明會讓人很難停下來","當方法一直有效，很容易相信下一次也能找到辦法。雅各不斷追求新的位置、新的祝福，也不斷往下一個出口移動。那股能量很迷人，也很累。"],["有些夜晚沒有快捷鍵","雅博渡口那一夜，雅各摔跤到天亮，最後帶著傷離開，也得到新的名字。那一晚沒有漂亮解法，只剩下一個人面對自己最深的渴望。"]],"close":["〈Don’t Stop Me Now〉很像雅各前半生的速度，腦筋轉得快，腳步也不想停。","你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。"]}},"INTP":{"character":"多馬","artKey":"多馬","artist":"Simon & Garfunkel","song":"The Sound of Silence","youtube":"https://youtu.be/NAEppFUWLfc?si=iMOW6VEbxjjn6X3a","tagline":"我為什麼相信？有些答案會在安靜裡慢慢出現。","intro":"你是 INTP。一句話聽完之後，你腦中可能還會再多出好幾個問題。其他門徒告訴多馬，他們見到了復活的耶穌。多馬沒有立刻接受。他想親眼看見，也想確認那些傷痕。","reasons":[["你很習慣和問題待在一起","別人聊到下一個話題了，你可能還在想上一句哪裡說不通。"],["你對空洞的話很敏感","大家都在說話，不代表真的有交流；很多人聽見，也不代表有聽進去。"],["你的信仰需要容得下提問","多馬最後得到回應，他的問題沒有被草草帶過。"]],"ending":"你可能比別人多問一句：我為什麼相信？有些答案會在安靜裡慢慢出現。","group":"NT","letter":{"opener":"給親愛的你","lead":["一句話聽完之後，你腦中可能還會多出好幾個問題。你不太喜歡只因為大家都接受，就跟著點頭。你想知道證據在哪裡、說法有沒有矛盾、自己到底憑什麼相信。","其他門徒告訴多馬，他們已經見到復活的耶穌。多馬沒有立刻接受，他想親眼看見，也想確認那些傷痕。這讓他留下「疑惑的多馬」這個稱呼，可是他的追問也很誠實。"],"sections":[["你可以和問題待很久","有些人會因為問題沒有答案感到焦躁，你反而可能開始研究。別人已經換話題了，你還在想上一句哪裡有漏洞。這種耐性會讓你看見很多表面之下的東西。"],["你對空洞的話很敏感","大家都在說，不代表真的有交流；大家都點頭，也不代表內容經得起推敲。〈The Sound of Silence〉裡那種對群體溝通的疏離感，很接近 INTP 會注意到的世界。"],["信仰也可以容得下提問","多馬最後得到了回應。他的問題沒有被當成麻煩，也沒有被要求假裝沒有疑惑。對很多 INTP 來說，能夠提問本身就是走近信仰的一部分。"]],"close":["〈The Sound of Silence〉適合在夜深、房間安靜下來的時候聽。它留了很多空間，讓問題不用急著消失。","你可能會比別人多問一句：我為什麼相信？有些答案會在安靜裡慢慢出現。"]}}};
+  const SONG_DATA = {"ESTJ":{"character":"摩西","artKey":"摩西","artist":"Foo Fighters","song":"Walk","youtube":"https://youtu.be/4PkcfQtibmU?si=vPp1WHFFgq60yCz3","tagline":"今天不用把整條路走完，先把下一步走出去。","intro":"你是 ESTJ。事情一多，你很自然就開始排順序、分工作、抓進度。比起一直討論，你更在意這件事到底要怎麼落地。摩西接下的任務非常麻煩。他面對的是一群剛離開奴役生活、還在學習怎麼一起生活的百姓。曠野沒有現成流程，他只能一路處理問題，一路建立新的秩序。","reasons":[["重新學會走路","帶一個團隊從零開始，很多事情沒有前例，只能邊走邊建立方法。"],["等夠了，就開始做","ESTJ 可以評估很久，但到了該決定的時候，你通常不喜歡再拖。"],["長途才看得出功力","摩西面對的考驗很少一次結束。真正消耗人的，往往是同一件事要處理很久。"]],"ending":"你的曠野可能是工作、家庭、事工，或一個一直卡著的專案。今天不用把整條路走完，先把下一步走出去。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你常常比別人早一步看見事情需要被整理。桌上有一堆待辦、團隊裡有人等方向、家裡也還有幾件沒有處理完的事，你很自然就開始排順序。這不是小事。有人願意把責任接起來，混亂才不會一直擴大。","摩西大概會明白這種日子。曠野裡沒有現成的行政手冊，只有一群剛離開埃及的人，以及每天都會冒出來的新問題。上帝的帶領很大，可是落到日常，常常只是今天的水、明天的路、眼前又吵起來的兩個人。"],"sections":[["","你也許很習慣問：「接下來要做什麼？」這個問題很好。只是有時候，信仰還會多問一句：「我正在跟誰走？」摩西不是靠一張完美計畫穿過曠野。他一邊走，一邊被提醒，百姓不是專案，上帝也不是他的顧問。"],["","〈Walk〉放在這裡很合適。它有一種重新把腳放回地面的感覺。當事情多到快要只剩進度表時，先走今天這一步。不要把四十年的曠野一次扛在肩上。"],["","責任感是你的禮物，也可能變成你最重的行李。偶爾把手鬆開一點，不表示你失職。你只是承認，世界不是靠你一個人維持運轉。"]],"close":["願你今天做該做的事，也留一點空間給上帝做祂的事。","路還很長。先走下一步就好。"]}},"ISTJ":{"character":"尼希米","artKey":"尼希米","artist":"Journey","song":"Don’t Stop Believin’","youtube":"https://youtu.be/1k8craCGpgs?si=zKxX85ouTQE3GFKn","tagline":"很多事情最後能完成，只因每天都有人回來，把今天這一段做好。","intro":"你是 ISTJ。交到你手上的事，你通常會記得，也會想辦法把它完成。尼希米聽見耶路撒冷城牆毀壞後，沒有只停在難過。他先禱告、觀察、規劃，再開始分工重建。","reasons":[["事情可以一段一段完成","城牆沒有一天蓋好。今天修這裡，明天處理下一段，最後才慢慢看見全貌。"],["責任要變成具體安排","尼希米面對敵人的威脅，也面對內部問題。他安排守望、分工，也處理百姓之間的不公平。"],["團隊累的時候，需要有人還記得下一步","ISTJ 不一定最會炒熱氣氛，但常常有人靠著你的持續，才沒有半途放掉。"]],"ending":"很多事情最後能完成，只因每天都有人回來，把今天該做的那一段做好。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你大概知道，有些重要的事沒有掌聲。有人記得鑰匙放哪裡，有人把名單補齊，有人第二天還是回來把昨天沒做完的部分接著做。很多群體能走得久，靠的就是這些不太上鏡的事。","尼希米回到耶路撒冷，看見的不是一個漂亮異象，是倒塌的城牆。他先在夜裡去看，一段一段確認，再叫人動手。聖經沒有把每一塊石頭寫得很浪漫，可是重建本來就很少浪漫。"],"sections":[["","你可能也活在這種節奏裡。事情要完成，總得有人把細節放回原位。可是別忘了，城牆不是目的。城牆裡面住著人。當你忙著把事情修好，也記得看看身邊的人是不是已經累了。"],["","〈Don’t Stop Believin’〉有一點像夜裡還亮著的工作燈。不是因為每一天都讓人熱血，是因為方向還在，所以今天願意再回來一次。"],["","你不需要把忠心做成英雄故事。忠心常常只是星期一到了，你仍然知道自己為什麼在這裡。"]],"close":["把今天這一段做好，然後回家吃飯、睡覺。明天若還有路，再走明天的。","這已經是一種很深的信心。"]}},"ESFJ":{"character":"馬大","artKey":"馬大","artist":"Florence + The Machine","song":"Shake It Out","youtube":"https://youtu.be/WbN0nX61rIs?si=aXQHIAGDbmczXh9Q","tagline":"今天如果行程已經排滿了，留一格空白給自己。","intro":"你是 ESFJ。進到一個空間，你很容易先注意誰還沒被照顧、哪裡需要補位、誰看起來有點尷尬。馬大招待耶穌時也是如此。她張羅很多事，希望大家都好好的。事情一多，心裡的壓力也跟著累積。","reasons":[["別人的需要很容易被你一起帶回家","有人不開心、事情沒做好，你常會放在心上。"],["有些責任可以晚一點處理","每件事都有自己的時間，不必全部在今天接手；每個人的情緒，也不需要全放到你身上。"],["你的人生不能只剩待辦事項","馬大很會服事，也需要有自己的位置坐下來。"]],"ending":"今天如果行程已經排滿了，留一格空白給自己。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你很容易先看見別人的需要。誰還沒吃飯、誰坐得有點尷尬、誰今天話特別少，你心裡常常已經記下來。很多人因為你，知道自己沒有被漏掉。","馬大也有這種眼睛。耶穌來到家裡，她開始張羅。食物、座位、招待，每一件都有人要做。問題不是她在服事。問題是忙到後來，她只剩下那些還沒做完的事，連自己心裡發生了什麼都快聽不見。"],"sections":[["","照顧別人久了，很容易把愛變成一張沒有底的清單。這個人需要你，那件事也等你。可是愛不是把自己消耗到最後一格。耶穌沒有責怪馬大的熱情，祂只是把她叫回來，叫她重新看見眼前的人，也看見自己。"],["","〈Shake It Out〉像是一個把窗打開的動作。讓屋子裡那些悶了太久的東西出去一點。不是每個責任都要今晚完成，也不是每個人的情緒都要由你收好。"],["","有時候你能給一個空間最好的禮物，不是再多做一件事，是坐下來，讓自己也成為其中的一個人。"]],"close":["今天若行程已經滿了，留一格空白。不要急著把它填起來。","那一格也屬於你的生命。"]}},"ISFJ":{"character":"路得","artKey":"路得","artist":"Miley Cyrus","song":"The Climb","youtube":"https://youtu.be/NG2zyeVRcbs?si=3FUKdjiYPcQpjH66","tagline":"你可能還看不到山的另一邊。今天這一步，也算數。","intro":"你是 ISFJ。你很重承諾，也常把愛放進日常的小事情裡。丈夫過世後，路得可以回到自己的家鄉。她卻選擇陪拿俄米前往伯利恆。那意味著離開熟悉的生活，到一個幾乎沒有保障的地方重新開始。","reasons":[["重要的路，常常一天只能走一點","路得出發時，不知道後面會遇見波阿斯，也不知道自己的故事最後會走到哪裡。"],["你的勇敢很少大張旗鼓","去異鄉、到田裡拾麥穗、重新生活，每一步都需要勇氣。"],["你在意的是怎麼一路走過來","有些愛沒有漂亮台詞，只是每天還願意留下來。"]],"ending":"你可能還看不到山的另一邊。今天這一步，也算數。","group":"SJ","letter":{"opener":"給親愛的你","lead":["你可能不常把承諾說得很大聲。可是你一旦留下來，就真的會留下來。愛在你手裡，常常長得像一頓飯、一通電話、一次準時出現，或一句「我陪你去」。","路得跟著拿俄米去伯利恆時，沒有拿到未來的地圖。她只知道眼前這個人不該一個人走。後來那些我們熟悉的故事，當時都還沒有發生。她走的只是今天的路。"],"sections":[["","我們很喜歡回頭看一個完整故事，然後說一切都有安排。可是人在路上時，通常看不到完整故事。路得在田裡拾麥穗的時候，也只是想著今天怎麼活下去。"],["","〈The Climb〉很適合這樣的日子。山還在前面，路也沒有突然變短。可是一小步仍然是一小步。上帝常常就在這些普通到幾乎不會被記錄的日子裡工作。"],["","你不必因為走得慢就懷疑自己。陪伴本來就不是競賽。忠心也很少需要觀眾。"]],"close":["如果今天只能走一點，那就走一點。","有些很長的愛，就是這樣一天一天留下來。"]}},"ENFP":{"character":"巴拿巴","artKey":"巴拿巴","artist":"Jessie J feat. B.o.B","song":"Price Tag","youtube":"https://youtu.be/qMxX-QOV9tI?si=deUCbULeCWLnALNQ","tagline":"一個願意先相信你的人，可能會改變很多事。","intro":"你是 ENFP。看到一個人還有機會，你通常很難完全放著不管。巴拿巴賣掉田產，把所得交給使徒。後來大家還怕保羅時，也是他願意把保羅帶進群體，替他說話。","reasons":[["你很少只用價格衡量一件事","錢、效率、名聲都重要，但一個人能不能重新得到機會，你也會放進考量。"],["你很會讓氣氛重新有空氣","一群人開始緊張、排斥或失去信心時，你常能提出另一種可能。"],["你願意把舞台分給別人","巴拿巴沒有一直搶著站在最前面。他願意陪別人成長，這也改變了保羅後來的路。"]],"ending":"有些東西沒有標價。一個願意先相信你的人，可能會改變很多事。","group":"NF","letter":{"opener":"給親愛的你","lead":["你常常比別人早看見「還有可能」。當一個人已經被貼上標籤，當大家都覺得事情大概就這樣了，你腦中還會冒出另一條路。這種眼光很珍貴，因為很多人是在別人先相信他一次之後，才慢慢學會相信自己。","巴拿巴就是這樣的人。大家還怕保羅，他願意把保羅帶進群體。後來約翰馬可出了狀況，他也沒有立刻把人從故事裡刪掉。巴拿巴看見的，常常是還沒有完成的人。"],"sections":[["","〈Price Tag〉把價值這件事拿出來問。人很容易用成果、速度、名聲衡量彼此，可是福音裡的人不是商品。巴拿巴願意把時間、信任、資源放在一個人身上，因為他相信人的故事還能往前。"],["","你的熱情也會累。有時你替很多人保留希望，自己的心卻沒有地方休息。你不需要替每個人打開所有的門。你只需要在該開的那一扇門前，願意多等一下。"],["","鼓勵不是替人製造漂亮結局。鼓勵是陪一個人多走一段，直到他自己也開始看見前面的路。"]],"close":["如果今天你想到一個快要放棄的人，也許傳一則訊息給他。","有時候，一句「我還在」就已經很有分量。"]}},"INFP":{"character":"約翰","artKey":"約翰","artist":"Coldplay","song":"O (Fly On)","youtube":"https://youtu.be/Ap-HeMIKi-c?si=LbnMtsodxTim39Ys","tagline":"你可能只寫下一句話，卻陪一個人很多年。","intro":"你是 INFP。心裡常有很多感受，但不一定會立刻說出口。約翰曾靠近耶穌，也站在十字架旁。後來，他把那些經歷寫成關於愛、光、生命與真理的文字。","reasons":[["你很會陪人待在安靜裡","有些時候，人需要的答案可以晚一點出現，先有人留在身邊也很重要。"],["你的感受常常會變成文字","約翰寫得很深，語言卻不一定複雜。幾句話就可能留在人心裡很久。"],["離開不代表所有連結都消失","有些人走遠之後，留下的話、回憶與愛，還是會繼續陪著我們。"]],"ending":"約翰經歷過很多離別，後來留下最多的文字之一，仍然是愛。你可能只寫下一句話，卻陪一個人很多年。","group":"NF","letter":{"opener":"給親愛的你","lead":["你心裡常常住著很多話。它們不一定立刻變成句子，有時只是一個感覺、一個畫面、一段說不上來的沉默。別人以為事情已經過去了，你卻還在心裡陪它走一段路。","約翰晚年的文字也有這種氣息。他經歷離別、衝突、流亡，最後留下的卻不是一套冷冰冰的結論。他一直回到愛，回到光，回到那些看不見卻真實存在的關係。"],"sections":[["","〈O (Fly On)〉像一封沒有急著解釋完的信。有些離開就是離開，有些想念沒有辦法被一句話整理好。你不需要逼自己替每一個失去找到意義。先讓它在心裡有一個位置。"],["","你很容易把感受看得很重，這既是禮物，也會讓你辛苦。感受不是敵人，但它也不是最後的裁判。約翰寫愛，不是因為世界一直溫柔，是因為他在一個並不溫柔的世界裡，仍然選擇把愛寫下來。"],["","有些話現在說不完沒有關係。時間會替句子留下空白，上帝也不急著把每一頁立刻翻過去。"]],"close":["如果今天心裡有一個名字，就讓那個名字在那裡待一會兒。","有些愛不需要大聲，仍然可以陪人走很久。"]}},"ENFJ":{"character":"亞伯拉罕","artKey":"亞伯拉罕","artist":"OneRepublic","song":"I Lived","youtube":"https://youtu.be/z0rxydSolwU?si=3DFbltGDbwBwlba6","tagline":"有一天回頭，希望你可以說：我真的活過。","intro":"你是 ENFJ。當你相信一件事值得投入，很容易把自己也放進那個方向。亞伯拉罕離開熟悉的土地時，手上沒有完整地圖。他只知道自己要往前走。","reasons":[["你很難只想到自己","亞伯拉罕收到的應許，從一開始就牽涉家庭、後代與更遠的未來。"],["你願意先走第一步","終點還看不到，方向卻已經足以讓你開始行動。"],["你會想知道自己最後留下了什麼","對 ENFJ 來說，一段人生有沒有影響到別人，常常比表面的成績更有份量。"]],"ending":"亞伯拉罕沒有親眼看見所有應許完成。他只走了自己能走的那一段。有一天回頭，希望你可以說：我真的活過。","group":"NF","letter":{"opener":"給親愛的你","lead":["你很容易把自己放進一個更大的故事裡。只要相信一件事值得去做，你就會開始想誰可以一起來、下一代會得到什麼、這一步走出去之後會發生什麼。","亞伯拉罕離開熟悉的地方時，沒有看到後來那些龐大的結果。他只是聽見呼召，然後收拾東西上路。應許很大，日常卻仍然是帳棚、牲畜、家人、爭執與等待。"],"sections":[["","帶人往前的人，很容易一直看遠方。可是遠方如果太亮，眼前的人有時會被忽略。亞伯拉罕也在旅程裡學習，信心不是一路向前衝。信心也包括停下來、重新聽、承認自己走錯。"],["","〈I Lived〉放在這裡，有一種回頭看生命的感覺。完成多少不一定是重點，更想問你有沒有真的活在被交付的日子裡。"],["","你能鼓舞人，也要允許自己有不知道的時候。領路的人不必假裝每一段地形都熟悉。有時候，誠實地說「我也還在學」，反而讓同行的人比較敢呼吸。"]],"close":["你不需要看見所有應許完成，才算走得有意義。","把今天這一段活好，已經在留下痕跡。"]}},"INFJ":{"character":"但以理","artKey":"但以理","artist":"Lenka","song":"The Show","youtube":"https://youtu.be/elsh3J5lJ6g?si=411TSTY4J2Q5tZer","tagline":"只要記得自己想成為怎樣的人，就還找得到下一步。","intro":"你是 INFJ。人在現場時，你的心常常還會再往後看一層。但以理身在巴比倫宮廷，學習新的語言、文化與制度，也知道有些界線不能隨環境一起改變。","reasons":[["你常一邊生活，一邊觀察生活","人在群體裡，你還是會問：這件事最後會把大家帶去哪裡？"],["你不需要每件事都搶著表態","但以理很多選擇都很安靜。吃什麼、怎麼禱告、怎麼回答君王，慢慢形成他的立場。"],["有些答案要等很久","他也遇過看不明白的異象與漫長等待。"]],"ending":"人生有時像迷宮，也像一場還沒拿到完整劇本的戲。只要記得自己想成為怎樣的人，就還找得到下一步。","group":"NF","letter":{"opener":"給親愛的你","lead":["你常常人在現場，心裡卻還多看一層。別人在談事情本身，你已經在想這件事會把人帶到哪裡。這讓你很能察覺氣氛、價值與方向，也讓你有時候比別人更早感到疲倦。","但以理住在一個不是自己選的帝國裡。他學新的語言、進入新的制度、做公共的工作，可是他沒有把自己整個交給那個環境。他知道哪些事可以學，哪些界線不能交出去。"],"sections":[["","〈The Show〉有一種站在舞台上又同時看著舞台的感覺。生活有時也是這樣。你參與其中，同時又在問：我正在成為怎樣的人？"],["","但以理沒有每天都用衝突證明自己。他很多時候只是照常生活，照常工作，照常禱告。信仰不總是戲劇性的抵抗。有時只是到了某個時刻，你知道這一步不能跟著走。"],["","你不需要替每個象徵、每個預感、每個未來都找到答案。看見很多，是恩賜；讓一些事情暫時沒有答案，也是一種自由。"]],"close":["今天先守住那個你知道不能失去的東西。","其他的，讓時間慢慢說。"]}},"ESTP":{"character":"彼得","artKey":"彼得","artist":"Bon Jovi","song":"It’s My Life","youtube":"https://youtu.be/vx2u5uUu3DE?si=z64kcQfAQWOHHdDF","tagline":"有些路要想過再走。有些時刻，真的得先跳下去。","intro":"你是 ESTP。事情發生時，你的反應通常很快。別人還在看，你可能已經開口；大家還在想，你可能先跨了一步。彼得就是這種人。看見耶穌走在水面上，他敢說自己也要去；復活之後知道岸上的人是耶穌，他又直接跳進水裡。","reasons":[["你習慣先試再調整","有些人要想很久才開始，你比較容易從行動裡得到答案。"],["機會來了，你很難無動於衷","關鍵時刻，你往往會有很強的現在就做的衝動。"],["你很多成長都發生在行動之後","彼得說錯過、害怕過，也否認過耶穌。後來他依然敢往前，只是開始知道行動也要承擔結果。"]],"ending":"有些路要想過再走。有些時刻，真的得先跳下去。","group":"SP","letter":{"opener":"給親愛的你","lead":["事情一發生，你的身體常常比腦中的長篇分析更快。有人掉進水裡，你先伸手；門一打開，你先走進去。這種立即反應，讓很多停在原地的事情開始有了動靜。","彼得就是這樣的人。船還在晃，他已經想下水。山上的景象還沒結束，他已經開始提方案。後來他也跌得很重，說過自己不會做的事，做了自己以為不會做的事。"],"sections":[["","〈It’s My Life〉很像彼得身上的那股勁。現在就去，現在就做。可是彼得後來學到，勇敢不只是在第一時間衝出去。勇敢也包括失敗之後，還願意回到耶穌面前。"],["","你不需要把每一次跌倒都解讀成「我就是這樣」。人的生命不是一次失誤的截圖。彼得的故事很長，長到足以容納衝動、羞愧、重新被託付，以及後來的成熟。"],["","行動是你的語言。讓行動多帶一點停頓，不會讓你變慢，只會讓你更知道自己為什麼出發。"]],"close":["該跳的時候就跳。跳錯了，也別把自己留在水裡。","回來，擦乾，再走下一段。"]}},"ISTP":{"character":"參孫","artKey":"參孫","artist":"Kelly Clarkson","song":"Stronger (What Doesn’t Kill You)","youtube":"https://youtu.be/Xn676-fLq7I?si=5qsrvzOvaXnP0hT5","tagline":"有些傷也會告訴你，下一次力量該用在哪裡。","intro":"你是 ISTP。遇到問題時，比起講很多，你往往更想直接處理。參孫有驚人的力量，也很相信自己可以搞定眼前的局面。這讓他一次次闖過危機，也讓他低估了一些選擇的代價。","reasons":[["你習慣靠自己的能力處理問題","事情越難，越容易讓你集中注意力。"],["受過傷之後，判斷會改變","參孫失去視力與力量後，人生來到完全不同的位置。"],["最後一次出手，和以前不太一樣","他最後呼求神時，已經知道自己的力量有來源，也知道自己的限制。"]],"ending":"你的能力可以帶你走很遠。有些傷也會告訴你，下一次力量該用在哪裡。","group":"SP","letter":{"opener":"給親愛的你","lead":["遇到問題時，你可能不太想先開一場會。東西壞了就拆開看，路被擋住就找另一條，事情來了先處理。你相信手上的能力，因為能力在很多時候確實救過場。","參孫也很熟悉力量。他的人生有很多場面都靠著一身能力打開局面。可是能力用久了，人很容易以為自己永遠都有下一次。直到有一天，熟悉的力量沒有照原本的方式回來。"],"sections":[["","〈Stronger〉會讓人想到受傷後重新站起來。但參孫的故事比「我會變更強」多了一層。他最後的禱告，是承認力量不是一件私人物品。那一刻，他第一次很明白地把需要說出口。"],["","你也許不喜歡依賴別人。很多事情自己處理比較快，也比較省話。可是一個人如果只能靠自己，就會慢慢把世界縮小成自己能控制的範圍。"],["","求助不是能力失效。求助只是承認，有些門不是靠手勁打開的。"]],"close":["保留你的俐落，也留一個位置讓別人走進來。","力量若知道自己從哪裡來，就比較知道該往哪裡去。"]}},"ESFP":{"character":"撒馬利亞婦人","artKey":"井旁的撒馬利亞婦人","artist":"Keala Settle & The Greatest Showman Ensemble","song":"This Is Me","youtube":"https://youtu.be/CjxugyZCfuw?si=SXFuoEjSCvhm1c5R","tagline":"這就是我，而我的故事還沒結束。","intro":"你是 ESFP。你喜歡真實互動，也很容易感受到別人對你的反應。撒馬利亞婦人的故事，從正午的井邊開始。耶穌主動和她說話，也談到她那些很難面對的過去。談話結束後，她把水罐留在原地，跑回城裡找人。","reasons":[["你渴望有一天不用再躲","長期被議論之後，一個人連原本自然的樣子都可能收起來。"],["傷痕還在，故事卻可以繼續","過去沒有消失，但它不必決定你以後只能站在哪裡。"],["找到自己的聲音後，你會想分享出去","她沒有準備完整講稿，就直接回城裡告訴大家自己遇見了誰。"]],"ending":"有一天，你也可能重新走進人群。這就是我，而我的故事還沒結束。","group":"SP","letter":{"opener":"給親愛的你","lead":["你很容易感受到一個空間裡的人。誰在笑、誰在躲、哪一句話讓氣氛變了，你常常很快就收到。你喜歡真實的互動，也不太喜歡大家把話都藏在表面禮貌裡。","撒馬利亞婦人在井邊遇見耶穌時，一開始只是來打水。那是一件很普通的事。可是幾句對話之後，她發現眼前這個人沒有照她熟悉的方式看她。祂知道她的故事，卻沒有把她縮成那個故事。"],"sections":[["","〈This Is Me〉很適合放在這裡。被人看見，和被人盯著看，是兩件不同的事。前者讓人能重新站起來，後者只會讓人想躲。耶穌給她的是前者。"],["","你可能很在意別人的反應。這很自然，因為你本來就很會接收現場的情緒。只是別人的眼光不需要成為你唯一的鏡子。有人誤會你，也不等於你要把自己縮小。"],["","井邊的對話最後沒有停在井邊。她回到城裡，把自己的經歷說出去。當一個人不再只剩羞恥，他就會開始有聲音。"]],"close":["如果你今天也有一段不太想讓人碰的故事，不必急著把它說漂亮。","先相信，你可以被完整地看見，也仍然被留下。"]}},"ISFP":{"character":"大衛","artKey":"大衛","artist":"Leonard Cohen","song":"Hallelujah","youtube":"https://www.youtube.com/watch?v=YrLk4vdY28Q","tagline":"有時候，是裂痕讓一首歌有了聲音。","intro":"你是 ISFP。你很容易被旋律、畫面、氣氛與情感打動。大衛會彈琴、寫詩，也會在約櫃前跳舞。他的感受很豐富，愛得很深，跌下去時也跌得很重。","reasons":[["你會用創作接近信仰","大衛留下的詩篇，很少只有漂亮話。喜樂、害怕、憤怒、羞愧，都被寫進去了。"],["你容易被美吸引","這份敏銳可以成為創作，也可能把人帶進危險。"],["破碎之後，歌還可以繼續唱","大衛的人生有很難看的部分，也有深刻的悔改。"]],"ending":"有些讚美會在生命最狼狽的時候出現。有時候，是裂痕讓一首歌有了聲音。","group":"SP","letter":{"opener":"給親愛的你","lead":["你對世界的感受常常很直接。一段旋律、一個眼神、傍晚的光，可能比一大段說明更快進到心裡。你不一定急著把感受分類，先讓它成為一種顏色、一個聲音、一個動作。","大衛的一生有很多這樣的片段。他彈琴、寫詩、逃亡、愛人，也犯下很大的錯。他的禱告從來不只一種音色，有歡呼，也有恐懼，有羞愧，也有重新抬頭。"],"sections":[["","〈Hallelujah〉把美、慾望、破裂與宗教語言放在同一首歌裡。它不急著把人整理成乾淨的樣子。大衛的故事也沒有把裂痕藏起來。"],["","你可能很怕自己的矛盾會讓信仰失去資格。可是詩篇讓人看見，祈禱不需要先把情緒整理好。你可以帶著混亂、後悔、渴望來。"],["","藝術有時不是裝飾，是人把生命帶到上帝面前的一種方法。當你找不到正確句子，一首歌、一張圖、一次安靜也可以成為禱告。"]],"close":["裂痕沒有讓大衛停止歌唱。","也許你現在能做的，就是把今天這個音唱完。"]}},"ENTJ":{"character":"底波拉","artKey":"底波拉","artist":"Queen","song":"We Will Rock You","youtube":"https://youtu.be/-tJYN-eG1zk?si=G3DPS4e5u2elJ0DM","tagline":"節拍一開始，大家就知道該出發了。","intro":"你是 ENTJ。局面越亂，你越容易開始抓方向。底波拉身為士師與先知，在百姓害怕的時候召來巴拉，說明該做什麼，也願意親自同行。","reasons":[["你會替混亂打出節拍","當所有人各說各話，你很容易把注意力重新拉回目標。"],["你擅長讓人一起動起來","這首歌最有力量的地方，就是一群人一起踩出同一個節奏。"],["你留下的影響常超過一場勝利","好的領導會讓一群人記得：那一次，我們一起做到了。"]],"ending":"底波拉不需要太多鋪陳。節拍一開始，大家就知道該出發了。","group":"NT","letter":{"opener":"給親愛的你","lead":["局面一亂，你很容易開始找方向。誰要站哪裡、資源怎麼放、現在最要緊的是什麼，你的腦子會自動往前排。很多人在猶豫的時候，你已經準備叫大家出發。","底波拉的故事裡也有這種力量。她不是靠音量大讓人跟隨。她看見時機，也願意把話說出來，讓原本散開的人開始朝同一個方向動。"],"sections":[["","〈We Will Rock You〉最有意思的地方不是複雜，是節拍。大家一聽就知道何時踏腳、何時拍手。好的領導也常是這樣，讓人知道現在在哪裡，下一步往哪裡。"],["","只是帶隊久了，很容易把速度當成唯一標準。有人跟不上，不一定是不用心；有人提出不同意見，也不一定是在拖累。領導不是把所有人變成同一個節拍器。"],["","底波拉在勝利之後唱歌。她沒有把故事只寫成自己的功勞。她記得同行的人，也記得上帝。這是權力很需要學的一件事。"]],"close":["你可以帶人出發，也可以在抵達後把掌聲分出去。","好的方向感，最後會讓更多人知道自己也能走。"]}},"INTJ":{"character":"保羅","artKey":"保羅","artist":"Imagine Dragons","song":"Whatever It Takes","youtube":"https://youtu.be/gOsM-DYAEhY?si=UTfHRIKow7J9TGuN","tagline":"有些人替今天做決定，你常替還沒抵達的未來做決定。","intro":"你是 INTJ。一旦確認方向，你很容易把整條路一路想下去。保羅在大馬士革路上的經歷，讓人生整個轉向。之後的旅行、逼迫、監牢與風浪一次次打亂計畫，他仍然把注意力放在同一個使命上。","reasons":[["目標確定之後，你很難被拉走","INTJ 很在意一件事值不值得投入。一旦答案是肯定的，就會開始找路徑。"],["遇到阻力，你會改方法","換城市、換策略、重新安排，都只是前進的一部分。"],["你需要一個能做很多年的目標","今天做什麼很重要，你也會想這件事五年、十年後留下什麼。"]],"ending":"保羅的人生像一條拉得很長的線。有些人替今天做決定，你常替還沒抵達的未來做決定。","group":"NT","letter":{"opener":"給親愛的你","lead":["你一旦確定方向，腦中很容易把很遠以後的路也一起排進來。別人只看到眼前一步，你可能已經在想第三階段、第五個風險、如果路被封住還有哪些替代方案。","保羅很像一個不停修正路線的旅行者。他有清楚的使命，可是路線一直在變。城市不同、聽眾不同、處境不同，他沒有因為方法改變就以為使命也消失了。"],"sections":[["","〈Whatever It Takes〉很適合這種長程感。不是每一段路都漂亮，有些地方要繞，有些計畫會被打斷，有些人會離開。可是方向沒有因為曲折就失去意義。"],["","你可能很信任自己的判斷，因為你花了很多時間思考。這是優點。只是再好的地圖也有空白。保羅有時也會被攔下來，被迫改變原本想走的方向。"],["","信仰讓計畫有方向，也讓計畫保留被打斷的可能。不是所有改變都叫失敗。有時新的路，正是路。"]],"close":["把你的長程眼光留著，也留一點空白。","有些重要的轉彎，不會先寫在計畫書裡。"]}},"ENTP":{"character":"雅各","artKey":"雅各","artist":"Queen","song":"Don’t Stop Me Now","youtube":"https://youtu.be/HgzGwKwLmgM?si=0y41jY-vz_cyIuIG","tagline":"你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。","intro":"你是 ENTP。看到規則時，腦中很容易先冒出一句：一定只能這樣嗎？雅各從出生抓著哥哥腳跟開始，一路想辦法取得長子名分、祝福，也在拉班那裡經歷各種鬥智。到了雅博渡口，他甚至和神摔跤到天亮。","reasons":[["你很會從縫隙找到辦法","限制一出現，你就開始重新排列可能性。"],["你很難甘心停在原地","雅各一直在追求下一個位置、下一個祝福、下一個出口。"],["再多方法，也會遇到用不上技巧的時刻","雅博渡口那一晚，他帶著傷離開，也得到新的名字。"]],"ending":"你可以繼續跑、繼續想、繼續挑戰。偶爾也要問問自己，到底在追什麼。","group":"NT","letter":{"opener":"給親愛的你","lead":["你看到規則時，常常會先問一句：「一定只能這樣嗎？」別人看見牆，你可能已經開始找門、窗、樓梯，或者乾脆想知道牆為什麼一定要在那裡。","雅各的一生充滿這種動能。他抓住機會、談條件、換方法，也用自己的聰明替人生開路。直到雅博渡口，他遇到一個不能靠技巧處理的夜晚。"],"sections":[["","〈Don’t Stop Me Now〉很像那股停不下來的速度。速度很好，它能讓很多人還在想時，你已經試過三種可能。可是人生有些地方，沒有更聰明的解法。只能停下來，被問一句：「你是誰？」"],["","你很會拆問題，也很會重新組合。只是別把自己也當成一個永遠需要優化的專案。雅各最後得到的，不只是新的策略。他得到一個新名字，也帶著傷走路。"],["","有些改變不會讓你看起來更厲害，卻會讓你比較像自己。"]],"close":["繼續問問題，繼續找新的路。","偶爾也停一下，看看你這麼快地往前，到底想去誰那裡。"]}},"INTP":{"character":"多馬","artKey":"多馬","artist":"Simon & Garfunkel","song":"The Sound of Silence","youtube":"https://youtu.be/NAEppFUWLfc?si=iMOW6VEbxjjn6X3a","tagline":"我為什麼相信？有些答案會在安靜裡慢慢出現。","intro":"你是 INTP。一句話聽完之後，你腦中可能還會再多出好幾個問題。其他門徒告訴多馬，他們見到了復活的耶穌。多馬沒有立刻接受。他想親眼看見，也想確認那些傷痕。","reasons":[["你很習慣和問題待在一起","別人聊到下一個話題了，你可能還在想上一句哪裡說不通。"],["你對空洞的話很敏感","大家都在說話，不代表真的有交流；很多人聽見，也不代表有聽進去。"],["你的信仰需要容得下提問","多馬最後得到回應，他的問題沒有被草草帶過。"]],"ending":"你可能比別人多問一句：我為什麼相信？有些答案會在安靜裡慢慢出現。","group":"NT","letter":{"opener":"給親愛的你","lead":["一句話進到你耳裡，常常不會直接停在那裡。你會把它翻過來、拆開、問前提是什麼、證據在哪裡。別人以為話題結束了，你的腦子可能才剛開始。","多馬在門徒裡常被記成「懷疑的人」，可是那個稱呼太小了。他只是不願意把別人的經驗直接當成自己的經驗。他想知道，眼前這件事究竟是真的，還是大家太快下了結論。"],"sections":[["","〈The Sound of Silence〉很適合一個不急著接受表面答案的人。世界有很多聲音，聲音多不代表內容就多。你常常需要安靜，才能分辨哪些話只是重複，哪些話值得留下。"],["","信仰如果只能容許快速回答，會讓你窒息。耶穌沒有把多馬趕出門。祂讓他靠近，讓問題走到可以相遇的地方。"],["","問題可以是路，不必永遠是牆。只是走路的人最後也要走出去。分析到某個時候，生命會邀請你把手伸出去，碰一碰你一直在想的東西。"]],"close":["繼續問。不要為了合群把問題縮小。","也別忘了，有些答案不是想出來的，是在相遇裡慢慢成形。"]}}};
   const ORDER = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
   const SONG_PALETTE = {
     /* SJ｜鼠尾草綠：同一色系做四階變化 */
@@ -16621,11 +16640,11 @@ if(sharedResultLoaded){
   function renderLetter(type,d) {
     if (!els.letterBody || !d.letter) return;
     const l=d.letter;
-    if (els.letterSummary) els.letterSummary.textContent=`✉️ 打開給 ${type} ${d.character} 的一封信`;
+    if (els.letterSummary) els.letterSummary.textContent=`給 ${type} 的一封信`;
     const parts=[];
     if(l.opener) parts.push(`<p class="song-letter-salutation">${esc(l.opener)}</p>`);
     (l.lead||[]).forEach(p=>parts.push(`<p>${esc(p)}</p>`));
-    (l.sections||[]).forEach(sec=>{ parts.push(`<p class="song-letter-reflection"><strong>${esc(sec[0])}。</strong>${esc(sec[1])}</p>`); });
+    (l.sections||[]).forEach(sec=>{ parts.push(`<p class="song-letter-reflection">${esc(sec[1] || sec[0] || '')}</p>`); });
     (l.close||[]).forEach((p,i,arr)=>parts.push(`<p class="song-letter-closing${i===arr.length-1?' is-last':''}">${esc(p)}</p>`));
     els.letterBody.innerHTML=parts.join('');
   }
