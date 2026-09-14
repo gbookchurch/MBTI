@@ -9776,6 +9776,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </div></section>
 </div></fieldset>
 <div class="mbti-lookup-result profile-dossier" hidden="" id="mbti-lookup-result" role="region" aria-live="polite" aria-label="我的人物小檔案">
+  <button class="profile-mobile-switch" id="profile-mobile-switch" type="button">↩ 換人格</button>
   <section class="profile-dossier-hero">
     <div class="profile-dossier-copy">
       <div class="profile-dossier-code">
@@ -10396,7 +10397,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
   </div>
   <div class="rank-compare-note">
     <strong>怎麼看這份排行？</strong>
-    <p>這份排行整理的是 30,445 位自願參與者的測驗結果，其中平信徒 28,796 位、牧者 1,649 位。它反映這次參與者的分布，不能直接推成所有台灣教會的人格比例。誰看到連結、誰願意點開並完成 MBTI，都可能讓樣本往某些人格傾斜。</p>
+    <p>這份排行來自 30,445 位自願參與者，其中平信徒 28,796 位、牧者 1,649 位。它只能描述這次參與樣本，不能直接推成台灣教會整體比例；誰看到連結、誰願意完成 MBTI，都可能影響樣本組成。</p>
     <p>比較時，可以先看同一型在兩組中的位置變化：<strong>名次差了幾名、比例差了多少、到了牧者樣本後有沒有突然往前或往後。</strong>手機版點開任一格，還能看到該型的人數、比例與另一組的對照。這些落差很適合當成觀察題，但不足以證明因果，也不適合拿來判斷哪一型更適合服事。</p>
   </div>
 </section>
@@ -11737,8 +11738,15 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
         <h3 class="song-title" id="song-title">Shake It Out</h3>
         <div class="song-artist" id="song-artist">Florence + The Machine</div>
         <p class="song-tagline" id="song-tagline">今天如果行程已經排滿了，留一格空白給自己。</p>
-        <div class="song-video-wrap" id="song-video-wrap">
-          <iframe id="song-youtube-player" title="YouTube 人格點歌播放器" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="song-video-wrap song-video-gate" id="song-video-wrap">
+          <button class="song-video-load" id="song-video-load" type="button" aria-label="在頁面內載入 YouTube 播放器">
+            <span class="song-video-load-icon" aria-hidden="true">▶</span>
+            <span class="song-video-load-copy">
+              <small>PLAY IN PAGE｜頁面內播放</small>
+              <strong id="song-video-title">Shake It Out</strong>
+              <em id="song-video-artist">Florence + The Machine</em>
+            </span>
+          </button>
         </div>
         <details class="song-letter-details" id="song-letter-details">
           <summary><span id="song-letter-summary">給 ESFJ 的一封信</span></summary>
@@ -11761,7 +11769,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
     <div class="song-playlists">
       <div class="song-playlists-copy">
-        <strong>16 種人格，16 個聖經人物，16 首心情音樂。</strong>
+        <strong class="song-playlists-title"><span>16 種人格，16 個聖經人物</span><span>16 首心情音樂。</span></strong>
         <span>想一次聽完？完整歌單已經整理好了。</span>
       </div>
       <a class="song-playlist-link" href="https://music.apple.com/tw/playlist/%E6%95%99%E6%9C%83%E5%B0%8F%E6%9C%AC%E6%9C%AC-%E8%81%96%E7%B6%93%E4%BA%BA%E7%89%A9mbti%E9%BB%9E%E6%AD%8C%E7%B3%BB%E5%88%97/pl.u-xlyNJJlupR9eAx" target="_blank" rel="noopener noreferrer"> Apple Music 完整歌單</a>
@@ -12862,7 +12870,7 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             ctx.textAlign = 'right';
             ctx.fillStyle = palette.deep;
             ctx.font = '800 18px sans-serif';
-            ctx.fillText(`DOCUMENT TYPE｜文件類型  MBTI / ${group}`, 968, 132);
+            ctx.fillText(`DOCUMENT TYPE｜文件類型  MBTI / ${type}`, 968, 132);
             ctx.textAlign = 'left';
 
             ctx.fillStyle = palette.deep;
@@ -12933,7 +12941,8 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             // Stamp｜簡化的仿真護照入境章＋教會職人章
             const stampMeta = PROFILE_STAMP_META[group] || PROFILE_STAMP_META.NT;
             ctx.save();
-            ctx.translate(847, 1080);
+            ctx.translate(872, 985);
+            ctx.scale(.90, .90);
             ctx.rotate(-0.095);
             ctx.globalAlpha = .82;
             ctx.textAlign = 'center';
@@ -13205,6 +13214,13 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
                 document.querySelector('#mbti-lookup .mbti-picker')?.scrollIntoView({
                     behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
                     block: 'center'
+                });
+            });
+
+            document.getElementById('profile-mobile-switch')?.addEventListener('click', () => {
+                document.querySelector('#mbti-lookup .mbti-entry-counter')?.scrollIntoView({
+                    behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+                    block: 'start'
                 });
             });
 
@@ -17320,7 +17336,7 @@ if(sharedResultLoaded){
   const els = {
     mbti:$('song-mbti'), name:$('song-character-name'), img:$('song-character-img'), title:$('song-title'), artist:$('song-artist'), tagline:$('song-tagline'),
     titleMobile:$('song-title-mobile'), artistMobile:$('song-artist-mobile'), taglineMobile:$('song-tagline-mobile'), intro:$('song-intro'), reasons:$('song-reasons'), ending:$('song-ending'),
-    youtube:$('song-youtube-link'), player:$('song-youtube-player'), details:$('song-story-details'), status:$('song-share-status'),
+    youtube:$('song-youtube-link'), videoWrap:$('song-video-wrap'), videoLoad:$('song-video-load'), videoTitle:$('song-video-title'), videoArtist:$('song-video-artist'), details:$('song-story-details'), status:$('song-share-status'),
     letterDetails:$('song-letter-details'), letterSummary:$('song-letter-summary'), letterBody:$('song-letter-body')
   };
   let currentType = 'ISFP';
@@ -17340,6 +17356,37 @@ if(sharedResultLoaded){
       }
     } catch(e) {}
     return '';
+  }
+
+  function resetInlineVideo(d) {
+    if (!els.videoWrap) return;
+    els.videoWrap.querySelector('iframe')?.remove();
+    els.videoWrap.classList.remove('is-playing');
+    if (els.videoLoad) {
+      els.videoLoad.hidden = false;
+      els.videoLoad.setAttribute('aria-label', `在頁面內播放 ${d.artist}〈${d.song}〉`);
+    }
+    if (els.videoTitle) els.videoTitle.textContent = d.song;
+    if (els.videoArtist) els.videoArtist.textContent = d.artist;
+  }
+
+  function loadInlineVideo() {
+    const d = SONG_DATA[currentType];
+    if (!d || !els.videoWrap) return;
+    const videoId = youtubeId(d.youtube);
+    if (!videoId) return;
+    els.videoWrap.querySelector('iframe')?.remove();
+    const iframe = document.createElement('iframe');
+    iframe.id = 'song-youtube-player';
+    iframe.title = `YouTube：${d.artist}〈${d.song}〉`;
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&playsinline=1&autoplay=1`;
+    if (els.videoLoad) els.videoLoad.hidden = true;
+    els.videoWrap.classList.add('is-playing');
+    els.videoWrap.appendChild(iframe);
   }
 
   function esc(v='') {
@@ -17406,11 +17453,7 @@ if(sharedResultLoaded){
     els.ending.textContent = d.ending;
     renderLetter(type,d);
     els.youtube.href = d.youtube;
-    const videoId = youtubeId(d.youtube);
-    if (els.player) {
-      els.player.title = `YouTube：${d.artist}〈${d.song}〉`;
-      els.player.src = videoId ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&playsinline=1` : '';
-    }
+    resetInlineVideo(d);
     const art = artFor(d);
     if (art) { els.img.src = art; els.img.alt = `${d.character}人物插圖`; els.img.hidden = false; }
     else { els.img.removeAttribute('src'); els.img.alt = ''; els.img.hidden = true; }
@@ -17516,6 +17559,7 @@ if(sharedResultLoaded){
   $('song-prev-btn')?.addEventListener('click',()=>stepSong(-1));
   $('song-next-btn')?.addEventListener('click',()=>stepSong(1));
   $('song-random-btn')?.addEventListener('click',()=>{ const choices=ORDER.filter(t=>t!==currentType); setSong(choices[Math.floor(Math.random()*choices.length)],{updateUrl:true}); });
+  els.videoLoad?.addEventListener('click', loadInlineVideo);
   $('song-copy-btn')?.addEventListener('click',async()=>{ const url=shareUrl(); try{await navigator.clipboard.writeText(url); els.status.textContent='分享連結已複製。';}catch(e){els.status.textContent=url;} });
   $('song-share-btn')?.addEventListener('click',async()=>{
     const d=SONG_DATA[currentType]; const url=shareUrl(); const title=`${currentType}｜${d.character}的人格點歌`;
@@ -19001,6 +19045,169 @@ body.lookup-sheet-active{overflow:auto!important}
   #song-dedication-section .song-playlists-copy{
     text-align:center!important;
   }
+}
+</style>
+
+
+<style id="v198-mobile-experience-polish">
+/* v198｜1. 手機返回頂部改成貼邊窄標籤，避免擋排行榜與分享按鈕。 */
+@media (max-width:760px){
+  .back-to-top{
+    width:28px!important;
+    height:48px!important;
+    right:0!important;
+    bottom:86px!important;
+    border-right:0!important;
+    border-radius:12px 0 0 12px!important;
+    font-size:1rem!important;
+    box-shadow:0 5px 18px rgba(34,45,39,.16)!important;
+    opacity:0!important;
+    transform:translateX(8px)!important;
+  }
+  .back-to-top.is-visible{
+    opacity:.82!important;
+    transform:translateX(0)!important;
+  }
+  .back-to-top:hover,.back-to-top:focus-visible{opacity:1!important;}
+}
+
+/* v198｜3. 完整歌單標題：桌機維持一行，手機刻意排成兩行。 */
+#song-dedication-section .song-playlists-title span{display:inline;}
+#song-dedication-section .song-playlists-title span + span::before{content:"，";}
+@media (max-width:720px){
+  #song-dedication-section .song-playlists-title{
+    display:block!important;
+    text-align:center!important;
+    line-height:1.55!important;
+  }
+  #song-dedication-section .song-playlists-title span{
+    display:block!important;
+  }
+  #song-dedication-section .song-playlists-title span + span::before{content:"";}
+}
+
+/* v198｜4. YouTube 採點擊後載入，初始不建立 iframe。 */
+#song-dedication-section .song-video-gate{
+  display:grid;
+  place-items:stretch;
+}
+#song-dedication-section .song-video-load{
+  appearance:none;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding:22px;
+  border:0;
+  background:
+    radial-gradient(circle at 18% 24%,color-mix(in srgb,var(--song-b) 35%,transparent),transparent 34%),
+    linear-gradient(135deg,color-mix(in srgb,var(--song-a) 72%,#211D1A),color-mix(in srgb,var(--song-b) 48%,#2B2622));
+  color:#FFFDF9;
+  text-align:left;
+  cursor:pointer;
+}
+#song-dedication-section .song-video-load:hover,
+#song-dedication-section .song-video-load:focus-visible{
+  outline:none;
+  filter:brightness(1.05);
+}
+#song-dedication-section .song-video-load-icon{
+  flex:0 0 auto;
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.42);
+  border-radius:50%;
+  background:rgba(255,255,255,.13);
+  color:#FFF;
+  font-size:1.35rem;
+  padding-left:4px;
+  box-shadow:0 10px 26px rgba(0,0,0,.16);
+}
+#song-dedication-section .song-video-load-copy{
+  min-width:0;
+  display:block;
+}
+#song-dedication-section .song-video-load-copy small{
+  display:block;
+  color:rgba(255,255,255,.68);
+  font-size:.65rem;
+  font-style:normal;
+  font-weight:850;
+  letter-spacing:.07em;
+}
+#song-dedication-section .song-video-load-copy strong{
+  display:block;
+  margin-top:5px;
+  color:#FFF;
+  font-size:1.12rem;
+  line-height:1.25;
+}
+#song-dedication-section .song-video-load-copy em{
+  display:block;
+  margin-top:4px;
+  color:rgba(255,255,255,.78);
+  font-size:.78rem;
+  line-height:1.35;
+  font-style:normal;
+}
+#song-dedication-section .song-video-wrap.is-playing iframe{
+  position:absolute;
+  inset:0;
+}
+@media(max-width:720px){
+  #song-dedication-section .song-video-load{
+    gap:12px;
+    padding:16px;
+  }
+  #song-dedication-section .song-video-load-icon{
+    width:50px;height:50px;font-size:1.05rem;
+  }
+  #song-dedication-section .song-video-load-copy strong{font-size:.98rem}
+  #song-dedication-section .song-video-load-copy small{font-size:.58rem}
+}
+
+/* v198｜5. 人物檔案閱讀中可快速回到人格櫃台。 */
+#mbti-lookup .profile-mobile-switch{display:none;}
+@media(max-width:768px){
+  #mbti-lookup .profile-mobile-switch{
+    position:sticky;
+    top:calc(env(safe-area-inset-top,0px) + 8px);
+    z-index:25;
+    display:flex;
+    width:max-content;
+    margin:8px 10px 8px auto;
+    padding:8px 11px;
+    border:1px solid color-mix(in srgb,var(--profile-accent) 26%,#D7CEC1);
+    border-radius:999px;
+    background:rgba(255,253,248,.93);
+    color:var(--profile-deep);
+    box-shadow:0 6px 18px rgba(47,40,34,.10);
+    backdrop-filter:blur(10px);
+    font:inherit;
+    font-size:.72rem;
+    font-weight:900;
+    cursor:pointer;
+  }
+}
+
+/* v198｜6. 已查驗章改成短促蓋章感，約 240ms。 */
+#mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-stamp,
+#mbti-lookup .mbti-option.mbti-passport-card.is-active .mbti-option-stamp{
+  animation:v198PassportStamp .24s cubic-bezier(.16,.82,.24,1)!important;
+}
+@keyframes v198PassportStamp{
+  0%{opacity:0;transform:rotate(-13deg) scale(1.55)}
+  72%{opacity:.88;transform:rotate(-13deg) scale(.94)}
+  100%{opacity:.82;transform:rotate(-13deg) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  #mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-stamp,
+  #mbti-lookup .mbti-option.mbti-passport-card.is-active .mbti-option-stamp{animation:none!important}
 }
 </style>
 
