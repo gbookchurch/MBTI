@@ -21679,5 +21679,332 @@ body.lookup-sheet-active{overflow:auto!important}
 })();
 </script>
 
+
+<style id="v223-chapter-deeplink-share">
+/* v223｜主要章節深連結與低調分享入口 */
+#discovery-section,
+#mbti-lookup,
+#ranking-compare,
+#lay-ranking,
+#pastor-ranking,
+#question-stats-section,
+#song-dedication-section,
+#temperament-section,
+#final-cta,
+#enfj-core-finding{
+  scroll-margin-top:88px;
+}
+
+#discovery-section,
+#mbti-lookup,
+#ranking-compare,
+#lay-ranking,
+#pastor-ranking,
+#question-stats-section,
+#song-dedication-section,
+#temperament-section,
+#final-cta{
+  position:relative;
+}
+
+.chapter-share-btn{
+  appearance:none;
+  border:1px solid rgba(91,82,74,.16);
+  border-radius:999px;
+  background:rgba(255,253,248,.78);
+  color:#6A625A;
+  padding:7px 11px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  font:inherit;
+  font-size:.72rem;
+  line-height:1;
+  font-weight:850;
+  letter-spacing:.01em;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(49,42,37,.045);
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease;
+  z-index:8;
+}
+.chapter-share-btn:hover{
+  transform:translateY(-1px);
+  background:#FFFDF8;
+  border-color:rgba(69,107,88,.28);
+  color:#456B58;
+}
+.chapter-share-btn:focus-visible{
+  outline:3px solid rgba(214,182,106,.55);
+  outline-offset:2px;
+}
+.chapter-share-btn.is-copied{
+  color:#456B58;
+  border-color:rgba(69,107,88,.28);
+  background:#F0F5F1;
+}
+
+/* 章節標題旁：桌機盡量退到右上，不干擾標題視覺。 */
+.chapter-share-btn.is-section-share{
+  position:absolute;
+  top:clamp(20px,3vw,34px);
+  right:clamp(14px,3vw,34px);
+}
+
+/* 深色章節的分享鈕改成半透明淺字。 */
+#mbti-lookup .chapter-share-btn,
+#question-stats-section .chapter-share-btn,
+#song-dedication-section .chapter-share-btn{
+  border-color:rgba(247,244,236,.20);
+  background:rgba(247,244,236,.08);
+  color:rgba(255,250,242,.82);
+  box-shadow:none;
+}
+#mbti-lookup .chapter-share-btn:hover,
+#question-stats-section .chapter-share-btn:hover,
+#song-dedication-section .chapter-share-btn:hover{
+  background:rgba(247,244,236,.14);
+  border-color:rgba(247,244,236,.32);
+  color:#FFF9EF;
+}
+
+/* 核心發現本身沒有章節標題，分享鈕放在區塊右上角。 */
+#discovery-section > .chapter-share-btn{
+  top:18px;
+}
+
+/* ENFJ 抽屜內的專用分享按鈕。 */
+#enfj-mystery .enfj-case-share-btn{
+  margin-left:auto;
+  flex:0 0 auto;
+  border-color:rgba(145,82,59,.18);
+  background:rgba(255,252,247,.68);
+  color:#8C563F;
+  box-shadow:none;
+}
+#enfj-mystery .drawer-case-head{
+  gap:10px!important;
+}
+
+.chapter-share-toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translate(-50%,16px);
+  z-index:9999;
+  max-width:min(420px,calc(100% - 32px));
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(39,36,33,.94);
+  color:#FFF8EE;
+  font-size:.78rem;
+  font-weight:800;
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.chapter-share-toast.is-visible{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+@media(max-width:760px){
+  #discovery-section,
+  #mbti-lookup,
+  #ranking-compare,
+  #lay-ranking,
+  #pastor-ranking,
+  #question-stats-section,
+  #song-dedication-section,
+  #temperament-section,
+  #final-cta,
+  #enfj-core-finding{
+    scroll-margin-top:68px;
+  }
+  .chapter-share-btn.is-section-share{
+    position:static;
+    display:flex;
+    width:max-content;
+    max-width:calc(100% - 28px);
+    margin:9px auto 0;
+  }
+  #discovery-section > .chapter-share-btn{
+    margin:0 auto 14px;
+  }
+  #enfj-mystery .drawer-case-head{
+    flex-wrap:wrap;
+  }
+  #enfj-mystery .enfj-case-share-btn{
+    margin-left:0;
+  }
+}
+</style>
+
+<script id="v223-chapter-deeplink-share-script">
+(function(){
+  const chapters=[
+    {slug:'overview', target:'top', title:'教會 MBTI 大調查', share:false},
+    {slug:'core-findings', target:'discovery-section', title:'核心發現'},
+    {slug:'mbti-profile', target:'mbti-lookup', title:'關於我的小檔案'},
+    {slug:'ranking', target:'ranking-compare', title:'16 型排行榜'},
+    {slug:'lay-ranking', target:'lay-ranking', title:'平信徒 16 型全排行'},
+    {slug:'pastor-ranking', target:'pastor-ranking', title:'牧者 16 型全排行'},
+    {slug:'faith-stats', target:'question-stats-section', title:'信仰答題統計'},
+    {slug:'song', target:'song-dedication-section', title:'為你的聖經人物點一首歌'},
+    {slug:'theater', target:'temperament-section', title:'人物小劇場'},
+    {slug:'final', target:'final-cta', title:'再測一次'}
+  ];
+
+  const legacyAliases={
+    'discovery-section':'core-findings',
+    'mbti-lookup':'mbti-profile',
+    'ranking-compare':'ranking',
+    'question-stats-section':'faith-stats',
+    'song-dedication-section':'song',
+    'temperament-section':'theater',
+    'final-cta':'final'
+  };
+
+  function buildUrl(slug){
+    const url=new URL(window.location.href);
+    url.hash=slug;
+    return url.toString();
+  }
+
+  let toastTimer=null;
+  function showToast(message){
+    let toast=document.querySelector('.chapter-share-toast');
+    if(!toast){
+      toast=document.createElement('div');
+      toast.className='chapter-share-toast';
+      toast.setAttribute('role','status');
+      toast.setAttribute('aria-live','polite');
+      document.body.appendChild(toast);
+    }
+    toast.textContent=message;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>toast.classList.remove('is-visible'),1800);
+  }
+
+  async function copyText(text){
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    }catch(e){}
+    try{
+      const ta=document.createElement('textarea');
+      ta.value=text;
+      ta.setAttribute('readonly','');
+      ta.style.position='fixed';
+      ta.style.opacity='0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok=document.execCommand('copy');
+      ta.remove();
+      return !!ok;
+    }catch(e){ return false; }
+  }
+
+  async function shareChapter(slug,title,button){
+    const url=buildUrl(slug);
+    const shareTitle=`教會 MBTI 大調查｜${title}`;
+    try{
+      if(navigator.share && location.protocol!=='file:'){
+        await navigator.share({title:shareTitle,url});
+        return;
+      }
+    }catch(e){
+      if(e && e.name==='AbortError') return;
+    }
+    const copied=await copyText(url);
+    if(copied){
+      if(button){
+        const old=button.textContent;
+        button.classList.add('is-copied');
+        button.textContent='已複製章節網址 ✓';
+        setTimeout(()=>{
+          button.classList.remove('is-copied');
+          button.textContent=old;
+        },1600);
+      }
+      showToast('章節網址已複製');
+    }else{
+      window.prompt('複製這個章節網址：',url);
+    }
+  }
+
+  function addShareButton(chapter){
+    const section=document.getElementById(chapter.target);
+    if(!section || section.querySelector(':scope > .chapter-share-btn[data-chapter-slug="'+chapter.slug+'"]')) return;
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='chapter-share-btn is-section-share';
+    btn.dataset.chapterSlug=chapter.slug;
+    btn.setAttribute('aria-label',`分享「${chapter.title}」章節`);
+    btn.textContent='分享此章 ↗';
+    btn.addEventListener('click',()=>shareChapter(chapter.slug,chapter.title,btn));
+    const heading=section.querySelector(':scope > .section-title, :scope > h2, h2.section-title, .final-hub-heading h2');
+    if(heading) heading.insertAdjacentElement('afterend',btn);
+    else section.prepend(btn);
+  }
+
+  function addEnfjShareButton(){
+    const head=document.querySelector('#enfj-mystery .drawer-case-head');
+    if(!head || head.querySelector('.enfj-case-share-btn')) return;
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='chapter-share-btn enfj-case-share-btn';
+    btn.textContent='分享這個懸案 ↗';
+    btn.setAttribute('aria-label','分享 ENFJ 教會數據懸案');
+    btn.addEventListener('click',()=>shareChapter('enfj-case','ENFJ 教會數據懸案',btn));
+    head.appendChild(btn);
+  }
+
+  function setEnfjOpen(open){
+    const button=document.getElementById('enfj-mystery-toggle');
+    const drawer=document.getElementById('enfj-mystery');
+    const card=document.getElementById('enfj-core-finding');
+    if(!button||!drawer||!card) return;
+    button.setAttribute('aria-expanded',open?'true':'false');
+    drawer.hidden=!open;
+    card.classList.toggle('is-open',open);
+    const action=button.querySelector('.discovery-mystery-action');
+    if(action) action.textContent=open?'收起':'展開看一下';
+  }
+
+  function resolveHash(){
+    let hash=decodeURIComponent(location.hash.replace(/^#/,''));
+    if(!hash) return;
+
+    if(hash==='enfj-case'){
+      setEnfjOpen(true);
+      const target=document.getElementById('enfj-core-finding');
+      if(target) requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'}));
+      return;
+    }
+
+    if(legacyAliases[hash]) hash=legacyAliases[hash];
+    const chapter=chapters.find(item=>item.slug===hash);
+    const target=chapter ? document.getElementById(chapter.target) : document.getElementById(hash);
+    if(target) requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'}));
+  }
+
+  function init(){
+    chapters.filter(chapter=>chapter.share!==false).forEach(addShareButton);
+    addEnfjShareButton();
+    /* v222 的抽屜初始化會先預設收起；此處在其後處理網址狀態。 */
+    setTimeout(resolveHash,30);
+    window.addEventListener('hashchange',()=>setTimeout(resolveHash,0));
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
+
 </body>
 </html>
