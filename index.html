@@ -16320,14 +16320,19 @@ section > .divider {
         if (target) target.hidden = true;
     }
     function openCell(cell) {
-        // V103：信徒／牧者兩欄獨立展開。
-        // 同一側仍維持一次只開一張，避免版面過長；另一側不受影響，方便左右比較。
-        const sideClass = cell.classList.contains('rank-compare-cell-lay')
-            ? 'rank-compare-cell-lay'
-            : 'rank-compare-cell-pastor';
-        cells.forEach(other => {
-            if (other !== cell && other.classList.contains(sideClass)) closeCell(other);
-        });
+        const isMobileRank = window.matchMedia('(max-width: 640px)').matches;
+        // 手機版：詳細說明會橫跨整列，所以一次只開一張。
+        // 桌機版：維持信徒／牧者兩欄各自獨立展開，方便左右比較。
+        if (isMobileRank) {
+            cells.forEach(other => { if (other !== cell) closeCell(other); });
+        } else {
+            const sideClass = cell.classList.contains('rank-compare-cell-lay')
+                ? 'rank-compare-cell-lay'
+                : 'rank-compare-cell-pastor';
+            cells.forEach(other => {
+                if (other !== cell && other.classList.contains(sideClass)) closeCell(other);
+            });
+        }
         const target = document.getElementById(cell.getAttribute('aria-controls'));
         cell.setAttribute('aria-expanded', 'true');
         const mark = cell.querySelector('.rank-compare-toggle');
@@ -18574,6 +18579,301 @@ body.lookup-sheet-active{overflow:auto!important}
   #mbti-lookup .mbti-option.mbti-passport-card,
   #mbti-lookup .mbti-option-stamp{transition:none!important}
   #mbti-lookup .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-stamp{animation:none!important}
+}
+</style>
+
+
+<script id="v194-mobile-ranking-detail-data">
+(() => {
+  const root = document.getElementById('ranking-compare');
+  if (!root || root.dataset.v194Enhanced === 'true') return;
+  root.dataset.v194Enhanced = 'true';
+
+  const TOTALS = { lay: 28796, pastor: 1649 };
+  const LABELS = { lay: '平信徒', pastor: '牧者' };
+  const maps = { lay: new Map(), pastor: new Map() };
+
+  root.querySelectorAll('.rank-compare-row').forEach(row => {
+    const rank = Number(row.dataset.rank || 0);
+    ['lay','pastor'].forEach(side => {
+      const cell = row.querySelector(`.rank-compare-cell-${side}`);
+      if (!cell) return;
+      const type = cell.querySelector('.rank-compare-type')?.textContent?.trim() || '';
+      const character = cell.querySelector('.rank-compare-character')?.textContent?.trim() || '';
+      const stat = cell.querySelector('.rank-compare-stat')?.textContent?.trim() || '';
+      const match = stat.match(/([\d,]+)\s*人\s*·\s*([\d.]+)%/);
+      maps[side].set(type, {
+        rank, type, character,
+        count: match ? Number(match[1].replace(/,/g,'')) : 0,
+        percent: match ? Number(match[2]) : 0
+      });
+    });
+  });
+
+  const formatCount = n => Number(n || 0).toLocaleString('zh-TW');
+  const approxEvery = p => p > 0 ? Math.max(1, Math.round(100 / p)) : null;
+
+  root.querySelectorAll('.rank-compare-row').forEach(row => {
+    ['lay','pastor'].forEach(side => {
+      const cell = row.querySelector(`.rank-compare-cell-${side}`);
+      if (!cell) return;
+      const type = cell.querySelector('.rank-compare-type')?.textContent?.trim() || '';
+      const info = maps[side].get(type);
+      const otherSide = side === 'lay' ? 'pastor' : 'lay';
+      const other = maps[otherSide].get(type);
+      const detail = document.getElementById(cell.getAttribute('aria-controls'));
+      if (!detail || !info || detail.querySelector('.rank-mobile-detail-data')) return;
+
+      const box = document.createElement('div');
+      box.className = `rank-mobile-detail-data is-${side}`;
+
+      const kicker = document.createElement('div');
+      kicker.className = 'rank-mobile-detail-kicker';
+      kicker.textContent = '本次樣本資料';
+
+      const stats = document.createElement('div');
+      stats.className = 'rank-mobile-detail-stats';
+      [
+        ['排名', `第 ${info.rank} 名`],
+        ['人數', `${formatCount(info.count)} 人`],
+        ['比例', `${info.percent.toFixed(1)}%`]
+      ].forEach(([label, value]) => {
+        const item = document.createElement('div');
+        const small = document.createElement('span');
+        const strong = document.createElement('strong');
+        small.textContent = label;
+        strong.textContent = value;
+        item.append(small, strong);
+        stats.appendChild(item);
+      });
+
+      const context = document.createElement('p');
+      context.className = 'rank-mobile-detail-context';
+      const every = approxEvery(info.percent);
+      context.textContent = `在本次 ${formatCount(TOTALS[side])} 位${LABELS[side]}樣本中，${type} ${info.character}共有 ${formatCount(info.count)} 人，占 ${info.percent.toFixed(1)}%。${every ? `換算約每 ${every} 位參與者中有 1 位落在這一型。` : ''}`;
+
+      box.append(kicker, stats, context);
+
+      if (other) {
+        const compare = document.createElement('p');
+        compare.className = 'rank-mobile-detail-compare';
+        compare.textContent = `同一個 ${type} 在${LABELS[otherSide]}榜排第 ${other.rank} 名，占 ${other.percent.toFixed(1)}%，對應聖經人物是${other.character}。`;
+        box.appendChild(compare);
+      }
+
+      const note = document.createElement('p');
+      note.className = 'rank-mobile-detail-note';
+      note.textContent = '比例只描述本次自願參與樣本，不代表台灣基督徒整體人口。';
+      box.appendChild(note);
+
+      detail.insertBefore(box, detail.firstChild);
+    });
+  });
+})();
+</script>
+
+
+<style id="v194-mobile-ranking-compact">
+.rank-mobile-detail-data{display:none}
+@media (max-width:640px){
+  #ranking-compare .rank-compare-section{padding-left:10px!important;padding-right:10px!important}
+  #ranking-compare .rank-compare-shell{border-radius:18px!important}
+  #ranking-compare .rank-compare-head,
+  #ranking-compare .rank-compare-row{grid-template-columns:28px minmax(0,1fr) minmax(0,1fr)!important}
+
+  /* 手機表頭只留「平信徒／牧者」，總樣本移到展開資訊裡閱讀。 */
+  #ranking-compare .rank-compare-head-col{
+    min-height:48px!important;
+    padding:11px 8px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    font-size:.9rem!important;
+  }
+  #ranking-compare .rank-compare-head-col small{display:none!important}
+  #ranking-compare .rank-compare-rank{font-size:.8rem!important}
+
+  /* 收合狀態只留人格類型與聖經人物名。 */
+  #ranking-compare .rank-compare-cell{
+    min-height:88px!important;
+    padding:13px 7px 13px 10px!important;
+    grid-template-columns:minmax(0,1fr) 22px!important;
+    column-gap:5px!important;
+    row-gap:0!important;
+    align-items:center!important;
+  }
+  #ranking-compare .rank-compare-thumb,
+  #ranking-compare .rank-compare-stat{display:none!important}
+  #ranking-compare .rank-compare-copy{
+    grid-column:1!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    gap:6px!important;
+    min-width:0!important;
+  }
+  #ranking-compare .rank-compare-type{
+    font-size:1.18rem!important;
+    line-height:1!important;
+    letter-spacing:.035em!important;
+    font-weight:950!important;
+  }
+  #ranking-compare .rank-compare-character{
+    font-size:.98rem!important;
+    line-height:1.22!important;
+    font-weight:900!important;
+    color:#3F3731!important;
+    overflow-wrap:anywhere!important;
+  }
+  #ranking-compare .rank-compare-toggle{
+    grid-column:2!important;
+    width:21px!important;
+    height:21px!important;
+    font-size:.82rem!important;
+    justify-self:end!important;
+  }
+
+  /* 點開後，說明橫跨整列，避免手機只剩半欄寬。 */
+  #ranking-compare .rank-compare-detail-lay,
+  #ranking-compare .rank-compare-detail-pastor{
+    grid-column:1 / 4!important;
+    width:auto!important;
+    border-right:0!important;
+    padding:16px 15px 18px!important;
+    font-size:.84rem!important;
+    line-height:1.76!important;
+  }
+  #ranking-compare .rank-compare-detail .rank-detail-title,
+  #ranking-compare .rank-compare-detail .pastor-observation-title{
+    margin-top:14px!important;
+    margin-bottom:8px!important;
+    font-size:.93rem!important;
+    line-height:1.55!important;
+  }
+
+  .rank-mobile-detail-data{
+    display:block;
+    margin:0 0 10px;
+    padding:14px;
+    border:1px solid rgba(70,61,53,.10);
+    border-radius:15px;
+    background:rgba(255,255,255,.66);
+  }
+  .rank-mobile-detail-data.is-lay{box-shadow:inset 3px 0 0 #6F877B}
+  .rank-mobile-detail-data.is-pastor{box-shadow:inset 3px 0 0 #B76745}
+  .rank-mobile-detail-kicker{
+    color:#81776E;
+    font-size:.66rem;
+    font-weight:900;
+    letter-spacing:.08em;
+  }
+  .rank-mobile-detail-stats{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+    margin-top:8px;
+  }
+  .rank-mobile-detail-stats>div{
+    min-width:0;
+    padding:9px 7px;
+    border-radius:10px;
+    background:#F5F1EA;
+  }
+  .rank-mobile-detail-stats span{
+    display:block;
+    color:#8B8178;
+    font-size:.62rem;
+    font-weight:800;
+  }
+  .rank-mobile-detail-stats strong{
+    display:block;
+    margin-top:2px;
+    color:#3E3731;
+    font-size:.91rem;
+    line-height:1.2;
+    font-weight:950;
+  }
+  .rank-mobile-detail-context,
+  .rank-mobile-detail-compare{
+    margin:10px 0 0!important;
+    color:#564D46!important;
+    font-size:.78rem!important;
+    line-height:1.65!important;
+  }
+  .rank-mobile-detail-compare{
+    padding-top:9px;
+    border-top:1px dashed #D8CEC2;
+  }
+  .rank-mobile-detail-note{
+    margin:8px 0 0!important;
+    color:#948A81!important;
+    font-size:.66rem!important;
+    line-height:1.55!important;
+  }
+}
+</style>
+
+
+<style id="v195-mobile-ranking-portrait-restore">
+@media (max-width:640px){
+  /* v195：手機排行榜保留聖經人物頭像；人數與百分比仍只在展開後查看。 */
+  #ranking-compare .rank-compare-cell{
+    min-height:96px!important;
+    padding:12px 6px 12px 8px!important;
+    grid-template-columns:42px minmax(0,1fr) 20px!important;
+    column-gap:7px!important;
+    align-items:center!important;
+  }
+  #ranking-compare .rank-compare-thumb{
+    display:flex!important;
+    grid-column:1!important;
+    grid-row:1!important;
+    width:42px!important;
+    height:50px!important;
+    margin:0!important;
+    border-radius:12px!important;
+    align-self:center!important;
+    overflow:hidden!important;
+    background:#F5F0E8!important;
+    box-shadow:0 4px 10px rgba(58,42,30,.07)!important;
+  }
+  #ranking-compare .rank-compare-thumb img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center 18%!important;
+    transform:scale(1.38)!important;
+    transform-origin:center 22%!important;
+  }
+  #ranking-compare .rank-compare-copy{
+    grid-column:2!important;
+    min-width:0!important;
+    gap:6px!important;
+  }
+  #ranking-compare .rank-compare-toggle{
+    grid-column:3!important;
+  }
+  #ranking-compare .rank-compare-stat{display:none!important}
+  #ranking-compare .rank-compare-type{font-size:1.15rem!important}
+  #ranking-compare .rank-compare-character{font-size:.96rem!important}
+}
+@media (max-width:380px){
+  #ranking-compare .rank-compare-cell{
+    grid-template-columns:38px minmax(0,1fr) 18px!important;
+    column-gap:5px!important;
+    padding-left:6px!important;
+    padding-right:5px!important;
+  }
+  #ranking-compare .rank-compare-thumb{
+    width:38px!important;
+    height:46px!important;
+    border-radius:10px!important;
+  }
+  #ranking-compare .rank-compare-type{font-size:1.08rem!important}
+  #ranking-compare .rank-compare-character{font-size:.9rem!important}
 }
 </style>
 
