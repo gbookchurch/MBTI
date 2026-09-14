@@ -9675,12 +9675,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <div class="mbti-lookup-shell">
 <fieldset class="mbti-picker mbti-entry-counter">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
-<div class="mbti-entry-counter-head" aria-hidden="true">
-  <div>
-    <span class="mbti-entry-eyebrow">SELECT YOUR PROFILE</span>
-    <strong>人格入境櫃台</strong>
-    <small>選一張人格護照，查驗後開啟人物檔案。</small>
-  </div>
+<div class="mbti-entry-counter-head mbti-entry-counter-head-count-only" aria-hidden="true">
   <div class="mbti-entry-count"><b>16</b><span>PERSONALITY<br/>PASSPORTS</span></div>
 </div>
 <div aria-label="16 型 MBTI 人格入境櫃台" class="mbti-picker-grid mbti-passport-trays" role="group">
@@ -9985,11 +9980,8 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
   
   <h2 class="section-title" id="ranking-compare-title">16 型排行榜</h2>
   <div class="divider"></div>
-  <div class="ranking-perspective ranking-perspective-inline" id="ranking-perspective" aria-labelledby="ranking-perspective-title">
+  <div class="ranking-perspective ranking-perspective-inline" id="ranking-perspective" aria-label="排行榜閱讀提示">
     <div class="ranking-perspective-inner">
-      <span class="ranking-perspective-kicker">READ THE RANKING DIFFERENTLY</span>
-      <h3 id="ranking-perspective-title">換個角度看</h3>
-      <p class="ranking-perspective-intro">排行榜只是在說這次樣本裡哪些類型比較常出現，不是在比哪一型比較好、比較成熟，或比較適合教會。</p>
       <div class="ranking-perspective-grid">
         <article>
           <b>01</b>
@@ -12000,7 +11992,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
   <div class="church-conclusion-inner">
     <span class="church-conclusion-kicker">AFTER THE DATA</span>
     <h2 id="church-conclusion-title">教會不是一種人格</h2>
-    <p class="church-conclusion-lead">看到最後，其實不一定要記得自己排第幾。</p>
+    <p class="church-conclusion-lead">看到最後，其實不一定要記得自己排第幾</p>
     <div class="church-conclusion-thoughts">
       <p><strong>信仰一致，不代表人格一致</strong><span>有人推動，有人陪伴；有人問「為什麼」，有人問「怎麼做」</span></p>
       <p><strong>同一個人站在不同位置，做法也可能不一樣</strong><span>牧者和平信徒的差異，不一定全都來自人格；角色、責任和所在環境，也可能有影響</span></p>
@@ -22004,7 +21996,7 @@ body.lookup-sheet-active{overflow:auto!important}
     btn.textContent='分享此章 ↗';
     btn.addEventListener('click',()=>shareChapter(chapter.slug,chapter.title,btn));
     const heading=section.querySelector(':scope > .section-title, :scope > h2, h2.section-title, .final-hub-heading h2');
-    if(heading) heading.insertAdjacentElement('afterend',btn);
+    if(heading) heading.insertAdjacentElement('beforebegin',btn);
     else section.prepend(btn);
   }
 
@@ -23138,6 +23130,85 @@ body.lookup-sheet-active{overflow:auto!important}
   #mbti-lookup .profile-passport-btn{
     min-height:40px!important;
     padding:8px 10px!important;
+  }
+}
+</style>
+
+
+<style id="v234-mobile-share-and-content-trim">
+/* v234｜指定內容精簡＋手機分享鈕固定在大標題上方 */
+.church-conclusion-lead{
+  text-align:center!important;
+}
+
+/* 人格入境櫃台移除說明後，16 本護照計數靠右，不留下空洞 */
+#mbti-lookup .mbti-entry-counter-head-count-only{
+  justify-content:flex-end!important;
+  margin-bottom:14px!important;
+}
+#mbti-lookup .mbti-entry-counter-head-count-only .mbti-entry-count{
+  margin-left:auto!important;
+}
+
+/* 排行榜閱讀提示現在直接從三個觀點開始，縮短與標題的距離 */
+#ranking-compare .ranking-perspective-inline{
+  margin-top:14px!important;
+}
+#ranking-compare .ranking-perspective-inline .ranking-perspective-inner{
+  padding-top:14px!important;
+}
+
+@media(max-width:760px){
+  /* DOM 已移到標題前，手機只需控制間距 */
+  .chapter-share-btn.is-section-share{
+    position:static!important;
+    width:max-content!important;
+    max-width:calc(100% - 28px)!important;
+    margin:0 auto 10px!important;
+  }
+  #discovery-section > .chapter-share-btn{
+    margin:0 auto 14px!important;
+  }
+
+  /* 深色與一般章節都維持：分享鈕 → 大標題 → divider */
+  #mbti-lookup > .chapter-share-btn,
+  #ranking-compare > .chapter-share-btn,
+  #pastor-ranking > .chapter-share-btn,
+  #question-stats-section > .chapter-share-btn{
+    margin-bottom:10px!important;
+  }
+
+  /* 巢狀標題區（人物小劇場、點歌、最後 CTA）也讓按鈕貼在標題上方 */
+  #song-dedication-section .song-series-head > .chapter-share-btn,
+  #final-cta .final-hub-heading > .chapter-share-btn{
+    margin:0 auto 10px!important;
+  }
+}
+</style>
+
+
+<style id="v235-passport-count-label-left">
+/* v235｜16 PERSONALITY PASSPORTS 小標籤移到護照托盤區左上 */
+#mbti-lookup .mbti-entry-counter-head-count-only{
+  justify-content:flex-start!important;
+  align-items:flex-start!important;
+  margin-bottom:14px!important;
+  padding-left:2px!important;
+  padding-right:2px!important;
+}
+#mbti-lookup .mbti-entry-counter-head-count-only .mbti-entry-count{
+  margin-left:0!important;
+  margin-right:auto!important;
+}
+@media(max-width:760px){
+  #mbti-lookup .mbti-entry-counter-head-count-only{
+    justify-content:flex-start!important;
+    margin-bottom:12px!important;
+  }
+  #mbti-lookup .mbti-entry-counter-head-count-only .mbti-entry-count{
+    display:flex!important;
+    margin-left:0!important;
+    margin-right:auto!important;
   }
 }
 </style>
