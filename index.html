@@ -19292,101 +19292,226 @@ body.lookup-sheet-active{overflow:auto!important}
 </style>
 
 
-<style id="v201-mbti-profile-dark-card">
-/* v201｜「關於我的小檔案」保留淺色章節背景，只把核心人物櫃台做成深色 Profile Card。
-   讓前段有清楚的視覺停頓，但不與首頁 Hero／人格點歌的滿版深色章節搶層級。 */
+<style id="v202-mbti-profile-brick-chapter">
+/* v202｜「關於我的小檔案」改為磚紅滿版章節；
+   移除人格入境櫃台外層的深色 Profile Card，讓護照托盤直接落在章節背景上。 */
 #mbti-lookup{
-  background:linear-gradient(180deg,#F8F4EC 0%,#EEF4EF 100%)!important;
-}
-#mbti-lookup .mbti-lookup-shell{
+  max-width:none!important;
+  width:100%!important;
+  margin:0!important;
+  padding:72px 20px 78px!important;
   position:relative;
+  isolation:isolate;
   overflow:hidden;
-  border:1px solid rgba(226,197,123,.28)!important;
-  border-radius:26px!important;
+  color:#FFF8EC!important;
   background:
-    radial-gradient(circle at 8% 0%,rgba(226,197,123,.13),transparent 28%),
-    radial-gradient(circle at 94% 100%,rgba(137,166,150,.13),transparent 34%),
-    linear-gradient(145deg,#304C40 0%,#263F35 52%,#20352D 100%)!important;
-  box-shadow:0 22px 54px rgba(40,53,46,.16)!important;
-  padding:clamp(24px,4vw,38px)!important;
+    radial-gradient(circle at 8% 8%,rgba(255,236,204,.12),transparent 28%),
+    radial-gradient(circle at 92% 90%,rgba(92,45,31,.14),transparent 34%),
+    linear-gradient(150deg,#B45F3C 0%,#A65336 48%,#93472F 100%)!important;
 }
-#mbti-lookup .mbti-lookup-shell::before{
+#mbti-lookup::before{
   content:"";
   position:absolute;
   inset:0;
+  z-index:-1;
   pointer-events:none;
   background:
-    linear-gradient(180deg,rgba(255,255,255,.025),transparent 24%,transparent 78%,rgba(0,0,0,.055)),
+    linear-gradient(180deg,rgba(255,255,255,.035),transparent 20%,transparent 82%,rgba(70,29,18,.10)),
     repeating-linear-gradient(120deg,rgba(255,255,255,.012) 0 1px,transparent 1px 15px);
+}
+
+/* 章節標題與說明直接放在磚紅背景上。 */
+#mbti-lookup > .section-title,
+#mbti-lookup > .divider,
+#mbti-lookup > .section-subtitle,
+#mbti-lookup > .mbti-lookup-shell{
+  width:min(1040px,100%)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+#mbti-lookup > .section-title{
+  color:#FFF0C7!important;
+  text-shadow:0 2px 16px rgba(74,31,19,.13);
+}
+#mbti-lookup > .divider{
+  width:54px!important;
+  margin-top:20px!important;
+  margin-bottom:20px!important;
+  background:#E2C57B!important;
+}
+#mbti-lookup > .section-subtitle{
+  color:rgba(255,248,236,.84)!important;
+  margin-bottom:28px!important;
+}
+
+/* 取消 v201 的大型深綠外框：DOM wrapper 保留，但視覺上不再是一張卡。 */
+#mbti-lookup .mbti-lookup-shell{
+  position:relative!important;
+  overflow:visible!important;
+  margin-top:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#mbti-lookup .mbti-lookup-shell::before{
+  content:none!important;
 }
 #mbti-lookup .mbti-lookup-shell > *{
   position:relative;
   z-index:1;
 }
 
-/* 櫃台抬頭：改成深色卡上的暖金／米白資訊層級 */
+/* 入境櫃台抬頭改成直接讀在磚紅底上的米白／金色資訊。 */
+#mbti-lookup .mbti-entry-counter{
+  width:100%!important;
+  margin:0 auto!important;
+}
 #mbti-lookup .mbti-entry-eyebrow{
-  color:#DDBF76!important;
+  color:#F3D895!important;
 }
 #mbti-lookup .mbti-entry-counter-head strong{
   color:#FFF8EC!important;
 }
 #mbti-lookup .mbti-entry-counter-head small{
-  color:rgba(247,244,236,.72)!important;
+  color:rgba(255,248,236,.76)!important;
 }
 #mbti-lookup .mbti-entry-count{
-  border-color:rgba(226,197,123,.30)!important;
-  background:rgba(255,255,255,.07)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 7px 20px rgba(10,20,16,.12)!important;
+  border-color:rgba(255,240,199,.30)!important;
+  background:rgba(95,39,24,.16)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 5px 14px rgba(84,35,22,.10)!important;
 }
 #mbti-lookup .mbti-entry-count b{
-  color:#E2C57B!important;
+  color:#FFE7AE!important;
 }
 #mbti-lookup .mbti-entry-count span{
-  color:rgba(247,244,236,.62)!important;
+  color:rgba(255,248,236,.70)!important;
 }
 
-/* 四個人格護照托盤保留紙本亮面，形成「深桌面上的四疊檔案」 */
+/* 四個人格護照托盤直接浮在磚紅章節上，不再套第二層大卡。 */
 #mbti-lookup .mbti-passport-tray{
-  border-color:rgba(255,255,255,.11)!important;
-  box-shadow:0 10px 25px rgba(7,15,12,.16),inset 0 -3px 0 rgba(65,55,45,.035)!important;
+  border-color:rgba(255,255,255,.20)!important;
+  box-shadow:0 11px 26px rgba(76,29,17,.12),inset 0 -3px 0 rgba(65,55,45,.035)!important;
 }
 #mbti-lookup .mbti-passport-tray:has(.mbti-option[aria-pressed="true"]),
 #mbti-lookup .mbti-passport-tray.is-current-tray{
-  box-shadow:0 12px 28px rgba(7,15,12,.19),inset 4px 0 0 var(--tray-accent)!important;
+  box-shadow:0 13px 30px rgba(76,29,17,.16),inset 4px 0 0 var(--tray-accent)!important;
 }
 
-/* 展開後的人物檔案維持閱讀友善的亮色紙張，但在深色框架中更像真正的 dossier。 */
+/* 展開的人物檔案仍維持淺色紙張，和磚紅背景形成清楚層次。 */
 #mbti-lookup .profile-dossier:not([hidden]){
-  margin-top:24px!important;
+  margin-top:26px!important;
   border-radius:22px!important;
-  box-shadow:0 18px 42px rgba(8,17,13,.18)!important;
+  box-shadow:0 20px 46px rgba(76,29,17,.19)!important;
 }
 
 @media(max-width:768px){
-  #mbti-lookup .mbti-lookup-shell{
-    margin-top:20px!important;
-    padding:20px 10px 16px!important;
-    border-radius:22px!important;
-    box-shadow:0 16px 38px rgba(40,53,46,.15)!important;
+  #mbti-lookup{
+    padding:56px 14px 62px!important;
+    background:
+      radial-gradient(circle at 15% 6%,rgba(255,236,204,.11),transparent 27%),
+      radial-gradient(circle at 85% 94%,rgba(92,45,31,.13),transparent 34%),
+      linear-gradient(160deg,#B45F3C 0%,#A65336 52%,#93472F 100%)!important;
   }
-  #mbti-lookup .mbti-entry-counter{
-    width:calc(100% - 12px)!important;
+  #mbti-lookup > .section-title,
+  #mbti-lookup > .divider,
+  #mbti-lookup > .section-subtitle,
+  #mbti-lookup > .mbti-lookup-shell{
+    width:100%!important;
+  }
+  #mbti-lookup > .section-subtitle{
+    margin-bottom:22px!important;
   }
   #mbti-lookup .mbti-entry-counter-head{
-    padding-inline:4px!important;
+    padding-inline:2px!important;
     gap:12px!important;
   }
   #mbti-lookup .mbti-entry-count{
     padding:6px 8px!important;
   }
   #mbti-lookup .profile-dossier:not([hidden]){
-    margin-top:18px!important;
+    margin-top:20px!important;
     border-radius:18px!important;
   }
 }
 </style>
 
 <!-- v199: 將 1254x1254 撒馬利亞婦人 RGBA PNG 轉為高品質透明 WebP，保留原尺寸以降低單檔體積。 -->
+
+<style id="v203-passport-tray-gradient">
+/* v203｜磚紅章節中的護照托盤改為「深 → 淺」暖色漸層。
+   不再以接近白色的底襯托護照，讓亮色護照卡本身更清楚。 */
+#mbti-lookup .mbti-passport-tray{
+  background:
+    linear-gradient(
+      108deg,
+      color-mix(in srgb,var(--tray-deep) 84%,#6F362A 16%) 0%,
+      color-mix(in srgb,var(--tray-accent) 70%,#9D5038 30%) 23%,
+      color-mix(in srgb,var(--tray-soft) 22%,#B96C4E 78%) 58%,
+      color-mix(in srgb,var(--tray-soft) 42%,#D08C68 58%) 100%
+    )!important;
+  border-color:rgba(255,245,230,.22)!important;
+  box-shadow:
+    0 12px 28px rgba(76,29,17,.16),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -3px 0 rgba(67,35,27,.08)!important;
+}
+
+/* 深色端的托盤標示改為淺字，維持清楚對比。 */
+#mbti-lookup .mbti-passport-tray-head span{
+  color:#F5D995!important;
+  text-shadow:0 1px 0 rgba(47,25,18,.15);
+}
+#mbti-lookup .mbti-passport-tray-head strong{
+  color:#FFF8EC!important;
+  text-shadow:0 1px 1px rgba(47,25,18,.16);
+}
+#mbti-lookup .mbti-passport-tray-head small{
+  background:rgba(255,248,236,.14)!important;
+  border:1px solid rgba(255,248,236,.18)!important;
+  color:#FFF0C9!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* 托盤上的護照再多一點輪廓，避免亮色卡與漸層較淺端黏在一起。 */
+#mbti-lookup .mbti-option.mbti-passport-card{
+  border-color:rgba(101,72,56,.24)!important;
+  box-shadow:
+    0 5px 0 rgba(67,46,36,.08),
+    0 9px 19px rgba(55,35,27,.10),
+    0 0 0 1px rgba(255,255,255,.24) inset!important;
+}
+#mbti-lookup .mbti-option.mbti-passport-card:hover{
+  box-shadow:
+    0 7px 0 rgba(67,46,36,.08),
+    0 15px 26px rgba(55,35,27,.15),
+    0 0 0 1px rgba(255,255,255,.30) inset!important;
+}
+
+#mbti-lookup .mbti-passport-tray:has(.mbti-option[aria-pressed="true"]),
+#mbti-lookup .mbti-passport-tray.is-current-tray{
+  border-color:rgba(255,235,198,.38)!important;
+  box-shadow:
+    0 14px 32px rgba(76,29,17,.20),
+    inset 4px 0 0 color-mix(in srgb,var(--tray-accent) 68%,#F1C978 32%),
+    inset 0 1px 0 rgba(255,255,255,.11)!important;
+}
+
+@media(max-width:760px){
+  #mbti-lookup .mbti-passport-tray{
+    /* 手機改為斜向漸層，讓上方組別標題維持深色、下方護照仍有足夠反差。 */
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in srgb,var(--tray-deep) 86%,#6F362A 14%) 0%,
+        color-mix(in srgb,var(--tray-accent) 70%,#9D5038 30%) 26%,
+        color-mix(in srgb,var(--tray-soft) 18%,#B76A4D 82%) 62%,
+        color-mix(in srgb,var(--tray-soft) 38%,#CE8866 62%) 100%
+      )!important;
+  }
+}
+</style>
+
 </body>
 </html>
