@@ -19211,6 +19211,86 @@ body.lookup-sheet-active{overflow:auto!important}
 }
 </style>
 
+<style id="v200-song-dedication-dark-chapter">
+/* v200｜人格點歌改為深色沉浸式章節，作為前後單元的明確視覺分隔。 */
+#song-dedication-section{
+  max-width:none!important;
+  width:100%!important;
+  margin:0!important;
+  padding:76px 20px 82px!important;
+  background:
+    radial-gradient(circle at 12% 10%,rgba(214,182,106,.12),transparent 30%),
+    radial-gradient(circle at 88% 82%,rgba(137,166,150,.13),transparent 34%),
+    linear-gradient(150deg,#263E34 0%,#1F332B 48%,#182A23 100%)!important;
+  color:#F7F4EC!important;
+  position:relative;
+  isolation:isolate;
+}
+#song-dedication-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.025),transparent 18%,transparent 82%,rgba(0,0,0,.08)),
+    repeating-linear-gradient(120deg,rgba(255,255,255,.012) 0 1px,transparent 1px 14px);
+}
+#song-dedication-section .song-series-head{
+  max-width:920px!important;
+  margin:0 auto 26px!important;
+}
+#song-dedication-section .song-series-head .section-title{
+  color:#E2C57B!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.16);
+}
+#song-dedication-section .song-series-head .divider{
+  background:#C87855!important;
+  width:54px!important;
+}
+#song-dedication-section .song-series-head .section-subtitle{
+  color:rgba(247,244,236,.78)!important;
+}
+#song-dedication-section .song-series-shell{
+  width:min(980px,calc(100% - 28px))!important;
+}
+#song-dedication-section .song-picker-wrap{
+  background:rgba(11,22,18,.34)!important;
+  border-color:rgba(247,244,236,.12)!important;
+  box-shadow:0 16px 40px rgba(6,14,11,.20)!important;
+  backdrop-filter:blur(10px);
+}
+#song-dedication-section .song-share-status{
+  color:rgba(247,244,236,.64)!important;
+}
+#song-dedication-section .song-card{
+  box-shadow:0 24px 60px rgba(5,12,9,.28)!important;
+}
+#song-dedication-section .song-playlists{
+  box-shadow:0 18px 38px rgba(4,10,8,.26)!important;
+}
+@media(max-width:720px){
+  #song-dedication-section{
+    padding:58px 0 64px!important;
+    background:
+      radial-gradient(circle at 18% 8%,rgba(214,182,106,.11),transparent 28%),
+      radial-gradient(circle at 82% 88%,rgba(137,166,150,.11),transparent 34%),
+      linear-gradient(160deg,#263E34 0%,#1E322A 50%,#182922 100%)!important;
+  }
+  #song-dedication-section .song-series-head{
+    padding-inline:20px!important;
+    margin-bottom:22px!important;
+  }
+  #song-dedication-section .song-series-shell{
+    width:100%!important;
+  }
+  #song-dedication-section .song-picker-wrap{
+    background:rgba(12,23,19,.40)!important;
+    border-color:rgba(247,244,236,.11)!important;
+  }
+}
+</style>
+
 <!-- v199: 將 1254x1254 撒馬利亞婦人 RGBA PNG 轉為高品質透明 WebP，保留原尺寸以降低單檔體積。 -->
 </body>
 </html>
