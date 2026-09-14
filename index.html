@@ -18877,5 +18877,87 @@ body.lookup-sheet-active{overflow:auto!important}
 }
 </style>
 
+
+<style id="v196-mbti-entry-mobile-stability">
+/* v196｜手機人格入境櫃台穩定化：取消橫向半張卡，改為 2×2 護照格，避免滑動與點擊互相搶手勢。 */
+@media (max-width:760px){
+  #mbti-lookup .mbti-entry-counter .mbti-passport-tray{
+    padding:10px!important;
+    overflow:visible!important;
+  }
+  #mbti-lookup .mbti-entry-counter .mbti-passport-tray-cards{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    gap:8px!important;
+    width:100%!important;
+    min-width:0!important;
+    overflow:visible!important;
+    overflow-x:visible!important;
+    padding:4px 0 2px!important;
+    scroll-snap-type:none!important;
+    touch-action:manipulation!important;
+  }
+  #mbti-lookup .mbti-entry-counter .mbti-option.mbti-passport-card{
+    flex:none!important;
+    flex-basis:auto!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:102px!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent;
+    pointer-events:auto!important;
+  }
+  #mbti-lookup .mbti-entry-counter .mbti-option-stamp{
+    width:44px!important;
+    height:44px!important;
+    top:7px!important;
+    right:6px!important;
+  }
+  #mbti-lookup .mbti-entry-counter .mbti-option-stamp b{font-size:.53rem!important}
+  #mbti-lookup .mbti-entry-counter .mbti-option-stamp small{font-size:.27rem!important}
+}
+@media (max-width:360px){
+  #mbti-lookup .mbti-entry-counter .mbti-passport-tray-cards{gap:7px!important}
+  #mbti-lookup .mbti-entry-counter .mbti-option.mbti-passport-card{
+    min-height:98px!important;
+    padding-left:13px!important;
+    padding-right:9px!important;
+  }
+  #mbti-lookup .mbti-entry-counter .mbti-option.mbti-passport-card .mbti-option-type{font-size:1.08rem!important}
+  #mbti-lookup .mbti-entry-counter .mbti-option.mbti-passport-card .mbti-option-group{font-size:.62rem!important}
+}
+</style>
+
+<script id="v196-mbti-entry-touch-guard">
+(() => {
+  const root = document.getElementById('mbti-lookup');
+  if (!root || root.dataset.v196EntryGuard === 'true') return;
+  root.dataset.v196EntryGuard = 'true';
+
+  // 額外同步托盤選取狀態，避免只依賴 :has()；舊版 Safari 也能正常看到選中托盤。
+  const syncTrayState = () => {
+    root.querySelectorAll('.mbti-passport-tray').forEach(tray => {
+      const active = !!tray.querySelector('.mbti-option[aria-pressed="true"]');
+      tray.classList.toggle('is-current-tray', active);
+    });
+  };
+
+  root.querySelectorAll('.mbti-option[data-type]').forEach(button => {
+    button.addEventListener('click', () => {
+      requestAnimationFrame(syncTrayState);
+    });
+  });
+  syncTrayState();
+})();
+</script>
+
+<style id="v196-mbti-entry-current-tray-fallback">
+#mbti-lookup .mbti-passport-tray.is-current-tray{
+  border-color:color-mix(in srgb,var(--tray-accent) 38%,#D8D0C3 62%)!important;
+  box-shadow:0 10px 24px rgba(52,44,37,.065),inset 4px 0 0 var(--tray-accent)!important;
+}
+</style>
+
 </body>
 </html>
