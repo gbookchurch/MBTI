@@ -20879,5 +20879,495 @@ body.lookup-sheet-active{overflow:auto!important}
 })();
 </script>
 
+
+<style id="v217-full-page-rhythm-polish">
+/* v217｜全頁視覺節奏優化：不新增主色，只用背景深淺、留白與卡片扁平程度建立章節節奏 */
+
+/* ===== 01｜16 型比較排行：從「浮卡」改成更像資料總覽 ===== */
+#ranking-compare{
+  position:relative;
+  padding-top:68px!important;
+  padding-bottom:72px!important;
+  background:
+    radial-gradient(circle at 8% 8%,rgba(127,155,138,.10),transparent 26%),
+    linear-gradient(180deg,#F5F1E8 0%,#FBF8F1 44%,#F4EFE5 100%)!important;
+  border-top:1px solid rgba(77,105,88,.08);
+  border-bottom:1px solid rgba(126,105,87,.10);
+}
+#ranking-compare .rank-compare-shell{
+  border:1px solid #DCD4C8!important;
+  box-shadow:0 3px 0 rgba(55,45,37,.025)!important;
+  background:rgba(255,253,248,.94)!important;
+}
+#ranking-compare .rank-compare-cell{
+  box-shadow:none!important;
+  border-color:rgba(114,99,84,.09)!important;
+}
+#ranking-compare .rank-compare-cell:hover{
+  transform:none!important;
+  box-shadow:inset 3px 0 0 rgba(69,107,88,.16)!important;
+}
+#ranking-compare .ranking-data-source{
+  box-shadow:none!important;
+}
+
+/* ===== 02｜平信徒排行：暖白、扁平、留白；重要性靠內容而不是每張卡都浮起 ===== */
+#lay-ranking{
+  position:relative;
+  padding-top:72px!important;
+  padding-bottom:76px!important;
+  background:
+    linear-gradient(180deg,#FFFDF8 0%,#F9F5ED 100%)!important;
+  border-top:1px solid rgba(214,182,106,.12);
+}
+#lay-ranking > .section-title{
+  margin-bottom:12px!important;
+}
+#lay-ranking .divider{
+  margin-bottom:34px!important;
+}
+#lay-ranking .mbti-card{
+  background:rgba(255,254,250,.86)!important;
+  border-top:1px solid rgba(112,91,74,.10)!important;
+  border-right:1px solid rgba(112,91,74,.10)!important;
+  border-bottom:1px solid rgba(112,91,74,.10)!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease!important;
+}
+#lay-ranking .mbti-card:hover{
+  background:#FFFDF8!important;
+  border-color:rgba(69,107,88,.20)!important;
+  transform:translateY(-1px)!important;
+  box-shadow:0 7px 18px rgba(55,45,37,.045)!important;
+}
+#lay-ranking .lay-top-card{
+  box-shadow:0 8px 22px rgba(55,45,37,.045)!important;
+}
+#lay-ranking .lay-extra-grid{
+  gap:14px!important;
+}
+
+/* ===== 03｜牧者排行：很淡的陶土霧面，與平信徒段形成真正換頁感 ===== */
+#pastor-ranking{
+  position:relative;
+  padding-top:72px!important;
+  padding-bottom:78px!important;
+  background:
+    radial-gradient(circle at 92% 6%,rgba(180,95,60,.08),transparent 30%),
+    linear-gradient(180deg,#F4ECE5 0%,#F8F2EB 48%,#F3ECE5 100%)!important;
+  border-top:1px solid rgba(180,95,60,.10);
+  border-bottom:1px solid rgba(180,95,60,.10);
+}
+#pastor-ranking > .section-title{
+  color:#8F513B!important;
+  margin-bottom:12px!important;
+}
+#pastor-ranking .divider{
+  margin-bottom:34px!important;
+  background:#B45F3C!important;
+  border-color:#B45F3C!important;
+}
+#pastor-ranking .pastor-rank-card{
+  background:rgba(255,253,249,.86)!important;
+  border:1px solid rgba(153,91,66,.13)!important;
+  border-radius:15px!important;
+  box-shadow:none!important;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease!important;
+}
+#pastor-ranking .pastor-rank-card:hover{
+  background:#FFFDF9!important;
+  border-color:rgba(180,95,60,.24)!important;
+  transform:translateY(-1px)!important;
+  box-shadow:0 7px 18px rgba(102,62,45,.05)!important;
+}
+#pastor-ranking .pastor-top-grid{
+  gap:18px!important;
+}
+#pastor-ranking .pastor-extra-grid{
+  gap:14px!important;
+}
+
+/* ===== 04｜深綠統計：作為中段真正的視覺休止符，前後留更多呼吸 ===== */
+#question-stats-section{
+  padding-top:78px!important;
+  padding-bottom:84px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),inset 0 -1px 0 rgba(0,0,0,.08)!important;
+}
+#question-stats-section .question-highlight-card,
+#question-stats-section .question-explorer{
+  border-radius:18px!important;
+}
+#question-stats-section .question-highlight-card{
+  box-shadow:0 5px 14px rgba(13,43,32,.09)!important;
+}
+#question-stats-section .question-explorer{
+  box-shadow:0 9px 24px rgba(10,38,28,.14)!important;
+}
+
+/* ===== 05｜ENFJ 懸案：回到紙面感，減少又一組浮卡造成的疲勞 ===== */
+#enfj-mystery{
+  padding-top:74px!important;
+  padding-bottom:78px!important;
+  background:
+    radial-gradient(circle at 14% 14%,rgba(214,182,106,.09),transparent 28%),
+    linear-gradient(180deg,#FAF3E9 0%,#F7EEE5 100%)!important;
+}
+#enfj-mystery .mystery-card,
+#enfj-mystery .mystery-box,
+#enfj-mystery .enfj-box{
+  box-shadow:none!important;
+  border-color:rgba(175,126,83,.18)!important;
+}
+
+/* ===== 共通：段落標題周圍多一點空氣，讓長頁讀起來像章節，不像卡片串流 ===== */
+#ranking-compare > .section-title,
+#lay-ranking > .section-title,
+#pastor-ranking > .section-title,
+#question-stats-section > .section-title,
+#enfj-mystery > .section-title{
+  letter-spacing:.01em!important;
+}
+
+@media(max-width:760px){
+  #ranking-compare,
+  #lay-ranking,
+  #pastor-ranking,
+  #question-stats-section,
+  #enfj-mystery{
+    padding-top:52px!important;
+    padding-bottom:56px!important;
+  }
+  #ranking-compare .rank-compare-shell{
+    box-shadow:none!important;
+  }
+  #lay-ranking .mbti-card,
+  #pastor-ranking .pastor-rank-card{
+    border-radius:13px!important;
+  }
+  #lay-ranking .lay-top-card{
+    box-shadow:0 5px 14px rgba(55,45,37,.04)!important;
+  }
+  #pastor-ranking .pastor-top-grid{
+    gap:14px!important;
+  }
+}
+</style>
+
+
+<style id="v218-pastor-question-explorer-red-system">
+/* v218｜信仰答題統計：牧者版每一題顯示改成偏紅系統，與平信徒版拉開區分 */
+#question-stats-section[data-audience="pastor"] .question-explorer{
+  border:1px solid rgba(169,83,55,.22)!important;
+  background:linear-gradient(180deg,rgba(255,250,246,.96) 0%,rgba(251,240,234,.98) 100%)!important;
+  box-shadow:0 16px 36px rgba(100,51,35,.10)!important;
+}
+#question-stats-section[data-audience="pastor"] .question-explorer-topline{
+  margin-bottom:16px!important;
+}
+#question-stats-section[data-audience="pastor"] .question-explorer-label{
+  color:#8B4935!important;
+  font-weight:900!important;
+}
+#question-stats-section[data-audience="pastor"] .question-sample-pill{
+  background:rgba(169,83,55,.12)!important;
+  color:#964B35!important;
+  border:1px solid rgba(169,83,55,.15)!important;
+}
+#question-stats-section[data-audience="pastor"] .question-tab{
+  background:#FFF7F3!important;
+  border-color:rgba(169,83,55,.22)!important;
+  color:#8D6557!important;
+  box-shadow:none!important;
+}
+#question-stats-section[data-audience="pastor"] .question-tab:hover{
+  background:#F8E7DE!important;
+  color:#874533!important;
+}
+#question-stats-section[data-audience="pastor"] .question-tab[aria-selected="true"]{
+  background:linear-gradient(180deg,#B45F3C 0%,#9E5335 100%)!important;
+  border-color:#A95337!important;
+  color:#FFF8F1!important;
+  box-shadow:0 7px 16px rgba(128,61,39,.18)!important;
+}
+#question-stats-section[data-audience="pastor"] .question-panel-heading{
+  color:#6F3528!important;
+}
+#question-stats-section[data-audience="pastor"] .question-panel-summary{
+  color:#775D52!important;
+}
+#question-stats-section[data-audience="pastor"] .question-panel-summary strong,
+#question-stats-section[data-audience="pastor"] .question-summary-label{
+  color:#A95337!important;
+}
+#question-stats-section[data-audience="pastor"] .question-summary-label::after{
+  color:#C09B8D!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-meta{
+  margin-bottom:8px!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-label{
+  color:#5B4941!important;
+}
+#question-stats-section[data-audience="pastor"] .question-option-name{
+  color:#6A392B!important;
+}
+#question-stats-section[data-audience="pastor"] .question-option-desc{
+  color:#7A675F!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-letter{
+  background:rgba(180,95,60,.15)!important;
+  color:#8A4E3C!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-value{
+  color:#A95337!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-track{
+  background:#EEDDD6!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-fill{
+  background:#C98062!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-row.is-top .question-bar-fill{
+  background:linear-gradient(90deg,#A95337 0%,#C26D4C 100%)!important;
+}
+#question-stats-section[data-audience="pastor"] .question-bar-row.is-top .question-bar-label{
+  font-weight:800!important;
+}
+#question-stats-section[data-audience="pastor"] .question-stats-note{
+  background:rgba(255,247,242,.60)!important;
+  border-color:rgba(169,83,55,.14)!important;
+  color:#7B6157!important;
+}
+#question-stats-section[data-audience="pastor"] .question-stats-note strong{
+  color:#9C5137!important;
+}
+@media (max-width:680px){
+  #question-stats-section[data-audience="pastor"] .question-explorer{
+    background:linear-gradient(180deg,rgba(255,250,246,.98) 0%,rgba(250,238,231,.99) 100%)!important;
+  }
+}
+</style>
+
+
+<style id="v219-mbti-profile-warm-charcoal-chapter">
+/* v219｜「關於我的小檔案」章節改為無彩度暖深灰。
+   保留四色托盤、羊皮紙護照與選中後深色皮革狀態，只讓大背景退出競色。 */
+
+/* 章節主背景：暖炭灰，不使用偏藍冷灰。 */
+#mbti-lookup{
+  color:#F3EEE7!important;
+  background:
+    radial-gradient(circle at 10% 7%,rgba(255,247,235,.065),transparent 30%),
+    radial-gradient(circle at 90% 90%,rgba(0,0,0,.17),transparent 38%),
+    linear-gradient(148deg,#48423E 0%,#3C3734 48%,#2F2B29 100%)!important;
+}
+#mbti-lookup::before{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.022),transparent 22%,transparent 80%,rgba(0,0,0,.12)),
+    repeating-linear-gradient(120deg,rgba(255,255,255,.009) 0 1px,transparent 1px 16px)!important;
+}
+
+/* 章節標題：由磚紅環境的暖黃，收斂成奶油米白＋低彩度金。 */
+#mbti-lookup > .section-title{
+  color:#F1E5CB!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.18)!important;
+}
+#mbti-lookup > .divider{
+  background:#CDB47B!important;
+}
+#mbti-lookup > .section-subtitle{
+  color:rgba(243,238,231,.78)!important;
+}
+
+/* 入境櫃台資訊改成中性暖灰階，避免大背景再出現紅棕。 */
+#mbti-lookup .mbti-entry-eyebrow{
+  color:#CDBA91!important;
+}
+#mbti-lookup .mbti-entry-counter-head strong{
+  color:#F5F0E9!important;
+}
+#mbti-lookup .mbti-entry-counter-head small{
+  color:rgba(243,238,231,.70)!important;
+}
+#mbti-lookup .mbti-entry-count{
+  border-color:rgba(236,226,211,.17)!important;
+  background:rgba(18,17,16,.20)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 6px 16px rgba(0,0,0,.12)!important;
+}
+#mbti-lookup .mbti-entry-count b{
+  color:#E0C990!important;
+}
+#mbti-lookup .mbti-entry-count span{
+  color:rgba(243,238,231,.60)!important;
+}
+
+/* 托盤陰影改為中性黑灰，不再帶磚紅陰影色；托盤本身四色完全不改。 */
+#mbti-lookup .mbti-passport-tray{
+  box-shadow:
+    0 14px 28px rgba(15,14,13,.20),
+    inset 0 1px 0 rgba(255,255,255,.06)!important;
+}
+#mbti-lookup .mbti-passport-tray:has(.mbti-option[aria-pressed="true"]),
+#mbti-lookup .mbti-passport-tray.is-current-tray{
+  box-shadow:
+    0 17px 34px rgba(12,11,10,.24),
+    inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+
+/* 展開人物檔案維持淺色紙張，但落在深灰章節上的陰影改成中性。 */
+#mbti-lookup .profile-dossier:not([hidden]){
+  box-shadow:0 22px 48px rgba(11,10,9,.25)!important;
+}
+
+/* 分享人物護照功能卡同步去掉紅棕，改為暖炭灰卡。 */
+#mbti-lookup .profile-passport-panel{
+  border-color:rgba(241,233,220,.14)!important;
+  background:
+    linear-gradient(120deg,#504A46 0%,#443F3B 48%,#393532 100%)!important;
+  box-shadow:0 16px 34px rgba(22,20,18,.16)!important;
+  color:#F7F2EA!important;
+}
+#mbti-lookup .profile-passport-copy span{
+  color:#D8C28E!important;
+}
+#mbti-lookup .profile-passport-copy strong{
+  color:#F7F2EA!important;
+}
+#mbti-lookup .profile-passport-copy p{
+  color:rgba(247,242,234,.72)!important;
+}
+#mbti-lookup .profile-passport-btn{
+  border-color:rgba(247,242,234,.24)!important;
+  background:rgba(247,242,234,.075)!important;
+  color:#F7F2EA!important;
+}
+#mbti-lookup .profile-passport-btn:hover{
+  background:rgba(247,242,234,.12)!important;
+}
+#mbti-lookup .profile-passport-btn.is-primary{
+  border-color:#D8BF82!important;
+  background:#D8BF82!important;
+  color:#3E3732!important;
+}
+#mbti-lookup .profile-share-status{
+  color:rgba(247,242,234,.66)!important;
+}
+
+@media(max-width:768px){
+  #mbti-lookup{
+    background:
+      radial-gradient(circle at 14% 6%,rgba(255,247,235,.055),transparent 28%),
+      radial-gradient(circle at 86% 94%,rgba(0,0,0,.16),transparent 36%),
+      linear-gradient(158deg,#47413D 0%,#3A3532 54%,#2E2A28 100%)!important;
+  }
+}
+</style>
+
+
+<style id="v220-passport-panel-clear-spacing">
+/* v220｜把「小護照分享卡」從背景中拉出來，四周留白更明確 */
+#mbti-lookup .profile-passport-panel{
+  width:min(820px,calc(100% - 140px))!important;
+  margin:38px auto 58px!important;
+  padding:24px 28px!important;
+  gap:24px!important;
+  border-radius:26px!important;
+  border:1px solid rgba(241,233,220,.14)!important;
+  box-shadow:
+    0 20px 40px rgba(18,16,15,.20),
+    inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+#mbti-lookup .profile-passport-copy{
+  padding-right:10px!important;
+}
+#mbti-lookup .profile-passport-copy strong{
+  font-size:1.08rem!important;
+  line-height:1.26!important;
+}
+#mbti-lookup .profile-passport-copy p{
+  margin-top:8px!important;
+  max-width:560px!important;
+  line-height:1.6!important;
+}
+#mbti-lookup .profile-passport-actions{
+  gap:12px!important;
+}
+#mbti-lookup .profile-passport-btn{
+  min-height:48px!important;
+  padding:11px 16px!important;
+  border-radius:12px!important;
+}
+#mbti-lookup .profile-share-status{
+  margin-top:2px!important;
+}
+
+@media(max-width:1080px){
+  #mbti-lookup .profile-passport-panel{
+    width:min(860px,calc(100% - 88px))!important;
+    margin:34px auto 52px!important;
+  }
+}
+@media(max-width:768px){
+  #mbti-lookup .profile-passport-panel{
+    width:calc(100% - 52px)!important;
+    margin:24px auto 38px!important;
+    padding:18px 16px!important;
+    gap:14px!important;
+    border-radius:20px!important;
+  }
+  #mbti-lookup .profile-passport-copy{
+    padding-right:0!important;
+  }
+  #mbti-lookup .profile-passport-copy strong{
+    font-size:1rem!important;
+  }
+  #mbti-lookup .profile-passport-copy p{
+    max-width:none!important;
+    line-height:1.54!important;
+  }
+  #mbti-lookup .profile-passport-actions{
+    gap:10px!important;
+  }
+  #mbti-lookup .profile-passport-btn{
+    min-height:44px!important;
+    padding:10px 12px!important;
+  }
+}
+</style>
+
+
+<style id="v221-passport-panel-bottom-space-real-fix">
+/* v221｜真正把留白放進深灰章節內部，不再依賴最後一張卡的 margin-bottom */
+#mbti-lookup #mbti-lookup-result:not([hidden]){
+  padding-bottom:72px!important;
+}
+
+#mbti-lookup .profile-passport-panel{
+  margin-top:38px!important;
+  margin-bottom:0!important;
+}
+
+/* 章節本身也保留一層底部安全距離，確保下一段米白不會貼上來 */
+#mbti-lookup{
+  padding-bottom:46px!important;
+}
+
+@media(max-width:768px){
+  #mbti-lookup #mbti-lookup-result:not([hidden]){
+    padding-bottom:48px!important;
+  }
+  #mbti-lookup .profile-passport-panel{
+    margin-top:24px!important;
+    margin-bottom:0!important;
+  }
+  #mbti-lookup{
+    padding-bottom:32px!important;
+  }
+}
+</style>
+
 </body>
 </html>
