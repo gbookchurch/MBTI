@@ -20356,5 +20356,223 @@ body.lookup-sheet-active{overflow:auto!important}
 }
 </style>
 
+
+<style id="v213-tray-spacing-interaction-polish">
+/* v213｜不改四色系統，只做托盤比例、留白與互動狀態精修 */
+#mbti-lookup .mbti-picker-grid.mbti-passport-trays{
+  gap:18px!important;
+  align-items:stretch!important;
+}
+
+#mbti-lookup .mbti-passport-tray,
+#mbti-lookup .mbti-passport-tray[data-tray-group="NT"],
+#mbti-lookup .mbti-passport-tray[data-tray-group="NF"],
+#mbti-lookup .mbti-passport-tray[data-tray-group="SJ"],
+#mbti-lookup .mbti-passport-tray[data-tray-group="SP"]{
+  padding:16px 16px 18px!important;
+  border-radius:26px!important;
+}
+
+#mbti-lookup .mbti-passport-tray-head{
+  margin-bottom:14px!important;
+  padding:0 3px!important;
+}
+#mbti-lookup .mbti-passport-tray-head div strong{
+  line-height:1.16!important;
+}
+#mbti-lookup .mbti-passport-tray-head div span{
+  letter-spacing:.08em!important;
+}
+#mbti-lookup .mbti-passport-tray-head small{
+  min-width:42px!important;
+  height:32px!important;
+  padding:0 10px!important;
+  border-width:1px!important;
+  border-style:solid!important;
+  border-radius:999px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-weight:900!important;
+  letter-spacing:.04em!important;
+}
+
+#mbti-lookup .mbti-passport-tray-cards{
+  gap:12px!important;
+}
+
+#mbti-lookup .mbti-option.mbti-passport-card{
+  min-height:110px!important;
+  padding:15px 14px 13px 16px!important;
+  border-radius:17px!important;
+  box-shadow:
+    0 7px 0 rgba(64,45,36,.045),
+    0 12px 20px rgba(53,37,30,.09)!important;
+  transition:
+    transform .2s ease,
+    box-shadow .22s ease,
+    border-color .2s ease,
+    background .2s ease,
+    filter .2s ease!important;
+}
+
+#mbti-lookup .mbti-option.mbti-passport-card:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:
+    0 9px 0 rgba(64,45,36,.05),
+    0 16px 26px rgba(53,37,30,.13)!important;
+}
+
+#mbti-lookup .mbti-option.mbti-passport-card .mbti-option-group{
+  margin-top:8px!important;
+}
+
+/* 讓 4 組選中狀態更清楚，但不用新增花俏裝飾。 */
+#mbti-lookup .mbti-passport-tray[data-tray-group="NT"]{ --tray-selected-border:#385746; --tray-selected-shadow:rgba(48,76,64,.18); --tray-selected-bg:#F5EDE2; }
+#mbti-lookup .mbti-passport-tray[data-tray-group="NF"]{ --tray-selected-border:#6F897A; --tray-selected-shadow:rgba(127,155,138,.18); --tray-selected-bg:#F4ECE1; }
+#mbti-lookup .mbti-passport-tray[data-tray-group="SJ"]{ --tray-selected-border:#9E5335; --tray-selected-shadow:rgba(180,95,60,.19); --tray-selected-bg:#F6EADF; }
+#mbti-lookup .mbti-passport-tray[data-tray-group="SP"]{ --tray-selected-border:#B28F45; --tray-selected-shadow:rgba(214,182,106,.22); --tray-selected-bg:#F7EEDE; }
+
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card[aria-pressed="true"],
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card.is-active{
+  border-color:var(--tray-selected-border)!important;
+  background:linear-gradient(180deg,var(--tray-selected-bg) 0%,#EEDFCB 100%)!important;
+  box-shadow:
+    0 0 0 4px var(--tray-selected-shadow),
+    0 10px 0 rgba(64,45,36,.06),
+    0 18px 28px rgba(53,37,30,.15)!important;
+  transform:translateY(-4px)!important;
+}
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-type,
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card.is-active .mbti-option-type{
+  color:#322923!important;
+}
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-group,
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card.is-active .mbti-option-group{
+  background:rgba(255,250,242,.82)!important;
+  border-color:rgba(126,103,90,.18)!important;
+  color:#58493F!important;
+}
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-option-stamp,
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card.is-active .mbti-option-stamp{
+  opacity:.78!important;
+}
+
+/* 護照人像在 hover / active 時稍微更清楚，但仍然很淡。 */
+#mbti-lookup .mbti-option.mbti-passport-card:hover .mbti-passport-ghost{
+  opacity:.22!important;
+}
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card[aria-pressed="true"] .mbti-passport-ghost,
+#mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card.is-active .mbti-passport-ghost{
+  opacity:.26!important;
+}
+
+@media(max-width:760px){
+  #mbti-lookup .mbti-picker-grid.mbti-passport-trays{
+    gap:14px!important;
+  }
+  #mbti-lookup .mbti-passport-tray,
+  #mbti-lookup .mbti-passport-tray[data-tray-group="NT"],
+  #mbti-lookup .mbti-passport-tray[data-tray-group="NF"],
+  #mbti-lookup .mbti-passport-tray[data-tray-group="SJ"],
+  #mbti-lookup .mbti-passport-tray[data-tray-group="SP"]{
+    padding:13px 13px 15px!important;
+    border-radius:22px!important;
+  }
+  #mbti-lookup .mbti-passport-tray-head{
+    margin-bottom:12px!important;
+  }
+  #mbti-lookup .mbti-passport-tray-head small{
+    min-width:38px!important;
+    height:29px!important;
+    padding:0 9px!important;
+  }
+  #mbti-lookup .mbti-passport-tray-cards{
+    gap:10px!important;
+  }
+  #mbti-lookup .mbti-option.mbti-passport-card{
+    min-height:100px!important;
+    padding:14px 12px 12px 14px!important;
+    border-radius:15px!important;
+  }
+  #mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card[aria-pressed="true"],
+  #mbti-lookup .mbti-passport-tray .mbti-option.mbti-passport-card.is-active{
+    box-shadow:
+      0 0 0 3px var(--tray-selected-shadow),
+      0 9px 0 rgba(64,45,36,.06),
+      0 15px 22px rgba(53,37,30,.15)!important;
+    transform:translateY(-3px)!important;
+  }
+}
+</style>
+
+
+<style id="v214-passport-panel-spacing-fix">
+/* v214｜分享護照功能卡與外層背景拉開距離，避免黏在一起 */
+#mbti-lookup .profile-passport-panel{
+  width:min(900px,calc(100% - 96px))!important;
+  margin:30px auto 44px!important;
+  padding:22px 26px!important;
+  gap:22px!important;
+  border-radius:24px!important;
+  border:1px solid rgba(117,74,63,.14)!important;
+  box-shadow:0 16px 34px rgba(83,47,39,.12)!important;
+}
+#mbti-lookup .profile-passport-copy{
+  padding-right:6px!important;
+}
+#mbti-lookup .profile-passport-copy strong{
+  font-size:1.08rem!important;
+  line-height:1.25!important;
+}
+#mbti-lookup .profile-passport-copy p{
+  margin-top:8px!important;
+  max-width:620px!important;
+  line-height:1.58!important;
+}
+#mbti-lookup .profile-passport-actions{
+  gap:12px!important;
+}
+#mbti-lookup .profile-passport-btn{
+  min-height:48px!important;
+  padding:11px 16px!important;
+  border-radius:12px!important;
+}
+#mbti-lookup .profile-share-status{
+  margin-top:4px!important;
+}
+
+@media(max-width:900px){
+  #mbti-lookup .profile-passport-panel{
+    width:min(900px,calc(100% - 56px))!important;
+    margin:26px auto 40px!important;
+  }
+}
+
+@media(max-width:768px){
+  #mbti-lookup .profile-passport-panel{
+    width:calc(100% - 40px)!important;
+    margin:22px auto 34px!important;
+    padding:18px 16px!important;
+    gap:14px!important;
+    border-radius:20px!important;
+  }
+  #mbti-lookup .profile-passport-copy strong{
+    font-size:1rem!important;
+  }
+  #mbti-lookup .profile-passport-copy p{
+    margin-top:6px!important;
+    line-height:1.52!important;
+  }
+  #mbti-lookup .profile-passport-actions{
+    gap:10px!important;
+  }
+  #mbti-lookup .profile-passport-btn{
+    min-height:44px!important;
+    padding:10px 12px!important;
+  }
+}
+</style>
+
 </body>
 </html>
