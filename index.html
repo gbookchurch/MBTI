@@ -26990,10 +26990,7 @@ body.church-team-is-dragging .church-person-card{cursor:grabbing!important}
     if(!isMobile()) return;
     activeRoleIndex=Number(roleIndex)||0;
 
-    /* 先觸發原座位 click，讓既有 roster 重新產生該角色位置專屬說明 */
-    const currentSeat=section.querySelector(`.church-team-seat[data-role="${activeRoleIndex}"]`);
-    currentSeat?.click();
-
+    /* v254：不再模擬點擊座位，避免 delegated click 重複觸發手機選單 */
     const role=roleLabels[activeRoleIndex]||['選一位人物',''];
     title.textContent=`${role[0]}｜選一位人物`;
     question.textContent=role[1];
@@ -27113,6 +27110,47 @@ body.church-team-is-dragging .church-person-card{cursor:grabbing!important}
   }
 }
 </style>
+
+
+<style id="v254-mobile-picker-click-fix-style">
+/* v254｜手機點選修正：確保文字人物選項可直接點擊 */
+.church-mobile-person-picker{
+  touch-action:manipulation;
+}
+.church-mobile-person-picker-sheet,
+.church-mobile-person-picker-list{
+  pointer-events:auto!important;
+}
+.church-mobile-person-choice{
+  pointer-events:auto!important;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:rgba(69,107,88,.10);
+}
+.church-mobile-person-choice *{
+  pointer-events:none!important;
+}
+</style>
+
+<script id="v254-mobile-picker-click-fix-script">
+(function(){
+  const overlay=document.querySelector('.church-mobile-person-picker');
+  if(!overlay) return;
+
+  /* 阻止 sheet 內的點擊冒泡到背景遮罩，避免剛選就被其他層攔截 */
+  const sheet=overlay.querySelector('.church-mobile-person-picker-sheet');
+  sheet?.addEventListener('click',function(e){
+    e.stopPropagation();
+  });
+
+  /* 重新加上背景點擊關閉，僅點遮罩本身才關閉 */
+  overlay.addEventListener('click',function(e){
+    if(e.target!==overlay) return;
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  });
+})();
+</script>
 
 </body>
 </html>
