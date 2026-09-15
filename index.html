@@ -9693,7 +9693,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
     <p>選你的 MBTI，查看對應的聖經人物、人格標籤、排行與你可能帶進教會的視角。</p>
   </div>
   <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="mbti-lookup" aria-expanded="false">
-    展開我的小檔案 <b aria-hidden="true">↓</b>
+      展開 <b aria-hidden="true">↓</b>
   </button>
 </div>
 
@@ -9999,7 +9999,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
       <p>平信徒版＋牧者版都收在同一個抽屜裡；展開後可一次看兩邊的 16 型排行與人物差異。</p>
     </div>
     <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="ranking-compare" aria-expanded="false">
-      展開排行榜 <b aria-hidden="true">↓</b>
+      展開 <b aria-hidden="true">↓</b>
     </button>
   </div>
 
@@ -11719,7 +11719,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
     <p>猜猜牧者怎麼選，或直接查看平信徒／牧者完整 12 題統計。</p>
   </div>
   <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="question-stats-section" aria-expanded="false">
-    展開答題統計 <b aria-hidden="true">↓</b>
+      展開 <b aria-hidden="true">↓</b>
   </button>
 </div>
 
@@ -11790,7 +11790,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
       <p>替 6 個位置選人，經過兩個突發事件，再看看你組出的核心團隊會長什麼樣子。</p>
     </div>
     <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="church-team" aria-expanded="false">
-      展開組隊 <b aria-hidden="true">↓</b>
+      展開 <b aria-hidden="true">↓</b>
     </button>
   </div>
 
@@ -11985,7 +11985,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
     <p>把不同性格放進教會現場，看看他們遇到同一件事時，第一眼會先注意什麼。</p>
   </div>
   <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="temperament-section" aria-expanded="false">
-    展開小劇場 <b aria-hidden="true">↓</b>
+      展開 <b aria-hidden="true">↓</b>
   </button>
 </div>
 
@@ -12148,7 +12148,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <section class="f-section song-dedication-section interactive-drawer drawer-theme-song is-collapsed" id="song-dedication-section" aria-labelledby="song-series-title">
   <div class="song-series-head">
     
-    <h2 class="section-title" id="song-series-title">為你的聖經人物點一首歌</h2>
+    <h2 class="section-title" id="song-series-title">為聖經人物點一首歌</h2>
     <div class="divider"></div>
     <p class="section-subtitle">《教會小本本》為你們點了一首歌</p>
   </div>
@@ -12159,7 +12159,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
       <p>選一型人格，看看《教會小本本》會替這位聖經人物點哪一首歌。</p>
     </div>
     <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="song-dedication-section" aria-expanded="false">
-      展開人格點歌 <b aria-hidden="true">↓</b>
+      展開 <b aria-hidden="true">↓</b>
     </button>
   </div>
   <div class="song-series-shell">
@@ -17824,7 +17824,7 @@ if(sharedResultLoaded){
     ctx.fillStyle='#F8F0E8';ctx.beginPath();ctx.arc(0,0,31,0,Math.PI*2);ctx.fill();ctx.fillStyle=p.a;ctx.beginPath();ctx.arc(0,0,8,0,Math.PI*2);ctx.fill();
     ctx.restore();
 
-    ctx.fillStyle='rgba(255,255,255,.86)'; ctx.font='700 27px sans-serif'; ctx.fillText('為你的聖經人物點一首歌',58,66);
+    ctx.fillStyle='rgba(255,255,255,.86)'; ctx.font='700 27px sans-serif'; ctx.fillText('為聖經人物點一首歌',58,66);
     ctx.textAlign='right';ctx.fillStyle='#FFF';ctx.font='900 27px sans-serif';ctx.fillText('教會小本本',1022,66);ctx.textAlign='left';
 
     ctx.fillStyle='#FFF';ctx.globalAlpha=.96;ctx.font='900 112px sans-serif';ctx.fillText(type,58,196);ctx.globalAlpha=1;
@@ -22153,7 +22153,7 @@ body.lookup-sheet-active{overflow:auto!important}
     {slug:'pastor-ranking', target:'pastor-ranking', title:'牧者 16 型全排行'},
     {slug:'faith-stats', target:'question-stats-section', title:'信仰答題統計'},
     {slug:'theater', target:'temperament-section', title:'人物小劇場'},
-    {slug:'song', target:'song-dedication-section', title:'為你的聖經人物點一首歌'},
+    {slug:'song', target:'song-dedication-section', title:'為聖經人物點一首歌'},
     {slug:'final', target:'final-cta', title:'再測一次'}
   ];
 
@@ -27347,27 +27347,27 @@ body.church-team-is-dragging .church-person-card{cursor:grabbing!important}
   const configs={
     'mbti-lookup':{
       open:'收起我的小檔案',
-      closed:'展開我的小檔案'
+      closed:'展開'
     },
     'ranking-compare':{
       open:'收起排行榜',
-      closed:'展開排行榜'
+      closed:'展開'
     },
     'question-stats-section':{
       open:'收起答題統計',
-      closed:'展開答題統計'
+      closed:'展開'
     },
     'church-team':{
       open:'收起組隊',
-      closed:'展開組隊'
+      closed:'展開'
     },
     'temperament-section':{
       open:'收起小劇場',
-      closed:'展開小劇場'
+      closed:'展開'
     },
     'song-dedication-section':{
       open:'收起人格點歌',
-      closed:'展開人格點歌'
+      closed:'展開'
     }
   };
 
@@ -28803,6 +28803,25 @@ html,body{
     margin-left:auto!important;
     margin-right:0!important;
     align-self:flex-end!important;
+    white-space:nowrap!important;
+  }
+}
+</style>
+
+
+<style id="v277-mobile-expand-buttons-right">
+/* v277｜手機六顆「展開」按鈕固定貼右 */
+@media(max-width:760px){
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:76px!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:0!important;
+    align-self:flex-end!important;
+    justify-self:end!important;
+    text-align:center!important;
     white-space:nowrap!important;
   }
 }
