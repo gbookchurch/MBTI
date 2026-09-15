@@ -9689,7 +9689,7 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <p class="section-subtitle">先在入境櫃台選一張人格護照，再打開你的聖經人物檔案。</p>
 <div class="interactive-drawer-entry profile-drawer-entry">
   <div class="interactive-drawer-entry-copy">
-    <span>PERSONAL PROFILE · 16 PERSONALITY PASSPORTS</span>
+    <span>PERSONAL PROFILE · </span>
     <p>選你的 MBTI，查看對應的聖經人物、人格標籤、排行與你可能帶進教會的視角。</p>
   </div>
   <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="mbti-lookup" aria-expanded="false">
@@ -11780,8 +11780,8 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 <section class="f-section church-team-lab-section interactive-drawer drawer-theme-team is-collapsed" id="church-team" aria-labelledby="church-team-title">
   <button class="chapter-share-btn is-section-share" id="church-team-share" type="button" data-chapter-slug="church-team">分享此章 ↗</button>
-  <span class="church-team-kicker">CHURCH TEAM LAB · 16 BIBLE CHARACTERS</span>
-  <h2 class="section-title" id="church-team-title">如果這 16 個聖經人物成立一間教會</h2>
+  
+  <h2 class="section-title" id="church-team-title">成立一間教會</h2>
   <div class="divider"></div>
   <p class="section-subtitle church-team-subtitle">先認識 16 位人物的做事方式，再把 6 個位置交給你最想信任的人。</p>
   <div class="interactive-drawer-entry church-team-drawer-entry">
@@ -23441,7 +23441,7 @@ body.lookup-sheet-active{overflow:auto!important}
 
 
 <style id="v235-passport-count-label-left">
-/* v235｜16 PERSONALITY PASSPORTS 小標籤移到護照托盤區左上 */
+/* v235｜ 小標籤移到護照托盤區左上 */
 #mbti-lookup .mbti-entry-counter-head-count-only{
   justify-content:flex-start!important;
   align-items:flex-start!important;
@@ -28702,6 +28702,68 @@ html,body{
   .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
     min-width:0!important;
     text-align:left!important;
+  }
+}
+</style>
+
+
+<style id="v275-mobile-title-and-button-alignment">
+/* v275｜手機：主標題與小字共用左邊界；六顆展開按鈕共用右邊界 */
+@media(max-width:760px){
+
+  /* 所有收合抽屜主標題統一 24px 左右 gutter */
+  .interactive-drawer.is-collapsed > .section-title,
+  #song-dedication-section.is-collapsed .song-series-head,
+  #song-dedication-section.is-collapsed .song-series-head .section-title,
+  #church-team.is-collapsed > .section-title{
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+    text-align:left!important;
+  }
+
+  /* 所有入口也統一使用相同 gutter */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry,
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+    box-sizing:border-box!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:end!important;
+    column-gap:16px!important;
+  }
+
+  /* 左側文字不再額外內縮，與主標題完全對齊 */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+    padding-left:0!important;
+    margin-left:0!important;
+    text-align:left!important;
+  }
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy>span,
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy p{
+    text-align:left!important;
+  }
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy::before{
+    display:none!important;
+  }
+
+  /* 六顆展開按鈕右邊界固定在 viewport - 24px */
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    justify-self:end!important;
+    align-self:end!important;
+    margin:0!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    white-space:nowrap!important;
   }
 }
 </style>
