@@ -28897,5 +28897,134 @@ html,body{
 }
 </style>
 
+
+<style id="v279-mobile-whole-row-drawer">
+/* v279｜手機：整個收合抽屜都可點，右側只留固定大小＋ */
+
+@media(max-width:760px){
+
+  /* 收合狀態本身就是可點擊區 */
+  .interactive-drawer.is-collapsed{
+    position:relative!important;
+    cursor:pointer!important;
+    -webkit-tap-highlight-color:rgba(70,65,60,.06);
+  }
+
+  /*
+    不再讓 entry 自己切左右欄，也不再靠文字按鈕對齊。
+    左側內容留出 56px 給右側 +。
+  */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry,
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    display:block!important;
+    position:static!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:6px 0 0!important;
+    padding-left:24px!important;
+    padding-right:80px!important;
+    box-sizing:border-box!important;
+  }
+
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:left!important;
+  }
+
+  /* 原本文字按鈕改成固定 34×34 的 + icon */
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    position:absolute!important;
+    right:24px!important;
+    top:50%!important;
+    bottom:auto!important;
+    left:auto!important;
+    transform:translateY(-50%)!important;
+
+    width:34px!important;
+    height:34px!important;
+    min-width:34px!important;
+    max-width:34px!important;
+    min-height:34px!important;
+
+    margin:0!important;
+    padding:0!important;
+    border-radius:10px!important;
+    border:1px solid rgba(73,68,63,.22)!important;
+    background:rgba(255,250,243,.80)!important;
+    color:transparent!important;
+    font-size:0!important;
+    line-height:1!important;
+    box-shadow:none!important;
+
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    z-index:5!important;
+  }
+
+  /* 隱藏原本 ↓ */
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle b{
+    display:none!important;
+  }
+
+  /* 用 CSS 畫 +，六區一定完全同尺寸同位置 */
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle::before,
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle::after{
+    content:""!important;
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    width:13px!important;
+    height:1.5px!important;
+    border-radius:2px!important;
+    background:#625C56!important;
+    transform:translate(-50%,-50%)!important;
+  }
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle::after{
+    transform:translate(-50%,-50%) rotate(90deg)!important;
+  }
+
+  /* 標題與小字仍共用相同左邊界 */
+  .interactive-drawer.is-collapsed > .section-title,
+  #song-dedication-section.is-collapsed .song-series-head,
+  #song-dedication-section.is-collapsed .song-series-head .section-title{
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:80px!important;
+    text-align:left!important;
+  }
+}
+</style>
+
+<script id="v279-mobile-whole-row-drawer-script">
+(function(){
+  const mq=window.matchMedia('(max-width:760px)');
+
+  document.querySelectorAll('.interactive-drawer').forEach(section=>{
+    section.addEventListener('click',function(e){
+      if(!mq.matches || !section.classList.contains('is-collapsed')) return;
+
+      /* 原本的展開按鈕照舊交給既有 handler，避免觸發兩次 */
+      if(e.target.closest('.interactive-drawer-toggle')) return;
+
+      /* 若未來收合區內出現真正的互動元件，不攔截 */
+      if(e.target.closest('a, input, select, textarea, label')) return;
+
+      const btn=section.querySelector('.interactive-drawer-toggle');
+      if(btn){
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
