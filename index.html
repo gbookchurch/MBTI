@@ -28450,5 +28450,68 @@ html,body{
 }
 </style>
 
+
+<style id="v270-expanded-only-collapse-button">
+/* v270｜抽屜展開後：標題下方只留下低調的「收起」按鈕 */
+
+/* 完整移除展開狀態的描述文字 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy{
+  display:none!important;
+}
+
+/* 入口容器本身只負責承載收起按鈕，不再形成視覺區塊 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  width:min(980px,calc(100% - 28px))!important;
+  min-height:0!important;
+  margin:8px auto 12px!important;
+  padding:0!important;
+  gap:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+
+/* 保險：所有裝飾元素都關閉 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry::before,
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy::before{
+  display:none!important;
+}
+
+/* 只保留低調的收起按鈕 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-toggle{
+  width:auto!important;
+  min-width:132px!important;
+  max-width:190px!important;
+  margin:0!important;
+  padding:8px 14px!important;
+  background:#E7E3DE!important;
+  color:#57524D!important;
+  border:1px solid #D4CFC9!important;
+  border-radius:12px!important;
+  box-shadow:none!important;
+}
+
+/* 手機維持精簡尺寸，不撐滿 */
+@media(max-width:760px){
+  .interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+    width:calc(100% - 20px)!important;
+    margin:7px auto 10px!important;
+    padding:0!important;
+  }
+  .interactive-drawer:not(.is-collapsed) .interactive-drawer-toggle{
+    width:auto!important;
+    min-width:120px!important;
+    max-width:180px!important;
+    padding:8px 13px!important;
+    border-radius:11px!important;
+  }
+}
+</style>
+
 </body>
 </html>
