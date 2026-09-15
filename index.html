@@ -28380,5 +28380,20 @@ html,body{
 /* 收合狀態完全沿用 v265 原本的章節色與按鈕樣式，不在這裡覆寫 */
 </style>
 
+
+<style id="v268-mobile-drawer-button-compact">
+/* v268｜手機版抽屜展開／收起按鈕改為內容寬度，不再撐滿整列 */
+@media(max-width:760px){
+  .interactive-drawer .interactive-drawer-toggle{
+    width:auto!important;
+    min-width:128px!important;
+    max-width:min(72vw,190px)!important;
+    justify-self:end!important;
+    padding:9px 14px!important;
+    white-space:nowrap!important;
+  }
+}
+</style>
+
 </body>
 </html>
