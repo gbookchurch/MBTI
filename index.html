@@ -28395,5 +28395,60 @@ html,body{
 }
 </style>
 
+
+<style id="v269-expanded-drawer-seamless">
+/* v269｜抽屜展開後，入口描述融入頁面，只留文字＋收起按鈕 */
+
+/* 展開後完全取消「卡片」感 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* 上方色條與左側識別線一併拿掉，只留下文字 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry::before,
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy::before{
+  display:none!important;
+}
+
+/* 文字區不要再為色條預留空間 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy{
+  padding-left:0!important;
+}
+
+/* 展開後文字維持低調，直接融入各章節 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy>span{
+  color:#817A73!important;
+}
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy p{
+  color:#746E68!important;
+}
+
+/* 收起按鈕仍保留低彩度樣式 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-toggle{
+  background:#E7E3DE!important;
+  color:#57524D!important;
+  border:1px solid #D4CFC9!important;
+  box-shadow:none!important;
+  border-radius:12px!important;
+}
+
+/* 手機同樣只保留文字與按鈕 */
+@media(max-width:760px){
+  .interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+  .interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy{
+    padding-left:0!important;
+  }
+}
+</style>
+
 </body>
 </html>
