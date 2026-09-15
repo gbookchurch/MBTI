@@ -29026,5 +29026,94 @@ html,body{
 })();
 </script>
 
+
+<style id="v280-song-align-collapse-at-bottom">
+/* v280｜手機點歌標題修正；展開後「收起」移到各區最底部 */
+
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+  width:min(980px,calc(100% - 28px))!important;
+  margin:22px auto 8px!important;
+  padding:0!important;
+  display:flex!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy{
+  display:none!important;
+}
+
+@media(max-width:760px){
+  #song-dedication-section.is-collapsed .song-series-head{
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:80px!important;
+    text-align:left!important;
+  }
+
+  #song-dedication-section.is-collapsed .song-series-head .section-title{
+    width:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:left!important;
+  }
+
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    padding-left:24px!important;
+    padding-right:80px!important;
+  }
+
+  .interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+    width:calc(100% - 24px)!important;
+    margin:18px auto 6px!important;
+    padding:0!important;
+  }
+}
+</style>
+
+<script id="v280-collapse-controls-at-section-end">
+(function(){
+  const drawers=[...document.querySelectorAll('.interactive-drawer')];
+
+  drawers.forEach(section=>{
+    const entry=section.querySelector(':scope > .interactive-drawer-entry') ||
+                section.querySelector('.interactive-drawer-entry');
+    if(!entry) return;
+
+    const marker=document.createComment('drawer-entry-home');
+    entry.parentNode.insertBefore(marker,entry);
+
+    function sync(){
+      const open=!section.classList.contains('is-collapsed');
+
+      if(open){
+        if(section.lastElementChild!==entry){
+          section.appendChild(entry);
+        }
+      }else{
+        if(marker.parentNode && marker.nextSibling!==entry){
+          marker.parentNode.insertBefore(entry,marker.nextSibling);
+        }
+      }
+    }
+
+    sync();
+
+    new MutationObserver(sync).observe(section,{
+      attributes:true,
+      attributeFilter:['class']
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
