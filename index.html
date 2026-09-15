@@ -10025,6 +10025,37 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
       </div>
     </div>
   </div>
+
+  <div class="rank-shift-insights" aria-label="平信徒與牧者排行差距摘要">
+    <div class="rank-shift-insights-head">
+      <span>先看三個最明顯的變化</span>
+      <p>這裡只整理本次樣本中的名次差距，不代表職分會造成某種人格。想看完整解讀，再點進對應排行。</p>
+    </div>
+    <div class="rank-shift-insight-grid">
+      <article class="rank-shift-insight">
+        <small>牧者榜最明顯往前</small>
+        <div class="rank-shift-type">INFP</div>
+        <strong>平信徒 #8 → 牧者 #2</strong>
+        <p>在牧者樣本裡，這一型往前了 6 個名次。</p>
+        <button type="button" data-rank-insight-target="2" data-rank-insight-side="pastor">看這一型解讀</button>
+      </article>
+      <article class="rank-shift-insight">
+        <small>牧者榜最明顯往後</small>
+        <div class="rank-shift-type">ENFJ</div>
+        <strong>平信徒 #4 → 牧者 #15</strong>
+        <p>兩邊排序差距最大，往後了 11 個名次。</p>
+        <button type="button" data-rank-insight-target="15" data-rank-insight-side="pastor">看這一型解讀</button>
+      </article>
+      <article class="rank-shift-insight">
+        <small>兩邊幾乎沒有變</small>
+        <div class="rank-shift-type">ISFP</div>
+        <strong>平信徒 #7 → 牧者 #7</strong>
+        <p>兩邊都排第 7，是這份排行裡最穩定的例子。</p>
+        <button type="button" data-rank-insight-target="7" data-rank-insight-side="pastor">看這一型解讀</button>
+      </article>
+    </div>
+  </div>
+
   <div class="rank-compare-shell">
     <div class="rank-compare-head" aria-hidden="true">
       <div></div>
@@ -29155,6 +29186,238 @@ html,body{
   }
 }
 </style>
+
+
+<style id="v282-progress-and-ranking-insights">
+/* v282｜組隊進度更清楚 + 排行榜差距摘要卡 */
+
+/* ===== 排行榜：先給摘要，再讓使用者決定要不要讀長解讀 ===== */
+.rank-shift-insights{
+  width:min(980px,calc(100% - 8px));
+  margin:22px auto 4px;
+}
+.rank-shift-insights-head{
+  margin-bottom:12px;
+}
+.rank-shift-insights-head>span{
+  display:block;
+  color:#4D6155;
+  font-size:.78rem;
+  font-weight:950;
+  letter-spacing:.04em;
+}
+.rank-shift-insights-head p{
+  max-width:720px;
+  margin:4px 0 0;
+  color:#746C64;
+  font-size:.74rem;
+  line-height:1.55;
+}
+.rank-shift-insight-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.rank-shift-insight{
+  padding:15px 16px 14px;
+  border:1px solid rgba(79,72,65,.11);
+  border-radius:16px;
+  background:#F6F2EA;
+}
+.rank-shift-insight small{
+  display:block;
+  color:#8A765D;
+  font-size:.61rem;
+  font-weight:900;
+  letter-spacing:.05em;
+}
+.rank-shift-type{
+  margin:7px 0 1px;
+  color:#405B4E;
+  font-size:1.22rem;
+  font-weight:950;
+  line-height:1;
+}
+.rank-shift-insight strong{
+  display:block;
+  margin-top:5px;
+  color:#4E4944;
+  font-size:.78rem;
+}
+.rank-shift-insight p{
+  margin:5px 0 10px;
+  color:#766F68;
+  font-size:.7rem;
+  line-height:1.5;
+}
+.rank-shift-insight button{
+  appearance:none;
+  padding:7px 10px;
+  border:1px solid #D5CEC4;
+  border-radius:9px;
+  background:#FFFCF7;
+  color:#5A544E;
+  font:inherit;
+  font-size:.66rem;
+  font-weight:850;
+  cursor:pointer;
+  box-shadow:none;
+}
+
+/* ===== 組隊：新增當前步驟摘要 ===== */
+.church-team-progress-summary{
+  display:none;
+}
+@media(max-width:760px){
+  #church-team .church-team-progress{
+    position:sticky!important;
+    top:8px!important;
+    z-index:55!important;
+    width:calc(100% - 24px)!important;
+    margin:12px auto 14px!important;
+    padding:10px 12px 9px!important;
+    display:grid!important;
+    grid-template-columns:repeat(5,1fr)!important;
+    gap:4px!important;
+    border:1px solid rgba(74,64,55,.10)!important;
+    border-radius:14px!important;
+    background:rgba(250,247,240,.94)!important;
+    backdrop-filter:blur(10px)!important;
+    -webkit-backdrop-filter:blur(10px)!important;
+    box-shadow:0 8px 20px rgba(58,50,43,.07)!important;
+  }
+
+  .church-team-progress-summary{
+    display:flex!important;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    grid-column:1 / -1;
+    margin-bottom:5px;
+  }
+  .church-team-progress-summary strong{
+    color:#465B50;
+    font-size:.76rem;
+    font-weight:950;
+  }
+  .church-team-progress-summary span{
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    color:#8B8178!important;
+    font-size:.62rem!important;
+    font-weight:850!important;
+  }
+  .church-team-progress-meter{
+    grid-column:1 / -1;
+    height:3px;
+    margin-bottom:4px;
+    border-radius:999px;
+    overflow:hidden;
+    background:#DDD6CC;
+  }
+  .church-team-progress-meter>i{
+    display:block;
+    width:20%;
+    height:100%;
+    border-radius:inherit;
+    background:#506C5D;
+    transition:width .25s ease;
+  }
+
+  /* 原本五格保留成小型階段標記，不再像五顆大膠囊 */
+  #church-team .church-team-progress>span[data-team-progress]{
+    min-width:0!important;
+    padding:4px 2px!important;
+    border:0!important;
+    border-radius:7px!important;
+    background:transparent!important;
+    color:#9A928A!important;
+    font-size:.53rem!important;
+    line-height:1.2!important;
+    box-shadow:none!important;
+  }
+  #church-team .church-team-progress>span[data-team-progress] b{
+    display:block!important;
+    width:18px!important;
+    height:18px!important;
+    margin:0 auto 3px!important;
+  }
+  #church-team .church-team-progress>span[data-team-progress].is-active{
+    color:#3E584B!important;
+    font-weight:950!important;
+  }
+  #church-team .church-team-progress>span[data-team-progress].is-done{
+    color:#66786E!important;
+  }
+
+  .rank-shift-insight-grid{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .rank-shift-insights{
+    width:100%;
+    margin-top:17px;
+  }
+  .rank-shift-insights-head p{
+    font-size:.7rem;
+  }
+  .rank-shift-insight{
+    padding:13px 14px;
+  }
+}
+</style>
+
+<script id="v282-progress-and-ranking-insights-script">
+(function(){
+  /* 組隊：由既有 is-active / is-done 狀態同步一個更明確的目前步驟摘要 */
+  const progress=document.getElementById('church-team-progress');
+  if(progress && !progress.querySelector('.church-team-progress-summary')){
+    const summary=document.createElement('div');
+    summary.className='church-team-progress-summary';
+    summary.innerHTML='<strong id="church-team-progress-current">01 / 05 · 核心組隊</strong><span>教會組隊進度</span>';
+
+    const meter=document.createElement('div');
+    meter.className='church-team-progress-meter';
+    meter.innerHTML='<i></i>';
+
+    progress.prepend(meter);
+    progress.prepend(summary);
+
+    const labels=['核心組隊','突發事件','團隊 DNA','補位任務','結果揭曉'];
+
+    function syncProgress(){
+      const items=[...progress.querySelectorAll('[data-team-progress]')];
+      let idx=items.findIndex(el=>el.classList.contains('is-active'));
+      if(idx<0) idx=0;
+      const current=document.getElementById('church-team-progress-current');
+      if(current) current.textContent=String(idx+1).padStart(2,'0')+' / 05 · '+labels[idx];
+      const fill=progress.querySelector('.church-team-progress-meter i');
+      if(fill) fill.style.width=((idx+1)/5*100)+'%';
+    }
+
+    syncProgress();
+    new MutationObserver(syncProgress).observe(progress,{attributes:true,subtree:true,attributeFilter:['class']});
+  }
+
+  /* 排行榜摘要卡：點一下直接跳到對應牧者排行並展開現有完整解讀 */
+  document.querySelectorAll('[data-rank-insight-target]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const rank=btn.dataset.rankInsightTarget;
+      const side=btn.dataset.rankInsightSide || 'pastor';
+      const row=document.querySelector('#ranking-compare .rank-compare-row[data-rank="'+rank+'"]');
+      if(!row) return;
+
+      const cell=row.querySelector('.rank-compare-cell-'+side);
+      if(cell && cell.getAttribute('aria-expanded')!=='true') cell.click();
+
+      setTimeout(()=>{
+        row.scrollIntoView({behavior:'smooth',block:'center'});
+      },40);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
