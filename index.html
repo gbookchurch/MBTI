@@ -28513,5 +28513,198 @@ html,body{
 }
 </style>
 
+
+<style id="v271-all-collapsed-text-left">
+/* v271｜每一個抽屜收合時：除展開按鈕外，所有文字一律靠左 */
+
+/* 所有抽屜主標題靠左 */
+.interactive-drawer.is-collapsed > .section-title,
+#song-dedication-section.is-collapsed .song-series-head .section-title{
+  text-align:left!important;
+}
+
+/* 組隊章節額外 kicker 靠左 */
+#church-team.is-collapsed .church-team-kicker{
+  text-align:left!important;
+}
+
+/* 所有入口文字區靠左 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry-copy,
+.interactive-drawer.is-collapsed .interactive-drawer-entry-copy>span,
+.interactive-drawer.is-collapsed .interactive-drawer-entry-copy p{
+  text-align:left!important;
+}
+
+/* 收合時固定：左邊文字、右邊展開按鈕 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  text-align:left!important;
+}
+
+/* 展開按鈕保持右側 */
+.interactive-drawer.is-collapsed .interactive-drawer-toggle{
+  justify-self:end!important;
+  text-align:center!important;
+}
+
+/* 手機同樣保持左右配置，不把文字改回置中 */
+@media(max-width:760px){
+  .interactive-drawer.is-collapsed .interactive-drawer-entry{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:center!important;
+  }
+
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy,
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy>span,
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy p,
+  .interactive-drawer.is-collapsed > .section-title,
+  #song-dedication-section.is-collapsed .song-series-head .section-title,
+  #church-team.is-collapsed .church-team-kicker{
+    text-align:left!important;
+  }
+
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    justify-self:end!important;
+    width:auto!important;
+  }
+}
+</style>
+
+
+<style id="v272-collapsed-button-bottom-right">
+/* v272｜收合狀態：展開按鈕貼右，並與左側最後一行文字底部對齊 */
+
+.interactive-drawer.is-collapsed .interactive-drawer-entry{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:end!important;
+}
+
+/* 文字區維持左對齊 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+  align-self:end!important;
+  text-align:left!important;
+}
+
+/* 按鈕貼右、貼底 */
+.interactive-drawer.is-collapsed .interactive-drawer-toggle{
+  justify-self:end!important;
+  align-self:end!important;
+  margin:0!important;
+  text-align:center!important;
+}
+
+/* 手機同樣底部對齊，不撐滿 */
+@media(max-width:760px){
+  .interactive-drawer.is-collapsed .interactive-drawer-entry{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:end!important;
+  }
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    justify-self:end!important;
+    align-self:end!important;
+    width:auto!important;
+    margin:0!important;
+  }
+}
+</style>
+
+
+<style id="v273-collapsed-button-unified-right-edge">
+/* v273｜所有收合抽屜的展開按鈕，右邊界統一成同一條直線 */
+
+/* 所有收合入口使用完全相同的內容寬度 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry{
+  width:min(980px,calc(100% - 36px))!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+
+/* 按鈕固定貼齊同一個入口版心的最右側 */
+.interactive-drawer.is-collapsed .interactive-drawer-toggle{
+  justify-self:end!important;
+  align-self:end!important;
+  margin-left:auto!important;
+  margin-right:0!important;
+}
+
+/* 點歌雖然標題包在 song-series-head，入口仍跟其他抽屜共用同一右緣 */
+#song-dedication-section.is-collapsed .interactive-drawer-entry{
+  width:min(980px,calc(100% - 36px))!important;
+  max-width:980px!important;
+}
+
+/* 手機版同樣統一右緣 */
+@media(max-width:760px){
+  .interactive-drawer.is-collapsed .interactive-drawer-entry,
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    width:calc(100% - 24px)!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    justify-self:end!important;
+    margin-left:auto!important;
+    margin-right:0!important;
+  }
+}
+</style>
+
+
+<style id="v274-mobile-true-right-edge-align">
+/* v274｜手機：所有收合抽屜的展開按鈕共用同一條右側基準線 */
+
+@media(max-width:760px){
+
+  /* 所有收合入口統一成相同 viewport 內距 */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry{
+    position:relative!important;
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin:6px 0 0!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    column-gap:16px!important;
+    align-items:end!important;
+  }
+
+  /* 點歌也不再沿用自己那套較寬／較窄的 entry */
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+  }
+
+  /* 所有展開按鈕右緣固定在 viewport - 24px */
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    justify-self:end!important;
+    align-self:end!important;
+    margin:0!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+  }
+
+  /* 左側文字仍維持左對齊 */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+    min-width:0!important;
+    text-align:left!important;
+  }
+}
+</style>
+
 </body>
 </html>
