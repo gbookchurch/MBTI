@@ -28768,5 +28768,45 @@ html,body{
 }
 </style>
 
+
+<style id="v276-mobile-buttons-hard-right">
+/* v276｜手機：六個「展開」按鈕本體強制貼齊右側 */
+@media(max-width:760px){
+
+  .interactive-drawer.is-collapsed .interactive-drawer-entry,
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    display:flex!important;
+    align-items:flex-end!important;
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+    gap:16px!important;
+  }
+
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:left!important;
+  }
+
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:0!important;
+    align-self:flex-end!important;
+    white-space:nowrap!important;
+  }
+}
+</style>
+
 </body>
 </html>
