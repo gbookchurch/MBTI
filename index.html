@@ -26901,140 +26901,7 @@ body.church-team-is-dragging .church-person-card{cursor:grabbing!important}
 }
 </style>
 
-<script id="v252-mobile-seat-picker-script">
-(function(){
-  const section=document.getElementById('church-team');
-  if(!section) return;
-
-  const roleLabels=[
-    ['定方向的人','教會不知道下一步去哪裡時，你會先找誰？'],
-    ['顧人的人','有人快撐不下去時，你希望誰坐在他旁邊？'],
-    ['把事情做完的人','大家都講完異象了，誰負責真的完成？'],
-    ['把事情講清楚的人','面對複雜問題，你希望誰幫大家整理？'],
-    ['敢往外走的人','教會要做一件從沒做過的事，你會找誰？'],
-    ['打破框架的人','當所有人都說「以前都這樣」，誰會先提出新方法？']
-  ];
-
-  const overlay=document.createElement('div');
-  overlay.className='church-mobile-person-picker';
-  overlay.setAttribute('aria-hidden','true');
-  overlay.innerHTML=`
-    <div class="church-mobile-person-picker-sheet" role="dialog" aria-modal="true" aria-labelledby="church-mobile-picker-title">
-      <div class="church-mobile-person-picker-head">
-        <span>SELECT A TEAM MEMBER</span>
-        <h3 id="church-mobile-picker-title">選一位人物</h3>
-        <p id="church-mobile-picker-question"></p>
-        <button class="church-mobile-person-picker-close" type="button" aria-label="關閉人物選單">×</button>
-      </div>
-      <div class="church-mobile-person-picker-list"></div>
-    </div>`;
-  document.body.appendChild(overlay);
-
-  const list=overlay.querySelector('.church-mobile-person-picker-list');
-  const title=overlay.querySelector('#church-mobile-picker-title');
-  const question=overlay.querySelector('#church-mobile-picker-question');
-  const closeBtn=overlay.querySelector('.church-mobile-person-picker-close');
-
-  let activeRoleIndex=0;
-  let previousBodyOverflow='';
-
-  function isMobile(){
-    return window.matchMedia('(max-width:760px)').matches;
-  }
-
-  function usageCount(type){
-    let count=0;
-    section.querySelectorAll('.church-team-seat-person small').forEach(el=>{
-      if(el.textContent.includes(type)) count++;
-    });
-    return count;
-  }
-
-  function currentRosterCards(){
-    return [...section.querySelectorAll('#church-team-roster .church-person-card')];
-  }
-
-  function rebuildChoices(){
-    list.innerHTML='';
-    currentRosterCards().forEach(card=>{
-      const type=card.dataset.type;
-      if(!type) return;
-
-      const choice=document.createElement('button');
-      choice.type='button';
-      choice.className='church-mobile-person-choice';
-      choice.dataset.type=type;
-
-      const name=card.querySelector('.church-person-card-main > b')?.textContent?.trim() || type;
-      const meta=card.querySelector('.church-person-card-main > small')?.textContent?.trim() || type;
-      const used=usageCount(type);
-
-      choice.innerHTML=`
-        <span class="church-mobile-person-choice-main">
-          <b>${name}</b>
-          <small>${meta}</small>
-          ${used?`<em>已入席 ×${used}</em>`:''}
-        </span>`;
-
-      choice.addEventListener('click',()=>{
-        if(typeof window.__churchTeamAssignToRole==='function'){
-          window.__churchTeamAssignToRole(activeRoleIndex,type);
-        }
-        closePicker();
-      });
-      list.appendChild(choice);
-    });
-  }
-
-  function openPicker(roleIndex){
-    if(!isMobile()) return;
-    activeRoleIndex=Number(roleIndex)||0;
-
-    /* v254：不再模擬點擊座位，避免 delegated click 重複觸發手機選單 */
-    const role=roleLabels[activeRoleIndex]||['選一位人物',''];
-    title.textContent=`${role[0]}｜選一位人物`;
-    question.textContent=role[1];
-    rebuildChoices();
-
-    previousBodyOverflow=document.body.style.overflow;
-    document.body.style.overflow='hidden';
-    overlay.classList.add('is-open');
-    overlay.setAttribute('aria-hidden','false');
-    setTimeout(()=>closeBtn.focus({preventScroll:true}),0);
-  }
-
-  function closePicker(){
-    overlay.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow=previousBodyOverflow;
-  }
-
-  closeBtn.addEventListener('click',closePicker);
-  overlay.addEventListener('click',e=>{
-    if(e.target===overlay) closePicker();
-  });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape' && overlay.classList.contains('is-open')) closePicker();
-  });
-
-  /* renderSeats 會反覆重建座位，所以用 delegated click */
-  section.addEventListener('click',e=>{
-    if(!isMobile()) return;
-    if(e.target.closest('.church-team-seat-remove')) return;
-    const seat=e.target.closest('.church-team-seat');
-    if(!seat || !section.contains(seat)) return;
-    const roleIndex=Number(seat.dataset.role);
-    if(Number.isInteger(roleIndex)){
-      /* 等既有座位 click handler 完成 renderRoster 後再建 16 人清單 */
-      setTimeout(()=>openPicker(roleIndex),0);
-    }
-  });
-
-  window.addEventListener('resize',()=>{
-    if(!isMobile() && overlay.classList.contains('is-open')) closePicker();
-  });
-})();
-</script>
+<!-- v252-mobile-seat-picker-script removed in v255: replaced by native mobile select -->
 
 
 <style id="v253-mobile-text-picker-style">
@@ -27131,24 +26998,154 @@ body.church-team-is-dragging .church-person-card{cursor:grabbing!important}
 }
 </style>
 
-<script id="v254-mobile-picker-click-fix-script">
+<!-- v254-mobile-picker-click-fix-script removed in v255: replaced by native mobile select -->
+
+
+<style id="v255-native-mobile-select-style">
+/* v255｜手機改用瀏覽器原生 select，避免自製彈窗觸控衝突 */
+@media(max-width:760px){
+  .church-mobile-person-picker{
+    display:none!important;
+  }
+
+  #church-team .church-team-seat{
+    position:relative!important;
+    cursor:pointer!important;
+  }
+
+  #church-team .church-mobile-native-select{
+    position:absolute!important;
+    inset:0!important;
+    z-index:40!important;
+    width:100%!important;
+    height:100%!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:inherit!important;
+    opacity:.001!important;
+    background:transparent!important;
+    color:transparent!important;
+    font-size:16px!important; /* iOS 避免自動放大 */
+    appearance:auto!important;
+    -webkit-appearance:menulist!important;
+    cursor:pointer!important;
+    touch-action:manipulation!important;
+  }
+
+  #church-team .church-team-seat-remove{
+    display:none!important;
+  }
+
+  #church-team .church-team-seat::after{
+    content:"點一下選人物 ▾"!important;
+    position:relative;
+    z-index:1;
+    display:block!important;
+    margin-top:8px!important;
+    color:rgba(255,247,236,.56)!important;
+    font-size:.54rem!important;
+    font-weight:850!important;
+    pointer-events:none!important;
+  }
+
+  #church-team .church-team-seat.is-filled::after{
+    content:"點一下換人物 ▾"!important;
+    color:#E1CD94!important;
+  }
+}
+</style>
+
+<script id="v255-native-mobile-select-script">
 (function(){
-  const overlay=document.querySelector('.church-mobile-person-picker');
-  if(!overlay) return;
+  const section=document.getElementById('church-team');
+  const seatsWrap=document.getElementById('church-team-seats');
+  if(!section || !seatsWrap) return;
 
-  /* 阻止 sheet 內的點擊冒泡到背景遮罩，避免剛選就被其他層攔截 */
-  const sheet=overlay.querySelector('.church-mobile-person-picker-sheet');
-  sheet?.addEventListener('click',function(e){
-    e.stopPropagation();
+  const people=[
+    ['INTJ','保羅','建築師'],
+    ['INTP','多馬','邏輯學家'],
+    ['ENTJ','底波拉','指揮官'],
+    ['ENTP','雅各','辯論家'],
+    ['INFJ','但以理','提倡者'],
+    ['INFP','約翰','調停者'],
+    ['ENFJ','亞伯拉罕','主人公'],
+    ['ENFP','巴拿巴','競選者'],
+    ['ISTJ','尼希米','物流師'],
+    ['ISFJ','路得','守衛者'],
+    ['ESTJ','摩西','總經理'],
+    ['ESFJ','馬大','執政官'],
+    ['ISTP','參孫','巧匠'],
+    ['ISFP','大衛','探險家'],
+    ['ESTP','彼得','企業家'],
+    ['ESFP','撒馬利亞婦人','表演者']
+  ];
+
+  function isMobile(){
+    return window.matchMedia('(max-width:760px)').matches;
+  }
+
+  function currentType(seat){
+    const text=seat.querySelector('.church-team-seat-person small')?.textContent || '';
+    const match=text.match(/\b([EI][NS][TF][JP])\b/);
+    return match ? match[1] : '';
+  }
+
+  function injectSelects(){
+    if(!isMobile()) return;
+
+    seatsWrap.querySelectorAll('.church-team-seat').forEach(seat=>{
+      if(seat.querySelector('.church-mobile-native-select')) return;
+
+      const roleIndex=Number(seat.dataset.role);
+      if(!Number.isInteger(roleIndex)) return;
+
+      const select=document.createElement('select');
+      select.className='church-mobile-native-select';
+      select.setAttribute('aria-label', `${seat.querySelector('.church-team-seat-role')?.textContent || '這個位置'}：選擇人物`);
+
+      const placeholder=document.createElement('option');
+      placeholder.value='';
+      placeholder.textContent='請選一位人物';
+      select.appendChild(placeholder);
+
+      people.forEach(([type,name,title])=>{
+        const option=document.createElement('option');
+        option.value=type;
+        option.textContent=`${name}｜${type} · ${title}`;
+        select.appendChild(option);
+      });
+
+      select.value=currentType(seat);
+
+      /* 不讓 click 冒泡到舊的座位 click handler，避免座位被重畫 */
+      select.addEventListener('click',e=>e.stopPropagation());
+      select.addEventListener('mousedown',e=>e.stopPropagation());
+      select.addEventListener('pointerdown',e=>e.stopPropagation());
+      select.addEventListener('touchstart',e=>e.stopPropagation(),{passive:true});
+
+      select.addEventListener('change',()=>{
+        const type=select.value;
+        if(!type) return;
+        if(typeof window.__churchTeamAssignToRole==='function'){
+          window.__churchTeamAssignToRole(roleIndex,type);
+        }
+      });
+
+      seat.appendChild(select);
+    });
+  }
+
+  injectSelects();
+
+  new MutationObserver(()=>{
+    requestAnimationFrame(injectSelects);
+  }).observe(seatsWrap,{
+    childList:true,
+    subtree:true
   });
 
-  /* 重新加上背景點擊關閉，僅點遮罩本身才關閉 */
-  overlay.addEventListener('click',function(e){
-    if(e.target!==overlay) return;
-    overlay.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  });
+  window.addEventListener('resize',injectSelects);
 })();
 </script>
 
