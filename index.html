@@ -12274,24 +12274,14 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 <section class="church-conclusion" id="church-not-one-type" aria-labelledby="church-conclusion-title">
   <div class="church-conclusion-inner">
-    <span class="church-conclusion-kicker">AFTER THE DATA</span>
     <h2 id="church-conclusion-title">教會不是一種人格</h2>
     <p class="church-conclusion-lead">看到最後，其實不一定要記得自己排第幾</p>
-    <div class="church-conclusion-thoughts">
-      <p><strong>信仰一致，不代表人格一致</strong><span>有人推動，有人陪伴；有人問「為什麼」，有人問「怎麼做」</span></p>
-      <p><strong>同一個人站在不同位置，做法也可能不一樣</strong><span>牧者和平信徒的差異，不一定全都來自人格；角色、責任和所在環境，也可能有影響</span></p>
-      <p><strong>少見，不代表需要被修正</strong><span>有時候，群體裡比較少的聲音，反而能補上大家平常沒注意到的地方</span></p>
-    </div>
-    <div class="church-conclusion-actions">
-      <a href="#mbti-profile">回看我的人物護照 ↑</a>
-    </div>
   </div>
 </section>
 
 <section class="final-hub" id="final-cta" aria-label="再測一次與教會小本本資訊">
 <div class="final-hub-inner">
 <div class="final-hub-heading">
-<p class="final-kicker">看完這些結果，</p>
 <h2>再測一次</h2>
 <p class="final-subtitle">你還是去年的那個人嗎？</p>
 </div>
@@ -22185,7 +22175,7 @@ body.lookup-sheet-active{overflow:auto!important}
     {slug:'faith-stats', target:'question-stats-section', title:'信仰答題統計'},
     {slug:'theater', target:'temperament-section', title:'人物小劇場'},
     {slug:'song', target:'song-dedication-section', title:'為聖經人物點一首歌'},
-    {slug:'final', target:'final-cta', title:'再測一次'}
+    {slug:'final', target:'final-cta', title:'再測一次', share:false}
   ];
 
   const legacyAliases={
@@ -29416,6 +29406,27 @@ html,body{
       },40);
     });
   });
+})();
+</script>
+
+
+<style id="v283-final-cleanup">
+#final-cta > .chapter-share-btn,
+#final-cta .chapter-share-btn.is-section-share{
+  display:none!important;
+}
+</style>
+
+<script id="v283-final-share-cleanup-script">
+(function(){
+  function cleanFinalShare(){
+    document.querySelectorAll('#final-cta .chapter-share-btn.is-section-share').forEach(el=>el.remove());
+  }
+  cleanFinalShare();
+  const target=document.getElementById('final-cta');
+  if(target){
+    new MutationObserver(cleanFinalShare).observe(target,{childList:true,subtree:true});
+  }
 })();
 </script>
 
