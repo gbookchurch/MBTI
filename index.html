@@ -28827,5 +28827,75 @@ html,body{
 }
 </style>
 
+
+<style id="v278-mobile-absolute-right-buttons">
+/* v278｜手機：六顆「展開」按鈕以滿版 section 為基準，絕對固定同一右緣 */
+@media(max-width:760px){
+
+  /* 六個抽屜 section 都作為定位基準 */
+  #mbti-lookup.is-collapsed,
+  #ranking-compare.is-collapsed,
+  #question-stats-section.is-collapsed,
+  #church-team.is-collapsed,
+  #temperament-section.is-collapsed,
+  #song-dedication-section.is-collapsed{
+    position:relative!important;
+  }
+
+  /* 入口 row 統一滿寬，並替右側按鈕預留空間 */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry,
+  #song-dedication-section.is-collapsed .interactive-drawer-entry{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin:6px 0 0!important;
+    padding-left:24px!important;
+    padding-right:126px!important;
+  }
+
+  /* 左邊文字固定 24px 左緣 */
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:left!important;
+  }
+
+  /* 六顆按鈕：真正固定在同一條右線 */
+  .interactive-drawer.is-collapsed .interactive-drawer-toggle{
+    position:absolute!important;
+    right:24px!important;
+    bottom:0!important;
+    left:auto!important;
+    top:auto!important;
+    width:82px!important;
+    min-width:82px!important;
+    max-width:82px!important;
+    margin:0!important;
+    padding:9px 10px!important;
+    box-sizing:border-box!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+
+  /* 主標題與小字也維持同一左緣 */
+  .interactive-drawer.is-collapsed > .section-title,
+  #song-dedication-section.is-collapsed .song-series-head,
+  #song-dedication-section.is-collapsed .song-series-head .section-title{
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+    text-align:left!important;
+  }
+}
+</style>
+
 </body>
 </html>
