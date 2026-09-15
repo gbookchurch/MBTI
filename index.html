@@ -9667,11 +9667,36 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <a class="discovery-jump" href="#ranking-compare">看 16 型排行榜 ↓</a>
 </article>
 </div></section>
-<section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
+<div class="method-strip" id="method-strip">
+<button aria-controls="method-panel" aria-expanded="false" class="method-toggle" id="method-toggle" type="button">ⓘ 這份資料怎麼來的？</button>
+<div class="method-panel" hidden="" id="method-panel">
+<div class="method-grid">
+<div><strong data-total="lay">28,796</strong><span>平信徒樣本</span></div>
+<div><strong data-total="pastor">1,649</strong><span>牧者樣本</span></div>
+<div><strong data-total="all">30,445</strong><span>總參與樣本</span></div>
+</div>
+<p>本資料來自線上自願參與測驗者，並非台灣基督徒人口的隨機抽樣，只能描述本次參與樣本。MBTI 僅作娛樂與自我探索用途，不作臨床診斷；人格類型也沒有優劣之分。</p>
+</div>
+</div>
+
+
+
+
+<section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section interactive-drawer drawer-theme-profile is-collapsed" id="mbti-lookup">
 
 <h2 class="section-title" id="mbti-lookup-title">關於我的小檔案</h2>
 <div class="divider"></div>
 <p class="section-subtitle">先在入境櫃台選一張人格護照，再打開你的聖經人物檔案。</p>
+<div class="interactive-drawer-entry profile-drawer-entry">
+  <div class="interactive-drawer-entry-copy">
+    <span>PERSONAL PROFILE · 16 PERSONALITY PASSPORTS</span>
+    <p>選你的 MBTI，查看對應的聖經人物、人格標籤、排行與你可能帶進教會的視角。</p>
+  </div>
+  <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="mbti-lookup" aria-expanded="false">
+    展開我的小檔案 <b aria-hidden="true">↓</b>
+  </button>
+</div>
+
 <div class="mbti-lookup-shell">
 <fieldset class="mbti-picker mbti-entry-counter">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
@@ -9962,23 +9987,22 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 <div class="lookup-sheet-backdrop" id="lookup-sheet-backdrop" hidden></div>
 </div>
 </section>
-<div class="method-strip" id="method-strip">
-<button aria-controls="method-panel" aria-expanded="false" class="method-toggle" id="method-toggle" type="button">ⓘ 這份資料怎麼來的？</button>
-<div class="method-panel" hidden="" id="method-panel">
-<div class="method-grid">
-<div><strong data-total="lay">28,796</strong><span>平信徒樣本</span></div>
-<div><strong data-total="pastor">1,649</strong><span>牧者樣本</span></div>
-<div><strong data-total="all">30,445</strong><span>總參與樣本</span></div>
-</div>
-<p>本資料來自線上自願參與測驗者，並非台灣基督徒人口的隨機抽樣，只能描述本次參與樣本。MBTI 僅作娛樂與自我探索用途，不作臨床診斷；人格類型也沒有優劣之分。</p>
-</div>
-</div>
 
 
 
-<section class="rank-compare-section" id="ranking-compare" aria-labelledby="ranking-compare-title">
+<section class="rank-compare-section interactive-drawer drawer-theme-ranking is-collapsed" id="ranking-compare" aria-labelledby="ranking-compare-title">
   
   <h2 class="section-title" id="ranking-compare-title">16 型排行榜</h2>
+  <div class="interactive-drawer-entry ranking-drawer-entry">
+    <div class="interactive-drawer-entry-copy">
+      <span>MBTI RANKING · 30,445 人樣本</span>
+      <p>平信徒版＋牧者版都收在同一個抽屜裡；展開後可一次看兩邊的 16 型排行與人物差異。</p>
+    </div>
+    <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="ranking-compare" aria-expanded="false">
+      展開排行榜 <b aria-hidden="true">↓</b>
+    </button>
+  </div>
+
   <div class="divider"></div>
   <div class="ranking-perspective ranking-perspective-inline" id="ranking-perspective" aria-label="排行榜閱讀提示">
     <div class="ranking-perspective-inner">
@@ -11687,8 +11711,18 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 
 </div>
 
-<section class="f-section question-game-mode" id="question-stats-section" data-audience="lay" aria-labelledby="question-stats-title">
+<section class="f-section question-game-mode interactive-drawer drawer-theme-stats is-collapsed" id="question-stats-section" data-audience="lay" aria-labelledby="question-stats-title">
 <h2 class="section-title" id="question-stats-title">信仰答題統計</h2>
+<div class="interactive-drawer-entry stats-drawer-entry">
+  <div class="interactive-drawer-entry-copy">
+    <span>FAITH ANSWERS · 12 QUESTIONS</span>
+    <p>猜猜牧者怎麼選，或直接查看平信徒／牧者完整 12 題統計。</p>
+  </div>
+  <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="question-stats-section" aria-expanded="false">
+    展開答題統計 <b aria-hidden="true">↓</b>
+  </button>
+</div>
+
 <div class="divider"></div>
 <div class="question-mode-switch-wrap">
   <div class="question-mode-switch" role="group" aria-label="切換互動模式">
@@ -11744,12 +11778,22 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </section>
 
 
-<section class="f-section church-team-lab-section" id="church-team" aria-labelledby="church-team-title">
+<section class="f-section church-team-lab-section interactive-drawer drawer-theme-team is-collapsed" id="church-team" aria-labelledby="church-team-title">
   <button class="chapter-share-btn is-section-share" id="church-team-share" type="button" data-chapter-slug="church-team">分享此章 ↗</button>
   <span class="church-team-kicker">CHURCH TEAM LAB · 16 BIBLE CHARACTERS</span>
   <h2 class="section-title" id="church-team-title">如果這 16 個聖經人物成立一間教會</h2>
   <div class="divider"></div>
   <p class="section-subtitle church-team-subtitle">先認識 16 位人物的做事方式，再把 6 個位置交給你最想信任的人。</p>
+  <div class="interactive-drawer-entry church-team-drawer-entry">
+    <div class="interactive-drawer-entry-copy">
+      <span>INTERACTIVE GAME · 約 3–5 分鐘</span>
+      <p>替 6 個位置選人，經過兩個突發事件，再看看你組出的核心團隊會長什麼樣子。</p>
+    </div>
+    <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="church-team" aria-expanded="false">
+      展開組隊 <b aria-hidden="true">↓</b>
+    </button>
+  </div>
+
 
   <div class="church-team-progress" id="church-team-progress" aria-label="遊戲進度">
     <span class="is-active" data-team-progress="build"><b>1</b> 核心組隊</span>
@@ -11933,8 +11977,18 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </section>
 
 <!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
-<section class="alt temperament-theater-section" id="temperament-section">
+<section class="alt temperament-theater-section interactive-drawer drawer-theme-theater is-collapsed" id="temperament-section">
 <h2 class="section-title temperament-theater-title">人物小劇場</h2>
+<div class="interactive-drawer-entry theater-drawer-entry">
+  <div class="interactive-drawer-entry-copy">
+    <span>INTERACTIVE THEATER · 想看再打開</span>
+    <p>把不同性格放進教會現場，看看他們遇到同一件事時，第一眼會先注意什麼。</p>
+  </div>
+  <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="temperament-section" aria-expanded="false">
+    展開小劇場 <b aria-hidden="true">↓</b>
+  </button>
+</div>
+
 <div class="theater-view-toggle" role="tablist" aria-label="人物小劇場視角">
 <button type="button" class="theater-view-btn is-active" data-theater-view="lay" aria-selected="true">👥 我是會友</button>
 <button type="button" class="theater-view-btn" data-theater-view="pastor" aria-selected="false">🎙️ 如果我是牧者</button>
@@ -12091,12 +12145,22 @@ body{background:var(--v156-cream)!important;color:var(--v156-ink)!important}
 </section>
 
 
-<section class="f-section song-dedication-section" id="song-dedication-section" aria-labelledby="song-series-title">
+<section class="f-section song-dedication-section interactive-drawer drawer-theme-song is-collapsed" id="song-dedication-section" aria-labelledby="song-series-title">
   <div class="song-series-head">
     
     <h2 class="section-title" id="song-series-title">為你的聖經人物點一首歌</h2>
     <div class="divider"></div>
     <p class="section-subtitle">《教會小本本》為你們點了一首歌</p>
+  </div>
+
+  <div class="interactive-drawer-entry song-drawer-entry">
+    <div class="interactive-drawer-entry-copy">
+      <span>PERSONALITY PLAYLIST · 16 SONGS</span>
+      <p>選一型人格，看看《教會小本本》會替這位聖經人物點哪一首歌。</p>
+    </div>
+    <button class="interactive-drawer-toggle" type="button" data-drawer-toggle="song-dedication-section" aria-expanded="false">
+      展開人格點歌 <b aria-hidden="true">↓</b>
+    </button>
   </div>
   <div class="song-series-shell">
     <div class="song-picker-wrap song-browser">
@@ -27148,6 +27212,1173 @@ body.church-team-is-dragging .church-person-card{cursor:grabbing!important}
   window.addEventListener('resize',injectSelects);
 })();
 </script>
+
+
+<style id="v257-interactive-drawer-style">
+/* v257｜大型互動改為「想玩再展開」的抽屜入口 */
+.interactive-drawer-entry{
+  width:min(920px,calc(100% - 40px));
+  margin:16px auto 4px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:20px;
+  align-items:center;
+  padding:18px 20px;
+  border:1px solid rgba(78,65,55,.11);
+  border-radius:20px;
+  background:rgba(255,253,248,.72);
+  box-shadow:0 7px 18px rgba(53,43,36,.045);
+}
+.interactive-drawer-entry-copy{min-width:0}
+.interactive-drawer-entry-copy>span{
+  display:block;
+  margin-bottom:5px;
+  color:#9A7650;
+  font-size:.62rem;
+  font-weight:950;
+  letter-spacing:.09em;
+}
+.interactive-drawer-entry-copy p{
+  margin:0;
+  color:#675E56;
+  font-size:.82rem;
+  line-height:1.58;
+}
+.interactive-drawer-toggle{
+  min-width:142px;
+  min-height:42px;
+  padding:9px 14px;
+  border:0;
+  border-radius:999px;
+  background:#456B58;
+  color:#FFF9EF;
+  font-size:.72rem;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 7px 16px rgba(48,76,64,.12);
+  transition:transform .18s ease,background .18s ease;
+}
+.interactive-drawer-toggle:hover{transform:translateY(-1px);background:#385B49}
+.interactive-drawer-toggle b{margin-left:5px;font-size:.8rem}
+
+/* 教會組隊：收起時只留簡潔入口 */
+#church-team.is-collapsed{
+  padding-top:46px!important;
+  padding-bottom:48px!important;
+}
+#church-team.is-collapsed .church-team-kicker{
+  margin-top:0!important;
+}
+#church-team.is-collapsed .church-team-subtitle,
+#church-team.is-collapsed .chapter-share-btn,
+#church-team.is-collapsed .church-team-progress,
+#church-team.is-collapsed .church-team-shell{
+  display:none!important;
+}
+#church-team:not(.is-collapsed) .church-team-drawer-entry{
+  margin-bottom:18px;
+}
+
+/* 人物小劇場：收起時只留入口，完整互動全部藏起來 */
+#temperament-section.is-collapsed{
+  padding-top:46px!important;
+  padding-bottom:48px!important;
+}
+#temperament-section.is-collapsed .theater-view-toggle,
+#temperament-section.is-collapsed .pastor-view-intro,
+#temperament-section.is-collapsed .temperament-theater-intro-share,
+#temperament-section.is-collapsed .temperament-theater-divider,
+#temperament-section.is-collapsed .temperament-theater-mobile-panel,
+#temperament-section.is-collapsed .temperament-theater-card,
+#temperament-section.is-collapsed .pastor-theater,
+#temperament-section.is-collapsed .temperament-theater-footnote,
+#temperament-section.is-collapsed .chapter-share-btn{
+  display:none!important;
+}
+#temperament-section:not(.is-collapsed) .theater-drawer-entry{
+  margin-bottom:20px;
+}
+
+/* 展開後入口本身變得更像「抽屜把手」 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+  background:rgba(255,253,248,.48);
+  box-shadow:none;
+}
+#church-team:not(.is-collapsed) .interactive-drawer-toggle,
+#temperament-section:not(.is-collapsed) .interactive-drawer-toggle{
+  background:#6A625B;
+}
+
+/* 人物小劇場原本沒有副標，收合後讓標題與入口距離舒服一點 */
+#temperament-section.is-collapsed .temperament-theater-title{
+  margin-bottom:8px!important;
+}
+
+@media(max-width:760px){
+  .interactive-drawer-entry{
+    width:calc(100% - 24px);
+    grid-template-columns:1fr;
+    gap:13px;
+    margin-top:12px;
+    padding:15px 15px 14px;
+    border-radius:17px;
+    text-align:left;
+  }
+  .interactive-drawer-entry-copy>span{font-size:.57rem}
+  .interactive-drawer-entry-copy p{font-size:.76rem;line-height:1.55}
+  .interactive-drawer-toggle{
+    width:100%;
+    min-height:43px;
+    font-size:.7rem;
+  }
+  #church-team.is-collapsed,
+  #temperament-section.is-collapsed{
+    padding-top:38px!important;
+    padding-bottom:40px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .interactive-drawer-toggle{transition:none!important}
+}
+</style>
+
+<script id="v257-interactive-drawer-script">
+(function(){
+  const configs={
+    'mbti-lookup':{
+      open:'收起我的小檔案',
+      closed:'展開我的小檔案'
+    },
+    'ranking-compare':{
+      open:'收起排行榜',
+      closed:'展開排行榜'
+    },
+    'question-stats-section':{
+      open:'收起答題統計',
+      closed:'展開答題統計'
+    },
+    'church-team':{
+      open:'收起組隊',
+      closed:'展開組隊'
+    },
+    'temperament-section':{
+      open:'收起小劇場',
+      closed:'展開小劇場'
+    },
+    'song-dedication-section':{
+      open:'收起人格點歌',
+      closed:'展開人格點歌'
+    }
+  };
+
+  function setDrawer(id,open,{scroll=false}={}){
+    const section=document.getElementById(id);
+    const button=document.querySelector(`[data-drawer-toggle="${id}"]`);
+    if(!section || !button) return;
+
+    section.classList.toggle('is-collapsed',!open);
+    button.setAttribute('aria-expanded',open?'true':'false');
+
+    const cfg=configs[id];
+    button.innerHTML=`${open?cfg.open:cfg.closed} <b aria-hidden="true">${open?'↑':'↓'}</b>`;
+
+    if(open && scroll){
+      requestAnimationFrame(()=>{
+        section.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    }
+  }
+
+  document.querySelectorAll('[data-drawer-toggle]').forEach(button=>{
+    const id=button.dataset.drawerToggle;
+    button.addEventListener('click',()=>{
+      const section=document.getElementById(id);
+      if(!section) return;
+      const open=section.classList.contains('is-collapsed');
+      setDrawer(id,open,{scroll:open});
+    });
+  });
+
+  function openFromHash(){
+    const hash=location.hash.replace('#','');
+    if(hash==='mbti-profile' || hash==='mbti-lookup'){
+      setDrawer('mbti-lookup',true);
+    }
+    if(hash==='ranking' || hash==='ranking-compare' || hash==='lay-ranking' || hash==='pastor-ranking'){
+      setDrawer('ranking-compare',true);
+    }
+    if(hash==='faith-stats' || hash==='question-stats-section'){
+      setDrawer('question-stats-section',true);
+    }
+    if(hash==='church-team'){
+      setDrawer('church-team',true);
+    }
+    if(hash==='theater' || hash==='temperament-section'){
+      setDrawer('temperament-section',true);
+    }
+    if(hash==='song' || hash==='song-dedication-section'){
+      setDrawer('song-dedication-section',true);
+    }
+  }
+
+  openFromHash();
+  window.addEventListener('hashchange',openFromHash);
+
+  /* 導覽或頁內連結若直接指向這兩章，也先展開再讓原本捲動行為繼續 */
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href^="#"]');
+    if(!a) return;
+    const hash=(a.getAttribute('href')||'').replace('#','');
+    if(hash==='mbti-profile' || hash==='mbti-lookup') setDrawer('mbti-lookup',true);
+    if(hash==='ranking' || hash==='ranking-compare' || hash==='lay-ranking' || hash==='pastor-ranking') setDrawer('ranking-compare',true);
+    if(hash==='faith-stats' || hash==='question-stats-section') setDrawer('question-stats-section',true);
+    if(hash==='church-team') setDrawer('church-team',true);
+    if(hash==='theater' || hash==='temperament-section') setDrawer('temperament-section',true);
+    if(hash==='song' || hash==='song-dedication-section') setDrawer('song-dedication-section',true);
+  },true);
+})();
+</script>
+
+
+<style id="v258-four-color-drawers">
+/* v258｜四個大型內容抽屜，使用不同色彩識別 */
+
+/* 共用變數 */
+.interactive-drawer{
+  --drawer-accent:#456B58;
+  --drawer-deep:#304C40;
+  --drawer-soft:#EEF3EF;
+  --drawer-border:rgba(69,107,88,.18);
+}
+.drawer-theme-ranking{
+  --drawer-accent:#456B58;
+  --drawer-deep:#304C40;
+  --drawer-soft:#EAF1EC;
+  --drawer-border:rgba(69,107,88,.22);
+}
+.drawer-theme-stats{
+  --drawer-accent:#B45F3C;
+  --drawer-deep:#8E472F;
+  --drawer-soft:#F7E9E2;
+  --drawer-border:rgba(180,95,60,.22);
+}
+.drawer-theme-team{
+  --drawer-accent:#B89547;
+  --drawer-deep:#80652E;
+  --drawer-soft:#F5EEDC;
+  --drawer-border:rgba(184,149,71,.25);
+}
+.drawer-theme-theater{
+  --drawer-accent:#7F9B8A;
+  --drawer-deep:#526B5D;
+  --drawer-soft:#EDF2EF;
+  --drawer-border:rgba(127,155,138,.24);
+}
+
+/* 入口卡有明確色彩區隔，不靠按鈕單獨辨識 */
+.interactive-drawer .interactive-drawer-entry{
+  position:relative;
+  overflow:hidden;
+  border-color:var(--drawer-border)!important;
+  background:
+    linear-gradient(100deg,var(--drawer-soft) 0%,rgba(255,253,248,.90) 55%,rgba(255,253,248,.78) 100%)!important;
+}
+.interactive-drawer .interactive-drawer-entry::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:5px;
+  background:var(--drawer-accent);
+}
+.interactive-drawer .interactive-drawer-entry-copy>span{
+  color:var(--drawer-deep)!important;
+}
+.interactive-drawer .interactive-drawer-toggle{
+  background:var(--drawer-deep)!important;
+  box-shadow:0 7px 16px color-mix(in srgb,var(--drawer-deep) 18%,transparent)!important;
+}
+.interactive-drawer .interactive-drawer-toggle:hover{
+  background:var(--drawer-accent)!important;
+}
+.interactive-drawer.is-collapsed > .section-title{
+  color:var(--drawer-deep)!important;
+}
+
+/* 收合時只留標題＋入口 */
+#ranking-compare.is-collapsed{
+  padding-top:46px!important;
+  padding-bottom:48px!important;
+}
+#ranking-compare.is-collapsed > :not(.section-title):not(.interactive-drawer-entry){
+  display:none!important;
+}
+
+#question-stats-section.is-collapsed{
+  padding-top:46px!important;
+  padding-bottom:48px!important;
+}
+#question-stats-section.is-collapsed > :not(.section-title):not(.interactive-drawer-entry){
+  display:none!important;
+}
+
+/* 展開後仍保留入口作為抽屜把手，但降低存在感 */
+#ranking-compare:not(.is-collapsed) .ranking-drawer-entry,
+#question-stats-section:not(.is-collapsed) .stats-drawer-entry{
+  margin-bottom:20px;
+  opacity:.94;
+}
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry::before{
+  height:3px;
+}
+
+/* 四個入口的色塊感再多一點：左側小識別條 */
+.interactive-drawer .interactive-drawer-entry-copy{
+  position:relative;
+  padding-left:13px;
+}
+.interactive-drawer .interactive-drawer-entry-copy::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:2px;
+  bottom:2px;
+  width:3px;
+  border-radius:999px;
+  background:var(--drawer-accent);
+  opacity:.75;
+}
+
+/* stats 原本深色系內容展開後不受入口配色影響 */
+#question-stats-section:not(.is-collapsed) .interactive-drawer-entry{
+  color:inherit;
+}
+
+/* 抽屜順序滑讀時，收起狀態有很淡的章節底色 */
+#ranking-compare.is-collapsed{
+  background:linear-gradient(180deg,#F7FAF8 0%,#F3F6F4 100%)!important;
+}
+#question-stats-section.is-collapsed{
+  background:linear-gradient(180deg,#FBF4F0 0%,#F7EEE9 100%)!important;
+}
+#church-team.is-collapsed{
+  background:linear-gradient(180deg,#FBF8EF 0%,#F7F2E4 100%)!important;
+}
+#temperament-section.is-collapsed{
+  background:linear-gradient(180deg,#F5F8F6 0%,#EEF3F0 100%)!important;
+}
+
+@media(max-width:760px){
+  #ranking-compare.is-collapsed,
+  #question-stats-section.is-collapsed{
+    padding-top:38px!important;
+    padding-bottom:40px!important;
+  }
+  .interactive-drawer .interactive-drawer-entry::before{
+    height:4px;
+  }
+  .interactive-drawer .interactive-drawer-entry-copy{
+    padding-left:11px;
+  }
+}
+</style>
+
+
+<style id="v259-six-color-unified-drawers">
+/* v259｜六個抽屜統一寬度、縮短間距，新增小檔案與點歌 */
+.drawer-theme-profile{
+  --drawer-accent:#75685E;
+  --drawer-deep:#514841;
+  --drawer-soft:#EEEAE5;
+  --drawer-border:rgba(81,72,65,.20);
+}
+.drawer-theme-song{
+  --drawer-accent:#9B6B72;
+  --drawer-deep:#765159;
+  --drawer-soft:#F3E9EA;
+  --drawer-border:rgba(155,107,114,.22);
+}
+
+/* 所有入口卡統一尺寸 */
+.interactive-drawer .interactive-drawer-entry{
+  width:min(980px,calc(100% - 28px))!important;
+  margin:8px auto 0!important;
+  padding:15px 18px!important;
+  gap:18px!important;
+  border-radius:18px!important;
+}
+.interactive-drawer .interactive-drawer-entry-copy>span{
+  margin-bottom:4px!important;
+}
+.interactive-drawer .interactive-drawer-entry-copy p{
+  font-size:.79rem!important;
+  line-height:1.5!important;
+}
+.interactive-drawer .interactive-drawer-toggle{
+  min-width:150px!important;
+  min-height:40px!important;
+  padding:8px 14px!important;
+}
+
+/* 六個抽屜收起後統一高度，避免太空 */
+#mbti-lookup.is-collapsed,
+#ranking-compare.is-collapsed,
+#question-stats-section.is-collapsed,
+#church-team.is-collapsed,
+#temperament-section.is-collapsed,
+#song-dedication-section.is-collapsed{
+  padding-top:28px!important;
+  padding-bottom:30px!important;
+  min-height:0!important;
+}
+#mbti-lookup.is-collapsed .section-title,
+#ranking-compare.is-collapsed .section-title,
+#question-stats-section.is-collapsed .section-title,
+#church-team.is-collapsed .section-title,
+#temperament-section.is-collapsed .section-title,
+#song-dedication-section.is-collapsed .section-title{
+  margin-bottom:5px!important;
+}
+
+/* 小檔案收合 */
+#mbti-lookup.is-collapsed > .divider,
+#mbti-lookup.is-collapsed > .section-subtitle,
+#mbti-lookup.is-collapsed > .mbti-lookup-shell,
+#mbti-lookup.is-collapsed > .chapter-share-btn{
+  display:none!important;
+}
+#mbti-lookup:not(.is-collapsed) .profile-drawer-entry{
+  margin-bottom:16px!important;
+}
+
+/* 點歌收合 */
+#song-dedication-section.is-collapsed .song-series-head .divider,
+#song-dedication-section.is-collapsed .song-series-head .section-subtitle,
+#song-dedication-section.is-collapsed .song-series-head .chapter-share-btn,
+#song-dedication-section.is-collapsed .song-series-shell,
+#song-dedication-section.is-collapsed > .chapter-share-btn{
+  display:none!important;
+}
+#song-dedication-section.is-collapsed .song-series-head{
+  margin:0 auto!important;
+  padding:0!important;
+}
+#song-dedication-section.is-collapsed .song-series-head .section-title{
+  margin-bottom:5px!important;
+}
+#song-dedication-section:not(.is-collapsed) .song-drawer-entry{
+  margin-bottom:16px!important;
+}
+
+/* 新增識別底色 */
+#mbti-lookup.is-collapsed{
+  background:linear-gradient(180deg,#F5F2EE 0%,#F0ECE7 100%)!important;
+}
+#song-dedication-section.is-collapsed{
+  background:linear-gradient(180deg,#F8F1F2 0%,#F4EAEC 100%)!important;
+}
+
+/* 展開後也維持同寬 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+  width:min(980px,calc(100% - 28px))!important;
+  margin-top:10px!important;
+}
+
+/* 相鄰抽屜不再拉開 */
+.interactive-drawer.is-collapsed{
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+.interactive-drawer.is-collapsed + .interactive-drawer.is-collapsed{
+  margin-top:0!important;
+}
+
+@media(max-width:760px){
+  .interactive-drawer .interactive-drawer-entry{
+    width:calc(100% - 20px)!important;
+    margin-top:7px!important;
+    padding:13px 14px!important;
+    gap:11px!important;
+    border-radius:16px!important;
+  }
+  .interactive-drawer .interactive-drawer-entry-copy p{
+    font-size:.74rem!important;
+    line-height:1.48!important;
+  }
+  .interactive-drawer .interactive-drawer-toggle{
+    min-width:0!important;
+    width:100%!important;
+    min-height:41px!important;
+  }
+  #mbti-lookup.is-collapsed,
+  #ranking-compare.is-collapsed,
+  #question-stats-section.is-collapsed,
+  #church-team.is-collapsed,
+  #temperament-section.is-collapsed,
+  #song-dedication-section.is-collapsed{
+    padding-top:22px!important;
+    padding-bottom:24px!important;
+  }
+}
+</style>
+
+
+<style id="v260-dark-profile-song-flat-drawers">
+/* v260｜小檔案、點歌恢復深色底；所有抽屜移除陰影 */
+
+/* 全部抽屜入口改成平面，不再有浮卡陰影 */
+.interactive-drawer .interactive-drawer-entry,
+.interactive-drawer .interactive-drawer-toggle{
+  box-shadow:none!important;
+}
+
+/* 關於我的小檔案：恢復暖炭灰章節 */
+#mbti-lookup.is-collapsed{
+  background:
+    linear-gradient(180deg,#48423E 0%,#3C3734 52%,#2F2B29 100%)!important;
+}
+#mbti-lookup.is-collapsed .section-title{
+  color:#F6EFE4!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-entry{
+  background:rgba(255,251,244,.055)!important;
+  border-color:rgba(247,239,228,.14)!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-entry::before{
+  background:#D6B66A!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#DCC68D!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-entry-copy p{
+  color:rgba(247,239,228,.76)!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-toggle{
+  background:#F1E8DA!important;
+  color:#403A35!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-toggle:hover{
+  background:#FFF7EC!important;
+}
+
+/* 點歌：恢復原本深綠章節 */
+#song-dedication-section.is-collapsed{
+  background:
+    linear-gradient(180deg,#456B58 0%,#385848 50%,#304C40 100%)!important;
+}
+#song-dedication-section.is-collapsed .song-series-head .section-title{
+  color:#FFF5E5!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-entry{
+  background:rgba(255,251,244,.06)!important;
+  border-color:rgba(255,247,234,.14)!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-entry::before{
+  background:#D6B66A!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#E2CA91!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-entry-copy p{
+  color:rgba(255,247,234,.78)!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-toggle{
+  background:#F4EAD8!important;
+  color:#365344!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-toggle:hover{
+  background:#FFF8ED!important;
+}
+
+/* 展開時入口也保持無陰影，避免突然變回卡片感 */
+#mbti-lookup:not(.is-collapsed) .interactive-drawer-entry,
+#song-dedication-section:not(.is-collapsed) .interactive-drawer-entry{
+  box-shadow:none!important;
+}
+
+/* 其餘四色抽屜也全面去陰影 */
+#ranking-compare .interactive-drawer-entry,
+#question-stats-section .interactive-drawer-entry,
+#church-team .interactive-drawer-entry,
+#temperament-section .interactive-drawer-entry{
+  box-shadow:none!important;
+}
+</style>
+
+
+<style id="v261-ranking-merged-team-dark">
+/* v261｜排行榜：平信徒＋牧者維持同一抽屜；教會組隊改深色底 */
+
+/* 16 型排行榜：明確視為單一抽屜入口 */
+#ranking-compare.is-collapsed{
+  position:relative;
+}
+#ranking-compare.is-collapsed .ranking-drawer-entry{
+  width:min(980px,calc(100% - 28px))!important;
+}
+#ranking-compare.is-collapsed .ranking-drawer-entry-copy>span::after{
+  content:" · 平信徒＋牧者";
+  color:inherit;
+}
+
+/* 舊的完整平信徒／牧者區塊僅作資料來源，不單獨佔版面 */
+.ranking-data-source{
+  display:none!important;
+}
+
+/* 教會組隊抽屜：深色金棕，和小檔案、點歌做出區隔 */
+#church-team.is-collapsed{
+  background:
+    linear-gradient(180deg,#4D4337 0%,#40372F 50%,#342E29 100%)!important;
+}
+#church-team.is-collapsed .section-title{
+  color:#FFF3DF!important;
+}
+#church-team.is-collapsed .church-team-kicker{
+  color:#DCC17E!important;
+}
+#church-team.is-collapsed .interactive-drawer-entry{
+  background:rgba(255,250,240,.055)!important;
+  border-color:rgba(230,207,151,.18)!important;
+}
+#church-team.is-collapsed .interactive-drawer-entry::before,
+#church-team.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+#church-team.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#E0C784!important;
+}
+#church-team.is-collapsed .interactive-drawer-entry-copy p{
+  color:rgba(255,244,226,.76)!important;
+}
+#church-team.is-collapsed .interactive-drawer-toggle{
+  background:#F1E5CC!important;
+  color:#4A3D2B!important;
+  border:1px solid rgba(255,255,255,.07)!important;
+  box-shadow:none!important;
+}
+#church-team.is-collapsed .interactive-drawer-toggle:hover{
+  background:#FFF4DE!important;
+}
+
+/* 展開後仍維持原本遊戲區淺色內容，不把整個遊戲染深 */
+#church-team:not(.is-collapsed){
+  background:inherit;
+}
+
+/* 三個深色抽屜都維持平面，不做陰影 */
+#mbti-lookup .interactive-drawer-entry,
+#church-team .interactive-drawer-entry,
+#song-dedication-section .interactive-drawer-entry,
+#mbti-lookup .interactive-drawer-toggle,
+#church-team .interactive-drawer-toggle,
+#song-dedication-section .interactive-drawer-toggle{
+  box-shadow:none!important;
+}
+</style>
+
+
+<style id="v262-full-bleed-borderless-drawers">
+/* v262｜抽屜改成整段色帶：章節本身就是背景，不再像卡片 */
+
+/* 共用：收起時入口本身完全無卡片邊界 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.interactive-drawer.is-collapsed .interactive-drawer-entry::before{
+  display:none!important;
+}
+.interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+  padding-left:14px!important;
+}
+.interactive-drawer.is-collapsed .interactive-drawer-entry-copy::before{
+  width:3px!important;
+  opacity:.9!important;
+}
+.interactive-drawer.is-collapsed .interactive-drawer-toggle{
+  box-shadow:none!important;
+}
+
+/* 16 型排行榜｜深森林灰綠 */
+#ranking-compare.is-collapsed{
+  background:linear-gradient(180deg,#3F5B50 0%,#344D44 100%)!important;
+}
+#ranking-compare.is-collapsed .section-title{
+  color:#FFF6E8!important;
+}
+#ranking-compare.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#D9C47F!important;
+}
+#ranking-compare.is-collapsed .interactive-drawer-entry-copy p{
+  color:rgba(255,247,234,.78)!important;
+}
+#ranking-compare.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+#ranking-compare.is-collapsed .interactive-drawer-toggle{
+  background:#F3E9D7!important;
+  color:#334C43!important;
+  border:0!important;
+}
+
+/* 信仰答題統計｜深磚紅 */
+#question-stats-section.is-collapsed{
+  background:linear-gradient(180deg,#8A4B37 0%,#713C2D 100%)!important;
+}
+#question-stats-section.is-collapsed .section-title{
+  color:#FFF4E7!important;
+}
+#question-stats-section.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#F0C995!important;
+}
+#question-stats-section.is-collapsed .interactive-drawer-entry-copy p{
+  color:rgba(255,244,231,.80)!important;
+}
+#question-stats-section.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#E4B777!important;
+}
+#question-stats-section.is-collapsed .interactive-drawer-toggle{
+  background:#F6E6D5!important;
+  color:#75402F!important;
+  border:0!important;
+}
+
+/* 教會組隊｜深金棕，沿用 v261 但移除入口框 */
+#church-team.is-collapsed{
+  background:linear-gradient(180deg,#4D4337 0%,#3B342E 100%)!important;
+}
+#church-team.is-collapsed .interactive-drawer-entry{
+  background:transparent!important;
+  border:0!important;
+}
+#church-team.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+
+/* 人物小劇場｜深鼠尾草 */
+#temperament-section.is-collapsed{
+  background:linear-gradient(180deg,#667C6D 0%,#52675A 100%)!important;
+}
+#temperament-section.is-collapsed .section-title{
+  color:#FFF7E9!important;
+}
+#temperament-section.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#E4D39A!important;
+}
+#temperament-section.is-collapsed .interactive-drawer-entry-copy p{
+  color:rgba(255,247,233,.80)!important;
+}
+#temperament-section.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+#temperament-section.is-collapsed .interactive-drawer-toggle{
+  background:#F3EADB!important;
+  color:#516659!important;
+  border:0!important;
+}
+
+/* 小檔案｜暖炭灰：整段背景，不再有內層框 */
+#mbti-lookup.is-collapsed .interactive-drawer-entry{
+  background:transparent!important;
+  border:0!important;
+}
+#mbti-lookup.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+
+/* 點歌｜深綠：整段背景，不再有內層框 */
+#song-dedication-section.is-collapsed .interactive-drawer-entry{
+  background:transparent!important;
+  border:0!important;
+}
+#song-dedication-section.is-collapsed .interactive-drawer-entry-copy::before{
+  background:#D6B66A!important;
+}
+
+/* 六個抽屜維持同寬、緊湊間距 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry{
+  width:min(980px,calc(100% - 36px))!important;
+  margin:7px auto 0!important;
+}
+.interactive-drawer.is-collapsed{
+  padding-top:25px!important;
+  padding-bottom:27px!important;
+}
+
+/* 資料來源移到小檔案上方後，縮短與上下章節距離 */
+#method-strip.method-strip{
+  padding-top:20px!important;
+  padding-bottom:20px!important;
+  margin:0!important;
+}
+#method-strip + #mbti-lookup{
+  margin-top:0!important;
+}
+
+/* 手機：同樣維持 full-bleed，不留卡片感 */
+@media(max-width:760px){
+  .interactive-drawer.is-collapsed{
+    padding-top:20px!important;
+    padding-bottom:22px!important;
+  }
+  .interactive-drawer.is-collapsed .interactive-drawer-entry{
+    width:calc(100% - 24px)!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    margin-top:6px!important;
+  }
+  .interactive-drawer.is-collapsed .interactive-drawer-entry-copy{
+    padding-left:12px!important;
+  }
+  #method-strip.method-strip{
+    padding-top:16px!important;
+    padding-bottom:16px!important;
+  }
+}
+</style>
+
+
+<style id="v263-true-fullbleed-and-method-center">
+/* v263｜修正資料說明與小檔案 DOM；六個收合抽屜真正滿版無邊界 */
+
+/* 「這份資料怎麼來的？」整體置中 */
+#method-strip{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  text-align:center!important;
+}
+#method-strip .method-toggle{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+#method-strip .method-panel{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+#method-strip .method-grid{
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/*
+  真正 full-bleed：
+  抽屜 section 可能位於有 max-width 的外層版心裡，
+  所以單純 background 仍會看到左右邊界。
+  用 100vw + 50% 位移讓色帶直接延伸到 viewport 左右。
+*/
+#mbti-lookup.is-collapsed,
+#ranking-compare.is-collapsed,
+#question-stats-section.is-collapsed,
+#church-team.is-collapsed,
+#temperament-section.is-collapsed,
+#song-dedication-section.is-collapsed{
+  position:relative!important;
+  left:50%!important;
+  right:50%!important;
+  width:100vw!important;
+  max-width:none!important;
+  margin-left:-50vw!important;
+  margin-right:-50vw!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+  overflow:hidden!important;
+}
+
+/* 收合入口不再有任何「卡片輪廓」 */
+.interactive-drawer.is-collapsed .interactive-drawer-entry{
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+
+/* 按鈕保留功能辨識，但不要陰影 */
+.interactive-drawer.is-collapsed .interactive-drawer-toggle{
+  box-shadow:none!important;
+}
+
+/* 色帶內文仍維持共同版心，不會貼到螢幕邊緣 */
+.interactive-drawer.is-collapsed > .section-title,
+.interactive-drawer.is-collapsed > .church-team-kicker,
+.interactive-drawer.is-collapsed > .interactive-drawer-entry{
+  width:min(980px,calc(100% - 36px))!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+#song-dedication-section.is-collapsed > .song-series-head{
+  width:min(980px,calc(100% - 36px))!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* 四個先前仍有「容器邊界感」的章節，再強制清空外框屬性 */
+#ranking-compare.is-collapsed,
+#question-stats-section.is-collapsed,
+#church-team.is-collapsed,
+#temperament-section.is-collapsed{
+  border-left:0!important;
+  border-right:0!important;
+  border-top:0!important;
+  border-bottom:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+
+/* 避免 full-bleed 因 100vw 造成頁面水平滑動 */
+html,body{
+  overflow-x:hidden!important;
+}
+
+@media(max-width:760px){
+  .interactive-drawer.is-collapsed > .section-title,
+  .interactive-drawer.is-collapsed > .church-team-kicker,
+  .interactive-drawer.is-collapsed > .interactive-drawer-entry,
+  #song-dedication-section.is-collapsed > .song-series-head{
+    width:calc(100% - 24px)!important;
+  }
+}
+</style>
+
+
+<style id="v264-bottom-fullbleed-method-compact">
+/* v264｜底部兩章真正滿版；資料來源縮窄並靠近上方 */
+
+/* 這份資料怎麼來的？：回到輕量、窄幅、置中 */
+#method-strip{
+  width:min(700px,calc(100% - 32px))!important;
+  max-width:700px!important;
+  margin:-6px auto 0!important;
+  padding:8px 0 12px!important;
+  text-align:center!important;
+}
+#method-strip .method-toggle{
+  width:auto!important;
+  max-width:100%!important;
+  margin:0 auto!important;
+  padding:9px 22px!important;
+  justify-content:center!important;
+  box-shadow:none!important;
+}
+#method-strip .method-panel{
+  width:100%!important;
+  max-width:660px!important;
+  margin:8px auto 0!important;
+  padding:16px 18px 18px!important;
+  text-align:center!important;
+}
+#method-strip .method-grid{
+  width:100%!important;
+  max-width:580px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* 教會不是一種人格：背景直接延伸到 viewport 左右 */
+#church-not-one-type{
+  position:relative!important;
+  left:50%!important;
+  width:100vw!important;
+  max-width:none!important;
+  margin-left:-50vw!important;
+  margin-right:-50vw!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+}
+#church-not-one-type .church-conclusion-inner{
+  width:min(980px,calc(100% - 36px))!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* 再測一次：同樣真正滿版 */
+#final-cta{
+  position:relative!important;
+  left:50%!important;
+  width:100vw!important;
+  max-width:none!important;
+  margin-left:-50vw!important;
+  margin-right:-50vw!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+}
+#final-cta .final-hub-inner{
+  width:min(980px,calc(100% - 36px))!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* 避免 100vw 在有捲軸的瀏覽器產生水平溢出 */
+html,body{
+  overflow-x:hidden!important;
+}
+
+@media(max-width:760px){
+  #method-strip{
+    width:calc(100% - 28px)!important;
+    margin:-4px auto 0!important;
+    padding:6px 0 10px!important;
+  }
+  #method-strip .method-toggle{
+    padding:9px 18px!important;
+  }
+  #method-strip .method-panel{
+    padding:14px 13px 16px!important;
+  }
+
+  #church-not-one-type .church-conclusion-inner,
+  #final-cta .final-hub-inner{
+    width:calc(100% - 24px)!important;
+  }
+}
+</style>
+
+
+<style id="v265-method-align-and-rect-buttons">
+/* v265｜資料來源寬度對齊核心發現卡；抽屜按鈕改長方形圓角 */
+
+/* 核心發現最後一張卡與資料來源之間不要留太大空白 */
+#discovery-section{
+  padding-bottom:10px!important;
+}
+#discovery-section .phase2-discovery-grid{
+  margin-bottom:6px!important;
+}
+
+/*
+  「這份資料怎麼來的？」與上方 discovery card 使用相同內容版心：
+  section 最大 1000px、左右各 20px padding，因此實際卡片內容寬度一致。
+*/
+#method-strip{
+  width:min(1000px,100%)!important;
+  max-width:1000px!important;
+  box-sizing:border-box!important;
+  margin:0 auto!important;
+  padding:0 20px 14px!important;
+  text-align:center!important;
+}
+#method-strip .method-toggle{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:11px 18px!important;
+  justify-content:center!important;
+  box-shadow:none!important;
+}
+#method-strip .method-panel{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+  margin:7px 0 0!important;
+}
+
+/* 所有大型抽屜的展開／收起按鈕：取消膠囊感 */
+.interactive-drawer .interactive-drawer-toggle{
+  border-radius:12px!important;
+  min-height:40px!important;
+  padding:9px 16px!important;
+}
+
+/* 深色抽屜上的按鈕也維持相同方圓角，不被舊樣式蓋回 999px */
+#mbti-lookup .interactive-drawer-toggle,
+#ranking-compare .interactive-drawer-toggle,
+#question-stats-section .interactive-drawer-toggle,
+#church-team .interactive-drawer-toggle,
+#temperament-section .interactive-drawer-toggle,
+#song-dedication-section .interactive-drawer-toggle{
+  border-radius:12px!important;
+}
+
+@media(max-width:760px){
+  #discovery-section{
+    padding-bottom:8px!important;
+  }
+  #discovery-section .phase2-discovery-grid{
+    margin-bottom:5px!important;
+  }
+  #method-strip{
+    width:100%!important;
+    padding:0 20px 12px!important;
+  }
+  #method-strip .method-toggle{
+    padding:10px 14px!important;
+  }
+  .interactive-drawer .interactive-drawer-toggle{
+    border-radius:11px!important;
+  }
+}
+</style>
+
+
+<style id="v267-only-collapse-handle-muted">
+/* v267｜只處理「抽屜已展開時」的收起入口，不改收合狀態的章節配色 */
+
+/* 展開後的入口卡：淡中性色，降低存在感 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry{
+  background:rgba(244,242,239,.72)!important;
+  border-color:rgba(86,80,74,.10)!important;
+  box-shadow:none!important;
+}
+
+/* 展開後入口卡的英文小標與說明：改成低彩度灰棕 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy>span{
+  color:#817A73!important;
+}
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy p{
+  color:#746E68!important;
+}
+
+/* 左側識別線也降到非常淡 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-entry-copy::before{
+  background:#BDB7B1!important;
+  opacity:.55!important;
+}
+
+/* 真正的「收起」按鈕：統一成無彩度米灰 */
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-toggle{
+  background:#E7E3DE!important;
+  color:#57524D!important;
+  border:1px solid #D4CFC9!important;
+  box-shadow:none!important;
+  border-radius:12px!important;
+}
+.interactive-drawer:not(.is-collapsed) .interactive-drawer-toggle:hover{
+  background:#DCD7D1!important;
+  color:#47433F!important;
+}
+
+/* 收合狀態完全沿用 v265 原本的章節色與按鈕樣式，不在這裡覆寫 */
+</style>
 
 </body>
 </html>
