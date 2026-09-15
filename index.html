@@ -29115,5 +29115,46 @@ html,body{
 })();
 </script>
 
+
+<style id="v281-team-subtitle-center-theater-yellow">
+/* v281｜組隊副標置中；人物小劇場收合抽屜改為低飽和黃色系 */
+
+/* 組隊副標置中 */
+#church-team .church-team-subtitle{
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* 人物小劇場：收合狀態改成偏黃色系，但保持成熟低飽和 */
+#temperament-section.is-collapsed{
+  background:
+    linear-gradient(180deg,#F3E8C9 0%,#E9D9AE 100%)!important;
+}
+
+/* 標題與文字改成適合黃底的深棕灰 */
+#temperament-section.is-collapsed .section-title{
+  color:#4E473C!important;
+}
+#temperament-section.is-collapsed .interactive-drawer-entry-copy>span{
+  color:#8B7952!important;
+}
+#temperament-section.is-collapsed .interactive-drawer-entry-copy p{
+  color:#675F51!important;
+}
+
+/* + 按鈕稍微偏暖米色，仍保持低調 */
+@media(max-width:760px){
+  #temperament-section.is-collapsed .interactive-drawer-toggle{
+    background:rgba(250,244,228,.88)!important;
+    border-color:rgba(111,95,61,.20)!important;
+  }
+  #temperament-section.is-collapsed .interactive-drawer-toggle::before,
+  #temperament-section.is-collapsed .interactive-drawer-toggle::after{
+    background:#6E624C!important;
+  }
+}
+</style>
+
 </body>
 </html>
